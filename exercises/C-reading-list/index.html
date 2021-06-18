@@ -14,5 +14,31 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+      const books = [
+        {
+          title: "The Design of Everyday Things",
+          author: "Don Norman",
+          alreadyRead: false,
+          bookCoverImage: "https://miro.medium.com/max/1049/0*CmkOVjGAnm3D0rTo",
+        },
+        {
+          title: "The Most Human Human",
+          author: "Brian Christian",
+          alreadyRead: true,
+          bookCoverImage:
+            "https://www.kurzweilai.net/images/The-Most-Human-Human-Paperback-Front-Cover.jpg",
+        },
+        {
+          title: "The Pragmatic Programmer",
+          author: "Andrew Hunt",
+          alreadyRead: true,
+          bookCoverImage:
+            "https://jj09.net/wp-content/uploads/2013/07/the_pragmatic_programmer.jpg",
+        },
+      ];
+
+      readingList(books);
+    </script>
   </body>
 </html>

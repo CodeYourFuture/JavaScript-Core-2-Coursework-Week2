@@ -27,7 +27,12 @@
             <ul id="todo-list" class="list-group">
               <!-- This is how the todos look in html - try to make the functionality to create them using Javascript - don't worry about the class names for now just copy and paste them -->
               <li
-                class="list-group-item d-flex justify-content-between align-items-center"
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
               >
                 Wash the dishes
                 <span class="badge bg-primary rounded-pill">
@@ -37,7 +42,12 @@
                 </span>
               </li>
               <li
-                class="list-group-item d-flex justify-content-between align-items-center"
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
                 style="text-decoration: line-through"
               >
                 Do the shopping
@@ -78,4 +88,14 @@
   </body>
 
   <script src="script.js"></script>
+  <script>
+    // These are the same ToDos that currently display in the HTML
+    // You will want to remove the ones in the current HTML after you have created them using JavaScript
+    let todos = [
+      { task: "Wash the dishes", completed: false },
+      { task: "Do the shopping", completed: false },
+    ];
+
+    populateTodoList(todos);
+  </script>
 </html>

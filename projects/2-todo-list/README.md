@@ -56,7 +56,7 @@ Add a button that users can click that will iterate through the list of ToDos an
 
 ## Extra Advanced Challenge
 
-### Set deadlines for ToDos
+### Set Deadlines for ToDos
 
 We want users to be able to set, and see, deadlines for their ToDos.
 
