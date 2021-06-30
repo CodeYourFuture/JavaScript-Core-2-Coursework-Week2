@@ -1,6 +1,26 @@
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
+  const list = document.getElementById("todo-list");
+  todos.forEach(todo => {
+    const liEl = list.appendChild(document.createElement("li"));
+    liEl.classList = "list-group-item d-flex justify-content-between align-items-center";
+    liEl.innerText = `${todo.task}`;
+    const spanEl = liEl.appendChild(document.createElement("span"));
+    spanEl.classList = "badge bg-primary rounded-pill";
+    const firstIcon = spanEl.appendChild(document.createElement('i'));
+    firstIcon.classList = "fa fa-check";
+    firstIcon.setAttribute("aria-hidden", "true");
+    const secondIcon = spanEl.appendChild(document.createElement('i'));
+    secondIcon.classList = "fa fa-trash";
+    secondIcon.setAttribute("aria-hidden", "true");
+  });
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  firstIcon.addEventListener('click', () => {
+    if (liEl.style.textDecoration === "") {
+      liEl.style.textDecoration = "line-through";
+    } else if (liEl.style.textDecoration === "line-through") {
+      liEl.style.textDecoration = "";
+    }
+  });
 }
 
 // These are the same todos that currently display in the HTML
