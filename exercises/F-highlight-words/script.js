@@ -4,7 +4,11 @@ function updateColour(event) {
   const targetedSpan = event.target;
   const selectMenu = document.querySelector("select");
   const currentColour = selectMenu.value;
-  targetedSpan.style.backgroundColor = currentColour;
+  if (targetedSpan.style.backgroundColor === currentColour) {
+    targetedSpan.style.backgroundColor = "";
+  } else {
+    targetedSpan.style.backgroundColor = currentColour;
+  }
 }
 
 function highlightWords(paragraph, colours) {

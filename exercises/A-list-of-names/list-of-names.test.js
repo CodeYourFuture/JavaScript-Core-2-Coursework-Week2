@@ -13,11 +13,21 @@ test("Check DOM resembles correct output from People Array", () => {
   target.listOfNames(people);
 
   let content = document.querySelector("#content");
+  let children = content.querySelectorAll("h1, h2");
+  expect(children.length).toBe(6);
 
-  expect(content).toContainHTML(
-    `<div id="content"><h1>Chris</h1><h2>Teacher</h2><h1>Joanna</h1><h2>Student</h2><h1>Boris</h1><h2>Prime Minister</h2></div>`
-  );
+  expectTagWithText(children[0], "h1", "Chris");
+  expectTagWithText(children[1], "h2", "Teacher");
+  expectTagWithText(children[2], "h1", "Joanna");
+  expectTagWithText(children[3], "h2", "Student");
+  expectTagWithText(children[4], "h1", "Boris");
+  expectTagWithText(children[5], "h2", "Prime Minister");
 });
+
+function expectTagWithText(element, expectedTagName, expectedText) {
+  expect(element.tagName).toEqualCaseInsensitive(expectedTagName)
+  expect(element.textContent).toEqual(expectedText);
+}
 
 test("Check DOM is empty with empty input array", () => {
   document.body.innerHTML = `<div id="content" />`;
@@ -26,5 +36,6 @@ test("Check DOM is empty with empty input array", () => {
   target.listOfNames(people);
 
   let content = document.querySelector("#content");
-  expect(content.innerHTML).toBe("");
+  let children = content.querySelectorAll("h1, h2");
+  expect(children.length).toEqual(0);
 });
