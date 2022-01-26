@@ -1,21 +1,19 @@
 /*
 
-   Use a "for...in" loop to log out the trainee name (in capital letters)
-   and their grade, but only if they scored 19 or more.
+   Use a "for...in" loop to log out the name of
+   each person who earns more than 50000. The
+   log should include a "$" symbol before each salary.
 
 */
 
-let traineeGrades = {
-  tom: 20,
-  george: 17,
-  abdul: 19,
+let salaries = {
+  ross: 30000,
+  monica: 55000,
+  rachel: 90000,
 };
 
 // WRITE BELOW THIS LINE
 
-
-
-
 // Expected Result:
-// TOM: 20
-// ABDUL: 19
+// monica: $55000
+// rachel: $90000
