@@ -22,5 +22,8 @@
     "setupFilesAfterEnv": [
       "jest-extended/all"
     ]
+  },
+  "dependencies": {
+    "jest-extended": "^1.2.0"
   }
 }
