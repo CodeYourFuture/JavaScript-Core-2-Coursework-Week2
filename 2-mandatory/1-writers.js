@@ -59,9 +59,9 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
-  // write your code to log all writers here
-};
+function logAllWriters(array) {
+  array.forEach(object => console.log(`Hi, my name is ${object.firstName} ${object.lastName}. I am ${object.age} years old, and work as a ${object.occupation}.`));
+}
 
 /*
 Exercise 2:
@@ -70,8 +70,12 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
-  // write your code here
+function logDeadWritersInTheirForties(array) {
+  array.filter(object => {
+    if (object.alive === false && object.age < 49 && object.age > 40) {
+      console.log(`Writer ${object.firstName} ${object.lastName} died at ${object.age} years old.`)
+    }
+  })
 }
 
 /*
@@ -80,9 +84,15 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
-  // write your code here
+function logAliveWritersInTheirForties(array) {
+  array.filter(object => {
+   if (object.alive === true && object.age >=40 && object.age <= 49) {
+    console.log(`Hi, my name is ${object.firstName} ${object.lastName}. I am ${object.age} years old.`)
+   }
+  })
 }
+
+//console.log(logAliveWritersInTheirForties(writers))
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`

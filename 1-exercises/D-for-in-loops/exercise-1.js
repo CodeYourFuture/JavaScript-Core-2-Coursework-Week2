@@ -14,6 +14,14 @@ let salaries = {
 
 // WRITE BELOW THIS LINE
 
+
+for (x in salaries){
+  if (salaries[x] > 50000){
+    console.log((x +': $'+ salaries[x]))
+  }
+}
+
+
 // Expected Result:
 // monica: $55000
 // rachel: $90000
