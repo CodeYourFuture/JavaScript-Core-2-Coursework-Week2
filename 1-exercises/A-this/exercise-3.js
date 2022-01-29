@@ -6,19 +6,23 @@
 
 */
 
-let bankAccount = {
+const bankAccount = {
   currentAmount: 100,
-  deposit: function (amount) {},
-  withdraw: function (amount) {},
+  deposit(amount) {
+    this.currentAmount += amount;
+  },
+  withdraw(amount) {
+    this.currentAmount -= amount;
+  },
 };
 
 // DO NOT EDIT BELOW THIS LINE
 bankAccount.deposit(50);
 console.log(
-  `Expected Result: 150. Actual result: ${bankAccount.currentAmount}`
+  `Expected Result: 150. Actual result: ${bankAccount.currentAmount}`,
 );
 
 bankAccount.withdraw(25);
 console.log(
-  `Expected Result: 125. Actual result: ${bankAccount.currentAmount}`
+  `Expected Result: 125. Actual result: ${bankAccount.currentAmount}`,
 );

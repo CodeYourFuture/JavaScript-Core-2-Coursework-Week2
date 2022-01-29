@@ -1,8 +1,8 @@
 /*
 Create an object that acts a water bottle.
-It will need a volume property to store how full or empty the bottle is. 
-Volume will be 100 when bottle is full and 0 when empty. 
-Give your water bottle methods for 
+It will need a volume property to store how full or empty the bottle is.
+Volume will be 100 when bottle is full and 0 when empty.
+Give your water bottle methods for
   - filling it up
   - pouring 10 units of water into it
     Note: You cannot exceed the bottle capacity.
@@ -15,22 +15,24 @@ You have to implement the missing features according to the specification.
 */
 
 // Here is your starting point:
-let bottle = {
+const bottle = {
   volume: 0,
-  fillUp: function () {
-    // calling this function should completely fill your bottle (volume = 100);
+  fillUp() {
+    this.volume = 100;
   },
-  pour: function () {
-    // calling this function should increase your bottle volume by 10 units;
+  pour() {
+    if (this.isFull()) return;
+    this.volume += 10;
   },
-  drink: function () {
-    // calling this function should decrease your bottle volume by 10 units;
+  drink() {
+    if (this.isEmpty()) return;
+    this.volume -= 10;
   },
-  isFull: function () {
-    // this function should return true if your bottle is full;
+  isFull() {
+    return this.volume === 100;
   },
-  isEmpty: function () {
-    // this function should return true if your bottle is empty;
+  isEmpty() {
+    return this.volume === 0;
   },
 };
 
@@ -49,7 +51,7 @@ Extra question:
 // Write you answer to the question here
 
 /*
-Once you have completed your object run the following 
+Once you have completed your object run the following
 and see if your answer matches the expected result at the bottom :)
 */
 
@@ -121,7 +123,7 @@ test("Given a full bottle, when drink has been called, then it is neither full n
 
 test("Given a full bottle, when drink called 10 times, then bottle is empty", () => {
   bottle.volume = 100;
-  for (var i = 0; i < 10; i++) {
+  for (let i = 0; i < 10; i++) {
     bottle.drink();
   }
   expect(bottle.isEmpty()).toEqual(true);

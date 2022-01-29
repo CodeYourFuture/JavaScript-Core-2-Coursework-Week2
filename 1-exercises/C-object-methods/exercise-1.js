@@ -5,16 +5,16 @@
 
 */
 
-let footballClubs = {
+const footballClubs = {
   chelsea_fc: "England",
   fc_barcelona: "Spain",
   ac_milan: "Italy",
 };
 
-let clubNames =
-  /* todo */
+const clubNames = Object.keys(footballClubs);
+/* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
-    `Expected value: chelsea_fc, fc_barcelona, ac_milan. Actual value: ${clubNames}`
-  );
+// DO NOT EDIT BELOW THIS LINE
+console.log(
+  `Expected value: chelsea_fc, fc_barcelona, ac_milan. Actual value: ${clubNames}`,
+);

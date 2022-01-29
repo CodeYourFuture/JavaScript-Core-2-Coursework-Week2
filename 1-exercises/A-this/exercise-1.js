@@ -1,6 +1,6 @@
 /*
- 
-   Fill in the celebrateBirthday method such that the 
+
+   Fill in the celebrateBirthday method such that the
    expected age is recieved when running the code.
 
    When called, celebrateBirthday should increment the age of the person by 1.
@@ -9,18 +9,17 @@
 
 */
 
-
-
-let person = {
-    name: "Adrian",
-    age: 32,
-    currentAddress: "London",
-    celebrateBirthday: /* todo */
+const person = {
+  name: "Adrian",
+  age: 32,
+  currentAddress: "London",
+  celebrateBirthday() {
+    this.age++;
+  },
 };
 
-
 // DO NOT MODIFY BELOW THIS LINE
-let age = person.age;
-let expectedAge = age + 1;
-person.celebrateBirthday()
-console.log(`Expected age is ${expectedAge}, actual age is ${person.age}`)
+const { age } = person;
+const expectedAge = age + 1;
+person.celebrateBirthday();
+console.log(`Expected age is ${expectedAge}, actual age is ${person.age}`);

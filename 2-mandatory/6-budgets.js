@@ -1,4 +1,5 @@
-/**
+/* eslint-disable jest/valid-title */
+/*
 Get Sum of People's Budget
 Create the function that takes an array with objects and returns the sum of people's budgets.
 For example:
@@ -8,10 +9,9 @@ getBudgets([
   { name: "Martin",  age: 16, budget: 1600 }
 ])
 Should give return the answer of 62600.
-**/
+*/
 
-function getBudgets(peopleArray) {
-}
+const getBudgets = (peopleArray) => peopleArray.reduce((a, { budget }) => a + budget, 0);
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
@@ -21,7 +21,7 @@ function getBudgets(peopleArray) {
 
 test("No Budgets", () => {
   expect(getBudgets([])).toEqual(0);
-}); 
+});
 
 test("Test 1", () => {
   expect(getBudgets([

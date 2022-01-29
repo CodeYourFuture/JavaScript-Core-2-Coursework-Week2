@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /*
 As you you can have an Array of Objects, you can also store Arrays in Objects.
 In this exercise, you'll practice:
@@ -10,7 +11,7 @@ Complete the exercises below.
 */
 
 // Here is your
-let weeklyMealPlan = {
+const weeklyMealPlan = {
   monday: ["Cheese", "Eggs", "Tomato", "Paprika", "Leek"],
   tuesday: ["Wrap", "Tuna", "Canned beans", "Cheese", "Carrot", "Aubergine"],
   wednesday: ["Orange Juice", "Apple", "Ananas", "Black tea"],
@@ -26,14 +27,26 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
-let weeklyGroceriesToBuy = [];
+const weeklyGroceriesToBuy = [];
+
+Object.values(weeklyMealPlan).flat().forEach((meal) => {
+  if (!weeklyGroceriesToBuy.includes(meal)) {
+    weeklyGroceriesToBuy.push(meal);
+  }
+});
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
+const weekendGroceriesToBuy = [];
+
+weeklyMealPlan.saturday.concat(weeklyMealPlan.sunday).forEach((meal) => {
+  if (!weekendGroceriesToBuy.includes(meal)) {
+    weekendGroceriesToBuy.push(meal);
+  }
+});
 
 /*
 Exercise 3:
@@ -42,7 +55,7 @@ Exercise 3:
     - and update the corresponding properties of numberOfItemsPerWeek object.
 */
 // Gather daily item counts into this object
-let numberOfItemsPerWeek = {
+const numberOfItemsPerWeek = {
   monday: 0,
   tuesday: 0,
   wednesday: 0,
@@ -52,7 +65,9 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
-/* ======= TESTS - DO NOT MODIFY ===== 
+Object.keys(weeklyMealPlan).forEach((day) => numberOfItemsPerWeek[day] = weeklyMealPlan[day].length);
+
+/* ======= TESTS - DO NOT MODIFY =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
@@ -60,19 +75,19 @@ let numberOfItemsPerWeek = {
 
 test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
   const expectedWeeklyGroceriesToBuy = [
-    'Cheese',       'Eggs',
-    'Tomato',       'Paprika',
-    'Leek',         'Wrap',
-    'Tuna',         'Canned beans',
-    'Carrot',       'Aubergine',
-    'Orange Juice', 'Apple',
-    'Ananas',       'Black tea',
-    'Lamb',         'Salt',
-    'Bulgur',       'Potato',
-    'Rice milk',    'Blueberries',
-    'Porridge',     'Banana',
-    'Cinnamon',     'Olive oil',
-    'Salmon',       'Asparagus'
+    "Cheese", "Eggs",
+    "Tomato", "Paprika",
+    "Leek", "Wrap",
+    "Tuna", "Canned beans",
+    "Carrot", "Aubergine",
+    "Orange Juice", "Apple",
+    "Ananas", "Black tea",
+    "Lamb", "Salt",
+    "Bulgur", "Potato",
+    "Rice milk", "Blueberries",
+    "Porridge", "Banana",
+    "Cinnamon", "Olive oil",
+    "Salmon", "Asparagus",
   ];
   expect(weeklyGroceriesToBuy).toIncludeSameMembers(expectedWeeklyGroceriesToBuy);
 });

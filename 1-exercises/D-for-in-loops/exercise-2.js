@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /*
 
    The "shapes" object contains keys of various shapes, with
@@ -12,7 +13,7 @@
 
 */
 
-let shapes = {
+const shapes = {
   triangle: 3,
   square: 4,
   pentagon: 5,
@@ -21,11 +22,17 @@ let shapes = {
   megagon: 1000000,
 };
 
-let shapesWithMoreThanFiveSides = [];
+const shapesWithMoreThanFiveSides = [];
 
 // WRITE YOUR CODE BELOW THIS LINE
 
+for (const key in shapes) {
+  if (shapes[key] >= 5) {
+    shapesWithMoreThanFiveSides.push(key);
+  }
+}
+
 // DO NOT EDIT BELOW THIS LINE
 console.log(
-  `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
+  `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`,
 );

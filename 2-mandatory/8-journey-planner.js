@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /*
   This exercise was also in JS1 week 4, but you didn't know about objects yet.
   It's more clear with objects than with arrays!
@@ -19,9 +20,17 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+const journeyPlanner = (locations, transportMode) => {
+  const answer = [];
+  for (const location in locations) {
+    if (locations[location].includes(transportMode)) {
+      answer.push(location);
+    }
+  }
+  return answer;
+};
 
-/* ======= TESTS - DO NOT MODIFY ===== 
+/* ======= TESTS - DO NOT MODIFY =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)

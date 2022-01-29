@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /*
 
    Use a "for...in" loop to log out the name of
@@ -6,13 +7,18 @@
 
 */
 
-let salaries = {
+const salaries = {
   ross: 30000,
   monica: 55000,
   rachel: 90000,
 };
 
 // WRITE BELOW THIS LINE
+for (const key in salaries) {
+  if (salaries[key] > 50000) {
+    console.log(`${key}: $${salaries[key]}`);
+  }
+}
 
 // Expected Result:
 // monica: $55000
