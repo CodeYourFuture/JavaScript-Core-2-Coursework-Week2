@@ -1,9 +1,5 @@
-/*
-
-   Use the appropriate "Object." static method to list the keys in the "footballClubs" object.
-   Assign this to the "clubNames" variable.
-
-*/
+/* Use the appropriate "Object." static method to list the keys in the "footballClubs" object.
+   Assign this to the "clubNames" variable. */
 
 let footballClubs = {
   chelsea_fc: "England",
@@ -11,10 +7,9 @@ let footballClubs = {
   ac_milan: "Italy",
 };
 
-let clubNames =
-  /* todo */
+let clubNames = Object.keys(footballClubs);
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
-    `Expected value: chelsea_fc, fc_barcelona, ac_milan. Actual value: ${clubNames}`
-  );
+// DO NOT EDIT BELOW THIS LINE
+console.log(
+  `Expected value: chelsea_fc, fc_barcelona, ac_milan. Actual value: ${clubNames}`
+);
