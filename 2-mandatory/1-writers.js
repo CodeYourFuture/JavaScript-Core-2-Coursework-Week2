@@ -1,8 +1,6 @@
 /* 
   Challenge 1: Famous Writers
-  Did you know you can also have an Array of Objects? 
-  You might think "This is madness!" but in everyday coding life
-  it is quite a frequent combination. Just think about what benefits we can get from this construct.
+  Did you know you can also have an Array of Objects? You might think "This is madness!" but in everyday coding life it is quite a frequent combination. Just think about what benefits we can get from this construct.
   An object lets you store multiple values in a single variable, then you can store complex objects in an array.
   Let's assume you have a list of data about people names and their birthday and you would like to print each name
   with corresponding birthday together. 
@@ -50,7 +48,7 @@ let writers = [
     occupation: "writer",
     age: 49,
     alive: true,
-  }
+  },
 ];
 
 /*
@@ -59,9 +57,14 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
+function logAllWriters(writers) {
   // write your code to log all writers here
-};
+  let sentence = writers.map((writer) =>
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+    )
+  );
+}
 
 /*
 Exercise 2:
@@ -70,8 +73,15 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
+function logDeadWritersInTheirForties(writers) {
   // write your code here
+  let writersInForties = writers
+    .filter((writer) => writer.age >= 40 && writer.age < 50 && !writer.alive)
+    .map(
+      (writer) =>
+        `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+    );
+  console.log(writersInForties);
 }
 
 /*
@@ -80,8 +90,15 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
+function logAliveWritersInTheirForties(writers) {
   // write your code here
+  let aliveAndInForties = writers
+    .filter((writer) => writer.age >= 40 && writer.age < 50 && writer.alive)
+    .map((writer) =>
+      console.log(
+        `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+      )
+    );
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
@@ -90,29 +107,32 @@ function logAliveWritersInTheirForties() {
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("exercise 1", () => expectFunctionToLog(logAllWriters, [
-  "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
-  "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
-  "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
-  "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
-  "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
-]));
+test("exercise 1", () =>
+  expectFunctionToLog(logAllWriters, [
+    "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
+    "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
+    "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
+    "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
+    "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer.",
+  ]));
 
-test("exercise 2", () => expectFunctionToLog(logDeadWritersInTheirForties, [
-  "Writer Jane Austen died at 41 years old."
-]));
+test("exercise 2", () =>
+  expectFunctionToLog(logDeadWritersInTheirForties, [
+    "Writer Jane Austen died at 41 years old.",
+  ]));
 
-test("exercise 3", () => expectFunctionToLog(logAliveWritersInTheirForties, [
-  "Hi, my name is Zadie Smith. I am 40 years old.",
-  "Hi, my name is Yukiko Motoya. I am 49 years old."
-]));
+test("exercise 3", () =>
+  expectFunctionToLog(logAliveWritersInTheirForties, [
+    "Hi, my name is Zadie Smith. I am 40 years old.",
+    "Hi, my name is Yukiko Motoya. I am 49 years old.",
+  ]));
 
 function expectFunctionToLog(f, values) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    f();
-    expect(consoleLogSpy).toBeCalledTimes(values.length);
-    values.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+  const consoleLogSpy = jest.spyOn(console, "log");
+  f();
+  expect(consoleLogSpy).toBeCalledTimes(values.length);
+  values.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}
