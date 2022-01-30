@@ -401,11 +401,7 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-const colleaguesWhoCanMultitask = friends.reduce((a, { colleagues }) => {
-  const fitlered = colleagues.filter(({ skills }) => skills.includes("Multi-tasking")).map(({ name }) => name);
-  a.push(...fitlered);
-  return a;
-}, []);
+const colleaguesWhoCanMultitask = friends.reduce((a, { colleagues }) => a.concat(...colleagues.filter(({ skills }) => skills.includes("Multi-tasking")).map(({ name }) => name)), []);
 
 const colleaguesWhoCanMultitask2 = [];
 friends.forEach(({ colleagues }) => {
