@@ -12,8 +12,8 @@ let highScores = {
   100: ["David"],
 };
 
-const highScoreKeys = Object.keys(highScores); 
-const highScoreValues = Object.values(highScores); 
+const highScoreKeys = Object.keys(highScores);
+const highScoreValues = Object.values(highScores);
 
 // DO NOT EDIT BELOW THIS LINE
 console.log(`Expected keys: 34, 55, 89, 100, Actual keys: ${highScoreKeys}`);

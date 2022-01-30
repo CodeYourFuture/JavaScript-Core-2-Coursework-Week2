@@ -15,10 +15,10 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =Object.values(myPets)
-  /* todo */
+let petNames = Object.values(myPets);
+/* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
-    `Expected result: ["Rufus", "Mr Fluffykins", "Lord Voldetort", "Bugs"]. Actual result: ${petNames}`
-  );
+// DO NOT EDIT BELOW THIS LINE
+console.log(
+  `Expected result: ["Rufus", "Mr Fluffykins", "Lord Voldetort", "Bugs"]. Actual result: ${petNames}`
+);

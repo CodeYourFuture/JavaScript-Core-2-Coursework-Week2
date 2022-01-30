@@ -20,7 +20,6 @@ let thingsICanBuy = store.reduce((acc, value) => {
   if (money - value.price >= 0) acc.push(value.item);
   return acc;
 }, []);
-/* todo */
 
 // DO NOT EDIT BELOW THIS LINE
 console.log(`Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`);
