@@ -13,7 +13,7 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames =
+let peopleNames = Object.values(people);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
