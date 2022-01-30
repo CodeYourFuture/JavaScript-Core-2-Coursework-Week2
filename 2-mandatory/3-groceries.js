@@ -1,5 +1,4 @@
-/*
-As you you can have an Array of Objects, you can also store Arrays in Objects.
+/* As you you can have an Array of Objects, you can also store Arrays in Objects.
 In this exercise, you'll practice:
  - How to loop through the properties (keys) of an Object and read its values.
  - How to access an Array stored inside an Object.
@@ -27,6 +26,12 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+
+// weeklyMealPlan.map((item) => {
+//   if (!weekendGroceriesToBuy.includes(item)){
+//     weeklyGroceriesToBuy.push(weeklyMealPlan[item]);
+//   }
+// }
 
 /*
 Exercise 2:
@@ -60,26 +65,48 @@ let numberOfItemsPerWeek = {
 
 test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
   const expectedWeeklyGroceriesToBuy = [
-    'Cheese',       'Eggs',
-    'Tomato',       'Paprika',
-    'Leek',         'Wrap',
-    'Tuna',         'Canned beans',
-    'Carrot',       'Aubergine',
-    'Orange Juice', 'Apple',
-    'Ananas',       'Black tea',
-    'Lamb',         'Salt',
-    'Bulgur',       'Potato',
-    'Rice milk',    'Blueberries',
-    'Porridge',     'Banana',
-    'Cinnamon',     'Olive oil',
-    'Salmon',       'Asparagus'
+    "Cheese",
+    "Eggs",
+    "Tomato",
+    "Paprika",
+    "Leek",
+    "Wrap",
+    "Tuna",
+    "Canned beans",
+    "Carrot",
+    "Aubergine",
+    "Orange Juice",
+    "Apple",
+    "Ananas",
+    "Black tea",
+    "Lamb",
+    "Salt",
+    "Bulgur",
+    "Potato",
+    "Rice milk",
+    "Blueberries",
+    "Porridge",
+    "Banana",
+    "Cinnamon",
+    "Olive oil",
+    "Salmon",
+    "Asparagus",
   ];
-  expect(weeklyGroceriesToBuy).toIncludeSameMembers(expectedWeeklyGroceriesToBuy);
+  expect(weeklyGroceriesToBuy).toIncludeSameMembers(
+    expectedWeeklyGroceriesToBuy
+  );
 });
 
 test("Exercise 2 - Weekend groceries to buy contains correct items", () => {
-  const expectedWeekendGroceriesToBuy = ["Olive oil", "Potato", "Salmon", "Asparagus"];
-  expect(weekendGroceriesToBuy).toIncludeSameMembers(expectedWeekendGroceriesToBuy);
+  const expectedWeekendGroceriesToBuy = [
+    "Olive oil",
+    "Potato",
+    "Salmon",
+    "Asparagus",
+  ];
+  expect(weekendGroceriesToBuy).toIncludeSameMembers(
+    expectedWeekendGroceriesToBuy
+  );
 });
 
 test("Exercise 3 - Numer of items per week contains the correct counts", () => {

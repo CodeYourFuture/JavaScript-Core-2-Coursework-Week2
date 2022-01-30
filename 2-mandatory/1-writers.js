@@ -57,9 +57,9 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters(writers) {
+function logAllWriters() {
   // write your code to log all writers here
-  let sentence = writers.map((writer) =>
+  writers.forEach((writer) =>
     console.log(
       `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
     )
@@ -73,15 +73,15 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties(writers) {
+function logDeadWritersInTheirForties() {
   // write your code here
-  let writersInForties = writers
+  writers
     .filter((writer) => writer.age >= 40 && writer.age < 50 && !writer.alive)
-    .map(
-      (writer) =>
+    .forEach((writer) =>
+      console.log(
         `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+      )
     );
-  console.log(writersInForties);
 }
 
 /*
@@ -90,15 +90,17 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties(writers) {
+function logAliveWritersInTheirForties() {
   // write your code here
-  let aliveAndInForties = writers
-    .filter((writer) => writer.age >= 40 && writer.age < 50 && writer.alive)
-    .map((writer) =>
-      console.log(
-        `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
-      )
-    );
+  let aliveAndInForties = writers.filter(
+    (writer) => writer.age >= 40 && writer.age < 50 && writer.alive
+  );
+
+  aliveAndInForties.forEach((writer) =>
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+    )
+  );
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
