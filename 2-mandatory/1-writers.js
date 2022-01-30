@@ -55,31 +55,26 @@ const writers = [
   },
 ];
 
+const logger = {
+  ex1({ firstName, lastName, age, occupation }) {
+    console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
+  },
+  ex2({ firstName, lastName, age }) {
+    console.log(`Writer ${firstName} ${lastName} died at ${age} years old.`);
+  },
+  ex3({ firstName, lastName, age }) {
+    console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old.`);
+  },
+};
+
 /*
 Exercise 1:
   Loop through the Array, and for each object, use `console.log()` to print out the below sentence
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-const logger = ({
-  firstName, lastName, age, occupation,
-}, option) => {
-  switch (option) {
-    case 1:
-      console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
-      break;
-    case 2:
-      console.log(`Writer ${firstName} ${lastName} died at ${age} years old.`);
-      break;
-    case 3:
-      console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old.`);
-      break;
-    default:
-      break;
-  }
-};
 
-const logAllWriters = () => writers.forEach((writer) => logger(writer, 1));
+const logAllWriters = () => writers.forEach((writer) => logger.ex1(writer));
 
 /*
 Exercise 2:
@@ -88,7 +83,7 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-const logDeadWritersInTheirForties = () => writers.filter(({ alive, age }) => !alive && age > 39 && age < 50).forEach((writer) => logger(writer, 2));
+const logDeadWritersInTheirForties = () => writers.filter(({ alive, age }) => !alive && age > 39 && age < 50).forEach((writer) => logger.ex2(writer));
 
 /*
 Exercise 3:
@@ -96,7 +91,7 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-const logAliveWritersInTheirForties = () => writers.filter(({ alive, age }) => alive && age > 39 && age < 50).forEach((writer) => logger(writer, 3));
+const logAliveWritersInTheirForties = () => writers.filter(({ alive, age }) => alive && age > 39 && age < 50).forEach((writer) => logger.ex3(writer));
 
 /* ======= TESTS - DO NOT MODIFY =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`

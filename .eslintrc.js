@@ -18,6 +18,9 @@ module.exports = {
     "max-len": 0,
     "no-console": "off",
     "no-plusplus": "off",
+    "object-curly-newline": ["error", {
+      ExportDeclaration: { multiline: true, minProperties: 4 },
+    }],
   },
   plugins: ["jest"],
 };

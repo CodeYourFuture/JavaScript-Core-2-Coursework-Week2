@@ -22,11 +22,11 @@ const bottle = {
   },
   pour() {
     if (this.isFull()) return;
-    this.volume += 10;
+    this.volume = this.volume > 90 ? 100 : this.volume + 10;
   },
   drink() {
     if (this.isEmpty()) return;
-    this.volume -= 10;
+    this.volume = this.volume < 10 ? 0 : this.volume - 10;
   },
   isFull() {
     return this.volume === 100;

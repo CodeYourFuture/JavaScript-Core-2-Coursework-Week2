@@ -401,12 +401,17 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-const colleaguesWhoCanMultitask = [];
+const colleaguesWhoCanMultitask = friends.reduce((a, { colleagues }) => {
+  const fitlered = colleagues.filter(({ skills }) => skills.includes("Multi-tasking")).map(({ name }) => name);
+  a.push(...fitlered);
+  return a;
+}, []);
 
+const colleaguesWhoCanMultitask2 = [];
 friends.forEach(({ colleagues }) => {
   colleagues.forEach(({ name, skills }) => {
     if (skills.includes("Multi-tasking")) {
-      colleaguesWhoCanMultitask.push(name);
+      colleaguesWhoCanMultitask2.push(name);
     }
   });
 });
@@ -440,6 +445,16 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
+  ]);
+});
+
+test("6 - colleagues who can multitask 2", () => {
+  expect(colleaguesWhoCanMultitask2).toIncludeSameMembers([
     "Rush May",
     "Gena Good",
     "Cunningham Shelton",
