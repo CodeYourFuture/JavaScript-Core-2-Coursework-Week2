@@ -13,7 +13,7 @@ const people = [
   { name: "Elise", age: 35 },
 ];
 
-const peopleNames = people.map((e) => e.name);
+const peopleNames = people.map((person) => person.name);
 /* todo */
 
 // DO NOT EDIT BELOW THIS LINE
