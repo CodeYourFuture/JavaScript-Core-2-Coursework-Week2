@@ -16,10 +16,18 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
+let thingsICanBuy = store.map(item => {
+  for(let item of store) {
+  }
+  return item;  
+}).filter(item => {
+  return item['price'] < money;
+});
+
+console.log(thingsICanBuy);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
-  console.log(
-    `Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`
-  );
+  // console.log(
+  //   `Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`
+  // );

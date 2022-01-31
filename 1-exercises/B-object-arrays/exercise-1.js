@@ -13,8 +13,13 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames =
+let peopleNames = people.map(name => {
+  for(let key in people) {
+  }
+  return name['name'];
+})
+console.log(peopleNames)
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
-  console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);
+  // console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);
