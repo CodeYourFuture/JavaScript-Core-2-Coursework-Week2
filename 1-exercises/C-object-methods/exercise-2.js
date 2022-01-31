@@ -15,10 +15,11 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
+let petNames = Object.values(myPets);
+
   /* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
+  // DO NOT EDIT BELOW THIS LINE //The test converts the array into a string
   console.log(
     `Expected result: ["Rufus", "Mr Fluffykins", "Lord Voldetort", "Bugs"]. Actual result: ${petNames}`
   );
