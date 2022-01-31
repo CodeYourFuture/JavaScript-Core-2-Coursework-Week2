@@ -13,7 +13,10 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
-
+for (key in salaries) {
+  let personName = key;
+  salaries[personName] > 50000 && console.log(`${personName}: $${salaries[personName]}`);
+}
 // Expected Result:
 // monica: $55000
 // rachel: $90000
