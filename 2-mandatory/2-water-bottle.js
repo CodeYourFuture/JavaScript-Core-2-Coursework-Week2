@@ -19,18 +19,25 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    this.volume = 100;
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
+    if( this.volume <= 90 ) this.volume += 10;
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+    if(this.volume >= 10) this.volume -= 10;
   },
   isFull: function () {
     // this function should return true if your bottle is full;
+    if(this.volume === 100) return true;
+    return false;
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    if(this.volume === 0) return true;
+    return false;
   },
 };
 
@@ -47,7 +54,7 @@ Extra question:
 */
 
 // Write you answer to the question here
-
+// This keyword can be used to refer to any of the current objects members dynamicly, giving the developer more flexibility.
 /*
 Once you have completed your object run the following 
 and see if your answer matches the expected result at the bottom :)
