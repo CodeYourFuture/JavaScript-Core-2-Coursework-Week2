@@ -30,7 +30,6 @@ for (let shapeName in shapes) {
     shapesWithMoreThanFiveSides.push(shapeName);
   }
 }
-console.log(shapesWithMoreThanFiveSides);
 
 
 // DO NOT EDIT BELOW THIS LINE
