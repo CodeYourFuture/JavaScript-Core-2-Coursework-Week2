@@ -16,11 +16,41 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {title: 'The Remains of the Day',
+  author: 'Kazuo Ishiguro',
+  alreadyRead: true,
+  },
+  {title: 'Norwegian Wood',
+  author: 'Haruki Murakami',
+  alreadyRead: true,
+  },
+  {title: 'I am a cat',
+  author: 'Natsume Soseki',
+  alreadyRead: true,
+  },
+  {title: 'Snow Country',
+  author: 'Yasunari Kawabata',
+  alreadyRead: false,
+  },
+  {title: 'The Wind-Up Bird Chronicle',
+  author: 'Haruki Murakami',
+  alreadyRead: false,
+  }
+];
   
 // exercise 1
 function logBooks() {
+  for (object of books){
+    if(object.alreadyRead ===true){
+      console.log(`You have already read ${object.title} by ${object.author}.`)
+    }
+    else if (object.alreadyRead ===false) {
+      console.log(`You still need to read ${object.title} by ${object.author}.`)
+    }
+  } 
 }
+
   
 
 /*
@@ -48,6 +78,10 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+
+
+
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -56,11 +90,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function() {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
+        "You have already read The Remains of the Day by Kazuo Ishiguro",
+        "You have already read Norwegian Wood by Haruki Murakami",
+        "You have already read I am a cat by Natsume Soseki",
+        "You still need to read Snow Country by Yasunari Kawabata",
+        "You still need to read The Wind-Up Bird Chronicle by Haruki Murakami"
     ]);
 });
 

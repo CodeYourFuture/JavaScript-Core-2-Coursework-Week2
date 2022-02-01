@@ -19,7 +19,31 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+let meal=[
+      { name: "Church's Chicken", price: 8.99 },
+      { name: "Smoothie King", price: 109.99 },
+      { name: "Jason's Deli", price: 22.77 },
+      { name: "Jamba Juice", price: 38.44 },
+    ]
+
+function chooseMeal(mealArray) {
+  if(mealArray.length ===0){
+    return 'Nothing :('
+  }
+  if (mealArray.length ===1){
+    return mealArray[0].name
+  }
+  else {
+  mealArray.sort((a,b) => a.price-b.price);
+  return mealArray[1].name
+   console.log(mealArray)
+}
+}
+   
+
+  console.log(chooseMeal(meal))
+
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
