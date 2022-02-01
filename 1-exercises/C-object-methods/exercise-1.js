@@ -10,8 +10,8 @@ let footballClubs = {
   fc_barcelona: "Spain",
   ac_milan: "Italy",
 };
-
-let clubNames =
+// useful link https://www.programiz.com/javascript/library/object/keys
+let clubNames = Object.keys(footballClubs);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

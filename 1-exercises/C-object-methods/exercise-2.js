@@ -15,7 +15,13 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
+let petNames = Object.values(myPets);
+
+// for (let prop in myPets){
+//   if (Object.values(myPets)) {
+//     return petNames.push;
+//   }
+// }
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

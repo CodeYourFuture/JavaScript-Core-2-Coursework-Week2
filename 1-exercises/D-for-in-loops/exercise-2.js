@@ -23,6 +23,12 @@ let shapes = {
 
 let shapesWithMoreThanFiveSides = [];
 
+for (let prop in shapes) {
+  if(shapes[prop] > 5) {
+    console.log(shapesWithMoreThanFiveSides.push(prop));
+  }
+}
+
 // WRITE YOUR CODE BELOW THIS LINE
 
 // DO NOT EDIT BELOW THIS LINE

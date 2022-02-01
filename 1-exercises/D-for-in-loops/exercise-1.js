@@ -12,6 +12,12 @@ let salaries = {
   rachel: 90000,
 };
 
+for (let prop in salaries) {
+  if(salaries[prop] > 50000){
+    console.log(`${prop} : $${salaries[prop]}`)
+  }
+}
+
 // WRITE BELOW THIS LINE
 
 // Expected Result:
