@@ -11,7 +11,7 @@ let footballClubs = {
   ac_milan: "Italy",
 };
 
-let clubNames = Object.keys(footballClubs);
+let clubNames = Object.keys(footballClubs).join(", ");
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

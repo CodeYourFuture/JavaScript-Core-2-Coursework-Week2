@@ -13,7 +13,8 @@ let highScores = {
 };
 
 let highScoreKeys = Object.keys(highScores).join(", ")/* todo */
-let highScoreValues = Object.values(highScores).join(", ");/* todo */
+let highScoreValues = Object.values(highScores).flat().join(", ");/* todo */
+
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected keys: 34, 55, 89, 100, Actual keys: ${highScoreKeys}`);

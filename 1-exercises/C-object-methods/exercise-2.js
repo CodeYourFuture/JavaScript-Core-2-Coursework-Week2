@@ -15,7 +15,15 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames = Object.values(myPets);
+let petNamesArray = Object.values(myPets);
+petNamesWithQuotes = petNamesArray.map(name => `"${name}"`)
+let petNames = `[${petNamesWithQuotes.join(", ")}]`;
+
+console.log(petNamesArray)
+
+//brackets
+//quotes
+//comma & spaces
 
   /* todo */
 

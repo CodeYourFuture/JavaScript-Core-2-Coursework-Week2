@@ -29,6 +29,7 @@ for (let shape in shapes) {
     shapesWithMoreThanFiveSides.push(shape)
   }
 }
+shapesWithMoreThanFiveSides = shapesWithMoreThanFiveSides.join(", ")
 // DO NOT EDIT BELOW THIS LINE
 console.log(
   `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
