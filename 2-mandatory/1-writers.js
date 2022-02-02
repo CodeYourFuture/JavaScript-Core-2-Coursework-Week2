@@ -17,14 +17,14 @@
 // We've created an array of objects for you here:
 let writers = [
   {
-    firstName: "Virginia",
+    firstName: "Virginia",    // writes[0][firstname]
     lastName: "Woolf",
     occupation: "writer",
     age: 59,
     alive: false,
   },
   {
-    firstName: "Zadie",
+    firstName: "Zadie",       //writes[1][firstname]
     lastName: "Smith",
     occupation: "writer",
     age: 40,
@@ -60,7 +60,10 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  for (let i = 0; i <writers.length; i++) {
+    console.log(`Hi, my name is ${writers[i]["firstName"]} ${writers[i]["lastName"]}. I am ${writers[i]["age"]} years old, and work as a ${writers[i]["occupation"]}.`)
+  }
+  
 };
 
 /*
@@ -71,7 +74,11 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  for (let i = 0; i <writers.length; i++) {
+    if (writers[i]["age"] >= 40 && writers[i]["age"]<=49 && writers[i]["alive"]===false) {
+      console.log(`Writer ${writers[i]["firstName"]} ${writers[i]["lastName"]} died at ${writers[i]["age"]} years old.`)
+    }
+  }
 }
 
 /*
@@ -81,7 +88,11 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  for (let i = 0; i <writers.length; i++) {
+    if (writers[i]["age"] >= 40 && writers[i]["age"]<=49 && writers[i]["alive"]===true) {
+      console.log(`Hi, my name is ${writers[i]["firstName"]} ${writers[i]["lastName"]}. I am ${writers[i]["age"]} years old.`)
+    }
+  }
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

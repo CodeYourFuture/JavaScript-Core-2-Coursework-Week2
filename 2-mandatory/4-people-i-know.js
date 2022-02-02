@@ -197,6 +197,7 @@ const friends = [
       last: "Knox",
     },
     email: "haley.knox@envire.tv",
+    //colleagues.map(e=>e.name) // we will have an array ["Nannie Reyes", "Sheena Reeves") etc] 
     colleagues: [
       {
         name: "Nannie Reyes",
@@ -377,15 +378,15 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+let thirtyFiveOrOlder = friends.filter(e => e.age >= 35);
+//thirtyFiveOrOlder = thirtyFiveOrOlder.map(e => e.name.first);
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
-
+let powerNetEmails = friends.filter(e => e.company === "POWERNET").map(e => e.email);
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -393,15 +394,28 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+let friendsWhoAreColleaguesOfStacie = friends.filter(e => e.colleagues.map(e=>e.name).includes("Stacie Villarreal")).map(e=>e.name.first+ " " + e.name.last); 
+
+/* friends.filter(e => e.colleagues.map(e=>e.name).includes("Stacie Villarreal")) // filter always returns sub array of initial array with the same elements, but there will be not all elements. If the element is true it will go to a new array. The whole element, not just part of it. 
+                                                                                  // then we use map to get only name(not age or skills);  
+*/
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
 You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
 This time, I only want the full names of the people who can multitask
 */
+let colleagueArr = friends.map(e => e.colleagues).flat(); // we gathered all collegues in one array;
+/* {
+        name: "Lee Warren",                                        // this is how a new element in collegueArr looks. And we have 50 elements (all collegues of all friends) in this array. 
+        age: 27,
+        skills: ["Strategic", "Advising", "management"],
+      },
 
-let colleaguesWhoCanMultitask = [];
+*/
+let colleaguesWhoCanMultitask = colleagueArr.filter (e => e.skills.includes("Multi-tasking")).map(e=> e.name);  
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`

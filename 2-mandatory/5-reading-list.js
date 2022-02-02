@@ -16,12 +16,41 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-  
+const books = [
+{
+  title: "In Search of Lost Time",
+  author: "Marcel Proust",
+  alreadyRead: false,
+}, 
+{ 
+  title: "One Hundred Years of Solitude",
+  author: "Gabriel Garcia Marquez",
+  alreadyRead: true,
+},
+{
+  title: "The Great Gatsby",
+  author: "F. Scott Fitzgerald",
+  alreadyRead: true,
+}, 
+{
+  title: "War and Peace",
+  author: "Leo Tolstoy",
+  alreadyRead: true,
+}, 
+{
+  title: "Madame Bovary",
+  author: "Gustave Flaubert",
+  alreadyRead: true,
+}
+];
+
+
 // exercise 1
-function logBooks() {
+function logBooks(books) {
+  books.forEach(e => console.log(e.title + " by " + e.author));
 }
   
+logBooks(books);
 
 /*
 =====
@@ -54,14 +83,13 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
+test("books are logged", () => {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+ 'In Search of Lost Time by Marcel Proust', 
+ 'One Hundred Years of Solitude by Gabriel Garcia Marquez', 
+ 'The Great Gatsby by F. Scott Fitzgerald',
+ 'War and Peace by Leo Tolstoy', 
+ 'Madame Bovary by Gustave Flaubert']);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
