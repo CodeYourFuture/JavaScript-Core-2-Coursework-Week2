@@ -14,6 +14,15 @@ let salaries = {
 
 // WRITE BELOW THIS LINE
 
+for (let prop in salaries){
+
+ if ( salaries[prop] > 50000 ){
+  console.log( prop, ":", "$" + salaries[prop] );
+ }
+
+}
+
+
 // Expected Result:
 // monica: $55000
 // rachel: $90000
