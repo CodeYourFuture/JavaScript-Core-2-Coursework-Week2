@@ -25,9 +25,9 @@ const chooseMeal = (mealArray) => {
   if (mealArray.length === 0) return "Nothing :(";
   else if (mealArray.length === 1) return mealArray[0].name;
   else {
-    const copyOfMealArray = [...mealArray];
-    copyOfMealArray.sort((a, b) => a.price - b.price);
-    return copyOfMealArray[1].name;
+    //const copyOfMealArray = [...mealArray];
+    mealArray.sort((a, b) => a.price - b.price);
+    return mealArray[1].name;
   }
 };
 

@@ -8,7 +8,7 @@ To start the game, run this file with Node. Depending on your current directory,
 To stop the game, press
 Ctrl-C.
 To run the tests for the game, run this file with npm test
-    npm test -- --testPathPattern 11-choose-your-own-adventure.js
+    npm test -- --testPathPattern 1-choose-your-own-adventure.js
 It has a currentRoom property to store which room the player is in.
 Give your object methods for:
 - Starting the game in the correct room when passed a room name parameter
