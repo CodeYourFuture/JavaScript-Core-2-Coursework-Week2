@@ -12,7 +12,10 @@ let salaries = {
   rachel: 90000,
 };
 
-// WRITE BELOW THIS LINE
+for (let person in salaries) {
+  let salary = salaries[person];
+  if (salary > 50000) console.log(`${person}: $${salary}`);
+}
 
 // Expected Result:
 // monica: $55000
