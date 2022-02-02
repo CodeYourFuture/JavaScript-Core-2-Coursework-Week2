@@ -15,22 +15,37 @@ You have to implement the missing features according to the specification.
 */
 
 // Here is your starting point:
+
+const bottleFull = 100;
+const numOfUnits = 10;
+
 let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    this.volume = bottleFull;
   },
+
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
+    if (this.volume !== bottleFull)
+          this.volume += numOfUnits
   },
+
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+    if (this.volume !== 0)
+          this.volume -= numOfUnits
   },
+
   isFull: function () {
     // this function should return true if your bottle is full;
+    return this.volume === bottleFull
   },
+
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    return !this.volume
   },
 };
 
@@ -47,6 +62,10 @@ Extra question:
 */
 
 // Write you answer to the question here
+/*
+  By using `this`, these functions can be used 'as is' i.e. in the entirety in other programs without modification.
+  So they can be part of a library of functions.
+*/
 
 /*
 Once you have completed your object run the following 
@@ -54,7 +73,7 @@ and see if your answer matches the expected result at the bottom :)
 */
 
 /* ======= TESTS - DO NOT MODIFY =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 4-water-bottle.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 2-water-bottle.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
