@@ -19,18 +19,27 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    this.volume = 100;
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
+    if (this.volume < 100) {
+      this.volume += 10;
+    }
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+    if (this.volume > 0) {
+      this.volume -= 10;
+    }
   },
   isFull: function () {
     // this function should return true if your bottle is full;
+    return this.volume === 100;
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    return this.volume === 0;
   },
 };
 
@@ -59,45 +68,45 @@ and see if your answer matches the expected result at the bottom :)
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("When filled up, bottle is full", () => {
+test('When filled up, bottle is full', () => {
   bottle.volume = 0;
   bottle.fillUp();
   expect(bottle.isFull()).toEqual(true);
 });
 
-test("When filled up, bottle is not empty", () => {
+test('When filled up, bottle is not empty', () => {
   bottle.volume = 0;
   bottle.fillUp();
   expect(bottle.isEmpty()).toEqual(false);
 });
 
-test("When emptied, bottle is not full", () => {
+test('When emptied, bottle is not full', () => {
   bottle.volume = 0;
   expect(bottle.isFull()).toEqual(false);
 });
 
-test("When emptied, bottle is empty", () => {
+test('When emptied, bottle is empty', () => {
   bottle.volume = 0;
   expect(bottle.isEmpty()).toEqual(true);
 });
 
-test("When partially filled, bottle is not empty", () => {
+test('When partially filled, bottle is not empty', () => {
   bottle.volume = 40; // arbitrary amount
   expect(bottle.isEmpty()).toEqual(false);
 });
 
-test("When partially filled, bottle is not full", () => {
+test('When partially filled, bottle is not full', () => {
   bottle.volume = 40; // arbitrary amount
   expect(bottle.isFull()).toEqual(false);
 });
 
-test("Given a full bottle, when pour is called, then the volume does not increase", () => {
+test('Given a full bottle, when pour is called, then the volume does not increase', () => {
   bottle.volume = 100;
   bottle.pour();
   expect(bottle.volume).toEqual(100);
 });
 
-test("Multiple calls to drink reduce the volume correctly", () => {
+test('Multiple calls to drink reduce the volume correctly', () => {
   bottle.volume = 100;
   // arbitrary number of calls to drink
   bottle.drink();
@@ -106,7 +115,7 @@ test("Multiple calls to drink reduce the volume correctly", () => {
   expect(bottle.volume).toEqual(70);
 });
 
-test("Given a full bottle, when drink has been called, then it is neither full nor empty", () => {
+test('Given a full bottle, when drink has been called, then it is neither full nor empty', () => {
   bottle.volume = 100;
   // arbitrary number of calls to drink
   bottle.drink();
@@ -119,7 +128,7 @@ test("Given a full bottle, when drink has been called, then it is neither full n
   expect(bottle.isFull()).toEqual(false);
 });
 
-test("Given a full bottle, when drink called 10 times, then bottle is empty", () => {
+test('Given a full bottle, when drink called 10 times, then bottle is empty', () => {
   bottle.volume = 100;
   for (var i = 0; i < 10; i++) {
     bottle.drink();
@@ -127,19 +136,19 @@ test("Given a full bottle, when drink called 10 times, then bottle is empty", ()
   expect(bottle.isEmpty()).toEqual(true);
 });
 
-test("Given an empty bottle, when drink is called, then the volume does not decrease", () => {
+test('Given an empty bottle, when drink is called, then the volume does not decrease', () => {
   bottle.volume = 0;
   bottle.drink();
   expect(bottle.volume).toEqual(0);
 });
 
-test("Given an empty bottle, when pour is called, then the volume increases", () => {
+test('Given an empty bottle, when pour is called, then the volume increases', () => {
   bottle.volume = 0;
   bottle.pour();
   expect(bottle.volume).toEqual(10);
 });
 
-test("Given an empty bottle, calling pour then drink, then the bottle is empty", () => {
+test('Given an empty bottle, calling pour then drink, then the bottle is empty', () => {
   bottle.volume = 0;
   bottle.pour();
   bottle.drink();
