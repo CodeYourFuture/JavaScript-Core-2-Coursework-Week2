@@ -15,21 +15,23 @@ You have to implement the missing features according to the specification.
 */
 
 // Here is your starting point:
+const UNITS = 10;
 const bottle = {
   volume: 0,
+  capacity: 100,
   fillUp() {
     this.volume = 100;
   },
   pour() {
     if (this.isFull()) return;
-    this.volume = this.volume > 90 ? 100 : this.volume + 10;
+    this.volume = this.volume + UNITS > this.capacity ? this.capacity : this.volume + UNITS;
   },
   drink() {
     if (this.isEmpty()) return;
-    this.volume = this.volume < 10 ? 0 : this.volume - 10;
+    this.volume = this.volume + UNITS < 0 ? 0 : this.volume - UNITS;
   },
   isFull() {
-    return this.volume === 100;
+    return this.volume === this.capacity;
   },
   isEmpty() {
     return this.volume === 0;
