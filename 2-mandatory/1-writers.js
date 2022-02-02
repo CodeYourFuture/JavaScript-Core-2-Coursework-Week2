@@ -15,8 +15,7 @@
 */
 
 // We've created an array of objects for you here:
-let writers = [
-  {
+let writers = [{
     firstName: "Virginia",
     lastName: "Woolf",
     occupation: "writer",
@@ -60,7 +59,7 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  writers.forEach(item => console.log(`Hi, my name is ${item.firstName} ${item.lastName}. I am ${item.age} years old, and work as a ${item.occupation}.`))
 };
 
 /*
@@ -71,7 +70,9 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  writers
+    .filter(item => item.age >= 40 && item.age <= 49 && item.alive === false)
+    .forEach(item => console.log(`Writer ${item.firstName} ${item.lastName} died at ${item.age} years old.`))
 }
 
 /*
@@ -81,7 +82,9 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  writers
+    .filter(item => item.age >= 40 && item.age <= 49 && item.alive === true)
+    .forEach(item => console.log(`Hi, my name is ${item.firstName} ${item.lastName}. I am ${item.age} years old.`))
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
@@ -108,11 +111,11 @@ test("exercise 3", () => expectFunctionToLog(logAliveWritersInTheirForties, [
 ]));
 
 function expectFunctionToLog(f, values) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    f();
-    expect(consoleLogSpy).toBeCalledTimes(values.length);
-    values.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
+  const consoleLogSpy = jest.spyOn(console, 'log');
+  f();
+  expect(consoleLogSpy).toBeCalledTimes(values.length);
+  values.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
 };

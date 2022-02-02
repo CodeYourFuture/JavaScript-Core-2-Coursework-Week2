@@ -11,6 +11,11 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  let total = 0;
+  for (const key in peopleArray) {
+    total += peopleArray[key].budget;
+  }
+  return total
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
@@ -21,43 +26,86 @@ function getBudgets(peopleArray) {
 
 test("No Budgets", () => {
   expect(getBudgets([])).toEqual(0);
-}); 
+});
 
 test("Test 1", () => {
-  expect(getBudgets([
-    { name: "John", age: 21, budget: 23000 },
-    { name: "Steve", age: 32, budget: 40000 },
-    { name: "Martin", age: 16, budget: 2700 },
+  expect(getBudgets([{
+      name: "John",
+      age: 21,
+      budget: 23000
+    },
+    {
+      name: "Steve",
+      age: 32,
+      budget: 40000
+    },
+    {
+      name: "Martin",
+      age: 16,
+      budget: 2700
+    },
   ])).toEqual(65700);
 });
 
 test("Test 2", () => {
-  expect(getBudgets([
-    { name: "John", age: 21, budget: 29000 },
-    { name: "Steve", age: 32, budget: 32000 },
-    { name: "Martin", age: 16, budget: 1600 },
+  expect(getBudgets([{
+      name: "John",
+      age: 21,
+      budget: 29000
+    },
+    {
+      name: "Steve",
+      age: 32,
+      budget: 32000
+    },
+    {
+      name: "Martin",
+      age: 16,
+      budget: 1600
+    },
   ])).toEqual(62600);
 });
 
 test("Test 3", () => {
-  expect(getBudgets([
-    { name: "John", age: 21, budget: 19401 },
-    { name: "Steve", age: 32, budget: 12321 },
-    { name: "Martin", age: 16, budget: 1204 },
+  expect(getBudgets([{
+      name: "John",
+      age: 21,
+      budget: 19401
+    },
+    {
+      name: "Steve",
+      age: 32,
+      budget: 12321
+    },
+    {
+      name: "Martin",
+      age: 16,
+      budget: 1204
+    },
   ])).toEqual(32926);
 });
 
 test("Test 4", () => {
-  expect(getBudgets([
-    { name: "John", age: 21, budget: 10234 },
-    { name: "Steve", age: 32, budget: 21754 },
-    { name: "Martin", age: 16, budget: 4935 },
+  expect(getBudgets([{
+      name: "John",
+      age: 21,
+      budget: 10234
+    },
+    {
+      name: "Steve",
+      age: 32,
+      budget: 21754
+    },
+    {
+      name: "Martin",
+      age: 16,
+      budget: 4935
+    },
   ])).toEqual(36923);
 });
 
 test("Huge List", () => {
-  expect(getBudgets([
-    {
+  expect(getBudgets([{
       name: "Reba",
       age: 73,
       budget: 9657,
