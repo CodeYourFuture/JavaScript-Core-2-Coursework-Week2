@@ -12,6 +12,10 @@ let salaries = {
   rachel: 90000,
 };
 
+for (key in salaries) {
+  let personName = key;
+  salaries[personName] > 50000 && console.log(`${personName}: ${salaries[personName]}`);
+}
 // WRITE BELOW THIS LINE
 
 // Expected Result:
