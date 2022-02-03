@@ -27,6 +27,17 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+let arr = [];
+let arr2 = [];
+for (let ingredients in weeklyMealPlan){
+  arr.push(weeklyMealPlan[ingredients]);
+}
+arr2 = arr.flat();
+weeklyGroceriesToBuy = [...new Set(arr2)];
+console.log(weeklyGroceriesToBuy);
+
+// let uniqueChars = chars.filter((element, index) => {
+//     return chars.indexOf(element) === index;
 
 /*
 Exercise 2:
@@ -34,6 +45,14 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+
+for (let ingredients in weeklyMealPlan){
+  arr.push(weeklyMealPlan[ingredients])
+}
+weekendGroceriesToBuy =(arr[5]).flat();
+
+console.log(weekendGroceriesToBuy);
+
 
 /*
 Exercise 3:
@@ -51,6 +70,10 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+for (let ingredients in weeklyMealPlan){
+  arr.push
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
