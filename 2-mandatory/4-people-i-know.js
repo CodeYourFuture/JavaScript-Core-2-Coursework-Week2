@@ -377,14 +377,14 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+let thirtyFiveOrOlder = friends.filter(x => x.age >= 35);
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+let powerNetEmails = friends.filter((x) => x.company === "POWERNET").map(x => x.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,15 +394,34 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
-/*
-5) Find "Multi-tasking" colleagues
+for (let i=0; i< friends.length; i++) {
+          for (let j=0; j < friends[i].colleagues.length; j++) {
+              if (friends[i].colleagues[j].name === "Stacie Villarreal") {
+                friendsWhoAreColleaguesOfStacie.push(
+                  `${friends[i].name.first} ${friends[i].name.last}`
+                );
+              }
+          }
+      }
+/*5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
 You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
-
+let arrayOfNames = [];
+for (let i = 0; i < friends.length; i++) {
+  for (let j = 0; j < friends[i].colleagues.length; j++) {
+    for (let k = 0; k < friends[i].colleagues[j].skills.length; k++) {
+      if (friends[i].colleagues[j].skills.includes("Multi-tasking")) {
+        arrayOfNames.push(friends[i].colleagues[j].name);
+      }
+    }
+  }
+}
+let colleaguesWhoCanMultitask = arrayOfNames.filter(
+  (value, index, self) => self.indexOf(value) === index
+);
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

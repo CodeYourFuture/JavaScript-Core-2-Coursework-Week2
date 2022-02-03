@@ -26,14 +26,31 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
-let weeklyGroceriesToBuy = [];
+let weeklyGroceriesToBuy = Object.values(weeklyMealPlan)
+  .flat()
+  .filter((value, index, arr) => arr.indexOf(value) === index);
+console.log(weeklyGroceriesToBuy);
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
+let weekendGroceriesToBuy = weeklyMealPlan.saturday.concat( //This task is confusing. I thought we had to select only those items, which don't repeat on weekdays
+  weeklyMealPlan.sunday
+);
+// let weekdays = Object.keys(weeklyMealPlan).splice(0, 5);
+// let weekendIngredients = weeklyMealPlan.saturday.concat(weeklyMealPlan.sunday);
+// let weekdayIngredient = [];
+// weekdays.forEach((day) => {
+//   weekdayIngredient.push(...weeklyMealPlan[day]);
+// });
+// weekendIngredients.forEach((ingredient) => {
+//   if (!weekdayIngredient.includes(ingredient)) {
+//     weekendGroceriesToBuy.push(ingredient);
+//   }
+// });
+
 
 /*
 Exercise 3:
@@ -51,7 +68,10 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
-
+let days = Object.keys(weeklyMealPlan);
+days.forEach((day) => {
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
+});
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
