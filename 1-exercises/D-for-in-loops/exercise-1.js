@@ -13,7 +13,10 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
-
-// Expected Result:
-// monica: $55000
-// rachel: $90000
+let highEarners = "";
+for (let key in salaries) {
+  if (salaries[key] > 50000) {
+  highEarners += `${key}: $${salaries[key]} `;
+  }
+}
+console.log(highEarners);
