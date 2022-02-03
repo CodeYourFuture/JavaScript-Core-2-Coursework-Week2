@@ -61,58 +61,78 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
-};
+  return writers.map(({ firstName, lastName, age, occupation }) => {
+    console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
+  })
+}
 
-/*
-Exercise 2:
-  Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
-  and not alive anymore. Use the below sentence format:
-  "Writer {firstName} {lastName} died at {age} years old."
-*/
+logAllWriters()
+
+// /*
+// Exercise 2:
+//   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
+//   and not alive anymore. Use the below sentence format:
+//   "Writer {firstName} {lastName} died at {age} years old."
+// */
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  return writers.filter(({ age, alive }) => {
+    return age >= 40 && age < 50 && !alive
+  }).map(({ firstName, lastName, age }) => {
+    console.log(`Writer ${firstName} ${lastName} died at ${age} years old.`);
+  })
 }
 
-/*
-Exercise 3:
-  Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
-  "Hi, my name is {firstName} {lastName}. I am {age} years old."
-*/
+  logDeadWritersInTheirForties();
+// /*
+// Exercise 3:
+//   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
+//   "Hi, my name is {firstName} {lastName}. I am {age} years old."
+// */
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  return writers
+    .filter(({ age, alive }) => {
+      return age >= 40 && age < 50 && alive;
+    })
+    .map(({ firstName, lastName, age }) => {
+      console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old.`);
+    });
 }
 
-/* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
-- To run all exercises/tests in the mandatory folder, run `npm test`
-- (Reminder: You must have run `npm install` one time before this will work!)
-*/
+logAliveWritersInTheirForties()
 
-test("exercise 1", () => expectFunctionToLog(logAllWriters, [
-  "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
-  "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
-  "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
-  "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
-  "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
-]));
+// /* ======= TESTS - DO NOT MODIFY ===== 
+// - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
+// - To run all exercises/tests in the mandatory folder, run `npm test`
+// - (Reminder: You must have run `npm install` one time before this will work!)
+// */
 
-test("exercise 2", () => expectFunctionToLog(logDeadWritersInTheirForties, [
-  "Writer Jane Austen died at 41 years old."
-]));
+// test("exercise 1", () => expectFunctionToLog(logAllWriters, [
+//   "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
+//   "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
+//   "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
+//   "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
+//   "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
+// ]));
 
-test("exercise 3", () => expectFunctionToLog(logAliveWritersInTheirForties, [
-  "Hi, my name is Zadie Smith. I am 40 years old.",
-  "Hi, my name is Yukiko Motoya. I am 49 years old."
-]));
+// test("exercise 2", () => expectFunctionToLog(logDeadWritersInTheirForties, [
+//   "Writer Jane Austen died at 41 years old."
+// ]));
 
-function expectFunctionToLog(f, values) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    f();
-    expect(consoleLogSpy).toBeCalledTimes(values.length);
-    values.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+// test("exercise 3", () => expectFunctionToLog(logAliveWritersInTheirForties, [
+//   "Hi, my name is Zadie Smith. I am 40 years old.",
+//   "Hi, my name is Yukiko Motoya. I am 49 years old."
+// ]));
+
+// function expectFunctionToLog(f, values) {
+//     const consoleLogSpy = jest.spyOn(console, 'log');
+//     f();
+//     expect(consoleLogSpy).toBeCalledTimes(values.length);
+//     values.forEach((value, i) => {
+//       expect(consoleLogSpy).nthCalledWith(i+1, value);
+//     });
+//     consoleLogSpy.mockRestore();
+// };
