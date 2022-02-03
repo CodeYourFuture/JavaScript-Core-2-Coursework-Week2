@@ -1,3 +1,5 @@
+"use strict";
+
 /**
 The Reading List
 Keep track of which books you've read and which books you want to read!
@@ -15,33 +17,57 @@ You should modify the tests so that they contain the values that correspond to y
 In this style of testing it is typical to write out as strings exactly what you expect your output to be, 
 without using any variables or any logic like loops, template strings or if statements.
 */
+var books = [{
+  title: "The Hobbit",
+  author: "J.R.R. Tolkien",
+  isRead: true
+}, {
+  title: "The Map of Salt and Stars",
+  author: "Jennifer Zeynab Joukhadar",
+  isRead: false
+}, {
+  title: "Dietland",
+  author: "Sarai Walker",
+  isRead: true
+}, {
+  title: "A Place for Us",
+  author: "Fatima Farheen Mirza",
+  isRead: true
+}, {
+  title: "The House of Impossible Beauties",
+  author: "Joseph Cassara",
+  isRead: false
+}]; // exercise 1
 
-const books = [
-  { title: "The Hobbit", author: "J.R.R. Tolkien", isRead: true },
-  {
-    title: "The Map of Salt and Stars",
-    author: "Jennifer Zeynab Joukhadar",
-    isRead: false,
-  },
-  { title: "Dietland", author: "Sarai Walker", isRead: true },
-  { title: "A Place for Us", author: "Fatima Farheen Mirza", isRead: true },
-  {
-    title: "The House of Impossible Beauties",
-    author: "Joseph Cassara",
-    isRead: false,
-  },
-];
-
-// exercise 1
 function logBooks() {
-  books.forEach((book) => console.log(`${book.title} by ${book.author}`));
+  books.forEach(function (book) {
+    return console.log("".concat(book.title, " by ").concat(book.author));
+  });
 }
 
 function logBooksIsRead() {
-  for (const book of books) {
-    book.isRead
-      ? console.log(`You've already read ${book.title} by ${book.author}`)
-      : console.log(`You still need to read ${book.title} by ${book.author}`);
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = books[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var book = _step.value;
+      book.isRead ? console.log("You've already read ".concat(book.title, " by ").concat(book.author)) : console.log("You still need to read ".concat(book.title, " by ").concat(book.author));
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+        _iterator["return"]();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
   }
 }
 /*
@@ -75,27 +101,15 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
-  expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
-  ]);
-});
 
 test("books are logged", function () {
-  expectLogBooksIsReadToLog([
-    "You've already read The Hobbit by J.R.R. Tolkien",
-    "You still need to read The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "You've already read Dietland by Sarai Walker",
-    "You've already read A Place for Us by Fatima Farheen Mirza",
-    "You still need to read The House of Impossible Beauties by Joseph Cassara",
-  ]);
+  expectLogBooksToLog(["The Hobbit by J.R.R. Tolkien", "The Map of Salt and Stars by Jennifer Zeynab Joukhadar", "Dietland by Sarai Walker", "A Place for Us by Fatima Farheen Mirza", "The House of Impossible Beauties by Joseph Cassara"]);
 });
-
+test("books are logged", function () {
+  expectLogBooksIsReadToLog(["You've already read The Hobbit by J.R.R. Tolkien", "You still need to read The Map of Salt and Stars by Jennifer Zeynab Joukhadar", "You've already read Dietland by Sarai Walker", "You've already read A Place for Us by Fatima Farheen Mirza", "You still need to read The House of Impossible Beauties by Joseph Cassara"]);
+});
 /* ======= TESTS - DO NOT MODIFY ===== */
+
 /*
  * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
  *
@@ -104,21 +118,22 @@ test("books are logged", function () {
  *
  * You do not need to understand how this function works to successfully complete the exercise.
  */
+
 function expectLogBooksToLog(expectedValues) {
-  const consoleLogSpy = jest.spyOn(console, "log");
+  var consoleLogSpy = jest.spyOn(console, "log");
   logBooks();
   expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-  expectedValues.forEach((value, i) => {
+  expectedValues.forEach(function (value, i) {
     expect(consoleLogSpy).nthCalledWith(i + 1, value);
   });
   consoleLogSpy.mockRestore();
 }
 
 function expectLogBooksIsReadToLog(expectedValues) {
-  const consoleLogSpy = jest.spyOn(console, "log");
+  var consoleLogSpy = jest.spyOn(console, "log");
   logBooksIsRead();
   expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-  expectedValues.forEach((value, i) => {
+  expectedValues.forEach(function (value, i) {
     expect(consoleLogSpy).nthCalledWith(i + 1, value);
   });
   consoleLogSpy.mockRestore();

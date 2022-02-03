@@ -1,13 +1,132 @@
-/*
-Below you will find a list of people that I know. 
-*/
+let writers = [
+  {
+    firstName: "Virginia",
+    lastName: "Woolf",
+    occupation: "writer",
+    age: 59,
+    alive: false,
+  },
+  {
+    firstName: "Zadie",
+    lastName: "Smith",
+    occupation: "writer",
+    age: 40,
+    alive: true,
+  },
+  {
+    firstName: "Jane",
+    lastName: "Austen",
+    occupation: "writer",
+    age: 41,
+    alive: false,
+  },
+  {
+    firstName: "Bell",
+    lastName: "Hooks",
+    occupation: "writer",
+    age: 63,
+    alive: true,
+  },
+  {
+    firstName: "Yukiko",
+    lastName: "Motoya",
+    occupation: "writer",
+    age: 49,
+    alive: true,
+  },
+];
 
-/*
-1) Reading
-Before you start, you should read through the object below so that you understand the structure of it.
-When you've finished. Continue to the exercises below.
-*/
+function logAllWriters() {
+  // write your code to log all writers here
+  writers.forEach((writer) => {
+    console.log(
+      `"Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}."`
+    );
+  });
+}
+// console.log(logAllWriters());
 
+function logDeadWritersInTheirForties() {
+  // write your code here
+  writers
+    .filter((writer) => {
+      return writer.age > 40 && writer.age < 49 && writer.alive === false;
+    })
+    .forEach((writer) => {
+      console.log(
+        `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+      );
+    });
+}
+
+// logDeadWritersInTheirForties();
+
+function logAliveWritersInTheirForties() {
+  // write your code here
+  writers
+    .filter((writer) => {
+      return writer.alive === true && writer.age >= 40 && writer.age <= 49;
+    })
+    .forEach((writer) => {
+      console.log(
+        `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+      );
+    });
+}
+
+// console.log(logAliveWritersInTheirForties());
+
+let weeklyMealPlan = {
+  monday: ["Cheese", "Eggs", "Tomato", "Paprika", "Leek"],
+  tuesday: ["Wrap", "Tuna", "Canned beans", "Cheese", "Carrot", "Aubergine"],
+  wednesday: ["Orange Juice", "Apple", "Ananas", "Black tea"],
+  thursday: ["Lamb", "Salt", "Bulgur", "Potato"],
+  friday: ["Rice milk", "Blueberries", "Porridge", "Banana", "Cinnamon"],
+  saturday: ["Olive oil", "Potato", "Salmon", "Asparagus"],
+  sunday: [],
+};
+
+let weeklyGroceriesToBuy = [];
+Object.keys(weeklyMealPlan).forEach((key) => {
+  for (const item of weeklyMealPlan[key]) {
+    if (!weeklyGroceriesToBuy.includes(item)) {
+      weeklyGroceriesToBuy.push(item);
+    }
+  }
+  // console.log(weeklyMealPlan[key]);
+});
+
+let weekendGroceriesToBuy = [];
+
+Object.keys(weeklyMealPlan).filter(
+  (key) => key === "saturday" || key === "sunday"
+);
+
+for (const [key, value] of Object.entries(weeklyMealPlan)) {
+  if (key === "saturday" || key === "sunday") {
+    value.forEach((item) => {
+      if (!weekendGroceriesToBuy.includes(item)) {
+        weekendGroceriesToBuy.push(item);
+      }
+    });
+  }
+}
+
+// console.log(weekendGroceriesToBuy);
+
+let numberOfItemsPerWeek = {
+  monday: 0,
+  tuesday: 0,
+  wednesday: 0,
+  thursday: 0,
+  friday: 0,
+  saturday: 0,
+  sunday: 0,
+};
+for (let key in weeklyMealPlan) {
+  numberOfItemsPerWeek[key] = weeklyMealPlan[key].length;
+}
+// console.log(numberOfItemsPerWeek);
 const friends = [
   {
     age: 39,
@@ -371,33 +490,11 @@ const friends = [
   },
 ];
 
-/*
-2) Aged 35 or Older
-In the above object you can see my friends and the colleagues of my friends.
-First, I want you to find all of my friends who are 35 or older.
-*/
+let thirtyFiveOrOlder = friends
+  .filter((friend) => friend.age >= 35)
+  .forEach((item) => item.name.first);
 
-let thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
-
-/*
-3) Find the email address
-Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
-*/
-
-let powerNetEmails = [];
-
-friends
-  .filter((friend) => friend.company === "POWERNET")
-  .forEach((friend) => {
-    powerNetEmails.push(friend.email);
-  });
-
-/*
-4) colleagues with "Stacie Villarreal"
-Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
-You can see who people's colleagues are by seeing the "colleagues" array in each of my friends objects.
-This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
-*/
+console.log(thirtyFiveOrOlder);
 
 let friendsWhoAreColleaguesOfStacie = [];
 
@@ -411,60 +508,30 @@ friends.forEach((friend) => {
   }
 });
 
-/*
-5) Find "Multi-tasking" colleagues
-Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
-You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
-This time, I only want the full names of the people who can multitask
-*/
+// console.log(friendsWhoAreColleaguesOfStacie);
 
-let colleaguesWhoCanMultitask = [];
+function getBudgets(peopleArray) {
+  let totalBudget = 0;
+  peopleArray.forEach((person) => {
+    person.budget === 0 ? 0 : (totalBudget += person.budget);
+  });
+  return totalBudget;
+}
 
-friends.forEach((friend) => {
-  for (const colleague of friend.colleagues) {
-    if (colleague.skills.includes("Multi-tasking")) {
-      colleaguesWhoCanMultitask.push(colleague.name);
-    }
+// console.log(
+//   getBudgets([
+//     { name: "John", age: 21, budget: 23000 },
+//     { name: "Steve", age: 32, budget: 40000 },
+//     { name: "Martin", age: 16, budget: 2700 },
+//   ])
+// );
+
+function chooseMeal(mealArray) {
+  if (mealArray.length === 0) {
+    return "Nothing :(";
+  } else {
+    return mealArray.sort((a, b) => a.price - b.price)[0].name;
   }
-});
+}
 
-/* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 4-people-I-know.js`
-- To run all exercises/tests in the mandatory folder, run `npm test`
-- (Reminder: You must have run `npm install` one time before this will work!)
-*/
-
-test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
-    "Vilma",
-    "Aisha",
-    "Mitchell",
-    "Sutton",
-    "Jana",
-  ]);
-});
-
-test("3 - Powernet email addresses", () => {
-  expect(powerNetEmails).toIncludeSameMembers([
-    "clay.livingston@powernet.com",
-    "gloria.hall@powernet.com",
-  ]);
-});
-
-test("4 - friends with Stacie Villarreal as a colleague", () => {
-  expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
-    "Clay Livingston",
-    "Jana Harrison",
-    "Haley Knox",
-  ]);
-});
-
-test("5 - colleagues who can multitask", () => {
-  expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-    "Rush May",
-    "Gena Good",
-    "Cunningham Shelton",
-    "Castro Castaneda",
-    "Luz Newton",
-  ]);
-});
+// console.log(chooseMeal([]));

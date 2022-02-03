@@ -1,3 +1,5 @@
+"use strict";
+
 /*
   This exercise was also in JS1 week 4, but you didn't know about objects yet.
   It's more clear with objects than with arrays!
@@ -18,46 +20,32 @@
   When you finish the exercise, think about how this solution is different to your last solution.
   What's better about each approach?
 */
-
 function journeyPlanner(locations, transportMode) {
-  let answerArr = [];
-  Object.keys(locations).forEach((key) => {
+  var answerArr = [];
+  Object.keys(locations).forEach(function (key) {
     if (locations[key].includes(transportMode)) answerArr.push(key);
   });
   return answerArr;
 }
-
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-journey-planner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
-const londonLocations = {
+
+
+var londonLocations = {
   Angel: ["tube", "bus"],
   "London Bridge": ["tube", "river boat"],
   "Tower Bridge": ["tube", "bus"],
-  Greenwich: ["bus", "river boat"],
+  Greenwich: ["bus", "river boat"]
 };
-
-test("journeyPlanner function works - case 1", () => {
-  expect(journeyPlanner(londonLocations, "river boat")).toEqual([
-    "London Bridge",
-    "Greenwich",
-  ]);
+test("journeyPlanner function works - case 1", function () {
+  expect(journeyPlanner(londonLocations, "river boat")).toEqual(["London Bridge", "Greenwich"]);
 });
-
-test("journeyPlanner function works - case 2", () => {
-  expect(journeyPlanner(londonLocations, "bus")).toEqual([
-    "Angel",
-    "Tower Bridge",
-    "Greenwich",
-  ]);
+test("journeyPlanner function works - case 2", function () {
+  expect(journeyPlanner(londonLocations, "bus")).toEqual(["Angel", "Tower Bridge", "Greenwich"]);
 });
-
-test("journeyPlanner function works - case 3", () => {
-  expect(journeyPlanner(londonLocations, "tube")).toEqual([
-    "Angel",
-    "London Bridge",
-    "Tower Bridge",
-  ]);
+test("journeyPlanner function works - case 3", function () {
+  expect(journeyPlanner(londonLocations, "tube")).toEqual(["Angel", "London Bridge", "Tower Bridge"]);
 });
