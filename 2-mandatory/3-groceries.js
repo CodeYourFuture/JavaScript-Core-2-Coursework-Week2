@@ -71,9 +71,32 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+let arr3 = [];
 for (let ingredients in weeklyMealPlan){
-  arr.push
+  arr.push(weeklyMealPlan[ingredients])
 }
+
+let arr4 = [];
+for (i = 0; i < arr3.length; i++){
+  for (j = 0; j < arr[i]; j++) {
+  }
+  arr4.push(arr[i].length);
+}
+
+
+
+let items = "";
+for(element of arr4) {
+for(key in numberOfItemsPerWeek){
+}
+
+items += `${key}: ${element} `;
+}
+
+
+
+
+console.log(items);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
@@ -105,7 +128,7 @@ test("Exercise 2 - Weekend groceries to buy contains correct items", () => {
   expect(weekendGroceriesToBuy).toIncludeSameMembers(expectedWeekendGroceriesToBuy);
 });
 
-test("Exercise 3 - Numer of items per week contains the correct counts", () => {
+test("Exercise 3 - Number of items per week contains the correct counts", () => {
   const expectedNumberOfItemsPerWeek = {
     monday: 5,
     tuesday: 6,

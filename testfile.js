@@ -1,40 +1,40 @@
-let writers = [
-  {
-    firstName: "Virginia",
-    lastName: "Woolf",
-    occupation: "writer",
-    age: 59,
-    alive: false,
-  },
-  {
-    firstName: "Zadie",
-    lastName: "Smith",
-    occupation: "writer",
-    age: 40,
-    alive: true,
-  },
-  {
-    firstName: "Jane",
-    lastName: "Austen",
-    occupation: "writer",
-    age: 41,
-    alive: false,
-  },
-  {
-    firstName: "Bell",
-    lastName: "Hooks",
-    occupation: "writer",
-    age: 63,
-    alive: true,
-  },
-  {
-    firstName: "Yukiko",
-    lastName: "Motoya",
-    occupation: "writer",
-    age: 49,
-    alive: true,
-  }
-];
+// let writers = [
+//   {
+//     firstName: "Virginia",
+//     lastName: "Woolf",
+//     occupation: "writer",
+//     age: 59,
+//     alive: false,
+//   },
+//   {
+//     firstName: "Zadie",
+//     lastName: "Smith",
+//     occupation: "writer",
+//     age: 40,
+//     alive: true,
+//   },
+//   {
+//     firstName: "Jane",
+//     lastName: "Austen",
+//     occupation: "writer",
+//     age: 41,
+//     alive: false,
+//   },
+//   {
+//     firstName: "Bell",
+//     lastName: "Hooks",
+//     occupation: "writer",
+//     age: 63,
+//     alive: true,
+//   },
+//   {
+//     firstName: "Yukiko",
+//     lastName: "Motoya",
+//     occupation: "writer",
+//     age: 49,
+//     alive: true,
+//   }
+// ];
 
 // writers.forEach(o => console.log(o.firstName));
 
@@ -95,15 +95,20 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
-for (k = 0; k = arr2.length; k++){
+
+
+let items = "";
+for(element of arr2) {
+for(key in numberOfItemsPerWeek){
 }
 
-// for (value in numberOfItemsPerWeek){
-// }
-console.log(arr2);
+items += `${key}: ${element} `;
+}
 
 
 
+
+console.log(items);
 
 // let uniqueChars = chars.filter((element, index) => {
 //     return chars.indexOf(element) === index;
