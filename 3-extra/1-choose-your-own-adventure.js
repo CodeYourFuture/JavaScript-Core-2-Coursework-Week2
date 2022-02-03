@@ -34,6 +34,9 @@ east? If there is a bug in your code, try to fix it.
 To enable the tests for the stretch goals, remove the ".skip" on the appropriate tests below.
 */
 
+let validRooms;
+let validDirections = ["north", "east", "south", "west"];
+
 let game = {
   currentRoom: null,
 
@@ -44,7 +47,17 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
-  },
+
+       validRooms = Object.keys(rooms); // i.e. [ 'hall', 'classroom', 'library' ]
+       if (!validRooms.includes(roomName)) {
+          console.log("\nInvalid room request\nYou have to start the game in one of the following rooms:");
+          console.log(validRooms.join(', '));
+          this.currentRoom = null
+       }
+
+       else
+          this.currentRoom = rooms[roomName]; // initialise the room where the game starts
+  }, 
 
   move: function (direction) {
     // This function is called with the direction that the player wants to move.
@@ -53,6 +66,23 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
+
+       if (!validDirections.includes(direction)) {
+          console.log("\nInvalid direction");
+          console.log("You have to choose from either 'north, south, west or east'");
+          return
+       }
+
+       let newRoom = this.currentRoom[direction](); // fetch the room in that direction
+      
+       // Check that there is actually a room present in that direction
+       // By checking whether newRoom is 'null'
+       if (!(newRoom)) 
+          // No such room, so stay put in current room
+          console.log("\nThere is no room in that direction\nPlease choose another direction")
+
+       else
+          this.currentRoom = newRoom // move into that room      
   },
 };
 
@@ -188,7 +218,7 @@ test("start in classroom", () => {
 });
 
 // remove ".skip" if your code correctly handles a non existent room (by setting currentRoom to null/doing nothing)
-test.skip("start in non-existent place", () => {
+test("start in non-existent place", () => {
   game.start("does not exist");
   expect(game.currentRoom).toEqual(null);
 });
@@ -218,14 +248,14 @@ test("start in classroom and go west", () => {
 });
 
 // remove ".skip" if your code handles trying to go in a direction with no room (by staying in the same room)
-test.skip("start in hall and go north (to non-existent room) -> stay in same room", () => {
+test("start in hall and go north (to non-existent room) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("north");
   expect(game.currentRoom.name).toEqual("hall");
 });
 
 // remove ".skip" if your code handles trying to go in a direction that doesn't exist (by staying in the same room)
-test.skip("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
+test("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("backwards");
   expect(game.currentRoom.name).toEqual("hall");
