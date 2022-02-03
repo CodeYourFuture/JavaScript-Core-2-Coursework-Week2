@@ -46,11 +46,11 @@ const books = [
 
 
 // exercise 1
-function logBooks(books) {
+function logBooks() {
   books.forEach(e => console.log(e.title + " by " + e.author));
 }
   
-logBooks(books);
+//logBooks(books);
 
 /*
 =====
