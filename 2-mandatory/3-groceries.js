@@ -27,11 +27,13 @@ Exercise 1:
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
 
-// weeklyMealPlan.map((item) => {
-//   if (!weekendGroceriesToBuy.includes(item)){
-//     weeklyGroceriesToBuy.push(weeklyMealPlan[item]);
-//   }
-// }
+let weeklyMealPlanKeys = Object.keys(weeklyMealPlan);
+
+weeklyMealPlanKeys.forEach((key) => {
+  if (!weeklyGroceriesToBuy.includes(...weeklyMealPlan[key])) {
+    weeklyGroceriesToBuy.push(...weeklyMealPlan[key]);
+  }
+});
 
 /*
 Exercise 2:
