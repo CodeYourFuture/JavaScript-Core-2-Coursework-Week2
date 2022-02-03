@@ -76,7 +76,7 @@ Exercise 2:
 
 const logDeadWritersInTheirForties = () => {
   writers.filter((writer) => {
-    if (writer.age > 40 && writer.age < 49 && writer.alive === false)
+    if (writer.age >= 40 && writer.age <= 49 && writer.alive === false)
       console.log(
         `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
       );
