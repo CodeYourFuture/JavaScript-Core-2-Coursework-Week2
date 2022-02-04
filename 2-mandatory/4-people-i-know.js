@@ -23,21 +23,25 @@ const friends = [
         age: 37,
         skills: ["Data", "Strategic", "Problem"],
       },
+
       {
         name: "Barber Wooten",
         age: 59,
         skills: ["Numeracy", "Strategic", "thinking"],
       },
+
       {
         name: "Merle Gilbert",
         age: 44,
         skills: ["thinking", "management", "making"],
       },
+
       {
         name: "Norton Spence",
         age: 59,
         skills: ["Interviewing", "Observation", "Motivation"],
       },
+
       {
         name: "Angel Simon",
         age: 42,
@@ -378,6 +382,7 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+thirtyFiveOrOlder = friends.filter(friend => friend.age >= 35)
 
 /*
 3) Find the email address
@@ -385,6 +390,7 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+powerNetEmails = friends.filter(friend => friend.company === 'POWERNET').map(friend => friend.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +400,14 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+
+friends.forEach(friend => {
+    const result = friend.colleagues.filter(colleague => colleague.name === 'Stacie Villarreal').length > 0;
+    if (result) {
+      friendsWhoAreColleaguesOfStacie.push(`${friend.name.first} ${friend.name.last}`);
+    }
+})
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -403,8 +417,16 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 
+friends.forEach((friend) => {
+  friend.colleagues
+    .filter((colleague) => colleague.skills.includes("Multi-tasking"))
+    .forEach((colleague) =>
+      colleaguesWhoCanMultitask.push(`${colleague.name}`)
+    );
+});
+
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 4-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
