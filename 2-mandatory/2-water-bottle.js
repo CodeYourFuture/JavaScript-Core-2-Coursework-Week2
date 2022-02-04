@@ -19,20 +19,37 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    if(this.volume === 0){
+      return this.volume += 100
+    } else { return this.volume}
+    
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
+    if(this.volume <= 90 && this.volume >= 0){
+      return this.volume +=10
+    }
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+    if(this.volume <= 100 && this.volume >= 10){
+      return this.volume -=10
+    }
   },
   isFull: function () {
     // this function should return true if your bottle is full;
+    if(this.volume === 100){
+      return true
+    } else return false
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    if(this.volume === 0){
+      return true
+    } else return false
   },
-};
+};  // the test could not run for some reason
+
 
 /*
 TIP:
@@ -44,9 +61,11 @@ TIP:
 Extra question:
   Why do you think it is preferred to use `this` inside the object rather than its variable name, in our case `bottle`?
   Leave your answer below:
-*/
+
+*/ 
 
 // Write you answer to the question here
+// Answer - We need to use this as best practice because to avoid an overlapping local variable with the same name.
 
 /*
 Once you have completed your object run the following 

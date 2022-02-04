@@ -12,7 +12,7 @@ let footballClubs = {
 };
 
 let clubNames =
-  /* todo */
+  Object.keys(footballClubs)
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(

@@ -14,7 +14,7 @@ let people = [
 ];
 
 let peopleNames =
-  /* todo */
+  people.map(e => e.name)
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);

@@ -27,14 +27,21 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for(let buy in weeklyMealPlan){
+  let shopping = weeklyMealPlan[buy].map(function(e){
+    if(!weeklyGroceriesToBuy.includes(e)) //! not used to reverse value
+    return weeklyGroceriesToBuy.push(e)
+  })
+}
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
-
+let weekendGroceriesToBuy = []
+weekendGroceriesToBuy.push(weeklyMealPlan.saturday.concat(weeklyMealPlan.sunday))
+console.log(weekendGroceriesToBuy)
 /*
 Exercise 3:
   Loop through your weekly meal plan:
@@ -50,6 +57,15 @@ let numberOfItemsPerWeek = {
   friday: 0,
   saturday: 0,
   sunday: 0,
+  calculate: function(obj){
+    this.monday = obj.monday.length;
+    this.tuesday = obj.tuesday.length;
+    this.wednesday = obj.wednesday.length;
+    this.thursday = obj.thursday.length;
+    this.friday = obj.friday.length;
+    this.saturday = obj.saturday.length;
+    this.sunday = obj.sunday.length;
+  }
 };
 
 /* ======= TESTS - DO NOT MODIFY ===== 

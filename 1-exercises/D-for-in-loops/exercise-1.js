@@ -13,6 +13,12 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+for( let salary in salaries){
+  // I am loving the charecter names from 'FRIENDS'. The best and classic
+  if(salaries[salary] > 50000){
+     console.log({salary: `$${salaries[salary]}`})
+  }
+} 
 
 // Expected Result:
 // monica: $55000

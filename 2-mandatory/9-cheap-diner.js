@@ -18,8 +18,15 @@ let emptyArray = []
 chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
-
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  let copyArr = [...mealArray]
+  if(mealArray.length === 0){
+    return null
+  } else{
+  copyArr.sort((a,b) => a.price - b.price)
+  return copyArr[1].name}
+}
+console.log(chooseMeal(setOne))
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`

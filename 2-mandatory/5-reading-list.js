@@ -16,13 +16,51 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+    {
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        read: false
+    },
+    {
+        title: "Harry Potter",
+        author: "J k Rowlling",
+        read: true
+    },
+    {
+        title: "Game of Thrones",
+        author: "George R.R. Martin",
+        read: true
+    },
+    {
+        title: "The Vinci Code",
+        author: "Dan Brown",
+        read: false
+    },
+    {
+        title: "Gulliver's Travels",
+        author: "Jonathan Swift",
+        read: false
+    }
+];;
   
 // exercise 1
-function logBooks() {
+function logBooks(book) {
+  book.forEach(function(e){
+  console.log("Title: ", e.title);
+  console.log("Author: ", e.author);
+  })
 }
-  
+logBooks(books)
 
+// Books read function
+function readBook(book){
+  book.forEach(function(e){
+    if(e.read){console.log(`You have read ${e.title} by ${e.author}`)}
+    else {console.log(`You need to read ${e.title} by ${e.author}`)}
+  })
+}
+readBook(books)
 /*
 =====
 Exercise 2

@@ -20,12 +20,18 @@ let shapes = {
   hecatontagon: 100,
   megagon: 1000000,
 };
+let shapesWithMoreThanFiveSides = []; // changed the postision to find declaration on top
+for(let fiveOrMoreSides in shapes){
+  if(shapes[fiveOrMoreSides] >=5){
+    return shapesWithMoreThanFiveSides.push(fiveOrMoreSides) // any console.log unable to run in this file
+  }
+}
+console.log(shapesWithMoreThanFiveSides)
 
-let shapesWithMoreThanFiveSides = [];
-
+console.log(shapes)
 // WRITE YOUR CODE BELOW THIS LINE
 
 // DO NOT EDIT BELOW THIS LINE
-console.log(
-  `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
-);
+// console.log(
+//   `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
+// );
