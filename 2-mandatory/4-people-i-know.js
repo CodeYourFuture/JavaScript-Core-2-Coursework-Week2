@@ -420,7 +420,7 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 for (let friend in friends) {
-     friends.skills.includes('Multi-tasking') 
+     friends.skills.includes('Multi-tasking')
       colleaguesWhoCanMultitask.push(friend.name);
     }  
 
