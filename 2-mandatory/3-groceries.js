@@ -60,7 +60,7 @@ let numberOfItemsPerWeek = {
 };
 
 for (day in weeklyMealPlan) {
-  console.log((numberOfItemsPerWeek[day] = weeklyMealPlan[day].length));
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
