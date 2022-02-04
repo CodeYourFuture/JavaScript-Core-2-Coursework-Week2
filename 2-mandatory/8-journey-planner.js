@@ -19,8 +19,11 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
-
+function journeyPlanner(locations, transportMode) {
+  return Object.entries(locations)
+    .filter(([key, value]) => value.includes(transportMode))
+    .map((loc) => loc[0]);
+}
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -32,6 +35,7 @@ const londonLocations = {
   "Tower Bridge": ["tube", "bus"],
   Greenwich: ["bus", "river boat"],
 };
+console.log(journeyPlanner(londonLocations, "river boat"));
 
 test("journeyPlanner function works - case 1", () => {
   expect(journeyPlanner(londonLocations, "river boat")).toEqual([
