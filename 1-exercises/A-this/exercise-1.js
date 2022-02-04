@@ -16,10 +16,9 @@ let person = {
   age: 32,
   currentAddress: "London",
   celebrateBirthday: function () {
-    return this.age;
+    this.age = this.age + 1;
   },
 };
-
 
 // DO NOT MODIFY BELOW THIS LINE
 let age = person.age;
