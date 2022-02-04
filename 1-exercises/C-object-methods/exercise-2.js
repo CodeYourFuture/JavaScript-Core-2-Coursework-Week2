@@ -15,10 +15,9 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
-  /* todo */
+let petNames = Object.keys(myPets);
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
-    `Expected result: ["Rufus", "Mr Fluffykins", "Lord Voldetort", "Bugs"]. Actual result: ${petNames}`
-  );
+// DO NOT EDIT BELOW THIS LINE
+console.log(
+  `Expected result: ["Rufus", "Mr Fluffykins", "Lord Voldetort", "Bugs"]. Actual result: ${petNames}`
+);
