@@ -16,17 +16,43 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Hobbit",
+    author: "J.R.R Tolkien",
+    Read: true,
+  },
+  {
+    title: "The Map of Salt and Stars",
+    author: "Jennifer Zeynab Joukhadar",
+    Read: true,
+  },
+  {
+    title: "Dietland",
+    author: "Sarai Walker",
+    Read: true,
+  },
+  {
+    title: "A Place for Us",
+    author: "Fatima Farheen Mirza",
+    Read: true,
+  },
+  {
+    title: "The House of Impossible Beauties",
+    author: "Joseph Cassara",
+    Read: true,
+  }
+];
   
 // exercise 1
-function logBooks() {
-}
+
   
 
 /*
 =====
 Exercise 2
 =====
+
 Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
 If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien', 
 and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
@@ -47,8 +73,19 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+function logBooks() {
+  for (let book of books) {
+    if (book.alreadyRead === true) {
+      console.log(`You've already read '${book.title}' by ${book.author}`);
+    } else {
+      {
+        console.log(`You still need to read '${book.title}' by ${book.author}`);
+      }
+    }
+  }
+}
 
-/* ======= TESTS - DO MODIFY (!!!) =====
+/* ======= TESTS - DO MODIFY (!!!) ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)

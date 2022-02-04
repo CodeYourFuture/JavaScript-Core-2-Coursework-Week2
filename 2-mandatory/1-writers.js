@@ -61,6 +61,9 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
+  return writers.map(({ firstName, lastName, age, occupation }) => {
+    console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
+  })
 };
 
 /*
@@ -72,6 +75,11 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  return writers.filter(({ age, alive }) => {
+    return age >= 40 && age < 50 && !alive
+  }).map(({ firstName, lastName, age }) => {
+    console.log(`Writer ${firstName} ${lastName} died at ${age} years old.`);
+  })
 }
 
 /*
@@ -82,6 +90,13 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  return writers
+    .filter(({ age, alive }) => {
+      return age >= 40 && age < 50 && alive;
+    })
+    .map(({ firstName, lastName, age }) => {
+      console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old.`);
+    });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
