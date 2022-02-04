@@ -15,11 +15,39 @@ You should modify the tests so that they contain the values that correspond to y
 In this style of testing it is typical to write out as strings exactly what you expect your output to be, 
 without using any variables or any logic like loops, template strings or if statements.
 */
+const books = [
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: true
+  },
+  {
+    title: "The Map of Salt and Stars",
+    author:"Jennifer Zeynab Joukhadar",
+    alreadyRead: true
+  },
+  {
+    title: "Dietland",
+    author: "Sarai Walker",
+    alreadyRead: false
+  },
+  {
+    title: "A Place for Us",
+    author: "Fatima Farheen Mirza",
+    alreadyRead: true
+  },
+  {
+    title:"The House of Impossible Beauties",
+    author: "Joseph Cassara",
+    alreadyRead: true
+  }
+]
 
-const books = [];
-  
 // exercise 1
-function logBooks() {
+function logBooks(books) {
+  for (let book of books) {
+    console.log(`${book.title} by ${book.author}`)
+  }
 }
   
 
@@ -47,6 +75,16 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+function logBooks(books) {
+  for (let book of books) {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.author}`)
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`)
+    }
+    
+  }
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
@@ -75,7 +113,7 @@ test("books are logged", function() {
 */
 function expectLogBooksToLog(expectedValues) {
     const consoleLogSpy = jest.spyOn(console, 'log');
-    logBooks();
+    logBooks(books);
     expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
     expectedValues.forEach((value, i) => {
       expect(consoleLogSpy).nthCalledWith(i+1, value);

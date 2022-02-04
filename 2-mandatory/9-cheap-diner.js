@@ -19,7 +19,33 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  
+    if (mealArray.length === 0) {
+      return "Nothing :("
+    } else if (mealArray.length === 1){
+      return mealArray[0].name
+    } else {
+      //collect all the available prices,
+      let mealPrices = []
+      for (let meal of mealArray) {
+        mealPrices.push(meal.price)
+      }
+    //sort the prices in different array variable name
+      const mealPricesCopy = [...mealPrices]
+      mealPricesCopy.sort(function(a, b) { return a - b});
+      //save the second chepest price amount as secondCheapestPrice
+      const secondCheapestPrice = mealPricesCopy[1]
+      // filter the mealArray to get the mealwith desored price.
+      // Since it is an object with single Array,eg [{{ name: "Lobster", price: 10.99 }}] we need index [0].name to get its name
+      const desiredMeal = mealArray.filter(meal => meal.price === secondCheapestPrice)[0].name
+      return desiredMeal
+  
+    }
+      
+  
+  
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`

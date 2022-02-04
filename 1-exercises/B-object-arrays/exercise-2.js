@@ -17,7 +17,7 @@ let store = [
 let money = 1.5;
 
 let thingsICanBuy =
-  /* todo */
+  store.filter(obj => obj["price"] <= money).map(prod => prod.item)
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(
