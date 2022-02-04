@@ -13,7 +13,18 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
-
+let highSalarie = Object.keys(salaries);
+highSalarie.forEach((highSalarie) => {
+  let salary = salaries[highSalarie];
+  if (salary > 50000) {
+    let message = `${[highSalarie]} : $${salary}`;
+    console.log(message);
+  }
+});
+// for (let key in salaries) {
+//   if (salaries[key] > 50000)
+//     console.log(Object.keys(salaries) + "$" + salaries[key]);
+// }
 // Expected Result:
 // monica: $55000
 // rachel: $90000
