@@ -379,12 +379,32 @@ First, I want you to find all of my friends who are 35 or older.
 
 let thirtyFiveOrOlder = [];
 
+friends.forEach((friend) => {
+  if (friend.age >= 35) {
+    thirtyFiveOrOlder.push(friend);
+  }
+});
+
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
+
+
 let powerNetEmails = [];
+
+
+friends.forEach((friend) => {
+  const theirCompany = friend.company;
+  const theirEmail = friend.email;
+
+  if (theirCompany === "POWERNET") {
+    // do something with theirEmail here
+    powerNetEmails.push(theirEmail);
+  }
+});
+
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -402,6 +422,67 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+
+
+friends.forEach((friend) => {
+  const theirColleagues = friend.colleagues;
+
+  theirColleagues.forEach((colleague) => {
+    const colleagueSkills = colleague.skills;
+    const colleagueName = colleague.name;
+
+    if (colleagueSkills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(colleagueName);
+    }
+  });
+});
+
+/*
+// let thirtyFiveOrOlder = friends.filter((friendObject) => {
+//   const theirAge = friendObject.age;
+//   if (theirAge >= 35) {
+//     // return true => keep the thing
+//     return true;
+//   } else {
+//     // return false => gets filtered out
+//     return false;
+//   }
+// });
+let thirtyFiveOrOlder = [];
+friends.forEach((friend) => {
+  if (friend.age >= 35) {
+    thirtyFiveOrOlder.push(friend);
+  }
+});
+
+let powerNetEmails = [];
+friends.forEach((friend) => {
+  const theirCompany = friend.company;
+  const theirEmail = friend.email;
+
+  if (theirCompany === "POWERNET") {
+    // do something with theirEmail here
+    powerNetEmails.push(theirEmail);
+  }
+});
+
+let colleaguesWhoCanMultitask = [];
+friends.forEach((friend) => {
+  const theirColleagues = friend.colleagues;
+
+  theirColleagues.forEach((colleague) => {
+    const colleagueSkills = colleague.skills;
+    const colleagueName = colleague.name;
+
+    if (colleagueSkills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(colleagueName);
+    }
+  });
+});
+
+*/
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`

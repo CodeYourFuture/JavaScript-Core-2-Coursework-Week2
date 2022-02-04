@@ -16,7 +16,7 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy = store.filter( param => param.price < money ).map(param => param.item)
+let thingsICanBuy = store.filter( prop => prop.price < money ).map(prop => prop.item)
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

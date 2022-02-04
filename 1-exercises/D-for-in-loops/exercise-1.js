@@ -13,9 +13,15 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+for (let property in salaries){
+if (salaries[property] > 50000) {
+  //console.log(property);  
+  console.log(property + ": $" + salaries[property]);
+}
+}
 
 
-
+//property is the property of salaries object
 
 // Expected Result:
 // monica: $55000
