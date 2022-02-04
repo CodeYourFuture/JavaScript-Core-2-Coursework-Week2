@@ -1,10 +1,6 @@
-/*
-
-   The "people" array contains objects which describe a person.
+/*   The "people" array contains objects which describe a person.
    Create an array containing only the names of all the people in the array.
-
    hint: use the array "map" method.
-
 */
 
 let people = [
@@ -13,8 +9,9 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames =
-  /* todo */
+let peopleNames = people.map((onlyNames) => onlyNames.name);
+
+//let peopleNames = people.map((onlyNames) => this.name);
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);

@@ -5,13 +5,9 @@
 
 */
 
-let footballClubs = {
-  chelsea_fc: "England",
-  fc_barcelona: "Spain",
-  ac_milan: "Italy",
-};
+let footballClubs = {  chelsea_fc: "England",  fc_barcelona: "Spain",  ac_milan: "Italy",};
 
-let clubNames =
+let clubNames = Object.keys(footballClubs);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

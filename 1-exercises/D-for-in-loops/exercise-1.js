@@ -6,11 +6,13 @@
 
 */
 
-let salaries = {
-  ross: 30000,
-  monica: 55000,
-  rachel: 90000,
-};
+let salaries = {  ross: 30000,  monica: 55000,  rachel: 90000,};
+
+for(let personSalary in salaries){
+if (salaries[personSalary] > 50000){
+console.log(personSalary +":"+ "$"+ salaries[personSalary])
+}
+}
 
 // WRITE BELOW THIS LINE
 

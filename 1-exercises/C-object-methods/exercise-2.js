@@ -8,14 +8,10 @@
 
 */
 
-let myPets = {
-  dog: "Rufus",
-  cat: "Mr Fluffykins",
-  tortoise: "Lord Voldetort",
-  rabbit: "Bugs",
-};
+let myPets = {  dog: "Rufus",  cat: "Mr Fluffykins",
+  tortoise: "Lord Voldetort",  rabbit: "Bugs", };
 
-let petNames =
+let petNames = Object.values(myPets);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
