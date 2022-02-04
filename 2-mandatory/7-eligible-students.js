@@ -14,7 +14,13 @@
   - Returns an array containing only the names of the who have attended AT LEAST 8 classes
  */
 
-function eligibleStudents(attendances) {}
+function eligibleStudents(attendances) {
+
+let arr = [];
+return attendances.filter(el => el.attendance >= 8).map (el => el.name)
+
+
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 7-eligible-students.js`
