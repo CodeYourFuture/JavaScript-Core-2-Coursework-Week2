@@ -27,6 +27,14 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for (let day in weeklyMealPlan) {
+  weeklyMealPlan[day].forEach(element => {
+    if (!weeklyGroceriesToBuy.includes(element)) weeklyGroceriesToBuy.push(element);
+  });
+  // console.log(weeklyMealPlan[day]);
+}
+// console.log(weeklyGroceriesToBuy);
+
 
 /*
 Exercise 2:
@@ -34,6 +42,15 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+for (let day in weeklyMealPlan) {
+  if (day === "saturday" || day === "sunday") {
+    weeklyMealPlan[day].forEach(element => {
+      if (!weekendGroceriesToBuy.includes(element))
+        weekendGroceriesToBuy.push(element);
+    });
+  }
+}
+// console.log(weekendGroceriesToBuy);
 
 /*
 Exercise 3:
@@ -52,6 +69,11 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+for (let key in weeklyMealPlan) {
+  numberOfItemsPerWeek[key] = weeklyMealPlan[key].length;
+  // console.log(numberOfItemsPerWeek[key]);
+}
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -60,19 +82,19 @@ let numberOfItemsPerWeek = {
 
 test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
   const expectedWeeklyGroceriesToBuy = [
-    'Cheese',       'Eggs',
-    'Tomato',       'Paprika',
-    'Leek',         'Wrap',
-    'Tuna',         'Canned beans',
-    'Carrot',       'Aubergine',
+    'Cheese', 'Eggs',
+    'Tomato', 'Paprika',
+    'Leek', 'Wrap',
+    'Tuna', 'Canned beans',
+    'Carrot', 'Aubergine',
     'Orange Juice', 'Apple',
-    'Ananas',       'Black tea',
-    'Lamb',         'Salt',
-    'Bulgur',       'Potato',
-    'Rice milk',    'Blueberries',
-    'Porridge',     'Banana',
-    'Cinnamon',     'Olive oil',
-    'Salmon',       'Asparagus'
+    'Ananas', 'Black tea',
+    'Lamb', 'Salt',
+    'Bulgur', 'Potato',
+    'Rice milk', 'Blueberries',
+    'Porridge', 'Banana',
+    'Cinnamon', 'Olive oil',
+    'Salmon', 'Asparagus'
   ];
   expect(weeklyGroceriesToBuy).toIncludeSameMembers(expectedWeeklyGroceriesToBuy);
 });

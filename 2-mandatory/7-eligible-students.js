@@ -13,22 +13,68 @@
     (see tests to confirm how this data will be structured)
   - Returns an array containing only the names of the who have attended AT LEAST 8 classes
  */
+// const attends = [{
+//     name: "Ahmed",
+//     attendance: 8
+//   },
+//   {
+//     name: "Clement",
+//     attendance: 10
+//   },
+//   {
+//     name: "Elamin",
+//     attendance: 6
+//   },
+//   {
+//     name: "Adam",
+//     attendance: 7
+//   },
+//   {
+//     name: "Tayoa",
+//     attendance: 11
+//   },
+//   {
+//     name: "Nina",
+//     attendance: 10
+//   },
+// ];
 
-function eligibleStudents(attendances) {}
-
+function eligibleStudents(attendances) {
+  let result = attendances.filter(obj => obj.attendance >= 8).map(item => item.name);
+  // console.log(result);
+  return result
+}
+// eligibleStudents(attends);
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-const attendances = [
-  { name: "Ahmed", attendance: 8 },
-  { name: "Clement", attendance: 10 },
-  { name: "Elamin", attendance: 6 },
-  { name: "Adam", attendance: 7 },
-  { name: "Tayoa", attendance: 11 },
-  { name: "Nina", attendance: 10 },
+const attendances = [{
+    name: "Ahmed",
+    attendance: 8
+  },
+  {
+    name: "Clement",
+    attendance: 10
+  },
+  {
+    name: "Elamin",
+    attendance: 6
+  },
+  {
+    name: "Adam",
+    attendance: 7
+  },
+  {
+    name: "Tayoa",
+    attendance: 11
+  },
+  {
+    name: "Nina",
+    attendance: 10
+  },
 ];
 
 test("eligibleStudents function works", () => {

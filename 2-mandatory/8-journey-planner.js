@@ -18,8 +18,22 @@
   When you finish the exercise, think about how this solution is different to your last solution.
   What's better about each approach?
 */
+// let eg = {
+//   Angel: ["tube", "bus"],
+//   "London Bridge": ["tube", "river boat"],
+// }
 
-function journeyPlanner(locations, transportMode) {}
+function journeyPlanner(locations, transportMode) {
+  let stationsToGo = [];
+  for (let eachLocation in locations) {
+    if (locations[eachLocation].includes(transportMode)) {
+      stationsToGo.push(eachLocation);
+      // console.log(stationsToGo);
+    }
+  }
+  return stationsToGo;
+}
+// journeyPlanner(eg, "bus");
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`

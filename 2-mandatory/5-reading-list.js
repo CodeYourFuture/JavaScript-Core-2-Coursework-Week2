@@ -16,12 +16,45 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-  
+const books = [{
+    Title: "Blindness",
+    Author: "Jose Saramago",
+    alreadyRead: true
+  },
+  {
+    Title: "One Hundred Years of Solitudeess",
+    Author: "Gabriel García Márquez",
+    alreadyRead: true
+  },
+  {
+    Title: "Goodbye Gary Cooper",
+    Author: "Romain Gary",
+    alreadyRead: false
+  },
+  {
+    Title: "Symphony of the Dead",
+    Author: "Abbas Maroufi",
+    alreadyRead: false
+  },
+  {
+    Title: "Hafez Poet",
+    Author: "Hafiz",
+    alreadyRead: true
+  }
+];
+
 // exercise 1
 function logBooks() {
+  books.forEach(obj => console.log(`${obj.Title} by ${obj.Author}`))
 }
-  
+
+
+function readBooks() {
+  books.forEach(obj => obj.alreadyRead ? console.log(`You've already read ${obj.Title} by ${obj.Author}`) : console.log(`You still need to read ${obj.Title} by ${obj.Author}`))
+}
+
+
+
 
 /*
 =====
@@ -54,31 +87,51 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+test("books are logged", function () {
+  expectLogBooksToLog([
+    "Blindness by Jose Saramago",
+    "One Hundred Years of Solitudeess by Gabriel García Márquez",
+    "Goodbye Gary Cooper by Romain Gary",
+    "Symphony of the Dead by Abbas Maroufi",
+    "Hafez Poet by Hafiz",
+  ]);
+});
+
+test("books are read", function () {
+  expectReadBooksToLog([
+    "You've already read Blindness by Jose Saramago",
+    "You've already read One Hundred Years of Solitudeess by Gabriel García Márquez",
+    "You still need to read Goodbye Gary Cooper by Romain Gary",
+    "You still need to read Symphony of the Dead by Abbas Maroufi",
+    "You've already read Hafez Poet by Hafiz",
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
-* Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
-*
-* - If the number of calls to console.log does not match the number of elements in the array, the test will fail
-* - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
-*
-* You do not need to understand how this function works to successfully complete the exercise.
-*/
+ * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
+ *
+ * - If the number of calls to console.log does not match the number of elements in the array, the test will fail
+ * - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
+ *
+ * You do not need to understand how this function works to successfully complete the exercise.
+ */
 function expectLogBooksToLog(expectedValues) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    logBooks();
-    expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-    expectedValues.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
+  const consoleLogSpy = jest.spyOn(console, 'log');
+  logBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+};
+
+function expectReadBooksToLog(expectedValues) {
+  const consoleLogSpy = jest.spyOn(console, 'log');
+  readBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
 };
