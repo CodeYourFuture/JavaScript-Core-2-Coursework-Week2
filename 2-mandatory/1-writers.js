@@ -62,6 +62,7 @@ Exercise 1:
 function logAllWriters() {
   // write your code to log all writers here
   // let values = Object.values(writers);
+  // for (let writer of writers)
   return writers.forEach( ({firstName, lastName, age, occupation }) => 
   {console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`); })
 
