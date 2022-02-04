@@ -61,6 +61,20 @@ Exercise 3:
     - and update the corresponding properties of numberOfItemsPerWeek object.
 */
 // Gather daily item counts into this object
+
+arr = [];
+for (let ingredients in weeklyMealPlan){
+  arr.push(weeklyMealPlan[ingredients])
+}
+
+arr2 = [];
+for (i = 0; i < arr.length; i++){
+  for (j = 0; j < arr[i]; j++) {
+  }
+  arr2.push(arr[i].length);
+}
+
+
 let numberOfItemsPerWeek = {
   monday: 0,
   tuesday: 0,
@@ -71,32 +85,38 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
-let arr3 = [];
+// extract arrays from object, and push to new array
+arr = [];
 for (let ingredients in weeklyMealPlan){
   arr.push(weeklyMealPlan[ingredients])
 }
 
-let arr4 = [];
-for (i = 0; i < arr3.length; i++){
+// creates array which logs number of elements in each inner array of arr
+arr2 = [];
+for (i = 0; i < arr.length; i++){
   for (j = 0; j < arr[i]; j++) {
   }
-  arr4.push(arr[i].length);
+  arr2.push(arr[i].length);
 }
 
+// converts object into array of arrays
+let newArr = [];
+newArr.push(Object.keys(numberOfItemsPerWeek), Object.values(numberOfItemsPerWeek));
 
+// replaces array containing initial object key's values with arr2
+newArr[1] = arr2;
 
-let items = "";
-for(element of arr4) {
-for(key in numberOfItemsPerWeek){
+function transfer() {
+  let box = [];
+  let container = [];
+  for (let i = 0; i < 7; i++){
+      box.push((newArr[0][i] + ":" + " " + newArr[1][i]));     
+  }
+  container.push(box);
+  return container.flat();
 }
 
-items += `${key}: ${element} `;
-}
-
-
-
-
-console.log(items);
+console.log(transfer())
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

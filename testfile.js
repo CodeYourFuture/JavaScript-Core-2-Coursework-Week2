@@ -73,17 +73,6 @@ let weeklyMealPlan = {
 // console.log(weekendGroceriesToBuy.flat());
 
 
-let arr = [];
-for (let ingredients in weeklyMealPlan){
-  arr.push(weeklyMealPlan[ingredients])
-}
-
-let arr2 = [];
-for (i = 0; i < arr.length; i++){
-  for (j = 0; j < arr[i]; j++) {
-  }
-  arr2.push(arr[i].length);
-}
 
 let numberOfItemsPerWeek = {
   monday: 0,
@@ -95,20 +84,52 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
-
-
-let items = "";
-for(element of arr2) {
-for(key in numberOfItemsPerWeek){
+// extract arrays from object, and push to new array
+let arr = [];
+for (let ingredients in weeklyMealPlan){
+  arr.push(weeklyMealPlan[ingredients])
 }
 
-items += `${key}: ${element} `;
+// creates array which logs number of elements in each inner array of arr
+let arr2 = [];
+for (i = 0; i < arr.length; i++){
+  for (j = 0; j < arr[i]; j++) {
+  }
+  arr2.push(arr[i].length);
 }
 
+// converts object into array of arrays
+let newArr = [];
+newArr.push(Object.keys(numberOfItemsPerWeek), Object.values(numberOfItemsPerWeek));
+
+// replaces array containing initial object key's values with arr2
+newArr[1] = arr2;
+
+function transfer() {
+  let box = [];
+  let container = [];
+  for (let i = 0; i < 7; i++){
+      box.push((newArr[0][i] + ":" + " " + newArr[1][i]));     
+  }
+  container.push(box);
+  return container.flat();
+}
+
+console.log(transfer())
+// let items = "";
+// let container = 0;
+// for(element of arr2) {
+//   container = element;
+// // items += `${key}: ${element} `;
+// }
+//  for(key in numberOfItemsPerWeek){
+//  };
 
 
 
-console.log(items);
+
+
+
 
 // let uniqueChars = chars.filter((element, index) => {
 //     return chars.indexOf(element) === index;
