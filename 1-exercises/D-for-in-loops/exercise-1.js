@@ -13,6 +13,9 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+for (name in salaries) {
+  if (salaries[name] > 50000) console.log("$" + salaries[name]);
+}
 
 // Expected Result:
 // monica: $55000
