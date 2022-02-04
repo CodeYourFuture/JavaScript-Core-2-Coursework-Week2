@@ -22,7 +22,7 @@ const books = [];
 // let logBooks = () =>
 //   books.forEach((book) => console.log(`${book.title} by ${book.author}`));
 
-let logBooks = () =>
+function logBooks() {
   books.forEach((book) => {
     if (book.alreadyRead == true) {
       console.log(`You've already read "${book.title}" by ${book.author}`);
@@ -32,8 +32,7 @@ let logBooks = () =>
       );
     }
   });
-
-console.log(logBooks());
+}
 
 /*
 =====
