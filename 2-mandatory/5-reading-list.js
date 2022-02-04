@@ -20,6 +20,9 @@ const books = [];
   
 // exercise 1
 function logBooks() {
+  for(let book of books) {
+    console.log(`"${book.title} by ${book.author}"`);
+  }
 }
   
 
@@ -47,6 +50,15 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+
+function logBooks() {
+  for(let book of books) 
+  if(book.alreadyRead === true) {
+    console.log(`'You've already read ${book.title} by ${book.author}'`);
+  } else {
+    console.log(`'You still need to read ${book.title} by ${book.author}'`)
+  }
+  };
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
