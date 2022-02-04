@@ -408,7 +408,21 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
+//  loop through friends
+//colleague.name.includes("Stacie Villarreal")
 let friendsWhoAreColleaguesOfStacie = [];
+
+friends.filter((friend) => {
+  let colleagueName = friend.colleagues.name;
+  let friendsName = friend.name.first + " " + friend.name.last;
+  if(colleagueName.includes("Stacie Villarreal")){
+    friendsWhoAreColleaguesOfStacie.push(friendsName);
+  }
+});
+
+// let friendsWhoAreColleaguesOfStacie = friends.filter((friend) => friend.colleagues)
+// .map((name) => name.includes("Stacie Villarreal"))
+// .map((e)=>e.name.first+ " " + e.name.last);
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -431,7 +445,7 @@ friends.forEach((friend) => {
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 4-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */

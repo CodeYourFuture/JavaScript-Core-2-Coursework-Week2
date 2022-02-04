@@ -27,14 +27,20 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+  mealPlanValue = Object.values(weeklyMealPlan);
+  mealPlanValue = mealPlanValue.flat();
+  weeklyGroceriesToBuy = [...new Set(mealPlanValue)];
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
+let weekendGroceriesToBuy = weeklyMealPlan["saturday"];
 
+// for (const property in weeklyMealPlan) {
+//    (`${weeklyMealPlan[property]}`)
+// }
 /*
 Exercise 3:
   Loop through your weekly meal plan:
@@ -52,8 +58,12 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+let totalIngredients   = [];
+   allMealPlan = Object.values(weeklyMealPlan);
+   allMealPlan.filter((e) => console.log(`${Object.keys(weeklyMealPlan)}: ${e.length}`));
+
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 3-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
