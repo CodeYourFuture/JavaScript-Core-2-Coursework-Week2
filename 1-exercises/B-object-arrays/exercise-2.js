@@ -16,12 +16,10 @@ let store = [
 
 let money = 1.5;
 
-
-
   /* todo */
 let thingsICanBuy = store
-  .filter((element) => element.price < money)
-  .map((element) => element.item);
+  .filter (element => money >= element.price)
+  .map (element => element.item);
 
   /* todo */
 

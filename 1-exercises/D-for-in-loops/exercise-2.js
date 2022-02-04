@@ -26,8 +26,8 @@ let shapesWithMoreThanFiveSides = [];
 // WRITE YOUR CODE BELOW THIS LINE
 
 for (key in shapes) {
-  let shapeName = key;
-  shapes[shapeName] >= 5 && shapesWithMoreThanFiveSides.push(shapeName);
+  let shape = key;
+  shapes[shape] >= 5 && shapesWithMoreThanFiveSides.push(shape);
 }
 
 // DO NOT EDIT BELOW THIS LINE

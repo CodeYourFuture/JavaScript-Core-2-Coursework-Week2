@@ -16,6 +16,7 @@ let myPets = {
 };
 
 let petNames = Object.values(myPets);
+
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

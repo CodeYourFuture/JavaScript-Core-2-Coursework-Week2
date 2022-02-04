@@ -16,10 +16,22 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  { title: 'Sum', author: 'David Eagleman', alreadyRead: true },
+  { title: 'A Short History of Nearly Everything', author: 'Bill Bryson', alreadyRead: true },
+  { title: 'Brave New World', author: 'Aldous Huxley', alreadyRead: false },
+  { title: 'All Quiet on the Western front', author: 'Eric Maria Remarque', alreadyRead: true },
+  { title: 'The Silmarillion', author: 'J.R.R. Tolkien', alreadyRead: false },
+];
   
 // exercise 1
+
 function logBooks() {
+  books.forEach((book) => {
+    book.alreadyRead
+      ? console.log(`You have already read ${book.title} by ${book.author}`)
+      : console.log(`You still need to read ${book.title} by ${book.author}`);
+  });
 }
   
 
@@ -48,20 +60,20 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
-
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+test('books are logged', function () {
+  expectLogBooksToLog([
+    'You\'ve already read "Sum" by David Eagleman',
+    'You\'ve already read "A Short History of Nearly Everything" by Bill Bryson',
+    'You still need to read "Brave New World" by Aldous Huxley',
+    'You\'ve already read "All Quiet on the Western front" by Eric Maria Remarque',
+    'You still need to read "The Silmarillion" by J.R.R. Tolkien',
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */

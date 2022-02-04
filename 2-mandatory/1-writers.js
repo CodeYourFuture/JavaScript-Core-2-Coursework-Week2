@@ -59,14 +59,15 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
+
 function logAllWriters() {
   // write your code to log all writers here
-  return writers.map(({ firstName, lastName, age, occupation }) => {
-    console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
-  })
+  for (let writer of writers) {
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+    );
+  }
 }
-
-logAllWriters()
 
 // /*
 // Exercise 2:
@@ -77,14 +78,15 @@ logAllWriters()
 
 function logDeadWritersInTheirForties() {
   // write your code here
-  return writers.filter(({ age, alive }) => {
-    return age >= 40 && age < 50 && !alive
-  }).map(({ firstName, lastName, age }) => {
-    console.log(`Writer ${firstName} ${lastName} died at ${age} years old.`);
-  })
+    for (let writer of writers) {
+      if(writer.age >= 40 && writer.age < 50 && !writer.alive){
+      console.log(
+      `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+    );
+    }    
+  }
 }
 
-  logDeadWritersInTheirForties();
 // /*
 // Exercise 3:
 //   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
@@ -93,16 +95,14 @@ function logDeadWritersInTheirForties() {
 
 function logAliveWritersInTheirForties() {
   // write your code here
-  return writers
-    .filter(({ age, alive }) => {
-      return age >= 40 && age < 50 && alive;
-    })
-    .map(({ firstName, lastName, age }) => {
-      console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old.`);
-    });
+      for (let writer of writers) {
+      if(writer.age >= 40 && writer.age < 50 && writer.alive){
+      console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+    );
+    }    
+  }
 }
-
-logAliveWritersInTheirForties()
 
 // /* ======= TESTS - DO NOT MODIFY ===== 
 // - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
@@ -110,29 +110,29 @@ logAliveWritersInTheirForties()
 // - (Reminder: You must have run `npm install` one time before this will work!)
 // */
 
-// test("exercise 1", () => expectFunctionToLog(logAllWriters, [
-//   "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
-//   "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
-//   "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
-//   "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
-//   "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
-// ]));
+test("exercise 1", () => expectFunctionToLog(logAllWriters, [
+  "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
+  "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
+  "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
+  "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
+  "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
+]));
 
-// test("exercise 2", () => expectFunctionToLog(logDeadWritersInTheirForties, [
-//   "Writer Jane Austen died at 41 years old."
-// ]));
+test("exercise 2", () => expectFunctionToLog(logDeadWritersInTheirForties, [
+  "Writer Jane Austen died at 41 years old."
+]));
 
-// test("exercise 3", () => expectFunctionToLog(logAliveWritersInTheirForties, [
-//   "Hi, my name is Zadie Smith. I am 40 years old.",
-//   "Hi, my name is Yukiko Motoya. I am 49 years old."
-// ]));
+test("exercise 3", () => expectFunctionToLog(logAliveWritersInTheirForties, [
+  "Hi, my name is Zadie Smith. I am 40 years old.",
+  "Hi, my name is Yukiko Motoya. I am 49 years old."
+]));
 
-// function expectFunctionToLog(f, values) {
-//     const consoleLogSpy = jest.spyOn(console, 'log');
-//     f();
-//     expect(consoleLogSpy).toBeCalledTimes(values.length);
-//     values.forEach((value, i) => {
-//       expect(consoleLogSpy).nthCalledWith(i+1, value);
-//     });
-//     consoleLogSpy.mockRestore();
-// };
+function expectFunctionToLog(f, values) {
+    const consoleLogSpy = jest.spyOn(console, 'log');
+    f();
+    expect(consoleLogSpy).toBeCalledTimes(values.length);
+    values.forEach((value, i) => {
+      expect(consoleLogSpy).nthCalledWith(i+1, value);
+    });
+    consoleLogSpy.mockRestore();
+};

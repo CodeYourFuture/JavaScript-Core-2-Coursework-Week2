@@ -6,7 +6,6 @@
 
 */
 
-
 let person = {
     name: "Maggie",
     age: 26,

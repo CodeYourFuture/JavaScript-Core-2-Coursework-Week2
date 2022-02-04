@@ -13,7 +13,7 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames = people.map((element) => element.name) 
+let peopleNames = people.map (element => element.name);
 
   /* todo */
 
