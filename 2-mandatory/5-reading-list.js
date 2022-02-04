@@ -124,3 +124,12 @@ function expectLogBooksToLog(expectedValues) {
   });
   consoleLogSpy.mockRestore();
 }
+function expectLogBooksToLogCheck(expectedValues) {
+  const consoleLogSpy = jest.spyOn(console, "log");
+  checkBook();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}
