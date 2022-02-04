@@ -25,6 +25,20 @@ let shapesWithMoreThanFiveSides = [];
 
 // WRITE YOUR CODE BELOW THIS LINE
 
+for (let shape in shapes) {
+ shape.filter(shape => shape.length > 5)
+
+}
+
+//const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+//const result = words.filter(word => word.length > 6);
+
+//console.log(result);
+
+
+
+
 // DO NOT EDIT BELOW THIS LINE
 console.log(
   `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`

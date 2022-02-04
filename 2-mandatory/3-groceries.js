@@ -27,6 +27,10 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+ for(let values of Object.values(weeklyMealPlan)){
+   
+   weeklyGroceriesToBuy.push(values)
+ }
 
 /*
 Exercise 2:
@@ -34,6 +38,11 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+for(const value of Object.values(weeklyMealPlan)) {
+  weekendGroceriesToBuy.push(value)
+}
+
+
 
 /*
 Exercise 3:
