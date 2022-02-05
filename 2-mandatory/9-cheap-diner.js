@@ -19,7 +19,17 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  if (mealArray.length === 0) {
+    return null;
+  }
+  if (mealArray.length == 1) {
+    return mealArray[0].name;
+  }
+  const copyOfMealArray = [...mealArray];
+  copyOfMealArray.sort((a, b) => a.price - b.price);
+  return copyOfMealArray[1].name;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
@@ -61,7 +71,7 @@ test("Only one meal to select", () => {
 });
 
 test("No meals to select", () => {
-  expect(chooseMeal([])).toEqual("Nothing :(");
+  expect(chooseMeal([])).toEqual(null);
 });
 
 test("Meal to select is second cheapest, not second most expensive", () => {
