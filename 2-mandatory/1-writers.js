@@ -71,11 +71,20 @@ Exercise 1:
 
 
 ////////////     SOLUTION 2     //////////////
+// function logAllWriters(){
+//   writers.forEach(({firstName, lastName, age, occupation}) =>{
+//   console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
+// });
+// }
+
+
+////////   SOLUTION 3   ///////
 function logAllWriters(){
-  writers.forEach(({firstName, lastName, age, occupation}) =>{
-  console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
-});
+  for(let writer of writers){
+          console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`);
+  }
 }
+
 
 /*
 Exercise 2:

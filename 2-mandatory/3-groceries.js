@@ -71,9 +71,9 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
-for(keyObject in weeklyMealPlan){
-  let day = weeklyMealPlan[keyObject];
-  numberOfItemsPerWeek[keyObject] = day.length;
+for(dayKeyObject in weeklyMealPlan){
+  let dayValue = weeklyMealPlan[dayKeyObject];
+  numberOfItemsPerWeek[dayKeyObject] = dayValue.length;
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
