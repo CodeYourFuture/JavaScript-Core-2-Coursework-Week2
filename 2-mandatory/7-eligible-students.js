@@ -16,8 +16,8 @@
 
 function eligibleStudents(attendances) {
   return attendances
-    .filter((item) => item.attendance >= 8)
-    .map((item) => item.name);
+    .filter((student) => student.attendance >= 8)
+    .map((student) => student.name);
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
