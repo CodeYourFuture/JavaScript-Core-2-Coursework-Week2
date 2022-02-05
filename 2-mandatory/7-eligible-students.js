@@ -15,11 +15,11 @@
  */
 
 function eligibleStudents(attendances) {
-  let isAttendedArr = [];
-  attendances.forEach((student) => {
-    if (student.attendance >= 8) isAttendedArr.push(student.name);
-  });
-  return isAttendedArr;
+  return attendances
+    .filter((student) => student.attendance >= 8)
+    .map((student) => {
+      return student.name;
+    });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
