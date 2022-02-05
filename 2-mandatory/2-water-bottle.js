@@ -28,7 +28,7 @@ const bottle = {
   },
   drink() {
     if (this.isEmpty()) return;
-    this.volume = this.volume + UNITS < 0 ? 0 : this.volume - UNITS;
+    this.volume = this.volume - UNITS < 0 ? 0 : this.volume - UNITS;
   },
   isFull() {
     return this.volume === this.capacity;
