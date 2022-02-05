@@ -36,12 +36,8 @@ function chooseMeal(mealArray) {
   else {
   mealArray.sort((a,b) => a.price-b.price);
   return mealArray[1].name
-   console.log(mealArray)
+  }
 }
-}
-   
-
-  console.log(chooseMeal(meal))
 
 
 
