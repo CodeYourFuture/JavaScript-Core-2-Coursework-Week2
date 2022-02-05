@@ -11,10 +11,11 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+      return peopleArray.reduce( (accum, element) => accum + element.budget, 0);
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 6-budgets.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */

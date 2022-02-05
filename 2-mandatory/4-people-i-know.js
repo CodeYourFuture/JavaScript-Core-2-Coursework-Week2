@@ -389,6 +389,15 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+friends.forEach((friend) => {
+  const theirCompany = friend.company;
+  const theirEmail = friend.email;
+
+  if (theirCompany === "POWERNET") {
+    // do something with theirEmail here
+    powerNetEmails.push(theirEmail);
+  }
+});
 
 
 
@@ -399,7 +408,16 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+let friendsWhoAreColleaguesOfStacie = friends
+  .filter((friend) =>
+    friend.colleagues.some(
+      (colleague) => colleague.name === "Stacie Villarreal"
+    )
+  )
+  .map((friend) => `${friend.name.first} ${friend.name.last}`);
+
+
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -408,6 +426,18 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+friends.forEach((friend) => {
+  const theirColleagues = friend.colleagues;
+
+  theirColleagues.forEach((colleague) => {
+    const colleagueSkills = colleague.skills;
+    const colleagueName = colleague.name;
+
+    if (colleagueSkills.includes("Multi-tasking")) {
+        colleaguesWhoCanMultitask.push(colleagueName)
+    }
+  });
+});
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
