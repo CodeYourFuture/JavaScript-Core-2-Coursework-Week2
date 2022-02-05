@@ -20,7 +20,7 @@ const bottle = {
   volume: 0,
   capacity: 100,
   fillUp() {
-    this.volume = 100;
+    this.volume = this.capacity;
   },
   pour() {
     if (this.isFull()) return;
