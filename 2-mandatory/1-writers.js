@@ -59,9 +59,23 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
-  // write your code to log all writers here
-};
+
+
+//////////     SOLUTION 1   ///////////1
+// function logAllWriters() {
+//   // write your code to log all writers here
+//   for (let i = 0; i < writers.length; i ++){
+//     console.log(`Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old, and work as a ${writers[i].occupation}.`);
+//   }
+// };
+
+
+////////////     SOLUTION 2     //////////////
+function logAllWriters(){
+  writers.forEach(({firstName, lastName, age, occupation}) =>{
+  console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
+});
+}
 
 /*
 Exercise 2:
@@ -70,8 +84,24 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
+
+//////////     SOLUTION 1   ///////////1
+  // function logDeadWritersInTheirForties() {
+  //   for(let i = 0; i < writers.length; i++){
+  //     if(writers[i].age >= 40 && writers[i].age <= 49 && writers[i].alive === false){
+  //       console.log(`Writer ${writers[i].firstName} ${writers[i].lastName} died at ${writers[i].age} years old.`)
+  //     }
+  //   }
+  // }
+
+
+////////////     SOLUTION 2     //////////////
 function logDeadWritersInTheirForties() {
-  // write your code here
+  writers.filter(({age, alive}) => {
+    return age >= 40 && age <= 49 && !alive
+  }).map(({firstName, lastName, age}) => {
+    console.log(`Writer ${firstName} ${lastName} died at ${age} years old.`)
+  });
 }
 
 /*
@@ -80,9 +110,31 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
+
+
+//////////     SOLUTION 1   ///////////1
+// function logAliveWritersInTheirForties() {
+//   for(let i = 0; i < writers.length; i ++){
+//     if(writers[i].age >= 40 && writers[i].age <= 49 && writers[i].alive === true) {
+//       console.log(`Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old.`);
+//     }
+//   }
+// }
+
+
+
+////////////     SOLUTION 2     //////////////
 function logAliveWritersInTheirForties() {
-  // write your code here
+  writers.filter(({age, alive}) => {
+    return age >= 40 && age <= 49 && alive;
+  }).map(({firstName, lastName, age}) =>{
+    console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old.`);
+  })
 }
+
+
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
