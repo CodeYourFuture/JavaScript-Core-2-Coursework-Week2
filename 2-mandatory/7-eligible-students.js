@@ -17,7 +17,7 @@
 function eligibleStudents(attendances) {
 
 let arr = [];
-return attendances.filter(el => el.attendance >= 8).map (el => el.name)
+return attendances.filter(el => el.attendance >= 8).map(el => el.name)
 
 
 }

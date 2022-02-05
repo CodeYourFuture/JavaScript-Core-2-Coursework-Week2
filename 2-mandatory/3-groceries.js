@@ -28,8 +28,8 @@ Exercise 1:
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
 
-for (let key in weeklyMealPlan){
-  weeklyGroceriesToBuy = weeklyGroceriesToBuy.concat(weeklyMealPlan[key]);
+for (let day in weeklyMealPlan){
+  weeklyGroceriesToBuy = weeklyGroceriesToBuy.concat(weeklyMealPlan[day]);
 }
 
 weeklyGroceriesToBuy = weeklyGroceriesToBuy.filter(function (value,index,arr){

@@ -427,16 +427,13 @@ This time, I only want the full names of the people who can multitask
 let colleaguesWhoCanMultitask = [];
 
 // \\\\\
-for (let el of friends){
-   for (let element of el.colleagues){
-     if (element.skills.includes("Multi-tasking")){
-      colleaguesWhoCanMultitask.push(element.name)
+for (let friend of friends){
+   for (let colleague of friend.colleagues){
+     if (colleague.skills.includes("Multi-tasking")){
+      colleaguesWhoCanMultitask.push(colleague.name)
      }
    }
 }
-
-
-
 
 
 
