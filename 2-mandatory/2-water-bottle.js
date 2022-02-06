@@ -39,9 +39,7 @@ let bottle = {
     // this function should return true if your bottle is full;
     if (this.volume === 100) {
       return true;
-    } else if (this.volume === 0) {
-      return false;
-    } else if (this.volume >= 10 && this.volume <= 100 && this.volume != 0) {
+    } else {
       return false;
     }
   },
@@ -49,7 +47,7 @@ let bottle = {
     // this function should return true if your bottle is empty;
     if (this.volume === 0) {
       return true;
-    } else if (this.volume >= 10 && this.volume <= 100 && this.volume != 0) {
+    } else {
       return false;
     }
   },
