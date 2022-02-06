@@ -5,7 +5,7 @@
   This is the same exercise again, but we've stored each student's
   information in an object instead of an array.
   After you complete the exercise, compare your solution to your previous one.
-  Can you see how using objects leads to more clear code?
+  Can you see how using objects leads to clearer code?
   -------------------------------------------------------------------------
   Only students who have attended enough classes are eligible to sit an exam.
   Create a function which:
@@ -14,7 +14,11 @@
   - Returns an array containing only the names of the who have attended AT LEAST 8 classes
  */
 
-function eligibleStudents(attendances) {}
+function eligibleStudents(attendances) {
+  return attendances
+    .filter((student) => student.attendance > 7)
+    .map((student) => student.name);
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
