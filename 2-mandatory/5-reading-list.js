@@ -85,6 +85,19 @@ As an example for this exercise, you might do the following steps
 //   });
 // }
 
+// ## SOLUTION - CYF
+/*
+function logBooksPartTwo() {
+  books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read "${book.title} by ${book.author}"`);
+    } else {
+      console.log(`You still need to read "${book.title} by ${book.author}"`);
+    }
+  });
+}
+ */
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

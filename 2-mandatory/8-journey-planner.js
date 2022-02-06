@@ -27,6 +27,22 @@ const journeyPlanner = (locations, transportMode) => {
   return result.map((entry) => entry[0]);
 };
 
+// ### SOLUTION - CYF
+/*
+function journeyPlanner(locations, transportMode) {
+  let possibleLocations = [];
+  let places = Object.keys(locations);
+  places.forEach((location) => {
+    let transportMethods = locations[location];
+    if (transportMethods.includes(transportMode)) {
+      possibleLocations.push(location);
+    }
+  });
+  return possibleLocations;
+}
+
+*/
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

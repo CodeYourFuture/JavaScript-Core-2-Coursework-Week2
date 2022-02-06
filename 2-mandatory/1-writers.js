@@ -83,6 +83,20 @@ const logDeadWritersInTheirForties = () => {
   });
 };
 
+// ### SOLUTION - CYF
+/*
+function logDeadWritersInTheirForties() {
+  // write your code here
+  writers.forEach((writer) => {
+    if (writer.age < 50 && writer.age > 39 && !writer.alive) {
+      console.log(
+        `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+      );
+    }
+  });
+}
+*/
+
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
@@ -97,6 +111,20 @@ const logAliveWritersInTheirForties = () => {
       );
   });
 };
+
+// ### SOLUTION - CYF
+/*
+function logAliveWritersInTheirForties() {
+  // write your code here
+  writers.forEach((writer) => {
+    if (writer.age < 50 && writer.age > 39 && writer.alive) {
+      console.log(
+        `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+      );
+    }
+  });
+}
+*/
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`

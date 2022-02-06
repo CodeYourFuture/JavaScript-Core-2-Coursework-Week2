@@ -383,6 +383,9 @@ let thirtyFiveOrOlder = friends.filter(function (friend) {
   }
 });
 
+// ### SOLUTION - CYF
+// let thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
+
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
@@ -397,6 +400,13 @@ friends
       return powerNetEmails.push(friendCompany.email);
     }
   });
+
+// ### SOLUTION - CYF
+/*
+let powerNetEmails = friends
+  .filter((friend) => friend.company === "POWERNET")
+  .map((friend) => friend.email);
+*/
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -413,6 +423,20 @@ let friendsWhoAreColleaguesOfStacie = friends
   )
   .map((stacieFriend) => `${stacieFriend.name.first} ${stacieFriend.name.last}`)
   .reverse();
+
+// ### SOLUTION - CYF
+/*
+let friendsWhoAreColleaguesOfStacie = [];
+friends.forEach((friend) => {
+  friend.colleagues.forEach((colleague) => {
+    if (colleague.name === "Stacie Villarreal") {
+      let friendName = friend.name.first + " " + friend.name.last;
+      friendsWhoAreColleaguesOfStacie.push(friendName);
+    }
+  });
+});
+*/
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -432,6 +456,21 @@ friends.forEach((friend) => {
     }
   });
 });
+
+// ### SOLUTION - CYF
+/*
+let colleaguesWhoCanMultitask = [];
+friends.forEach((friend) => {
+  friend.colleagues.forEach((colleague) => {
+    if (
+      colleague.skills.includes("Multi-tasking") &&
+      !colleaguesWhoCanMultitask.includes(colleague.name)
+    ) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
+  });
+});
+*/
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`

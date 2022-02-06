@@ -34,12 +34,41 @@ let weeklyGroceriesToBuy = Object.values(weeklyMealPlan)
     }
     return a;
   }, []);
+
+//### SOLUTION - CYF
+/*
+let weeklyGroceriesToBuy = [];
+for (let day in weeklyMealPlan) {
+  let ingredients = weeklyMealPlan[day];
+  ingredients.forEach((ingredient) => {
+    if (!weeklyGroceriesToBuy.includes(ingredient)) {
+      weeklyGroceriesToBuy.push(ingredient);
+    }
+  });
+}
+*/
+
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = Object.values(weeklyMealPlan.saturday).flat();
+
+//### SOLUTION - CYF
+/*
+let weekendGroceriesToBuy = [];
+for (let day in weeklyMealPlan) {
+  if (day === "saturday" || day === "sunday") {
+    let ingredients = weeklyMealPlan[day];
+    ingredients.forEach((ingredient) => {
+      if (!weekendGroceriesToBuy.includes(ingredient)) {
+        weekendGroceriesToBuy.push(ingredient);
+      }
+    });
+  }
+}
+*/
 
 /*
 Exercise 3:
@@ -61,6 +90,15 @@ let numberOfItemsPerWeek = {
 for (let eachDay in weeklyMealPlan) {
   numberOfItemsPerWeek[eachDay] = weeklyMealPlan[eachDay].length;
 }
+
+//## SOLUTION - CYF
+/*
+for (let day in weeklyMealPlan) {
+  let ingredients = weeklyMealPlan[day];
+  let numIngredients = ingredients.length;
+  numberOfItemsPerWeek[day] = numIngredients;
+}
+*/
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

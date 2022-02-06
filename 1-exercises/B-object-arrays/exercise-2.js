@@ -17,7 +17,7 @@ let store = [
 let money = 1.5;
 
 let thingsICanBuy = store
-  .filter((canBuy) => canBuy.price < money)
+  .filter((canBuy) => canBuy.price <= money)
   .map((canBuy) => canBuy.item);
 
 // DO NOT EDIT BELOW THIS LINE
