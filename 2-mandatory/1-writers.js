@@ -62,9 +62,14 @@ Exercise 1:
 function logAllWriters() {
   // write your code to log all writers here
   
- return writers.forEach(obj => console.log(`Hi, my name is ${obj.firstName} ${obj.lastName}. I am ${obj.age} years old, and work as a ${obj.occupation}`) )
-
+ writers.forEach(obj => {
+   console.log(
+     `Hi, my name is ${obj.firstName} ${obj.lastName}. I am ${obj.age} years old, and work as a ${obj.occupation}.`
+    );
+ });
 };
+
+
 
 /*
 Exercise 2:
@@ -75,12 +80,11 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   
-  const listName = writers.filter( el => el.age >= 40 && el.age < 50 && !el.alive);
+ let listName = writers.filter( el => el.age >= 40 && el.age < 50 && !el.alive);
 
-  for (let writer of listName){
-    console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`)
-  }
-
+listName.forEach ((writer) => console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`)
+);
+  
 }
 
 /*
@@ -90,11 +94,12 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  const aliveFortiesList = writers.filter( el => el.age >= 40 && el.age < 50 && el.alive);
-
-  for (let writer of aliveFortiesList){
-    console.log(`Hi, my name is  ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`)
+  for (let writer of writers) {
+    if (writer.age >= 40 && writer.age < 50 && writer.alive ) {
+      console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`);
+    }
   }
+
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
