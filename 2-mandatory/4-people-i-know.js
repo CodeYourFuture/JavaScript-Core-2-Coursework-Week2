@@ -407,7 +407,7 @@ let friendsWhoAreColleaguesOfStacie = friends.filter((friend) =>
   friend.colleagues.some((colleague) => colleague.name === "Stacie Villarreal")
 );
 friendsWhoAreColleaguesOfStacie = friendsWhoAreColleaguesOfStacie.map(
-  (friend) => `${friend.name.first} ${friend.name.last}`
+  ({ name }) => `${name.first} ${name.last}`
 );
 
 /*
