@@ -19,7 +19,9 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
-    this.volume += 100;
+    while (this.volume != 100) {
+      this.volume++;
+    }
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
