@@ -377,12 +377,8 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
-friends.forEach((friend) => {
-  if (friend.age >= 35) {
-    thirtyFiveOrOlder.push(friend);
-  }
-})
+let thirtyFiveOrOlder = friends.filter((friend)=> friend.age >= 35);
+
 
 /*
 3) Find the email address
