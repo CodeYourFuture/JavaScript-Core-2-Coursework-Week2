@@ -19,7 +19,9 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+function journeyPlanner(locations, transportMode) {
+  
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
