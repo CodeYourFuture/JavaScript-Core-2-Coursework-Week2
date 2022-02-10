@@ -474,7 +474,7 @@ test("5 - colleagues who can multitask", () => {
   "Rush May",
   "Gena Good",
   "Cunningham Shelton",
-  "Castro Castaneda",
+  "Castro Castaneda",                 
   "Luz Newton",
   ]);
 });
