@@ -76,7 +76,7 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   for (let writer of writers) {
-    if (writer.age >= 40 && writer.age <= 49 && writer.alive === false) {
+    if (writer.age >= 40 && writer.age <= 49 && !writer.alive) {
       console.log(
         `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
       );
@@ -92,7 +92,7 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   for (let writer of writers) {
-    if (writer.age >= 40 && writer.age <= 49 && writer.alive === true) {
+    if (writer.age >= 40 && writer.age <= 49 && writer.alive) {
       console.log(
         `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
       );

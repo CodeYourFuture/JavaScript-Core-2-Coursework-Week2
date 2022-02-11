@@ -17,19 +17,19 @@ without using any variables or any logic like loops, template strings or if stat
 */
 
 const books = [
-  { title: 'Javascript & Jquery', Author: 'Jon Duckett', alreadyRead: true },
-  { title: 'The Time Machine', Author: 'H. G. Wells', alreadyRead: true },
-  { title: 'Harry Potter', Author: 'J. K. Rowling', alreadyRead: false },
-  { title: 'The Hobbit', Author: 'J.R.R. Tolkien', alreadyRead: true },
-  { title: 'Dietland', Author: 'Sarai Walker', alreadyRead: false },
+  { title: 'The Hobbit', author: 'J.R.R. Tolkien', alreadyRead: true },
+  { title: 'The Fault in Our Stars', author: 'John Green', alreadyRead: false },
+  { title: 'To Kill a Mockingbird', author: 'Harper Lee', alreadyRead: true },
+  { title: 'The Hunger Games', author: 'Suzanne Collins', alreadyRead: false },
+  { title: 'The Book Theif', author: 'Markus Zusak', alreadyRead: true },
 ];
 
 // exercise 1
 function logBooks() {
   for (let book of books) {
     book.alreadyRead === true
-      ? console.log(`You've already read "${book.title}" by ${book.Author}`)
-      : console.log(`You still need to read "${book.title}" by ${book.Author}`);
+      ? console.log(`You've already read "${book.title}" by ${book.author}`)
+      : console.log(`You still need to read "${book.title}" by ${book.author}`);
   }
 }
 
@@ -66,11 +66,11 @@ As an example for this exercise, you might do the following steps
 
 test('books are logged', function () {
   expectLogBooksToLog([
-    'You\'ve already read "Javascript & Jquery" by Jon Duckett',
-    'You\'ve already read "The Time Machine" by H. G. Wells',
-    'You still need to read "Harry Potter" by J. K. Rowling',
     'You\'ve already read "The Hobbit" by J.R.R. Tolkien',
-    'You still need to read "Dietland" by Sarai Walker',
+    'You still need to read "The Fault in Our Stars" by John Green',
+    'You\'ve already read "To Kill a Mockingbird" by Harper Lee',
+    'You still need to read "The Hunger Games" by Suzanne Collins',
+    'You\'ve already read "The Book Theif" by Markus Zusak',
   ]);
 });
 
