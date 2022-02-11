@@ -16,7 +16,7 @@ let person = {
     age: 32,
     currentAddress: "London",
     celebrateBirthday: function (){
-        return (`Expected age is ${expectedAge}, actual age is ${this.age}`)
+        return this.age += 1;
     } /* todo */
 };
 
