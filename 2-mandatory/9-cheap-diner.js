@@ -27,7 +27,7 @@ let meal=[
     ]
 
 function chooseMeal(mealArray) {
-  if(mealArray.length ===0){
+  if(!mealArray.length){
     return 'Nothing :('
   }
   if (mealArray.length ===1){
