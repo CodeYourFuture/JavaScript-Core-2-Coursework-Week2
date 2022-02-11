@@ -72,7 +72,7 @@ Exercise 2:
 
 function logDeadWritersInTheirForties(array) {
   array.filter(object => {
-    if (object.alive === false && object.age < 49 && object.age > 40) {
+    if (!object.alive && object.age < 49 && object.age > 40) {
       console.log(`Writer ${object.firstName} ${object.lastName} died at ${object.age} years old.`)
     }
   })
@@ -86,7 +86,7 @@ Exercise 3:
 
 function logAliveWritersInTheirForties(array) {
   array.filter(object => {
-   if (object.alive === true && object.age >=40 && object.age <= 49) {
+   if (object.alive && object.age >=40 && object.age <= 49) {
     console.log(`Hi, my name is ${object.firstName} ${object.lastName}. I am ${object.age} years old.`)
    }
   })
