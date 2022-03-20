@@ -1,7 +1,7 @@
 /*
 
    Use a "for...in" loop to log out the name of
-   each person who earns more than 50000. The
+   each person who earns more than  . The
    log should include a "$" symbol before each salary.
 
 */
@@ -13,6 +13,12 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+
+for (let salary in salaries) {
+  if (salaries[salary] > 50000) {
+    console.log(`${salary}: $${salaries[salary]}`);
+  }
+}
 
 // Expected Result:
 // monica: $55000
