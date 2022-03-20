@@ -1,9 +1,5 @@
-/*
-Below you will find a list of people that I know. 
-*/
-
-/*
-1) Reading
+/*   Below you will find a list of people that I know.   */
+/*   1) Reading
 Before you start, you should read through the object below so that you understand the structure of it.
 When you've finished. Continue to the exercises below.
 */
@@ -377,14 +373,15 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+const thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+const powerNetEmails = friends.filter((friend) => friend.company === "POWERNET")
+  .map((friend) => friend.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -393,7 +390,15 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+const friendsWhoAreColleaguesOfStacie = [];
+friends.forEach((friend) => {
+  friend.colleagues.forEach((colleague) => {
+    if (colleague.name === "Stacie Villarreal") {
+      let friendName = friend.name.first + " " + friend.name.last;
+      return friendsWhoAreColleaguesOfStacie.push(friendName);
+    }
+  });
+});
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -401,7 +406,18 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
+const colleaguesWhoCanMultitask = [];
+friends.forEach((friend) => {
+  friend.colleagues.forEach((colleague) => {
+    if (
+      colleague.skills.includes("Multi-tasking") &&
+      !colleaguesWhoCanMultitask.includes(colleague.name)
+    ) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
+  });
+});
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
