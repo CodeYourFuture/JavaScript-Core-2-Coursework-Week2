@@ -11,6 +11,10 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  return peopleArray.reduce(
+    (previousValue, currentValue) => previousValue + currentValue.budget,
+    0
+  );
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
