@@ -4,7 +4,7 @@
   Feel free to look at your solution to that one to help you out - you already did this once!
   -----------------------------------------------------------------------
   Write a function journeyPlanner that:
-  - Accepts two paramters:
+  - Accepts two parameters:
     1) An object where the keys are locations and the values are arrays of the transportation modes you can use to get there.
        e.g.
        {
@@ -20,15 +20,15 @@
 */
 
 function journeyPlanner(locations, transportMode) {
-  let possibleLocations = [];
-  let places = Object.keys(locations);
+  const desiredLocations = [];
+  const places = Object.keys(locations);
   places.forEach((location) => {
-    let transportMethods = locations[location];
+    const transportMethods = locations[location];
     if (transportMethods.includes(transportMode)) {
-      possibleLocations.push(location);
+      desiredLocations.push(location);
     }
   });
-  return possibleLocations;
+  return desiredLocations;
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
