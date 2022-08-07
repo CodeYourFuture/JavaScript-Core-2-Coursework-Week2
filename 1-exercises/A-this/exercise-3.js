@@ -5,11 +5,14 @@
   added to or subtracted from the "currentAmount".
 
 */
-
 let bankAccount = {
   currentAmount: 100,
-  deposit: function (amount) {},
-  withdraw: function (amount) {},
+  deposit: function (amount) {
+    this.currentAmount += amount;
+  },
+  withdraw: function (amount) {
+    this.currentAmount -= amount;
+  },
 };
 
 // DO NOT EDIT BELOW THIS LINE
