@@ -16,14 +16,14 @@ Please complete the details below this message
 
 # Your Details
 
-- Your Name:
-- Your City:
-- Your Slack Name:
+- Your Name: Nishka Kisten
+- Your City: Cape Town
+- Your Slack Name: Nishka-Kisten
 
 # Homework Details
 
-- Module:
-- Week:
+- Module: JavaScript-Core-2
+- Week: 2
 
 # Notes
 
