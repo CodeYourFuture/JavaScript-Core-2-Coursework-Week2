@@ -414,6 +414,14 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+friends.forEach((friend) => {
+  friend.colleagues.forEach((colleague) => {
+    let colleagueWithMultitask = colleague.skills.find(skill => skill.toLowerCase() === 'multi-tasking')
+    if (colleagueWithMultitask) {
+      colleaguesWhoCanMultitask.push(colleague.name)
+    }
+  })
+})
 
 
 /* ======= TESTS - DO NOT MODIFY ===== 
