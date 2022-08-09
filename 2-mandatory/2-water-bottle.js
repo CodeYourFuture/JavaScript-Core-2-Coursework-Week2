@@ -19,18 +19,40 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    return this.volume = 100;
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
+    if(this.volume < 100 ){
+    return this.volume = this.volume + 10;
+  } else {
+    return this.volume = 100;
+  }
+
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+    if (this.volume === 0){
+    return this.volume = 0
+    } else {
+      return this.volume = this.volume - 10;
+    }
   },
   isFull: function () {
     // this function should return true if your bottle is full;
+    if (this.volume === 100){
+      return true;
+    } else { 
+      return false;
+    }
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    if (this.volume === 0){
+      return true;
+    } else {
+      return false;
+    }
   },
 };
 
@@ -47,6 +69,7 @@ Extra question:
 */
 
 // Write you answer to the question here
+// It is easier and ensures you are referring to elements within that object.. could possibly be referring to another object named bottle.
 
 /*
 Once you have completed your object run the following 
