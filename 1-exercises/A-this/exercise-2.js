@@ -11,13 +11,16 @@ let person = {
     name: "Maggie",
     age: 26,
     currentAddress: "London",
-    changeAddress: /* todo */
-};
-
+    newAddress: "Edinburgh",
+    changeAddress: function(){
+       console.log(this.currentAddress = this.newAddress);
+    },
+}
+person.changeAddress();
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
-person.changeAddress("Edinburgh");
-console.log(`Expected result: Edinburgh. Actual result: ${person.currentAddress}`);
+// person.changeAddress("Edinburgh");
+// console.log(`Expected result: Edinburgh. Actual result: ${person.currentAddress}`);

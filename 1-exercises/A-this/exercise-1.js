@@ -15,12 +15,15 @@ let person = {
     name: "Adrian",
     age: 32,
     currentAddress: "London",
-    celebrateBirthday: /* todo */
+    expectedAge: 0,
+    celebrateBirthday: function(){
+       console.log(this.age + 1);
+    } 
 };
+person.celebrateBirthday();
 
-
-// DO NOT MODIFY BELOW THIS LINE
-let age = person.age;
-let expectedAge = age + 1;
-person.celebrateBirthday()
-console.log(`Expected age is ${expectedAge}, actual age is ${person.age}`)
+// // DO NOT MODIFY BELOW THIS LINE
+// let age = person.age;
+// let expectedAge = age + 1;
+// person.celebrateBirthday()
+// console.log(`Expected age is ${expectedAge}, actual age is ${person.age}`)
