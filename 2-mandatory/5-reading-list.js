@@ -16,10 +16,41 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+"War and Peace by Leo Tolstoy",
+"In Search of Lost Time by Marcel Proust"
+const books = [
+  {
+    title: "The Alchemist",
+    author: "Paulo Coelo",
+    alreadyRead: true
+  },
+  {
+    title: "Think and Grow Rich",
+    author: "Napolean Hill",
+    alreadyRead: false
+  },
+  {
+    title: "The Art of War",
+    author: "Sun Tzu",
+    alreadyRead: false
+  },
+  {
+    title: "War and Peace",
+    author: "Leo Tolstoy",
+    alreadyRead: false
+  },
+  {
+    title: "In Search of Lost Time",
+    author: "Marcel Proust",
+    alreadyRead: false
+  }
+];
   
 // exercise 1
 function logBooks() {
+  books.forEach(obj => {
+    console.log(`${obj.title} by ${obj.author}`)
+  })
 }
   
 
@@ -48,6 +79,17 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+// exercise 1
+function logBooks2() {
+  books.forEach(obj => {
+    if(obj.alreadyRead) {
+      console.log(`You've already read '${obj.title}' by ${obj.author}.`);
+    } else {
+      console.log(`You still need to read '${obj.title}' by ${obj.author}.`);
+    }
+  })
+}
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -55,14 +97,25 @@ As an example for this exercise, you might do the following steps
 */
 
 test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+  expectLogBooksToLog([
+        "The Alchemist by Paulo Coelo",
+        "Think and Grow Rich by Napolean Hill",
+         "The Art of War by Sun Tzu",
+         "War and Peace by Leo Tolstoy",
+         "In Search of Lost Time by Marcel Proust"
+     ]);
+ });
+
+test("books are logged, stating if read or not", function() {
+ expectLogBooksToLog2([
+   "You've already read 'The Alchemist' by Paulo Coelo.",
+   "You still need to read 'Think and Grow Rich' by Napolean Hill.",
+   "You still need to read 'The Art of War' by Sun Tzu.",
+   "You still need to read 'War and Peace' by Leo Tolstoy.",
+   "You still need to read 'In Search of Lost Time' by Marcel Proust.",
+  ]);
 });
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
@@ -81,4 +134,14 @@ function expectLogBooksToLog(expectedValues) {
       expect(consoleLogSpy).nthCalledWith(i+1, value);
     });
     consoleLogSpy.mockRestore();
+};
+
+function expectLogBooksToLog2(expectedValues) {
+  const consoleLogSpy = jest.spyOn(console, 'log');
+  logBooks2();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i+1, value);
+  });
+  consoleLogSpy.mockRestore();
 };

@@ -16,10 +16,16 @@
   - Returns an array of where I can go if I only want to use a specific mode of transport.
   NOTE: Only the location names should be returned, as strings.
   When you finish the exercise, think about how this solution is different to your last solution.
-  What's better about each approach?
+  What's better about each approach? => Using objects leads to more shorter and cleaners code while using arrays things can get a little tedious.
 */
 
-function journeyPlanner(locations, transportMode) {}
+const journeyPlanner = (locations, transportMode) => {
+  let arr = [];
+  for(let location in locations) {
+    if(locations[location].includes(transportMode)) arr.push(location);
+  }
+  return arr;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`

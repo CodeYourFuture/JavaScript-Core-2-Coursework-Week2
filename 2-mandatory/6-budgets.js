@@ -10,8 +10,7 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {
-}
+const getBudgets = peopleArray => peopleArray.map(obj => obj.budget).reduce((tot, num) => tot + num, 0);
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`

@@ -19,7 +19,16 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+const chooseMeal = mealArray => {
+  let meal = "";
+  let prices = mealArray.map(obj => obj.price).sort((a,b) => a - b);
+  
+  for(let obj of mealArray) if(obj.price === prices[1]) meal = obj.name;
+
+  return (mealArray.length === 0) ? "Nothing :("
+  : (mealArray.length === 1) ? mealArray[0].name
+  : meal;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
