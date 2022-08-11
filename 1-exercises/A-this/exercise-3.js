@@ -8,9 +8,17 @@
 
 let bankAccount = {
   currentAmount: 100,
-  deposit: function (amount) {},
-  withdraw: function (amount) {},
+  deposit: function (amount) {
+    this.deposit = this.deposit + 50;
+  },
+  withdraw: function (amount) {
+    this.withdraw = this.withdraw - 25;
+  },
 };
+
+console.log(bankAccount.deposit);
+console.log (bankAccount.withdraw);
+
 
 // DO NOT EDIT BELOW THIS LINE
 bankAccount.deposit(50);

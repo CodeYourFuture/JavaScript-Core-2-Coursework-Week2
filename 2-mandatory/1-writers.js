@@ -53,6 +53,23 @@ let writers = [
   }
 ];
 
+ var obj = [
+      {firstName: "Virginia", lastName: "Woolf", age: 59, occupation: "writer"},
+      {firstName: "Zadie", lastName: "Smith", age: 40, occupation: "writer"},
+      {firstName: "Jane", lastName: "Austen", age: 41, occupation: "writer"},
+      {firstName: "Bell", lastName: "Hooks", age: 63, occupation: "writer"},
+      {firstName: "Yukiko", lastName: "Motoya", age: 49, occupation: "writer"},
+      ];
+      
+Object.values(obj).forEach(value => console.log(value));
+
+
+
+
+
+
+
+
 /*
 Exercise 1:
   Loop through the Array, and for each object, use `console.log()` to print out the below sentence

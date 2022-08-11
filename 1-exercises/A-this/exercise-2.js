@@ -11,9 +11,12 @@ let person = {
     name: "Maggie",
     age: 26,
     currentAddress: "London",
-    changeAddress: /* todo */
+    changeAddress: Edinburgh
+    
 };
 
+person.newAddress("Edinburgh");
+console.log(person.currentAddress);
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE
