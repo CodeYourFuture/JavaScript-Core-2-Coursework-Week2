@@ -13,8 +13,13 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
+// let getNames = function (people) {
+//   return Object.keys(people);
+// }
+
 let peopleNames =
   /* todo */
+  people.map((person) => person.name);
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);
