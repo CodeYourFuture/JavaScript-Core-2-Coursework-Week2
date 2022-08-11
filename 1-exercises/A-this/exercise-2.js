@@ -11,7 +11,10 @@ let person = {
     name: "Maggie",
     age: 26,
     currentAddress: "London",
-    changeAddress: /* todo */
+    changeAddress(newAddress) {
+        return (this.currentAddress);
+    },
+     /* todo */
 };
 
 
