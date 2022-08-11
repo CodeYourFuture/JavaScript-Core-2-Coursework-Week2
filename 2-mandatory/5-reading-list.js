@@ -16,10 +16,23 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {name: "Grandmaster Of Demonic Cultivation", author: "Mo Xiang Tong Xiu", haveRead:true},
+  {name: "No Longer Human", author:"Osamu Dazai", haveRead:false},
+  {name:"The Little Mushroom", author:"Xiao Shisi", haveRead: false},
+  {name:"The Song Of Achilles", author:"Madeline Miller", haveRead: false},
+  {name:"Heavens Officials Blessings", author:"Mo Xiang Tong Xiu", haveRead: true},
+];
   
 // exercise 1
 function logBooks() {
+  for( const key of books){
+    if(key.haveRead === true){
+      console.log(`You've already read '${key.name}' by ${key.author}`);
+    }else {
+        console.log(`You still need to read '${key.name}' by ${key.author}`);
+    }
+}
 }
   
 
@@ -56,11 +69,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function() {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
+        "You've already read 'Grandmaster Of Demonic Cultivation' by Mo Xiang Tong Xiu",
+        "You still need to read 'No Longer Human' by Osamu Dazai",
+        "You still need to read 'The Little Mushroom' by Xiao Shisi",
+        "You still need to read 'The Song Of Achilles' by Madeline Miller",
+        "You've already read 'Heavens Officials Blessings' by Mo Xiang Tong Xiu"
     ]);
 });
 
