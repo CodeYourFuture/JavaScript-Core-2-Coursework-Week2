@@ -18,8 +18,25 @@
   When you finish the exercise, think about how this solution is different to your last solution.
   What's better about each approach?
 */
+//This function is much shorter and clear. And also the Object is much
+//more smaller and easier to loop through.
 
-function journeyPlanner(locations, transportMode) {}
+// const londonLocations = {
+//   Angel: ["tube", "bus"],
+//   "London Bridge": ["tube", "river boat"],
+//   "Tower Bridge": ["tube", "bus"],
+//   Greenwich: ["bus", "river boat"],
+// };
+
+function journeyPlanner(locations, transportMode) {
+  let myLocations = [];
+  for (const key in locations) {
+    if (locations[key].includes(transportMode)) {
+      myLocations.push(key);
+    }
+  }
+  return myLocations;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
