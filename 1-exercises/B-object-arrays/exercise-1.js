@@ -12,8 +12,11 @@ let people = [
   { name: "John", age: 20 },
   { name: "Elise", age: 35 },
 ];
-
-let peopleNames =
+function peeps(people){
+  return people.name; 
+}
+let peopleNames = people.map(peeps);
+// let peopleNames = Object.keys(people);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

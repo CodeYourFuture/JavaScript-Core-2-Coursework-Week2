@@ -24,7 +24,21 @@ let shapes = {
 let shapesWithMoreThanFiveSides = [];
 
 // WRITE YOUR CODE BELOW THIS LINE
+function moreSided(shapes) {
+for (const key in shapes) {
+  if (shapes[key] >= 5) {
+      return Object.keys(shapes)
+    }
+  }
+};
+shapesWithMoreThanFiveSides = console.log(moreSided);
 
+
+// for (const key in shapes) {
+//   if (shapes[key] >= 5) {
+//     return shapesWithMoreThanFiveSides =  console.log(`${key}`);
+//   }
+// };         output is - pentagon
 // DO NOT EDIT BELOW THIS LINE
 console.log(
   `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`

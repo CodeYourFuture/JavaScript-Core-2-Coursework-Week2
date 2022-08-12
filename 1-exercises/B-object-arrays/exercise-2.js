@@ -16,7 +16,36 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
+function ableToBuy(money) {
+  if (money <= store.price) {
+    return store.filter(store.item);
+  }
+};
+
+let thingsICanBuy = store.map(ableToBuy);
+// must come back to
+
+
+// thingsICanBuy = store.filter(function(ableToBuy) {
+//   return ableToBuy.price >= money;
+// }).map(function(ableToBuy) {
+//   return ableToBuy.item;
+// });
+
+// ableToBuy.forEach(function(item) {
+//   return item;
+// })
+
+
+
+// function ableToBuy(money) {
+//   if (store.price <= money);
+//   return store.item;
+// }
+
+// let thingsICanBuy = store.filter.map(ableToBuy);
+
+// let thingsICanBuy = store.filter(store).map(store);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
