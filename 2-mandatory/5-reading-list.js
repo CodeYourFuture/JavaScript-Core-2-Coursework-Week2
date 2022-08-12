@@ -16,12 +16,21 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [{title:"The Kite Runner",Author:"Khaled Hosseini",alreadyRead:true},{title:"Circle of Pearls",Author:"Rosalind Laker",alreadyRead:true},{title:"Celebration of Discipline",Author:"Richard Foster",alreadyRead:true},{title:"Coloured",Author:"ALJ Venter",alreadyRead:true},{title:"The Lie of 1652: A Decolonised History of Land",Author:"Patric T Mellet",alreadyRead:false}];
   
 // exercise 1
-function logBooks() {
+function logBooks(books) {
+
+for(let i=0; i < books.length; i++) {
+  if(books[i].alreadyRead){
+ console.log(`You've already read "${books[i].title}" by ${book[i].Author}`)} else {
+  console.log(`You still need to read "${books[i].title}" by ${book[i].Author}`)
+ };
 }
-  
+ return bookArray;
+}
+
+
 
 /*
 =====
@@ -64,10 +73,44 @@ test("books are logged", function() {
     ]);
 });
 
+test("CHECK -books are logged", function () {
+ expectLogBooksToLog(["The Kite Runner by Khaled Hosseini",
+  "Circle of Pearls by Rosalind Laker",
+  "Celebration of Discipline by Richard Foster",
+  "Coloured by ALJ Venter",
+  "The Lie of 1652: A Decolonised History of Land by Patric T Mellet",
+    ]);
+});
+
+
+test("1 - Array to be in order", () => {
+  expect(logBooks).toIncludeSameMembers([
+  "The Kite Runner by Khaled Hosseini",
+  "Circle of Pearls by Rosalind Laker",
+  "Celebration of Discipline by Richard Foster",
+  "Coloured by ALJ Venter",
+  "The Lie of 1652: A Decolonised History of Land by Patric T Mellet",
+  ]);
+});
+//struggling to get tests to run
+
+// test("1 - Array to be in order", () => {
+//   expect(logBooks).toIncludeSameMembers([
+//   "The Kite Runner by Khaled Hosseini",
+//   "Circle of Pearls by Rosalind Laker",
+//   "Celebration of Discipline by Richard Foster",
+//   "Coloured by ALJ Venter",
+//   "The Lie of 1652: A Decolonised History of Land by Patric T Mellet",
+//   ]);
+// });
+
+
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
 * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
 *
+
+
 * - If the number of calls to console.log does not match the number of elements in the array, the test will fail
 * - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
 *
