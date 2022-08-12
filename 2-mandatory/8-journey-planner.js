@@ -19,7 +19,19 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+//it is much shorter and easier to understand. Didnt need to interpret too much to get to final answer.
+//prev solution breaks down all the steps
+
+function journeyPlanner(locations, transportMode) {
+
+let validLocs = []
+for (const key in locations) {
+  if (locations[key].includes(transportMode)) {
+    validLocs.push(key)
+  }
+}
+return validLocs
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
