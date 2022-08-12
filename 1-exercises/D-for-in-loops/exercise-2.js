@@ -24,6 +24,9 @@ let shapes = {
 let shapesWithMoreThanFiveSides = [];
 
 // WRITE YOUR CODE BELOW THIS LINE
+for (let item in shapes) {
+  if (shapes[item] >= 5) shapesWithMoreThanFiveSides.push(item);
+}
 
 // DO NOT EDIT BELOW THIS LINE
 console.log(
