@@ -13,15 +13,61 @@ Write a funciton that loops through the array of books. For each book, log the b
 You should write and log at least 5 books. 
 You should modify the tests so that they contain the values that correspond to your books.
 In this style of testing it is typical to write out as strings exactly what you expect your output to be, 
-without using any variables or any logic like loops, template strings or if statements.
+without using any variables or any lo
+gic like loops, template strings or if statements.
 */
 
-const books = [];
+
+const books = [
+  {
+    title: 'If your Statement',
+    Author: 'Sidanth',
+    alreadyRead: true,
+  },
+  {
+    title: 'For in the Loop',
+    Author: 'Rayno',
+    alreadyRead: false,
+  },
+  {
+    title: 'Testing the waters',
+    Author: 'Denver',
+    alreadyRead: true,
+  },
+  {
+    title: 'Array of Rooms',
+    Author: 'Shaun',
+    alreadyRead: false,
+  },
+  {
+    title: 'PD Power',
+    Author: 'Lana',
+    alreadyRead: true,
+  },
+
+
+];  
   
 // exercise 1
-function logBooks() {
-}
-  
+// function logBooks(books) {
+//   for (value in books) {
+//     if (books[value] = value) {
+//      console.log(`${books.title} by ${books.Author}.`);
+//     }
+//   }
+// };
+// console.log(logBooks(books));
+
+function logBooks(books) {
+  for (value in books) {
+    if (books[value] = true) {
+     console.log(`'You have already read "${books.title}" by ${books.Author}.'`);
+    } else {
+      console.log(`'You still need to read "${books.title}" by ${books.Author}.'`);
+    }
+  }
+};
+console.log(logBooks(books));
 
 /*
 =====
@@ -56,11 +102,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function() {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
+  'You have already read "If your statement" by Sidanth',
+  'You still need to read "For in the Loop" by Rayno',
+  'You have already read "Testing the waters" by Denver',
+  'You still need to read "Array of rooms" by Shaun',
+  'You have already read "PD Power" by Lana'
     ]);
 });
 

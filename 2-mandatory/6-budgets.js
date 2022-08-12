@@ -9,8 +9,13 @@ getBudgets([
 ])
 Should give return the answer of 62600.
 **/
-
 function getBudgets(peopleArray) {
+  for (const budget in peopleArray) {
+      if (Object.hasOwnProperty.call(peopleArray, budget)) {
+          return budget++;
+          
+      }
+  }
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====

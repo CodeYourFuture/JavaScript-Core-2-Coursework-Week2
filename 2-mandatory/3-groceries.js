@@ -26,14 +26,70 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
+
 let weeklyGroceriesToBuy = [];
+weeklyGroceriesToBuy = Object.values(weeklyMealPlan);
+
+function removeDuplicates(weeklyGroceriesToBuy) {
+  return weeklyGroceriesToBuy.filter((item) => weeklyGroceriesToBuy.indexOf(item) === item);
+}
+console.log(weeklyGroceriesToBuy = `${Object.values(weeklyMealPlan)} , ${removeDuplicates(weeklyGroceriesToBuy)}`);
+
+// weeklyGroceriesToBuy = Object.keys(weeklyMealPlan);
+// console.log(weeklyMealPlan);
+
+// weeklyMealPlan.forEach(key => {
+//   if (weeklyMealPlan[key] !== weeklyMealPlan[key]);
+//   console.log(`${key} ${weeklyMealPlan[key]}`);
+  
+// });
+// let weeklyGroceriesToBuy = [];
+// let groceriesToBuy = [...new Set(weeklyMealPlan)];
+
+// function toBuy(weeklyMealPlan) {
+//   for (const key in weeklyMealPlan) {
+//     if (Object.hasOwnProperty.call(weeklyMealPlan, key)) {
+//       weekendGroceriesToBuy = weeklyMealPlan[key];
+//     }
+//   }
+// }
+// let weeklyGroceriesToBuy = [];
+// weeklyMealPlan.forEach((groceriesToBuy) => {
+//   if (!weeklyGroceriesToBuy.includes(groceriesToBuy)) {
+//       weeklyGroceriesToBuy.push(groceriesToBuy);
+//   }
+// })
+// console.log(weeklyGroceriesToBuy)
+// let weeklyGroceriesToBuy = [];
+// let groceriesToBuy = [...new Set(weeklyMealPlan)];
+// if (groceriesToBuy !== weeklyMealPlan) {
+//   console.log(Object.values(groceriesToBuy))
+// }
+// let weeklyMealPlanKeys = Object.keys(weeklyMealPlan);
+
+// weeklyMealPlanKeys.forEach((key) => {
+//   if (weeklyMealPlan[key] !== weeklyGroceriesToBuy) {
+//     console.log(`${key} ${weeklyMealPlanKeys === weeklyGroceriesToBuy}`);
+//   }
+// })
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
+let weekendGroceriesToBuy = Object.values(weeklyMealPlan);
+console.log(weekendGroceriesToBuy.slice(5, 7));
+// let weekendGroceriesToBuy = [];
+// function getLast2(weeklyMealPlan) {
+//   return weekendGroceriesToBuy.call(weeklyMealPlan.length-1, weeklyMealPlan.length-1);
+// }
+// for (const key in weeklyMealPlan) {
+//   if (Object.hasOwnProperty.call(weeklyMealPlan, key)) {
+//     weekendGroceriesToBuy = weeklyMealPlan[key];  
+    
+//   }
+// }
 
 /*
 Exercise 3:
@@ -51,6 +107,19 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+for (const key in numberOfItemsPerWeek) {
+  if (Object.hasOwnProperty.call(numberOfItemsPerWeek, key)) {
+    const weeklyMealPlan = numberOfItemsPerWeek[key];
+    return weeklyMealPlan.length
+  }
+}
+// function numberOfItems(weeklyMealPlan) {
+//   if(Object.keys(weeklyMealPlan) ===  Object.keys(numberOfItemsPerWeek)) {
+//     return Object.values(weeklyMealPlan.length) = Object.values(numberOfItemsPerWeek);
+//   }
+// }
+// console.log(numberOfItems(numberOfItemsPerWeek));
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
