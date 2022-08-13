@@ -16,9 +16,9 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
+let thingsICanBuy = store.filter(store => store.price < 1.5 );
   /* todo */
-
+console.log(thingsICanBuy); 
   // DO NOT EDIT BELOW THIS LINE
   console.log(
     `Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`
