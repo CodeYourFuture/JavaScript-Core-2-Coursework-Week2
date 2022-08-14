@@ -18,8 +18,16 @@
   When you finish the exercise, think about how this solution is different to your last solution.
   What's better about each approach?
 */
+function journeyPlanner(locations, transportMode) {
+  let whereYouCanGo =[];
+  for( const keys in locations ){
+      if (locations[keys].includes(transportMode)){
+        whereYouCanGo.push(keys);
+      }
+   }
+   return whereYouCanGo;
+}
 
-function journeyPlanner(locations, transportMode) {}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`

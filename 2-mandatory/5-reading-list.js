@@ -15,13 +15,19 @@ You should modify the tests so that they contain the values that correspond to y
 In this style of testing it is typical to write out as strings exactly what you expect your output to be, 
 without using any variables or any logic like loops, template strings or if statements.
 */
-
-const books = [];
+const books = [
+  {name: "Grandmaster Of Demonic Cultivation", author: "Mo Xiang Tong Xiu", haveRead:true},
+  {name: "No Longer Human", author:"Osamu Dazai", haveRead:false},
+  {name:"The Little Mushroom", author:"Xiao Shisi", haveRead: false},
+  {name:"The Song Of Achilles", author:"Madeline Miller", haveRead: false},
+  {name:"Heavens Officials Blessings", author:"Mo Xiang Tong Xiu", haveRead: true},
+];
   
 // exercise 1
 function logBooks() {
+  books.forEach(book =>
+    console.log(`The ${book.firstName} by ${book.lastName}')
 }
-  
 
 /*
 =====

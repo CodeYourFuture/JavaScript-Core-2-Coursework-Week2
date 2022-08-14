@@ -59,9 +59,10 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
+ writers.forEach(item =>
+    console.log(`Hi, my name is ${item.firstName} ${item.lastName}. I am ${item.age} years old, and work as a ${item.occupation}.`));
   // write your code to log all writers here
-};
+
 
 /*
 Exercise 2:
@@ -69,20 +70,21 @@ Exercise 2:
   and not alive anymore. Use the below sentence format:
   "Writer {firstName} {lastName} died at {age} years old."
 */
-
-function logDeadWritersInTheirForties() {
-  // write your code here
-}
-
+  for (const item of writers) {
+    if (item.age >= 40 && item.age <= 49 && item.alive === false ){
+    console.log("Writer {item.firstName} {item.lastName} died at {item.age} years old.")
+    }}
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
-  // write your code here
-}
+for (const item of writers) {
+    if (item.age >= 40 && item.age <= 49 && item.alive === true ){
+    console.log("Hi, my name is {item.firstName} {item.lastName}. I am {item.age} years old.")
+    }} // write your code here
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`

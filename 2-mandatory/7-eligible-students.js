@@ -31,6 +31,15 @@ const attendances = [
   { name: "Nina", attendance: 10 },
 ];
 
+ function eligibleStudents(attendances) {
+    let array =[];
+    for (const key of attendances){
+      if(key.attendance >= 8){
+          array.push(key.name);
+      }
+    } return array;
+    }
+    
 test("eligibleStudents function works", () => {
   expect(eligibleStudents(attendances)).toEqual([
     "Ahmed",

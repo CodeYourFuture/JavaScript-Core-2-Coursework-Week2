@@ -26,7 +26,7 @@ let shapesWithMoreThanFiveSides = [];
 // WRITE YOUR CODE BELOW THIS LINE
 
 for(const key in shapes){
-  if (shapes[key] > 5){
+  if (shapes[key] >= 5){
     console.log(`${key}: $${shapes[key]}`);
   }
 }
