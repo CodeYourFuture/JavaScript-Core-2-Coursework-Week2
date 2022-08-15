@@ -16,23 +16,35 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-  
+const books = [
+  { title: 'The Gifts of Imperfection', author: 'Brené Brown', alreadyRead: true, },
+  { title: 'Blink', author: 'Malcolm Gladwell', alreadyRead: false, },
+  { title: 'The Power of Introverts in a World That Can"t Stop Talking', author: 'Susan Cain', alreadyRead: true, },
+  { title: 'Atomic habits', author: ' James Clear', alreadyRead: false, },
+  { title: 'The Power of Now', author: 'Eckhart Tolle', alreadyRead: true, },
+];
+
 // exercise 1
-function logBooks() {
+
+
+function logBooks(array) {
+  return array.forEach(value =>
+    console.log(`"${value.title} by ${value.author}"`));
 }
-  
+
+
+
 
 /*
 =====
 Exercise 2
 =====
-Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
-If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien', 
+Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not.
+If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien',
 and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
 You will need to modify the tests to check the correct output. If you have already learnt about red-green refactoring,
 remember to practice:
-- first change the test to the value that should be output, 
+- first change the test to the value that should be output,
 - run the test to check that your test goes red
 - now change your code to make the test pass
 As an example for this exercise, you might do the following steps
@@ -54,14 +66,14 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+test("books are logged", function () {
+  expectLogBooksToLog([
+    "The Hobbit by J.R.R. Tolkien",
+    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+    "Dietland by Sarai Walker",
+    "A Place for Us by Fatima Farheen Mirza",
+    "The House of Impossible Beauties by Joseph Cassara"
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
@@ -73,12 +85,12 @@ test("books are logged", function() {
 *
 * You do not need to understand how this function works to successfully complete the exercise.
 */
-function expectLogBooksToLog(expectedValues) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    logBooks();
-    expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-    expectedValues.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+// function expectLogBooksToLog(expectedValues) {
+//   const consoleLogSpy = jest.spyOn(console, 'log');
+//   logBooks();
+//   expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+//   expectedValues.forEach((value, i) => {
+//     expect(consoleLogSpy).nthCalledWith(i + 1, value);
+//   });
+//   consoleLogSpy.mockRestore();
+// };

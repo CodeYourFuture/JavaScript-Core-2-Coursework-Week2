@@ -23,7 +23,12 @@ let shapes = {
 
 let shapesWithMoreThanFiveSides = [];
 
-// WRITE YOUR CODE BELOW THIS LINE
+let arrFromKeys = Object.keys(shapes);
+for (var x in arrFromKeys) {
+  if (shapes[arrFromKeys[x]] >= 5) {
+    shapesWithMoreThanFiveSides.push(arrFromKeys[x]);
+  }
+}
 
 // DO NOT EDIT BELOW THIS LINE
 console.log(

@@ -1,17 +1,21 @@
-/**
-Get Sum of People's Budget
-Create the function that takes an array with objects and returns the sum of people's budgets.
-For example:
-getBudgets([
-  { name: "John",  age: 21, budget: 29000 },
-  { name: "Steve",  age: 32, budget: 32000 },
-  { name: "Martin",  age: 16, budget: 1600 }
-])
-Should give return the answer of 62600.
-**/
+
+// Get Sum of People's Budget
+// Create the function that takes an array with objects and returns the sum of people's budgets.
+// For example:
+// let getBudgets = [
+//   { name: "John", age: 21, budget: 29000 },
+//   { name: "Steve", age: 32, budget: 32000 },
+//   { name: "Martin", age: 16, budget: 1600 }
+// ];
+// Should give return the answer of 62600.
+
 
 function getBudgets(peopleArray) {
+
+  let result = peopleArray.map(people => people.budget).reduce((preVal, currVal) => preVal + currVal);
+  return result;
 }
+console.log(getBudgets(getBudgets));
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
@@ -21,7 +25,7 @@ function getBudgets(peopleArray) {
 
 test("No Budgets", () => {
   expect(getBudgets([])).toEqual(0);
-}); 
+});
 
 test("Test 1", () => {
   expect(getBudgets([

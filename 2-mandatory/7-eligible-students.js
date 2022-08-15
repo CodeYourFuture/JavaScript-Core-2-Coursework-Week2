@@ -13,8 +13,16 @@
     (see tests to confirm how this data will be structured)
   - Returns an array containing only the names of the who have attended AT LEAST 8 classes
  */
+// let arr2 = []
+// let arr1 =
+//   arr1.forEach(val => arr2.push(val.name))
 
-function eligibleStudents(attendances) {}
+// console.log(arr2)
+function eligibleStudents(attendances) {
+  let newArr = [];
+  attendances.filter(val => val.attendance >= 8).forEach(val => newArr.push(val.name))
+  return newArr;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
