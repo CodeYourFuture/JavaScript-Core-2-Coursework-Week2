@@ -13,7 +13,9 @@ let highScores = {
 };
 
 let highScoreKeys = /* todo */
+Object.keys(highScores);
 let highScoreValues = /* todo */
+Object.values(highScores);
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected keys: 34, 55, 89, 100, Actual keys: ${highScoreKeys}`);

@@ -16,6 +16,9 @@ let person = {
     age: 32,
     currentAddress: "London",
     celebrateBirthday: /* todo */
+    function(){
+        this.age += 1;
+    }
 };
 
 

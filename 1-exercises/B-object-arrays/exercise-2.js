@@ -18,6 +18,7 @@ let money = 1.5;
 
 let thingsICanBuy =
   /* todo */
+  store.filter(val => val.price <= money).map(val => val.item);
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(
