@@ -379,12 +379,17 @@ First, I want you to find all of my friends who are 35 or older.
 
 let thirtyFiveOrOlder = [];
 
+thirtyFiveOrOlder= friends.find(friends => friends.age >= 35);
+console.log(thirtyFiveOrOlder);
+
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
 let powerNetEmails = [];
+powerNetEmails= friends.find(friends => friends.name == "POWERNET");
+console.log(powerNetEmails);
 
 /*
 4) colleagues with "Stacie Villarreal"
