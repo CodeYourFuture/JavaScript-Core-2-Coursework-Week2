@@ -44,6 +44,12 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
+   if (
+    roomName === "hall" || 
+    roomName === "classroom" ||
+    roomName === "library" 
+   )
+   thisCurrentRoom = { name: roomName }
   },
 
   move: function (direction) {
@@ -53,6 +59,15 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
+    if (
+      direction === "north" ||
+      direction === "east" ||
+      direction === "south" ||
+      direction === "west" &&
+      rooms[this.currentRoom.name][direction]()
+      ) {
+        let dir = rooms[this.currentRoom.name][direction] ();
+      }
   },
 };
 
