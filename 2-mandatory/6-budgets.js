@@ -11,7 +11,17 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  let sum = 0;
+  peopleArray.map(item => (sum += item.budget))
+  return sum;
 }
+
+
+  
+
+
+
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
