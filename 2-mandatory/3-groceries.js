@@ -20,6 +20,8 @@ let weeklyMealPlan = {
   sunday: [],
 };
 
+
+
 /*
 Exercise 1:
   Loop through the weekly meal plan object to gather weekly ingredients into the weeklyGroceriesToBuy array.
@@ -27,6 +29,8 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+let flatValues = Object.values(weeklyMealPlan).flat();
+flatValues.forEach((value) => weeklyGroceriesToBuy.indexOf(value) === -1 ? weeklyGroceriesToBuy.push(value) : undefined);
 
 /*
 Exercise 2:
@@ -34,6 +38,8 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+
+Object.keys(weeklyMealPlan).forEach((key, index) => index >= 5 ? weekendGroceriesToBuy.push(...weeklyMealPlan[key]) : undefined);
 
 /*
 Exercise 3:
@@ -52,6 +58,11 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+
+Object.keys(numberOfItemsPerWeek).forEach((key) => {
+  numberOfItemsPerWeek[key] = weeklyMealPlan[key].length;
+});
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -60,19 +71,19 @@ let numberOfItemsPerWeek = {
 
 test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
   const expectedWeeklyGroceriesToBuy = [
-    'Cheese',       'Eggs',
-    'Tomato',       'Paprika',
-    'Leek',         'Wrap',
-    'Tuna',         'Canned beans',
-    'Carrot',       'Aubergine',
+    'Cheese', 'Eggs',
+    'Tomato', 'Paprika',
+    'Leek', 'Wrap',
+    'Tuna', 'Canned beans',
+    'Carrot', 'Aubergine',
     'Orange Juice', 'Apple',
-    'Ananas',       'Black tea',
-    'Lamb',         'Salt',
-    'Bulgur',       'Potato',
-    'Rice milk',    'Blueberries',
-    'Porridge',     'Banana',
-    'Cinnamon',     'Olive oil',
-    'Salmon',       'Asparagus'
+    'Ananas', 'Black tea',
+    'Lamb', 'Salt',
+    'Bulgur', 'Potato',
+    'Rice milk', 'Blueberries',
+    'Porridge', 'Banana',
+    'Cinnamon', 'Olive oil',
+    'Salmon', 'Asparagus'
   ];
   expect(weeklyGroceriesToBuy).toIncludeSameMembers(expectedWeeklyGroceriesToBuy);
 });

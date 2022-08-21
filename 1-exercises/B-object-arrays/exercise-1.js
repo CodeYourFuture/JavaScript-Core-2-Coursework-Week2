@@ -7,14 +7,22 @@
 
 */
 
-let people = [
-  { name: "Bob", age: 30 },
-  { name: "John", age: 20 },
-  { name: "Elise", age: 35 },
+let people = [{
+    name: "Bob",
+    age: 30
+  },
+  {
+    name: "John",
+    age: 20
+  },
+  {
+    name: "Elise",
+    age: 35
+  },
 ];
 
-let peopleNames =
-  /* todo */
+let peopleNames = people.map(names => names.name);
+/* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);
+// DO NOT EDIT BELOW THIS LINE
+console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);

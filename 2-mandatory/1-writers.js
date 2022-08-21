@@ -2,7 +2,8 @@
   Challenge 1: Famous Writers
   Did you know you can also have an Array of Objects? 
   You might think "This is madness!" but in everyday coding life
-  it is quite a frequent combination. Just think about what benefits we can get from this construct.
+  it is quite a frequent combination. Just think about what bene
+  fits we can get from this construct.
   An object lets you store multiple values in a single variable, then you can store complex objects in an array.
   Let's assume you have a list of data about people names and their birthday and you would like to print each name
   with corresponding birthday together. 
@@ -15,8 +16,7 @@
 */
 
 // We've created an array of objects for you here:
-let writers = [
-  {
+let writers = [{
     firstName: "Virginia",
     lastName: "Woolf",
     occupation: "writer",
@@ -61,7 +61,10 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
-};
+  writers.forEach(writer => {
+    console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`);
+  });
+}
 
 /*
 Exercise 2:
@@ -72,6 +75,11 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  writers.forEach(writer => {
+    if (writer.age >= 40 && writer.age <= 49 && writer.alive === false) {
+      console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`);
+    }
+  });
 }
 
 /*
@@ -82,7 +90,13 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  writers.forEach(writer => {
+    if (writer.age >= 40 && writer.age <= 49 && writer.alive === true) {
+      console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`);
+    }
+  });
 }
+// logAliveWritersInTheirForties();
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
@@ -108,11 +122,11 @@ test("exercise 3", () => expectFunctionToLog(logAliveWritersInTheirForties, [
 ]));
 
 function expectFunctionToLog(f, values) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    f();
-    expect(consoleLogSpy).toBeCalledTimes(values.length);
-    values.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
+  const consoleLogSpy = jest.spyOn(console, 'log');
+  f();
+  expect(consoleLogSpy).toBeCalledTimes(values.length);
+  values.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
 };

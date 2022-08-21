@@ -8,8 +8,7 @@ Before you start, you should read through the object below so that you understan
 When you've finished. Continue to the exercises below.
 */
 
-const friends = [
-  {
+const friends = [{
     age: 39,
     company: "PEARLESSA",
     name: {
@@ -17,8 +16,7 @@ const friends = [
       last: "Hardy",
     },
     email: "vilma.hardy@pearlessa.info",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Sally Nielsen",
         age: 37,
         skills: ["Data", "Strategic", "Problem"],
@@ -53,8 +51,7 @@ const friends = [
       last: "Gentry",
     },
     email: "aisha.gentry@plutorque.net",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Latonya Hogan",
         age: 67,
         skills: ["Problem", "Sharing", "Project"],
@@ -89,8 +86,7 @@ const friends = [
       last: "Whitfield",
     },
     email: "mitchell.whitfield@lingoage.io",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Head Fitzpatrick",
         age: 31,
         skills: ["People", "Collaboration", "data"],
@@ -125,8 +121,7 @@ const friends = [
       last: "Kirk",
     },
     email: "hooper.kirk@melbacor.me",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Clarissa Kirby",
         age: 37,
         skills: ["management", "making", "Categorizing"],
@@ -161,8 +156,7 @@ const friends = [
       last: "Quinn",
     },
     email: "sutton.quinn@cipromox.ca",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Melanie Patterson",
         age: 40,
         skills: ["Reporting", "management", "Numeracy"],
@@ -197,8 +191,7 @@ const friends = [
       last: "Knox",
     },
     email: "haley.knox@envire.tv",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Nannie Reyes",
         age: 47,
         skills: ["Sharing", "management", "Time"],
@@ -233,8 +226,7 @@ const friends = [
       last: "Jacobson",
     },
     email: "brittany.jacobson@prosely.name",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Glass Weaver",
         age: 64,
         skills: ["Listening", "making", "Flexibility"],
@@ -269,8 +261,7 @@ const friends = [
       last: "Harrison",
     },
     email: "jana.harrison@capscreen.co.uk",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Stacie Villarreal",
         age: 34,
         skills: ["Motivation", "Coordinating", "Listening"],
@@ -305,8 +296,7 @@ const friends = [
       last: "Hall",
     },
     email: "gloria.hall@powernet.com",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Lourdes Barr",
         age: 65,
         skills: ["Scheduling", "Delegating", "thinking"],
@@ -341,8 +331,7 @@ const friends = [
       last: "Livingston",
     },
     email: "clay.livingston@powernet.com",
-    colleagues: [
-      {
+    colleagues: [{
         name: "Stacie Villarreal",
         age: 34,
         skills: ["Motivation", "Coordinating", "Listening"],
@@ -378,14 +367,17 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
-
+friends.forEach((key) => key.age >= 35 ?
+  thirtyFiveOrOlder.push(key) : undefined);
+console.log(thirtyFiveOrOlder);
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
 let powerNetEmails = [];
-
+friends.forEach(key => key.company === "POWERNET" ?
+  powerNetEmails.push(key.email) : undefined);
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -394,6 +386,9 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+
+friends.forEach(friend => friend.colleagues.filter(colleague => colleague.name.includes("Stacie Villarreal") ? friendsWhoAreColleaguesOfStacie.push(`${friend.name.first} ${friend.name.last}`) : undefined));
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -403,6 +398,8 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 
+friends.forEach(friend => friend.colleagues.filter(colleague => colleague.skills.includes("Multi-tasking") ? colleaguesWhoCanMultitask.push(colleague.name) : undefined));
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -410,7 +407,9 @@ let colleaguesWhoCanMultitask = [];
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
+  expect(thirtyFiveOrOlder.map(({
+    name
+  }) => name.first)).toIncludeSameMembers([
     "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
   ]);
 });
@@ -432,10 +431,10 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });

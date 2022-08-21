@@ -8,18 +8,26 @@
 
 */
 
-let store = [
-  { item: "Corn Flakes", price: 2.5 },
-  { item: "Milk", price: 1.2 },
-  { item: "Chocolate", price: 0.8 },
+let store = [{
+    item: "Corn Flakes",
+    price: 2.5
+  },
+  {
+    item: "Milk",
+    price: 1.2
+  },
+  {
+    item: "Chocolate",
+    price: 0.8
+  },
 ];
 
 let money = 1.5;
 
-let thingsICanBuy =
-  /* todo */
+let thingsICanBuy = store.filter(items => items.price < money).map(name => name.item);
+/* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
-    `Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`
-  );
+// DO NOT EDIT BELOW THIS LINE
+console.log(
+  `Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`
+);
