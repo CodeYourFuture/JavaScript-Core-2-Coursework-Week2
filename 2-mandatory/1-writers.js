@@ -75,7 +75,13 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  return writers.forEach((element) => {
+    if (!element.alive && element.age > 40 && element.age < 49) {
+      console.log(
+        `Writer ${element.firstName} ${element.lastName} died at ${element.age} years old.`
+      );
+    }
+  });
 }
 
 /*
@@ -85,7 +91,13 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  return writers.forEach((element) => {
+    if (element.alive && element.age >= 40 && element.age <= 49) {
+      console.log(
+        `Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old.`
+      );
+    }
+  });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
