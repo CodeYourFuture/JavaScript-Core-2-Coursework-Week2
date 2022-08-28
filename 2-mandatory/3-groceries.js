@@ -27,7 +27,7 @@ Exercise 1:
 */
 // Gather all week item names into this array
 
-let weeklyGroceriesToBuy = []; //weeklyMealPlan
+let weeklyGroceriesToBuy = [];
 let weeklyList = Object.values(weeklyMealPlan).flat();
 weeklyList.forEach((element) => {
   if (!weeklyGroceriesToBuy.includes(element))
@@ -39,7 +39,7 @@ Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = []; // weeklyMealPlan
+let weekendGroceriesToBuy = [];
 for (let ingredient in weeklyMealPlan.saturday) {
   weekendGroceriesToBuy.push(weeklyMealPlan.saturday[ingredient]);
   if (!weeklyMealPlan.sunday[ingredient] === undefined) {
