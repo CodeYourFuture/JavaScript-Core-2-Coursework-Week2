@@ -14,6 +14,10 @@ let salaries = {
 
 // WRITE BELOW THIS LINE
 
+for (const property in salaries) {
+  console.log(`${property}: ${salaries[property] > 5000}`);
+}
+
 // Expected Result:
 // monica: $55000
 // rachel: $90000
