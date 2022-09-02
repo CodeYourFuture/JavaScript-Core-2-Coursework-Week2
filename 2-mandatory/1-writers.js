@@ -61,7 +61,11 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
-};
+  const sentence = writers.map(item =>{
+    return `Hi, my name is ${item.firstName} ${item.lastName}. I am ${item.age} years old, and work as a ${item.occupation}.`;
+  })
+  console.log(sentence);
+}
 
 /*
 Exercise 2:
@@ -72,6 +76,12 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  const deadWorkers = writers.filter(item =>{
+    if(item.age > 40 && item.age < 49 && item.alive === false){
+      return `Writer ${item.firstName} ${item.lastName} died at ${item.age} years old.`;
+    }
+  })
+  console.log(deadWorkers);
 }
 
 /*
@@ -82,6 +92,12 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  const aliveWorkers = writers.filter(item => {
+    if(item.age >= 40 && item.age <= 49 && item.alive === true){
+      return `Hi, my name is ${item.firstName} ${item.lastName}. I am ${item.age} years old.`;
+    }
+  })
+  console.log(aliveWorkers);
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

@@ -27,6 +27,13 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for(let key in weeklyMealPlan){
+  if(Array.isArray(key)){
+    for(let key2 of weeklyMealPlan[key2]){
+      weekendGroceriesToBuy.push(weeklyMealPlan.indexOf(key2) === -1);
+    }
+  }
+}
 
 /*
 Exercise 2:
