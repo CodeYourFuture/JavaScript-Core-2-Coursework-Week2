@@ -385,11 +385,7 @@ function friendsOlderThan35(){
       return item.age;
     }
   })
-  return olderThanThirtyFive.map(itm =>{
-    if(isObject(itm)){
-    return itm.name;
-  }
-  }).join('');
+  return olderThanThirtyFive;
 };
 
 /*
