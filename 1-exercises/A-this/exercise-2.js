@@ -11,12 +11,12 @@ let person = {
     name: "Maggie",
     age: 26,
     currentAddress: "London",
-    changeAddress: Edinburgh
+    changeAddress: "Edinburgh"
     
 };
 
-person.newAddress("Edinburgh");
-console.log(person.currentAddress);
+person.newAddress = "Edinburgh";
+console.log(person.newAddress);
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE

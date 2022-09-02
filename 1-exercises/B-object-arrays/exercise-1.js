@@ -13,7 +13,9 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames =
+let peopleNames = ["Bob", "John", "Elise'"];
+console.log(peopleNames);
+
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

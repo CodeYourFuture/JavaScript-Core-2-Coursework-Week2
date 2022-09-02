@@ -59,10 +59,11 @@ let writers = [
       {firstName: "Jane", lastName: "Austen", age: 41, occupation: "writer"},
       {firstName: "Bell", lastName: "Hooks", age: 63, occupation: "writer"},
       {firstName: "Yukiko", lastName: "Motoya", age: 49, occupation: "writer"},
+     
+//  
       ];
-      
-Object.values(obj).forEach(value => console.log(value));
 
+Object.values(obj).forEach(value => console.log(value));
 
 
 
