@@ -16,11 +16,44 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: 'salvation army',
+    author: 'charles taylor',
+    alreadyRead: false
+  },
+  {
+    title: 'Map of Salt and Stars',
+    author: 'orion beyer',
+    alreadyRead: true
+  },
+  {
+    title: 'Dietland',
+    author: 'david january',
+    alreadyRead: false
+  },
+  {
+    title: 'The House of Impossible Beauties',
+    author: 'symon bevoire',
+    alreadyRead: false
+  },
+  {
+    title: 'A Place for Us',
+    author: 'janine simon',
+    alreadyRead: true
+  }
+];
+
   
 // exercise 1
-function logBooks() {
+
+function logBooks(panel) {
+  Object.entries(panel).forEach(([key, item]) =>{
+    console.log(`The ${item.title} by ${item.author}.Tokkies`);
+  })
 }
+const book = logBooks(books)
+console.log(book);
   
 
 /*
@@ -47,7 +80,18 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
-
+function logBooks(panel) {
+  Object.entries(panel).forEach(([key, item]) =>{
+    if(item.alreadyRead === false){
+      console.log(`You still need to read ${item.title} by ${item.author}`);
+    }else{
+      console.log(`You've already read ${item.title} by ${item.author} Tolkien`);
+    }
+    
+  })
+};
+const foo = logBooks(books);
+console.log(foo);
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

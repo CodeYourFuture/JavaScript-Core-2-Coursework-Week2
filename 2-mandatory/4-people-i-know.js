@@ -412,21 +412,21 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
-for(let i = 0; i < friends.length; i++){
-  //  console.log(friends[i]);
-    const rows = Object.values(friends[i]);
-    //console.log(rows);
-    for(let j = 0; j < rows.length; j++){
-     if(typeof rows[j] === 'object'){
-       const col = Object.values(rows[j])
-       for(let k = 0; k < col.length; k++){
-         if(col[k].name === 'Stacie Villarreal'){
-           console.log(friends[i]['name'].first, friends[i]['name'].last)};   
-          }
-        }
-    }
-}
 
+Object.entries(friends).forEach(([key, value]) =>{
+  if(typeof value === 'object'){
+    Object.entries(value).forEach(([el, item]) =>{
+      if(typeof item === 'object'){
+        Object.entries(item).forEach(([fr, mt]) =>{
+        if(mt.name === "Stacie Villarreal"){
+          friendsWhoAreColleaguesOfStacie.log(value.name.first, value.name.last);
+        }
+        })
+      }
+    })
+  }
+});
+console.log(friendsWhoAreColleaguesOfStacie)
 
 /*
 5) Find "Multi-tasking" colleagues
@@ -436,29 +436,29 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
-for(let i = 0; i < friends.length; i++){
-  //  console.log(friends[i]);
-    const rows = Object.values(friends[i]);
-    //console.log(rows);
-    for(let j = 0; j < rows.length; j++){
-     if(typeof rows[j] === 'object'){
-       const col = Object.values(rows[j])
-       for(let k = 0; k < col.length; k++){
-         if(typeof col[k] === 'object'){
-          const fb = Object.values(col[k])
-          for(let a = 0; a < fb.length; a++){
-            if(typeof fb[a] === 'object'){
-                const final = Object.values(fb[a])
-                for(let c in final.length){
-                 console.log(final[c])
-                }
-            };
+
+Object.entries(friends).forEach(([it, vals]) =>{
+  if(typeof vals === 'object'){
+    Object.entries(vals).forEach(([it, val]) =>{
+      if(typeof val === 'object'){
+        Object.entries(val).forEach(([key, item]) =>{
+          if(typeof item === 'object'){
+            Object.entries(item).forEach(([id, values]) =>{
+            if(typeof values === 'object'){
+              Object.entries(values).forEach(([bc, za]) =>{
+              if(za === 'Multi-tasking'){
+                colleaguesWhoCanMultitask.push(new Set[item.name]);
+              }
+              })
+            }
+            })
           }
-         }
-          }
-        }
-    }
-}
+        })
+      }
+    })
+  }
+});
+console.log(colleaguesWhoCanMultitask);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`

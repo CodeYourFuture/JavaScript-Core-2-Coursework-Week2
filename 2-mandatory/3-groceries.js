@@ -27,14 +27,13 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
-for(let key in weeklyMealPlan){
-  if(typeof weeklyMealPlan[key] === 'object'){
-    const list = Object.values(weeklyMealPlan[key]);
-    for(let i = 0; i <list.length; i++){
-      console.log(list[i])
-    };
-  }
-  }
+Object.entries(weeklyMealPlan).forEach(([key, value]) => {
+  value.forEach(item => {
+    weeklyGroceriesToBuy.push(item)
+  })
+})
+console.log(weeklyGroceriesToBuy)
+ 
 
 
 /*
@@ -43,6 +42,14 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+Object.entries(weeklyMealPlan).forEach(([key, value]) => {
+  if(key === 'friday' || key === 'saturday'){
+   value.forEach(items =>{
+    weekendGroceriesToBuy.push(items)
+   })
+  }
+});
+console.log(weekendGroceriesToBuy);
 
 /*
 Exercise 3:
@@ -60,7 +67,30 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
-
+Object.entries(weeklyMealPlan).forEach(([key, value]) =>{
+  if(key === 'monday'){
+    numberOfItemsPerWeek.monday = value.length; 
+    console.log(numberOfItemsPerWeek.monday)
+  }else if(key === 'tuesday'){
+    numberOfItemsPerWeek.tuesday = value.length;
+    console.log(numberOfItemsPerWeek.tuesday)
+  }else if(key === 'wednesday'){
+    numberOfItemsPerWeek.wednesday = value.length;
+    console.log(numberOfItemsPerWeek.wednesday)
+  }else if(key === 'thursday'){
+    numberOfItemsPerWeek.thursday = value.length;
+    console.log(numberOfItemsPerWeek.thursday)
+  }else if(key === 'friday'){
+    numberOfItemsPerWeek.friday = value.length;
+    console.log(numberOfItemsPerWeek.friday)
+  }else if(key === 'saturday'){
+    numberOfItemsPerWeek.saturday = value.length;
+    console.log(numberOfItemsPerWeek.saturday)
+  }else{
+    numberOfItemsPerWeek.sunday= value.length;
+    console.log(numberOfItemsPerWeek.sunday)
+  }
+})
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
