@@ -378,15 +378,14 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
-
-function friendsOlderThan35(){
-  const olderThanThirtyFive = friends.filter(item =>{
-    if(item.age >= 35){
-      return item.age;
-    }
-  })
-  return olderThanThirtyFive;
-};
+const ages = friends.filter(item =>{
+  if(typeof item === 'object'){
+    return item.age > 35;
+  }
+});
+const names = ages.map(element =>{
+  return element.name.first;
+})
 
 /*
 3) Find the email address
@@ -394,6 +393,16 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+
+const companies = friends.filter(item =>{
+  if(item.company === 'POWERNET'){ 
+    return item};
+});
+const email = companies.map(item =>{
+  return item.email;
+});
+
+
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -403,6 +412,22 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+for(let i = 0; i < friends.length; i++){
+  //  console.log(friends[i]);
+    const rows = Object.values(friends[i]);
+    //console.log(rows);
+    for(let j = 0; j < rows.length; j++){
+     if(typeof rows[j] === 'object'){
+       const col = Object.values(rows[j])
+       for(let k = 0; k < col.length; k++){
+         if(col[k].name === 'Stacie Villarreal'){
+           console.log(friends[i]['name'].first, friends[i]['name'].last)};   
+          }
+        }
+    }
+}
+
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -411,6 +436,29 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+for(let i = 0; i < friends.length; i++){
+  //  console.log(friends[i]);
+    const rows = Object.values(friends[i]);
+    //console.log(rows);
+    for(let j = 0; j < rows.length; j++){
+     if(typeof rows[j] === 'object'){
+       const col = Object.values(rows[j])
+       for(let k = 0; k < col.length; k++){
+         if(typeof col[k] === 'object'){
+          const fb = Object.values(col[k])
+          for(let a = 0; a < fb.length; a++){
+            if(typeof fb[a] === 'object'){
+                const final = Object.values(fb[a])
+                for(let c in final.length){
+                 console.log(final[c])
+                }
+            };
+          }
+         }
+          }
+        }
+    }
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
