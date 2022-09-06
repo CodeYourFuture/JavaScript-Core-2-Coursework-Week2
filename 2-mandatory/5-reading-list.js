@@ -24,12 +24,12 @@ const books = [
   },
   {
     title: 'Map of Salt and Stars',
-    author: 'orion beyer',
+    author: 'Jennifer Zeynab Joukhadar',
     alreadyRead: true
   },
   {
     title: 'Dietland',
-    author: 'david january',
+    author: 'Sarai Walker',
     alreadyRead: false
   },
   {
@@ -39,7 +39,7 @@ const books = [
   },
   {
     title: 'A Place for Us',
-    author: 'janine simon',
+    author: 'Fatima Farheen Mirza',
     alreadyRead: true
   }
 ];

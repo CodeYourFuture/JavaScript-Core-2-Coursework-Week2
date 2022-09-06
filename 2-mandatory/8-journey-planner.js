@@ -18,9 +18,16 @@
   When you finish the exercise, think about how this solution is different to your last solution.
   What's better about each approach?
 */
-
-function journeyPlanner(locations, transportMode) {}
-
+function journeyPlanner(locations, transportMode) {
+  Object.entries(transportMode).forEach(([key, item]) =>{
+   if(item === 'bus'){
+    console.log('hello')
+    }
+  })
+  }
+      
+  const loc = journeyPlanner(londonLocations, "bus");
+  console.log(loc);
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

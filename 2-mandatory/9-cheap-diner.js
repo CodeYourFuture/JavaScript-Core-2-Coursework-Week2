@@ -19,7 +19,20 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+ Object.entries(mealArray).forEach(([key, val]) =>{
+  if(typeof val === 'object'){
+    val.forEach(([id, item]) =>{
+      switch(item.price){
+        case "less":
+          if()
+      }
+    })
+  }
+ })
+  }
+  const result = chooseMeal(setOne);
+  console.log(result);
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
