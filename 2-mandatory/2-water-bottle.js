@@ -19,12 +19,13 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    return (this.volume = 100);
   },
   pour: function () {
-    for (let i = 0; i < 11; i++) {
-      return this.volume === true;
-    }
     // calling this function should increase your bottle volume by 10 units;
+    if (this.volume <= 90) {
+      return (this.volume += 10);
+    }
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
