@@ -378,13 +378,50 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+thirtyFiveOrOlder = Object.values(friends);
+// console.log(thirtyFiveOrOlder);
+for (const age in thirtyFiveOrOlder) {
+  if (age <= 35) {
+    console.log(`${age <= 35}: ${thirtyFiveOrOlder.name}  is ${Object.values(age)} years old.`);
+      // console.log(`${age <= 35}: ${Object.values(name.first)} is ${Object.values(age)} years old.`);
+  }
+}
+
+// let thirtyFiveOrOlder = [];
+//   thirtyFiveOrOlder = Object.values(friends);
+//   console.log(thirtyFiveOrOlder);
+// thirtyFiveOrOlder.forEach((key) => {
+//     if (age[key] <= 35) {
+//         console.log(`${key} ${age[key]}`);
+//     }
+//   });
+// function olderThan35(friends) {
+//   if (friends.colleagues.age < 35);
+//   return friends.colleagues.name;  
+// }
+// console.log(thirtyFiveOrOlder(olderThan35));
+
+
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
-
 let powerNetEmails = [];
+powerNetEmails = Object.values(friends[8]) + Object.values(friends[9]);
+console.log(powerNetEmails);
+  // for (const company in friends) {
+  // if (friends[company] === 'POWERNET');
+  console.log(`${Object.values[8[3]]} ${Object.values[9[3]]}`);
+// }
+
+// let powerNetEmails = [];
+// let friendsKeys = Object.keys(friends);
+//     for (const company in friends) {
+//     if (friends[company] = 'POWERNET');
+//     console.log(`${Object.values(friends.emails)} ${friends[company]}`);
+//   }
+
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +431,12 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+friendsWhoAreColleaguesOfStacie = Object.values(friends[9]);
+// friendsWhoAreColleaguesOfStacie.forEach((name) => {
+//   if (friends[name] !== "Stacie Villarreal");
+// })
+// console.log( `${friendsWhoAreColleaguesOfStacie[4][1]} ${friendsWhoAreColleaguesOfStacie[2]}`);
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -402,6 +445,22 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+  colleaguesWhoCanMultitask = Object.keys(friends);
+  console.log(colleaguesWhoCanMultitask);
+colleaguesWhoCanMultitask.forEach((key) => {
+  if (friends[key] = "Multi-tasking"){
+    // return `${key} ${colleaguesWhoCanMultitask[key]}`
+    console.log(`${Object.values[key]} ${colleaguesWhoCanMultitask[key]}`);
+  }
+})
+  
+//  for (key in friends) {
+//   if (friends[key]="Multi-tasking") {
+//     colleaguesWhoCanMultitask = friends[key];
+//     console.log(colleaguesWhoCanMultitask);
+    // console.log(`${key} ${colleaguesWhoCanMultitask[key]}`);
+//   }
+//  }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`

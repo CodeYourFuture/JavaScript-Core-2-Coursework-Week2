@@ -59,9 +59,52 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
-  // write your code to log all writers here
-};
+
+function logAllWriters(writers, writer) {
+  for (const key in writers) {
+    if (writers.length[key] ===  writer) {
+      console.log(object.keys(writers.forEach(key))); // write your code to log all writers here
+    }
+   }
+ };
+ console.log(`Hi, my name is ${writers.firstName} ${writers.lastName}. I am ${writers.age} years old, and work as a ${writers.occupation}`);
+
+
+// function logAllWriters(writers) {
+//   for (const key in writers) {
+//     if (writers[key] === writer) {
+//   return `Hi, my first is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}`; // write your code to log all writers here
+//    }
+//   }
+//   console.log(writers.map(logAllWriters));
+// };
+
+// function logAllWriters(writers) {
+//   console.log(Object.keys(writers) + Object.values(writers)); // write your code to log all writers here
+// };
+
+// function logAllWriters(writers) {
+//   for (const key in writers) {
+//     if (writers[key] === occupation.value) {
+//       const writers = writers[key];
+//     }
+//   }
+//   console.log(`${key} Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`); // write your code to log all writers here
+// };
+
+// function logAllWriters(occupation) {
+//    if (occupation === "writer") {
+//      console.log(`Hi, my name is ${Object.value(firstName)} ${Object.value(lastName)}. I am ${Object.value(age)} years old, and work as a ${Object.value(occupation)}.`); // write your code to log all writers here
+//    }
+//   };
+// function logAllWriters(occupation) {
+//   for (let index = 0; index < writers.length; index++) {
+//    if (occupation === "writer") {
+//      console.log(`Hi, my name is ${writers.firstName} ${writers.lastName}. I am ${writers.age} years old, and work as a ${writers.occupation}.`); // write your code to log all writers here
+//    }
+//   }
+//  };
+ 
 
 /*
 Exercise 2:
@@ -70,9 +113,30 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
-  // write your code here
+
+function logDeadWritersInTheirForties(writers) {
+  for (key in writers) {
+    if (writers[key] >= 40 && writers[key] <= 49 && writers[key] == false ) {
+      console.log(`Writer ${writers.firstName[key]} ${writers.lastName[key]} died at ${writers.age[key]} years old`);// write your code here mandatory 2    }
+  }
+ }
 }
+console.log(writers.forEach(logDeadWritersInTheirForties));
+// function logDeadWritersInTheirForties(age, alive) {
+//   if (age < 40, age > 49, alive == false) {
+//    return writers.firstName + writers.lastName + writers.age
+
+//   }
+//   console.log(`Writer ${writers.firstName} ${writers.lastName} died at ${writers.age} years old`)// write your code here mandatory 2
+// }
+
+// function logDeadWritersInTheirForties(age, alive) {
+//   if (age < 40, age > 49, alive == false) {
+//    return writers.firstName + writers.lastName + writers.age
+
+//   }
+//   console.log(`Writer ${writers.firstName} ${writers.lastName} died at ${writers.age} years old`)// write your code here mandatory 2
+// }
 
 /*
 Exercise 3:
@@ -80,7 +144,10 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
+function logAliveWritersInTheirForties(age, alive) {
+  if (age <= 40 && alive == true){
+    console.log(`Hi, my name is ${writers.firstName.length} ${writers.lastName.length}. I am ${writers.age.length} years old`) ;
+  }
   // write your code here
 }
 
