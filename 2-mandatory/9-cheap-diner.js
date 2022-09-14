@@ -20,16 +20,15 @@ Should give the answer "Nothing :("
 **/
 
 function chooseMeal(mealArray) {
- Object.entries(mealArray).forEach(([key, val]) =>{
-  if(typeof val === 'object'){
-    val.forEach(([id, item]) =>{
-      switch(item.price){
-        case "less":
-          if()
-      }
-    })
-  }
- })
+  Object.entries(mealArray).forEach(([key, val]) =>{
+   if(val.price != Math.min(val.price)){
+    console.log(val.name)
+   }else if(val.price != Math.max(val.price)){
+    console.log(val.name)
+   }else{
+    console.log(null);
+   }
+  })
   }
   const result = chooseMeal(setOne);
   console.log(result);

@@ -28,8 +28,10 @@ Exercise 1:
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
 Object.entries(weeklyMealPlan).forEach(([key, value]) => {
-  value.forEach(item => {
-    weeklyGroceriesToBuy.push(item)
+  value.map(item => {
+   if(!value.indexOf(item)){
+    weeklyGroceriesToBuy.push(item);
+   }
   })
 })
 console.log(weeklyGroceriesToBuy)

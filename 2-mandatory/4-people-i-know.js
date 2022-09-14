@@ -378,14 +378,9 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
-const ages = friends.filter(item =>{
-  if(typeof item === 'object'){
-    return item.age > 35;
-  }
-});
-const names = ages.map(element =>{
-  return element.name.first;
-})
+const ages = Object.values(friends).filter(item => item.age >= 35).map(elt => elt.name.first);
+thirtyFiveOrOlder = [...ages];
+
 
 /*
 3) Find the email address
@@ -393,14 +388,8 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
-
-const companies = friends.filter(item =>{
-  if(item.company === 'POWERNET'){ 
-    return item};
-});
-const email = companies.map(item =>{
-  return item.email;
-});
+const companies = Object.values(friends).filter(item => item.company === 'POWERNET').map(elt => elt.email);
+powerNetEmails = [...companies];
 
 
 
@@ -413,20 +402,34 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 
 let friendsWhoAreColleaguesOfStacie = [];
 
-Object.entries(friends).forEach(([key, value]) =>{
-  if(typeof value === 'object'){
-    Object.entries(value).forEach(([el, item]) =>{
-      if(typeof item === 'object'){
-        Object.entries(item).forEach(([fr, mt]) =>{
-        if(mt.name === "Stacie Villarreal"){
-          friendsWhoAreColleaguesOfStacie.log(value.name.first, value.name.last);
+// Object.entries(friends).forEach(([key, value]) =>{
+//   if(typeof value === 'object'){
+//     Object.entries(value).forEach(([el, item]) =>{
+//       if(typeof item === 'object'){
+//         Object.entries(item).forEach(([fr, mt]) =>{
+//         if(mt.name === "Stacie Villarreal"){
+//           friendsWhoAreColleaguesOfStacie.log(value.name.first, value.name.last);
+//         }
+//         })
+//       }
+//     })
+//   }
+// });
+
+const stacieColleagues = Object.values(friends).forEach(item =>{
+  if(typeof item === 'object'){
+    for(let a in item){
+    if(typeof item[a] === "object"){
+      for(let b in item[a]){
+        if(item[a][b].name === "Stacie Villarreal"){
+          console.log(`${item.name.first} ${item.name.last}`)
         }
-        })
       }
-    })
+    }
+    }
   }
 });
-console.log(friendsWhoAreColleaguesOfStacie)
+//friendsWhoAreColleaguesOfStacie = [...stacieColleagues];
 
 /*
 5) Find "Multi-tasking" colleagues
@@ -435,27 +438,45 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
+// let colleaguesWhoCanMultitask = [];
 
-Object.entries(friends).forEach(([it, vals]) =>{
-  if(typeof vals === 'object'){
-    Object.entries(vals).forEach(([it, val]) =>{
-      if(typeof val === 'object'){
-        Object.entries(val).forEach(([key, item]) =>{
-          if(typeof item === 'object'){
-            Object.entries(item).forEach(([id, values]) =>{
-            if(typeof values === 'object'){
-              Object.entries(values).forEach(([bc, za]) =>{
-              if(za === 'Multi-tasking'){
-                colleaguesWhoCanMultitask.push(new Set[item.name]);
-              }
-              })
-            }
-            })
+// Object.entries(friends).forEach(([it, vals]) =>{
+//   if(typeof vals === 'object'){
+//     Object.entries(vals).forEach(([it, val]) =>{
+//       if(typeof val === 'object'){
+//         Object.entries(val).forEach(([key, item]) =>{
+//           if(typeof item === 'object'){
+//             Object.entries(item).forEach(([id, values]) =>{
+//             if(typeof values === 'object'){
+//               Object.entries(values).forEach(([bc, za]) =>{
+//               if(za === 'Multi-tasking'){
+//                 colleaguesWhoCanMultitask.push(new Set[item.name]);
+//               }
+//               })
+//             }
+//             })
+//           }
+//         })
+//       }
+//     })
+//   }
+// });
+
+const multiTasking = Object.values(friends).forEach(item =>{
+  if(typeof item === 'object'){
+    for(let a in item){
+    if(typeof item[a] === "object"){
+      for(let b in item[a]){
+        if(typeof item[a][b] === 'object'){
+          for(let c in item[a][b]){
+            if(item[a][b][c]['Multi-tasking']){
+              console.log(item[a][b].name)
+            };
           }
-        })
+        }
       }
-    })
+    }
+    }
   }
 });
 console.log(colleaguesWhoCanMultitask);
