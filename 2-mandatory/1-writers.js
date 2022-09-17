@@ -60,8 +60,16 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  return writers.forEach(element => console.log(`Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old, and work as a writer.`));
 };
+
+// logAllWriters(writers);
+// "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer."
+// "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer."
+// "Hi, my name is Jane Austen. I am 41 years old, and work as a writer."
+// "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer."
+// "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
+
 
 /*
 Exercise 2:
@@ -71,8 +79,14 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  return writers.filter(element => element.alive === false && element.age >= 40 && element.age < 50)
+                .forEach(element => console.log(`Writer ${element.firstName} ${element.lastName} died at ${element.age} years old.`));
+              // i know i can use !element.alive (for false) but it is not explicit enough
 }
+
+// logDeadWritersInTheirForties(writers);
+// "Writer Jane Austen died at 41 years old."
+
 
 /*
 Exercise 3:
@@ -81,8 +95,16 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  return writers.filter(element => element.alive === true && element.age >= 40 && element.age < 50)
+                .forEach(element => console.log(`Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old.`));
+    // i know i can use element.alive (for true) but it is not explicit enough
 }
+
+// logAliveWritersInTheirForties(writers);
+// "Hi, my name is Zadie Smith. I am 40 years old.",
+// "Hi, my name is Yukiko Motoya. I am 49 years old."
+// 
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`

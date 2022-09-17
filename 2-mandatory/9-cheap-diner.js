@@ -19,7 +19,40 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  mealArray.sort((elementOne, elementTwo) => elementOne.price - elementTwo.price);
+  return mealArray.length === 0 ? "Nothing :(" : mealArray.length === 1 ? mealArray[0].name : mealArray[1].name;
+}
+
+// console.log(chooseMeal([
+//   { name: "Dunkin' Donuts", price: 8.99 },
+//   { name: "Captain D's", price: 13.99 },
+//   { name: "Moe's Southwest Grill", price: 10.99 },
+// ]));
+// // "Moe's Southwest Grill"
+// console.log(chooseMeal([
+//   { name: "Moe's Southwest Grill", price: 10.99 },
+//   { name: "Dunkin' Donuts", price: 8.99 },
+//   { name: "Captain D's", price: 13.99 },
+// ]));
+// // "Moe's Southwest Grill"
+// console.log(chooseMeal([
+//   { name: "Burger King", price: 8.99 },
+//   { name: "Wingstop", price: 9.99 },
+// ]));
+// // "Wingstop"
+// console.log(chooseMeal([{ name: "Subway", price: 8.99 }]));
+// // "Subway"
+// console.log(chooseMeal([]));
+// // "Nothing :("
+// console.log(chooseMeal([
+//   { name: "Church's Chicken", price: 8.99 },
+//   { name: "Smoothie King", price: 109.99 },
+//   { name: "Jason's Deli", price: 22.77 },
+//   { name: "Jamba Juice", price: 38.44 },
+// ]));
+// // "Jason's Deli"
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`

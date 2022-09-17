@@ -16,12 +16,82 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Pro Git",
+    author: "Scott Chacon",
+    alreadyRead: false,
+  },
+  {
+    title: "Eloquent Javascript",
+    author: "Marijn Haverbeke",
+    alreadyRead: false,
+  },
+  {
+    title: "Stillness Flowing",
+    author: "Ajahn Jayasaro",
+    alreadyRead: false,
+  },
+  {
+    title: "Manual of Insight",
+    author: "Mahasi Sayadaw",
+    alreadyRead: false,
+  },
+  {
+    title: "The Wisdom of No Escape",
+    author: "Pema Chodron",
+    alreadyRead: true,
+  },
+  {
+    title: "The Four Noble Truths",
+    author: "Ajahn Sumedho",
+    alreadyRead: true,
+  },
+  {
+    title: "The Compassionate Mind",
+    author: "Paul Gilbert",
+    alreadyRead: true,
+  },
+  {
+    title: "Into the Magic Shop",
+    author: "James R Doty",
+    alreadyRead: true,
+  },
+  {
+    title: "Psilocybin Mushrooms of the World",
+    author: "Paul Stamets",
+    alreadyRead: false,
+  },
+  {
+    title: "Freedom from your Inner Critic",
+    author: "Jay Earley",
+    alreadyRead: false,
+  },
+];
   
 // exercise 1
 function logBooks() {
+  for (let book in books) {
+    // console.log(`${books[book].title} by ${books[book].author }`);
+    if (books[book].alreadyRead === true) {
+      console.log(`You've already read ${books[book].title} by ${books[book].author}`);
+    } else if (books[book].alreadyRead === false) {
+      console.log(`You still need to read ${books[book].title} by ${books[book].author}`);
+    }
+  }
 }
   
+// console.log(logBooks());
+// You still need to read Pro Git by Scott Chacon
+// You still need to read Eloquent Javascript by Marijn Haverbeke
+// You still need to read Stillness Flowing by Ajahn Jayasaro
+// You still need to read Manual of Insight by Mahasi Sayadaw
+// You've already read The Wisdom of No Escape by Pema Chodron
+// You've already read The Four Noble Truths by Ajahn Sumedho
+// You've already read The Compassionate Mind by Paul Gilbert
+// You've already read Into the Magic Shop by James R Doty
+// You still need to read Psilocybin Mushrooms of the World by Paul Stamets
+// You still need to read Freedom from your Inner Critic by Jay Earley
 
 /*
 =====
@@ -49,19 +119,24 @@ As an example for this exercise, you might do the following steps
 **/
 
 /* ======= TESTS - DO MODIFY (!!!) =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 5-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
 test("books are logged", function() {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+  "You still need to read Pro Git by Scott Chacon",
+  "You still need to read Eloquent Javascript by Marijn Haverbeke",
+  "You still need to read Stillness Flowing by Ajahn Jayasaro",
+  "You still need to read Manual of Insight by Mahasi Sayadaw",
+  "You've already read The Wisdom of No Escape by Pema Chodron",
+  "You've already read The Four Noble Truths by Ajahn Sumedho",
+  "You've already read The Compassionate Mind by Paul Gilbert",
+  "You've already read Into the Magic Shop by James R Doty",
+  "You still need to read Psilocybin Mushrooms of the World by Paul Stamets",
+  "You still need to read Freedom from your Inner Critic by Jay Earley",
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */

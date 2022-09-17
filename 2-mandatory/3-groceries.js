@@ -28,12 +28,77 @@ Exercise 1:
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
 
+for (let day in weeklyMealPlan) {
+  for (let ingredient of weeklyMealPlan[day]) {
+    if (weeklyGroceriesToBuy.indexOf(ingredient) === -1) {
+      weeklyGroceriesToBuy.push(ingredient);
+    }
+  }
+}
+
+console.log(weeklyGroceriesToBuy);
+// [
+//   'Cheese', 'Eggs',
+//   'Tomato', 'Paprika',
+//   'Leek', 'Wrap',
+//   'Tuna', 'Canned beans',
+//   'Carrot', 'Aubergine',
+//   'Orange Juice', 'Apple',
+//   'Ananas', 'Black tea',
+//   'Lamb', 'Salt',
+//   'Bulgur', 'Potato',
+//   'Rice milk', 'Blueberries',
+//   'Porridge', 'Banana',
+//   'Cinnamon', 'Olive oil',
+//   'Salmon', 'Asparagus'
+// ]
+
+weeklyGroceriesToBuy = [...new Set(Object.values(weeklyMealPlan).flat())];
+
+console.log(weeklyGroceriesToBuy);
+// [
+//   'Cheese', 'Eggs',
+//   'Tomato', 'Paprika',
+//   'Leek', 'Wrap',
+//   'Tuna', 'Canned beans',
+//   'Carrot', 'Aubergine',
+//   'Orange Juice', 'Apple',
+//   'Ananas', 'Black tea',
+//   'Lamb', 'Salt',
+//   'Bulgur', 'Potato',
+//   'Rice milk', 'Blueberries',
+//   'Porridge', 'Banana',
+//   'Cinnamon', 'Olive oil',
+//   'Salmon', 'Asparagus'
+// ]
+
+
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+
+for (let day in weeklyMealPlan) {
+  if (day === "saturday" || day === "sunday") {
+    weekendGroceriesToBuy.push(...weeklyMealPlan[day]);
+  }
+}
+
+console.log(weekendGroceriesToBuy);
+// ["Olive oil", "Potato", "Salmon", "Asparagus"]
+
+weekendGroceriesToBuy = [...weeklyMealPlan.saturday, ...weeklyMealPlan.sunday];
+
+console.log(weekendGroceriesToBuy);
+// ["Olive oil", "Potato", "Salmon", "Asparagus"]
+
+weekendGroceriesToBuy = [...Object.values(weeklyMealPlan[Object.keys(weeklyMealPlan)[5]]), ...Object.values(weeklyMealPlan[Object.keys(weeklyMealPlan)[6]])];
+
+console.log(weekendGroceriesToBuy);
+// ["Olive oil", "Potato", "Salmon", "Asparagus"]
+
 
 /*
 Exercise 3:
@@ -51,6 +116,23 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+for (let day in weeklyMealPlan) {
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
+}
+
+// console.log(numberOfItemsPerWeek)
+// {
+//   monday: 5,
+//   tuesday: 6,
+//   wednesday: 4,
+//   thursday: 4,
+//   friday: 5,
+//   saturday: 4,
+//   sunday: 0,
+// }
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

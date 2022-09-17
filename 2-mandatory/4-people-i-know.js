@@ -377,7 +377,79 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+// let thirtyFiveOrOlder = [];
+
+// for (let friend in friends) {
+//   // console.log(friends[friend].age)
+//   if (friends[friend].age > 35) {
+//     thirtyFiveOrOlder.push(friends[friend].name.first)
+//   }
+// }
+
+// console.log(thirtyFiveOrOlder);
+// ["Vilma", "Aisha", "Mitchell", "Sutton", "Jana"]
+
+// thirtyFiveOrOlder = friends.filter(element => element.age > 35)
+//                             .map(element => element.name.first)
+
+// console.log(thirtyFiveOrOlder);
+// ["Vilma", "Aisha", "Mitchell", "Sutton", "Jana"]
+
+
+// PLEASE FIX THIS EXERCISE...
+// The instructions are not clear.. nowhere does it say return the full object of each...
+// Especially when almost every exercise of this nature up until this point has been returning results in an array of strings format without the object wrappers.
+
+// I suggest editing the test FROM:
+// expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+//   "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+// ]);
+// TO :
+// expect(thirtyFiveOrOlder.toIncludeSameMembers([
+//   "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+// ]);
+
+// Regardless, here is the solution to the test condition:
+let thirtyFiveOrOlder = friends.filter(element => element.age > 35);
+
+// console.log(thirtyFiveOrOlder);
+// [
+//   {
+//     age: 39,
+//     company: 'PEARLESSA',
+//     name: { first: 'Vilma', last: 'Hardy' },
+//     email: 'vilma.hardy@pearlessa.info',
+//     colleagues: [[Object], [Object], [Object], [Object], [Object]]
+//   },
+//   {
+//     age: 39,
+//     company: 'PLUTORQUE',
+//     name: { first: 'Aisha', last: 'Gentry' },
+//     email: 'aisha.gentry@plutorque.net',
+//     colleagues: [[Object], [Object], [Object], [Object], [Object]]
+//   },
+//   {
+//     age: 36,
+//     company: 'LINGOAGE',
+//     name: { first: 'Mitchell', last: 'Whitfield' },
+//     email: 'mitchell.whitfield@lingoage.io',
+//     colleagues: [[Object], [Object], [Object], [Object], [Object]]
+//   },
+//   {
+//     age: 40,
+//     company: 'CIPROMOX',
+//     name: { first: 'Sutton', last: 'Quinn' },
+//     email: 'sutton.quinn@cipromox.ca',
+//     colleagues: [[Object], [Object], [Object], [Object], [Object]]
+//   },
+//   {
+//     age: 36,
+//     company: 'CAPSCREEN',
+//     name: { first: 'Jana', last: 'Harrison' },
+//     email: 'jana.harrison@capscreen.co.uk',
+//     colleagues: [[Object], [Object], [Object], [Object], [Object]]
+//   }
+// ]
 
 /*
 3) Find the email address
@@ -385,6 +457,23 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+
+for (let friend in friends) {
+  // console.log(friends[friend].company)
+  if (friends[friend].company === "POWERNET") {
+    powerNetEmails.push(friends[friend].email)
+  }
+}
+
+// console.log(powerNetEmails);
+// ['gloria.hall@powernet.com','clay.livingston@powernet.com']
+
+powerNetEmails = friends.filter(element => element.company === "POWERNET")
+                        .map(element => element.email);
+
+// console.log(powerNetEmails);
+// ['gloria.hall@powernet.com','clay.livingston@powernet.com']
+
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +483,27 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+
+for (let friend in friends) {
+  // console.log(friends[friend].colleagues)
+  for (let colleague of friends[friend].colleagues) {
+    // console.log(colleague)
+    if (colleague.name === "Stacie Villarreal") {
+      friendsWhoAreColleaguesOfStacie.push(`${friends[friend].name.first} ${friends[friend].name.last}`)
+    }
+  }
+}
+
+// console.log(friendsWhoAreColleaguesOfStacie);
+// [ 'Haley Knox','Jana Harrison','Clay Livingston']
+
+friendsWhoAreColleaguesOfStacie = friends.filter((element) => element.colleagues.some(element => element.name === "Stacie Villarreal"))
+                                          .map(element => `${element.name.first} ${element.name.last}`)
+
+// console.log(friendsWhoAreColleaguesOfStacie);
+// [ 'Haley Knox','Jana Harrison','Clay Livingston']
+
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -401,16 +511,38 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
+
 let colleaguesWhoCanMultitask = [];
 
+for (let friend in friends) {
+  // console.log(friends[friend].colleagues)
+  for (let colleague of friends[friend].colleagues) {
+    // console.log(colleague)
+    if (colleague.skills.includes('Multi-tasking')) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
+  }
+}
+
+// console.log(colleaguesWhoCanMultitask);
+// ['Rush May','Gena Good','Cunningham Shelton','Castro Castaneda','Luz Newton']
+
+
+// HELP ^^^ how to achieve this with the least array methods possible?
+// colleaguesWhoCanMultitask = friends.filter((element) => element.colleagues.filter((element) => element.skills.includes("Multi-tasking")))
+
+// console.log(colleaguesWhoCanMultitask);
+// ["Rush May","Gena Good","Cunningham Shelton","Castro Castaneda","Luz Newton"]
+
+
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 4-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
     "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
   ]);
 });
@@ -432,10 +564,10 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });
