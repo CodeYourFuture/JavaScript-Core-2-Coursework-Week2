@@ -15,11 +15,21 @@ getBudgets = [
   { name: "Martin",  age: 16, budget: 1600 }
 ]
 
-const totalBudget = getBudgets.reduce((a, b) =>{
-  a += b.budget
-  return a;
-}, 0);
-console.log(totalBudget);
+// const totalBudget = getBudgets.reduce((a, b) =>{
+//   a += b.budget
+//   return a;
+// }, 0);
+// console.log(totalBudget); 
+
+function budget(stock){
+  let total = 0;
+for( key of stock){
+ total += key.budget;
+}
+return total;
+}
+const mney = budget(getBudgets);
+console.log(mney);
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

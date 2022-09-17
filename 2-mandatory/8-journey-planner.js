@@ -19,11 +19,11 @@
   What's better about each approach?
 */
 function journeyPlanner(locations, transportMode) {
-  Object.entries(transportMode).forEach(([key, item]) =>{
-   if(item === 'bus'){
-    console.log('hello')
+    for(let key in locations){
+        if(locations[key].includes(transportMode)){
+          console.log(key);
+        }
     }
-  })
   }
       
   const loc = journeyPlanner(londonLocations, "bus");

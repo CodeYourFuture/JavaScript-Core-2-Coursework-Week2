@@ -378,8 +378,14 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
-const ages = Object.values(friends).filter(item => item.age >= 35).map(elt => elt.name.first);
-thirtyFiveOrOlder = [...ages];
+// const ages = Object.values(friends).filter(item => item.age >= 35).map(elt => elt.name.first);
+// thirtyFiveOrOlder = [...ages];
+for(let key of friends){
+  if(key.age >= 35){
+    const names = key.name.first;
+    console.log(names);
+  }
+}
 
 
 /*
@@ -388,8 +394,13 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
-const companies = Object.values(friends).filter(item => item.company === 'POWERNET').map(elt => elt.email);
-powerNetEmails = [...companies];
+// const companies = Object.values(friends).filter(item => item.company === 'POWERNET').map(elt => elt.email);
+// powerNetEmails = [...companies];
+for(let key of friends){
+  if(key.company === "POWERNET"){
+    console.log(key.email)
+  }
+}
 
 
 
@@ -416,20 +427,34 @@ let friendsWhoAreColleaguesOfStacie = [];
 //   }
 // });
 
-const stacieColleagues = Object.values(friends).forEach(item =>{
-  if(typeof item === 'object'){
-    for(let a in item){
-    if(typeof item[a] === "object"){
-      for(let b in item[a]){
-        if(item[a][b].name === "Stacie Villarreal"){
-          console.log(`${item.name.first} ${item.name.last}`)
-        }
+// const stacieColleagues = Object.values(friends).forEach(item =>{
+//   if(typeof item === 'object'){
+//     for(let a in item){
+//     if(typeof item[a] === "object"){
+//       for(let b in item[a]){
+//         if(item[a][b].name === "Stacie Villarreal"){
+//           console.log(`${item.name.first} ${item.name.last}`)
+//         }
+//       }
+//     }
+//     }
+//   }
+// });
+//friendsWhoAreColleaguesOfStacie = [...stacieColleagues];
+for(let key of friends){
+    let result = key.colleagues;
+    for(let key1 of result){
+      if(key1.name === 'Stacie Villarreal'){
+       const staciesFriends1 = key.name.first;
+       const staciesFriends2 = key.name.last;
+       friendsWhoAreColleaguesOfStacie.push(`${staciesFriends1} ${staciesFriends2}`);
       }
     }
-    }
   }
-});
-//friendsWhoAreColleaguesOfStacie = [...stacieColleagues];
+
+console.log(friendsWhoAreColleaguesOfStacie )
+  
+
 
 /*
 5) Find "Multi-tasking" colleagues
@@ -438,7 +463,7 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-// let colleaguesWhoCanMultitask = [];
+ let colleaguesWhoCanMultitask = [];
 
 // Object.entries(friends).forEach(([it, vals]) =>{
 //   if(typeof vals === 'object'){
@@ -462,23 +487,36 @@ This time, I only want the full names of the people who can multitask
 //   }
 // });
 
-const multiTasking = Object.values(friends).forEach(item =>{
-  if(typeof item === 'object'){
-    for(let a in item){
-    if(typeof item[a] === "object"){
-      for(let b in item[a]){
-        if(typeof item[a][b] === 'object'){
-          for(let c in item[a][b]){
-            if(item[a][b][c]['Multi-tasking']){
-              console.log(item[a][b].name)
-            };
-          }
-        }
-      }
+// const multiTasking = Object.values(friends).forEach(item =>{
+//   if(typeof item === 'object'){
+//     for(let a in item){
+//     if(typeof item[a] === "object"){
+//       for(let b in item[a]){
+//         if(typeof item[a][b] === 'object'){
+//           for(let c in item[a][b]){
+//             if(item[a][b][c][0] ==='Multi-tasking'){
+//               console.log(item[a][b].name)
+//             };
+//           }
+//         }
+//       }
+//     }
+//     }
+//   }
+// });
+for(let key of friends){
+  let result = key.colleagues;
+  for(let key1 of result){
+   const result1 = key1.skills;
+   for(let key2 of result1){
+    if(key2 === "Multi-tasking"){
+      console.log(key1.name)
+      const nu = key1.name;
+      colleaguesWhoCanMultitask.push(nu);
     }
-    }
+   }
   }
-});
+}
 console.log(colleaguesWhoCanMultitask);
 
 /* ======= TESTS - DO NOT MODIFY ===== 

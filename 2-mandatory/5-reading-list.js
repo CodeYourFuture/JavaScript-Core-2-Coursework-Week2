@@ -48,10 +48,10 @@ const books = [
 // exercise 1
 
 function logBooks(panel) {
-  Object.entries(panel).forEach(([key, item]) =>{
-    console.log(`The ${item.title} by ${item.author}.Tokkies`);
-  })
-}
+  for(let key of panel){
+    console.log(`The ${key.title} by ${key.author}`)
+  }
+  }
 const book = logBooks(books)
 console.log(book);
   
@@ -81,14 +81,13 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 function logBooks(panel) {
-  Object.entries(panel).forEach(([key, item]) =>{
-    if(item.alreadyRead === false){
-      console.log(`You still need to read ${item.title} by ${item.author}`);
+  for(let key of panel){
+    if(key.alreadyRead){
+      console.log(`You've already read ${key.title} by ${key.author}`)
     }else{
-      console.log(`You've already read ${item.title} by ${item.author} Tolkien`);
-    }
-    
-  })
+      console.log(`You still need to read ${key.title} by ${key.author}`)
+    }  
+  }
 };
 const foo = logBooks(books);
 console.log(foo);
