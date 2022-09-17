@@ -57,9 +57,12 @@ let writers = [
 Exercise 1:
   Loop through the Array, and for each object, use `console.log()` to print out the below sentence
   and insert the corresponding values to the place holders that are indicated in curly braces:
-  "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
+  "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}." 
 */
 function logAllWriters() {
+  writers.forEach((writer) => {
+    console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`);
+  })
   // write your code to log all writers here
 };
 
@@ -72,6 +75,11 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  for (const writer of writers)
+  if (writer.age >= 40 && writer.age < 50 && writer.alive === false){
+    console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old`);
+  }
+ 
 }
 
 /*
@@ -82,6 +90,11 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+for (const writer of writers)
+  if (writer.age >= 40 && writer.age < 50 && writer.alive === true) {
+    console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`);
+  }
+
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
