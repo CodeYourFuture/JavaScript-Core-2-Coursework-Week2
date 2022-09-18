@@ -24,16 +24,36 @@ let weeklyMealPlan = {
 Exercise 1:
   Loop through the weekly meal plan object to gather weekly ingredients into the weeklyGroceriesToBuy array.
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
+
+  var myArray = [ 1, 2, 3 ];
+from documentation we were given to read
+for (var v of myArray) {
+	console.log( v );
+}
+// 1
+// 2
+// 3
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
 
+for (const key in weeklyMealPlan)
+{
+  weeklyMealPlan[key].forEach((food) =>{
+    if(!weeklyGroceriesToBuy.includes(food)){
+      weeklyGroceriesToBuy.push(food)
+    }
+  })
+}
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+for(const key in weeklyMealPlan){
+  if(key === 'saturday' || key === 'sunday')
+}
 
 /*
 Exercise 3:
