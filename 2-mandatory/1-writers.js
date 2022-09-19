@@ -15,73 +15,77 @@
 */
 
 // We've created an array of objects for you here:
-let writers = [
-  {
-    firstName: "Virginia",
-    lastName: "Woolf",
-    occupation: "writer",
-    age: 59,
-    alive: false,
-  },
-  {
-    firstName: "Zadie",
-    lastName: "Smith",
-    occupation: "writer",
-    age: 40,
-    alive: true,
-  },
-  {
-    firstName: "Jane",
-    lastName: "Austen",
-    occupation: "writer",
-    age: 41,
-    alive: false,
-  },
-  {
-    firstName: "Bell",
-    lastName: "Hooks",
-    occupation: "writer",
-    age: 63,
-    alive: true,
-  },
-  {
-    firstName: "Yukiko",
-    lastName: "Motoya",
-    occupation: "writer",
-    age: 49,
-    alive: true,
-  }
+let writers =
+[
+    {
+        firstName: "Virginia",
+        lastName: "Woolf",
+        occupation: "writer",
+        age: 59,
+        alive: false
+    },
+    {
+        firstName: "Zadie",
+        lastName: "Smith",
+        occupation: "writer",
+        age: 40,
+        alive: true
+    },
+    {
+        firstName: "Jane",
+        lastName: "Austen",
+        occupation: "writer",
+        age: 41,
+        alive: false
+    },
+    {
+        firstName: "Bell",
+        lastName: "Hooks",
+        occupation: "writer",
+        age: 63,
+        alive: true
+    },
+    {
+        firstName: "Yukiko",
+        lastName: "Motoya",
+        occupation: "writer",
+        age: 49,
+        alive: true
+    }
 ];
 
 /*
 Exercise 1:
-  Loop through the Array, and for each object, use `console.log()` to print out the below sentence
-  and insert the corresponding values to the place holders that are indicated in curly braces:
-  "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
+Loop through the Array, and for each object, use `console.log()` to print out the below sentence
+and insert the corresponding values to the place holders that are indicated in curly braces:
+"Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
-  // write your code to log all writers here
-};
+function logAllWriters()
+{
+    writers.forEach(writer => console.log("Hi, my name is " + writer.firstName + " " + writer.lastName + ". I am " + writer.age + " years old, and work as a " + writer.occupation + "."));
+}
 
 /*
 Exercise 2:
-  Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
-  and not alive anymore. Use the below sentence format:
-  "Writer {firstName} {lastName} died at {age} years old."
+Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
+and not alive anymore. Use the below sentence format:
+"Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
-  // write your code here
+function logDeadWritersInTheirForties()
+{
+    writers.filter(writer => writer.age > 39 && writer.age < 50 && writer.alive === false).forEach(writer => console.log("Writer " + writer.firstName + " " + writer.lastName + " died at " + writer.age + " years old."));
 }
 
 /*
 Exercise 3:
-  Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
-  "Hi, my name is {firstName} {lastName}. I am {age} years old."
+Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
+"Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
-  // write your code here
+function logAliveWritersInTheirForties()
+{
+    writers.filter(writer => writer.age > 39 && writer.age < 50 && writer.alive === true).forEach(writer => console.log("Hi, my name is  " + writer.firstName + " " + writer.lastName + ". I am " + writer.age + " years old."));
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
