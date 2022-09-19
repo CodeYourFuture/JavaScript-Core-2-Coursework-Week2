@@ -379,12 +379,23 @@ First, I want you to find all of my friends who are 35 or older.
 
 let thirtyFiveOrOlder = [];
 
+for(const friend of friends){
+  if(friend.age >= 35){
+    thirtyFiveOrOlder.push(friend)
+  }
+}
+
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
 let powerNetEmails = [];
+for (const friend of friends){
+  if(friend.company === "POWERNET"){
+    powerNetEmails.push(friend.email)
+  }
+}
 
 /*
 4) colleagues with "Stacie Villarreal"
