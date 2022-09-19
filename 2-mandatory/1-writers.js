@@ -77,7 +77,7 @@ function logDeadWritersInTheirForties() {
   // write your code here
   for (const writer of writers)
   if (writer.age >= 40 && writer.age < 50 && writer.alive === false){
-    console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old`);
+    console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`);
   }
  
 }

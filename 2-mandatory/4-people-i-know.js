@@ -405,6 +405,12 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+for (const friend of friends){
+  for(const isFriend of friend.colleagues)
+  if(isFriend.name === 'Stacie Villarreal'){
+    friendsWhoAreColleaguesOfStacie.push(`${friend.name.first} ${friend.name.last}`)
+  }
+}
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -413,6 +419,14 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+for (const friend of friends) {
+  for (const skillMatch of friend.colleagues)
+    if (skillMatch.skills.includes('Multi-tasking')) {
+      colleaguesWhoCanMultitask.push(
+        skillMatch.name
+      );
+    }
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`

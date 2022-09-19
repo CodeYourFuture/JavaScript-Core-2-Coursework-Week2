@@ -16,12 +16,53 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Law Of Success",
+    author: "Napolean Hill",
+    alreadyRead: true,
+  },
+  {
+    title: "The Magic Of Self Respect",
+    author: "Osho",
+    alreadyRead: true,
+  },
+  {
+    title: "Meditations",
+    author: "Marcus Aurelieus",
+    alreadyRead: false,
+  },
+  {
+    title: "The Power Of Your Subconscious Mind",
+    author: "Joseph Murphy",
+    alreadyRead: true,
+  },
+  {
+    title: "A Manual for Being Human",
+    author: "Sophie Mort",
+    alreadyRead: true,
+  },
+];
   
 // exercise 1
 function logBooks() {
+  books.forEach(obj => {
+    console.log(`${obj.title} by ${obj.author}`)
+  }); 
+
 }
-  
+
+function logBooks2(){
+  books.forEach(obj => {
+    if (obj.alreadyRead === true){
+      console.log(`You've already read ${obj.title} by ${obj.author}`)
+    }
+    else{
+      console.log(`You still need to read ${obj.title} by ${obj.author}`)
+    }
+  })
+
+}
 
 /*
 =====
@@ -56,12 +97,12 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function() {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+   "The Law Of Success by Napolean Hill",
+   "The Magic Of Self Respect by Osho",
+   "Meditations by Marcus Aurelieus",
+   "The Power Of Your Subconscious Mind by Joseph Murphy",
+   "A Manual for Being Human by Sophie Mort",
+ ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
