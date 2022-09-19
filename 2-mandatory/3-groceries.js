@@ -10,48 +10,75 @@ Complete the exercises below.
 */
 
 // Here is your
-let weeklyMealPlan = {
-  monday: ["Cheese", "Eggs", "Tomato", "Paprika", "Leek"],
-  tuesday: ["Wrap", "Tuna", "Canned beans", "Cheese", "Carrot", "Aubergine"],
-  wednesday: ["Orange Juice", "Apple", "Ananas", "Black tea"],
-  thursday: ["Lamb", "Salt", "Bulgur", "Potato"],
-  friday: ["Rice milk", "Blueberries", "Porridge", "Banana", "Cinnamon"],
-  saturday: ["Olive oil", "Potato", "Salmon", "Asparagus"],
-  sunday: [],
+let weeklyMealPlan =
+{
+    monday: ["Cheese", "Eggs", "Tomato", "Paprika", "Leek"],
+    tuesday: ["Wrap", "Tuna", "Canned beans", "Cheese", "Carrot", "Aubergine"],
+    wednesday: ["Orange Juice", "Apple", "Ananas", "Black tea"],
+    thursday: ["Lamb", "Salt", "Bulgur", "Potato"],
+    friday: ["Rice milk", "Blueberries", "Porridge", "Banana", "Cinnamon"],
+    saturday: ["Olive oil", "Potato", "Salmon", "Asparagus"],
+    sunday: [],
 };
 
 /*
 Exercise 1:
-  Loop through the weekly meal plan object to gather weekly ingredients into the weeklyGroceriesToBuy array.
-  The weeklyGroceriesToBuy array shouldn't contain any repeating items.
+Loop through the weekly meal plan object to gather weekly ingredients into the weeklyGroceriesToBuy array.
+The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
-
+for (const key in weeklyMealPlan)
+{
+    weeklyMealPlan[key].forEach(ingredient =>
+    {
+        if(!weeklyGroceriesToBuy.includes(ingredient))
+        {
+            weeklyGroceriesToBuy.push(ingredient);
+        }
+    })
+}
 /*
 Exercise 2:
-  Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
+Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
-
+for (const key in weeklyMealPlan)
+{
+    if(key === "saturday" || key === "sunday")
+    {
+        weeklyMealPlan[key].forEach(ingredient =>
+        {
+            if(!weekendGroceriesToBuy.includes(ingredient))
+            {
+                weekendGroceriesToBuy.push(ingredient);
+            }
+        })
+    }
+}
 /*
 Exercise 3:
-  Loop through your weekly meal plan:
+Loop through your weekly meal plan:
     - count how many ingredients you should buy each day
     - and update the corresponding properties of numberOfItemsPerWeek object.
 */
 // Gather daily item counts into this object
-let numberOfItemsPerWeek = {
-  monday: 0,
-  tuesday: 0,
-  wednesday: 0,
-  thursday: 0,
-  friday: 0,
-  saturday: 0,
-  sunday: 0,
+let numberOfItemsPerWeek =
+{
+    monday: 0,
+    tuesday: 0,
+    wednesday: 0,
+    thursday: 0,
+    friday: 0,
+    saturday: 0,
+    sunday: 0,
 };
 
+for(const key in weeklyMealPlan)
+{
+    numberOfItemsPerWeek[key] = weeklyMealPlan[key].length;
+}
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
