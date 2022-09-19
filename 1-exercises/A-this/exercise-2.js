@@ -11,7 +11,7 @@ let person = {
     name: "Maggie",
     age: 26,
     currentAddress: "London",
-    changeAddress: function () {
+    changeAddress: function (newAddress) {
         return person.newAddress;
     }
 };
