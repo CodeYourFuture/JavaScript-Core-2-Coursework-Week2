@@ -16,12 +16,46 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-  
+const books = 
+[
+    { 
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        alreadyRead: true
+    },
+
+    {
+        title: "The Map of Salt and Stars",
+        author: "Jennifer Zeynab Joukhadar",
+        alreadyRead: false
+    },
+
+    {
+        title:"Dietland",
+        author: "Sarai Walker",
+        alreadyRead: false
+    },
+
+    {
+        title: "A Place for Us",
+        author: "Fatima Farheen Mirza",
+        alreadyRead: false
+    },
+
+    {
+        title: "The House of Impossible Beauties",
+        author: "Joseph Cassara",
+        alreadyRead: false
+    }
+]
 // exercise 1
-function logBooks() {
+function logBooks()
+{
+    books.forEach(element =>
+    {
+        console.log(element.title + " by " + element.author);
+    });
 }
-  
 
 /*
 =====
@@ -47,7 +81,21 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
-
+function readBooks()
+{
+    books.forEach(element => 
+    {
+        if(element.alreadyRead)
+        {
+            console.log("You've already read " + element.title + " by " + element.author + ".")
+        }
+        
+        else
+        {
+            console.log("You still need to read " + element.title + " by " + element.author + ".")
+        }
+    });
+}
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
