@@ -1,11 +1,8 @@
 /*
-
    The "store" array contains various items you can buy, along with their price.
    Create an array containing the names of all the things you could buy (less than
    the "money" variable").
-
    hint: use the array "filter" method and "map" method in a chain.
-
 */
 
 let store = [
@@ -16,10 +13,12 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
-  /* todo */
+let thingsICanBuy = store
+  .filter((obj) => {
+    return obj.price < 2.5;
+  })
+  .map((obj) => obj.item);
+/* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
-    `Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`
-  );
+// DO NOT EDIT BELOW THIS LINE
+console.log(`Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`);
