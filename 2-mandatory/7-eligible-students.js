@@ -1,20 +1,32 @@
 /*
-  This exercise may look familiar!
-  In JS1 week 4 we had an exercise called eligible-students,
-  where we stored each student's name and score in an array.
-  This is the same exercise again, but we've stored each student's
-  information in an object instead of an array.
-  After you complete the exercise, compare your solution to your previous one.
-  Can you see how using objects leads to more clear code?
-  -------------------------------------------------------------------------
-  Only students who have attended enough classes are eligible to sit an exam.
-  Create a function which:
-  - Accepts an array which contains all the students' names and their attendance counts
-    (see tests to confirm how this data will be structured)
-  - Returns an array containing only the names of the who have attended AT LEAST 8 classes
- */
+This exercise may look familiar!
+In JS1 week 4 we had an exercise called eligible-students,
+where we stored each student's name and score in an array.
+This is the same exercise again, but we've stored each student's
+information in an object instead of an array.
+After you complete the exercise, compare your solution to your previous one.
+Can you see how using objects leads to more clear code?
+-------------------------------------------------------------------------
+Only students who have attended enough classes are eligible to sit an exam.
+Create a function which:
+- Accepts an array which contains all the students' names and their attendance counts
+  (see tests to confirm how this data will be structured)
+- Returns an array containing only the names of the who have attended AT LEAST 8 classes
+*/
 
-function eligibleStudents(attendances) {}
+function eligibleStudents(attendances)
+{
+    let eligibleForTest = [];
+
+    for (const key of attendances)
+    {
+        if(key.attendance >= 8)
+        {
+            eligibleForTest.push(key.name);
+        }
+    }
+    return eligibleForTest;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
