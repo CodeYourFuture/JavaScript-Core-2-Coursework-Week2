@@ -1,13 +1,3 @@
-/*
-Below you will find a list of people that I know. 
-*/
-
-/*
-1) Reading
-Before you start, you should read through the object below so that you understand the structure of it.
-When you've finished. Continue to the exercises below.
-*/
-
 const friends = [
   {
     age: 39,
@@ -371,94 +361,36 @@ const friends = [
   },
 ];
 
-/*
-2) Aged 35 or Older
-In the above object you can see my friends and the colleagues of my friends.
-First, I want you to find all of my friends who are 35 or older.
-*/
+// let thirtyFiveOrOlder = []
+// thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35).map((friend) => friend.name.first);
 
-let thirtyFiveOrOlder = [];
-thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
-// .map((friend) => friend.name.first);
-// console.log(thirtyFiveOrOlder)
-/*
-3) Find the email address
-Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
-*/
+//  console.log(thirtyFiveOrOlder);
 
-let powerNetEmails = [];
-powerNetEmails = friends
-  .filter((friend) => friend.company === "POWERNET")
-  .map((friend) => friend.email);
+// let powerNetEmails = [];
+// powerNetEmails = friends.filter((friend)=>friend.company==="POWERNET").map((friend)=>friend.email)
+// console.log(powerNetEmails)
 
-/*
-4) colleagues with "Stacie Villarreal"
-Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
-You can see who people's colleagues are by seeing the "colleagues" array in each of my friends objects.
-This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
-*/
+// let friendsWhoAreColleaguesOfStacie = [];
+// let myFriends = friends.map(
+//   (friend) => `${friend.name.first} ${friend.name.last}`
+// );
+//  friendsWhoAreColleaguesOfStacie = friends.filter(friend =>
+//    friend.colleagues.some(colleagues => colleagues.name === "Stacie Villarreal") 
+//  ).map(item => `${item.name.first} ${item.name.last}`);
 
-let friendsWhoAreColleaguesOfStacie = [];
-friendsWhoAreColleaguesOfStacie = friends
-  .filter((friend) =>
-    friend.colleagues.some(
-      (colleagues) => colleagues.name === "Stacie Villarreal"
-    )
-  )
-  .map((item) => `${item.name.first} ${item.name.last}`);
-/*
-5) Find "Multi-tasking" colleagues
-Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
-You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
-This time, I only want the full names of the people who can multitask
-*/
+//  console.log(friendsWhoAreColleaguesOfStacie);
+// console.log(myFriends);
+// console.log(friends[0].colleagues[0].name)
 
 let colleaguesWhoCanMultitask = [];
+
 friends.forEach((friend) =>
-  friend.colleagues.map((colleagues) => {
-    if (colleagues.skills.includes("Multi-tasking")) {
-      colleaguesWhoCanMultitask.push(colleagues.name);
-    }
-  })
-);
+    friend.colleagues.map((colleagues) => {if
+       (colleagues.skills.includes("Multi-tasking")){
+        colleaguesWhoCanMultitask.push(colleagues.name)  
+      }
+    })
+  )
+//   .map((item) => `${item.name.first} ${item.name.last}`);
 
-/* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
-- To run all exercises/tests in the mandatory folder, run `npm test`
-- (Reminder: You must have run `npm install` one time before this will work!)
-*/
-
-test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
-    "Vilma",
-    "Aisha",
-    "Mitchell",
-    "Sutton",
-    "Jana",
-  ]);
-});
-
-test("3 - Powernet email addresses", () => {
-  expect(powerNetEmails).toIncludeSameMembers([
-    "clay.livingston@powernet.com",
-    "gloria.hall@powernet.com",
-  ]);
-});
-
-test("4 - friends with Stacie Villarreal as a colleague", () => {
-  expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
-    "Clay Livingston",
-    "Jana Harrison",
-    "Haley Knox",
-  ]);
-});
-
-test("5 - colleagues who can multitask", () => {
-  expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-    "Rush May",
-    "Gena Good",
-    "Cunningham Shelton",
-    "Castro Castaneda",
-    "Luz Newton",
-  ]);
-});
+console.log(colleaguesWhoCanMultitask)
