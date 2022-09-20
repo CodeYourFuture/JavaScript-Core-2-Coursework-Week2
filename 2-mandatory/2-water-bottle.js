@@ -70,6 +70,7 @@ TIP:
 Extra question:
   Why do you think it is preferred to use `this` inside the object rather than its variable name, in our case `bottle`?
   Leave your answer below:
+  To reduce the chance of making a mistake in the variable name. This leaves no room for mistake - this = THIS object.
 */
 
 // Write you answer to the question here
