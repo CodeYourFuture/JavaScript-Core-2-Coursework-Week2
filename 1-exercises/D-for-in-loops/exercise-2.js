@@ -20,8 +20,14 @@ let shapes = {
   hecatontagon: 100,
   megagon: 1000000,
 };
-
 let shapesWithMoreThanFiveSides = [];
+for (const key in shapes) {  
+  if (shapes[key] >= 5) {
+     shapesWithMoreThanFiveSides.push(key)
+  }
+}
+
+
 
 // WRITE YOUR CODE BELOW THIS LINE
 
