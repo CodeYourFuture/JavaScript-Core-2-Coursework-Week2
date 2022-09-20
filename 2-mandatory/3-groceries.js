@@ -40,13 +40,8 @@ Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
-  for(const key in weeklyMealPlan){
-    if(weeklyMealPlan[key]==="saturday"){
-      weeklyMealPlan[key].forEach((ingredient) =>
-         weekendGroceriesToBuy.push(ingredient))
-    }
-  }
+let weekendGroceriesToBuy = [...weeklyMealPlan.sunday,...weeklyMealPlan.sunday];
+  
   console.log(weekendGroceriesToBuy);
 
   

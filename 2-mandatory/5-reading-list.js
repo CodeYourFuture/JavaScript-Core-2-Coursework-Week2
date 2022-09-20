@@ -113,6 +113,5 @@ function expectLogBooksToLog(expectedValues) {
     expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
     expectedValues.forEach((value, i) => {
       expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+    });}
+    consoleLogSpy.mockRestore()

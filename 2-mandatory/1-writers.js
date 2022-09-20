@@ -79,7 +79,7 @@ function logDeadWritersInTheirForties() {
   writers
   .filter((writer)=> writer.age>39 && writer.age <50 && !writer.alive)
   .forEach((writer)=>
-  console.log(`"Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`)
+  console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`)
   )
 }
 
