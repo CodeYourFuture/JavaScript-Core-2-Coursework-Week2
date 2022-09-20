@@ -12,8 +12,6 @@ let bankAccount = {
   withdraw: function (amount) {},
 };
 
-
-
 // DO NOT EDIT BELOW THIS LINE
 bankAccount.deposit(50);
 console.log(
