@@ -16,12 +16,53 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [{
+  title:"The Hobbit",
+  author:"J.R.R. Tolkien",
+  alreadyRead: true
+},
+{
+  title: "The Map of Salt and Stars",
+  author: "Jennifer Zeynab Joukhadar",
+  alreadyRead: false
+},
+{
+  title:"Dietland",
+  author:"Sarai Walker",
+  alreadyRead: false
+},
+{
+  title: "A Place for Us",
+  author: "Fatima Farheen Mirza",
+  alreadyRead: false
+},
+{
+  title: "The House of Impossible Beauties",
+  author: "Joseph Cassara",
+  alreadyRead: false
+}
+];
   
 // exercise 1
 function logBooks() {
+  for (const key in books) {
+    console.log(`${books[key].title} by ${books[key].author}`);
+  }
 }
   
+function logBooks2() {
+  for (const key in books) {
+    if (books[key].alreadyRead) {
+      console.log(
+        `You've already read ${books[key].title} by ${books[key].author}`
+      );
+    } else {
+      console.log(
+        `You still need to read ${books[key].title} by ${books[key].author}`
+      );
+    }
+  }
+}
 
 /*
 =====

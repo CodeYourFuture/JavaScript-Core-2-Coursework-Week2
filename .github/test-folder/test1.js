@@ -385,9 +385,9 @@ const friends = [
 let colleaguesWhoCanMultitask = [];
 
 friends.forEach((friend) =>
-    friend.colleagues.map((colleagues) => {if
-       (colleagues.skills.includes("Multi-tasking")){
-        colleaguesWhoCanMultitask.push(colleagues.name)  
+    friend.colleagues.map((colleague) => {if
+       (colleague.skills.includes("Multi-tasking")){
+        colleaguesWhoCanMultitask.push(colleague.name)  
       }
     })
   )
