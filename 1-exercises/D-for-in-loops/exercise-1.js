@@ -13,6 +13,9 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+for (const keys in salaries) {
+  if (salaries[keys] > 50000) console.log(`${keys}: $${salaries[keys]}`);
+}
 
 // Expected Result:
 // monica: $55000
