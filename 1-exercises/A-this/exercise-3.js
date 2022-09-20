@@ -12,8 +12,7 @@ let bankAccount = {
     this.currentAmount += amount;
   },
   withdraw: function (amount) {
-        this.currentAmount -= amount;
-
+    this.currentAmount -= amount;
   },
 };
 

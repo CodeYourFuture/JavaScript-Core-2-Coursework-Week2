@@ -6,20 +6,20 @@
 
 */
 
-
 let person = {
-    name: "Maggie",
-    age: 26,
-    currentAddress: "London",
-    changeAddress: function (newAddress){
-        this.currentAddress=newAddress;
-    }
+  name: "Maggie",
+  age: 26,
+  currentAddress: "London",
+  changeAddress: function (newAddress) {
+    this.currentAddress = newAddress;
+  },
 };
-
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
 person.changeAddress("Edinburgh");
-console.log(`Expected result: Edinburgh. Actual result: ${person.currentAddress}`);
+console.log(
+  `Expected result: Edinburgh. Actual result: ${person.currentAddress}`
+);
