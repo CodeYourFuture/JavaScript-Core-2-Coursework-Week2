@@ -63,9 +63,8 @@ Exercise 1:
 
   function logAllWriters(writers) {
     
-     writers.forEach(writer => {
-    console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`);
-  });
+     writers.forEach((writer) => console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`)
+  );
 }
 
 
@@ -77,9 +76,11 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  if(writers.age >=40 && writers.age < 50 && writers.alive===false){
-    console.log(`Writer ${writers.firstName} ${writers.lastName} died at ${writers.age} years old.`)
-  }
+  writers
+  .filter((writer)=> writer.age>39 && writer.age <50 && !writer.alive)
+  .forEach((writer)=>
+  console.log(`"Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`)
+  )
 }
 
 /*
@@ -89,9 +90,11 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-if(writer.age>= 40 && writer.age < 50 && writer.alive ===true){
-  console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`)
-}
+writers
+  .filter((writer) =>writer.age > 39 && writer.age < 50 && writer.alive)
+  .forEach((writer)=> 
+    console.log(`Hi, my name is ${writer.firstName}  ${writer.lastName}. I am ${writer.age} years old.`)   
+  )
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
