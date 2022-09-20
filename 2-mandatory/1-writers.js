@@ -61,9 +61,14 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
-};
-
+  for (writer in writers) {
+    console.log(`Hi, my name is ${writers[writer].firstName} ${writers[writer].lastName}.
+    I am ${writers[writer].age} years old, and work as a ${writers[writer].occupation}.`)
+  }
 /*
+
+
+
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
   and not alive anymore. Use the below sentence format:
@@ -72,6 +77,14 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  for (writer in writers) {
+    if (writers[writer].age >= 40
+      && writers[writer].age < 50
+      && writers[writer].alive === false) {
+      console.log(`Writer ${writers[writer].firstName} ${writers[writer].lastName} 
+      died at ${writers[writer].age} years old.`)
+    }
+  }
 }
 
 /*
