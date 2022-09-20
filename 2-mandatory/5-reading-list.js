@@ -47,6 +47,13 @@ const books = [
   
 // exercise 1
 function logBooks() {
+ for(let book in books){
+  if(books.alreadyRead===true){
+     return `You've already read ${books.Title} by ${books.Author}.`;
+  }else {
+      return `You still need to read ${books.Title} by ${books.Author}.`;
+ }
+
 }
   
 
