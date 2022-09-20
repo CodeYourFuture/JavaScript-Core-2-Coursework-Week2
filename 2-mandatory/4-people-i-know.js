@@ -378,6 +378,12 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+friends.forEach((friend) => {
+  if (friend.age >= 35) {
+    thirtyFiveOrOlder.push(friend);
+  }
+});
+// console.log(thirtyFiveOrOlder);
 
 /*
 3) Find the email address
@@ -385,6 +391,12 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+friends.forEach((friend) => {
+  if (friend.company === "POWERNET") {
+    powerNetEmails.push(friend.email);
+  }
+});
+// console.log(powerNetEmails);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +406,19 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+friends.filter((friend) => {
+  friend.colleagues.forEach((colleague) => {
+    // if (colleague.name === "Stacie Villarreal") {
+    if (colleague.name.includes("Stacie Villarreal")) {
+      friendsWhoAreColleaguesOfStacie.push(
+        `${friend.name.first} ${friend.name.last}`
+      );
+    }
+  });
+});
+
+console.log(friendsWhoAreColleaguesOfStacie);
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -403,15 +428,29 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 
+friends.filter((friend) =>
+  friend.colleagues.forEach((colleague) =>
+    colleague.skills.forEach((skill) => {
+      if (skill.includes("Multi-tasking")) {
+        colleaguesWhoCanMultitask.push(`${colleague.name}`);
+      }
+    })
+  )
+);
+console.log(colleaguesWhoCanMultitask);
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 4-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
-    "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+    "Vilma",
+    "Aisha",
+    "Mitchell",
+    "Sutton",
+    "Jana",
   ]);
 });
 
@@ -432,10 +471,10 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });

@@ -24,7 +24,12 @@ let shapes = {
 let shapesWithMoreThanFiveSides = [];
 
 // WRITE YOUR CODE BELOW THIS LINE
-
+for (let shape in shapes) {
+  if (shapes[shape] >= 5) {
+    shapesWithMoreThanFiveSides.push([shape]);
+  }
+}
+//console.log(shapesWithMoreThanFiveSides);
 // DO NOT EDIT BELOW THIS LINE
 console.log(
   `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
