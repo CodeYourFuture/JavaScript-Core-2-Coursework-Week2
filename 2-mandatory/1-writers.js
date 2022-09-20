@@ -59,12 +59,13 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
+
 function logAllWriters() {
   // write your code to log all writers here
   for (writer in writers) {
-    console.log(`Hi, my name is ${writers[writer].firstName} ${writers[writer].lastName}.
-    I am ${writers[writer].age} years old, and work as a ${writers[writer].occupation}.`)
+    console.log(`Hi, my name is ${writers[writer].firstName} ${writers[writer].lastName}. I am ${writers[writer].age} years old, and work as a ${writers[writer].occupation}.`)
   }
+}
 /*
 
 
@@ -81,11 +82,10 @@ function logDeadWritersInTheirForties() {
     if (writers[writer].age >= 40
       && writers[writer].age < 50
       && writers[writer].alive === false) {
-      console.log(`Writer ${writers[writer].firstName} ${writers[writer].lastName} 
-      died at ${writers[writer].age} years old.`)
+      console.log(`Writer ${writers[writer].firstName} ${writers[writer].lastName} died at ${writers[writer].age} years old.`)
     }
   }
-}
+};
 
 /*
 Exercise 3:
@@ -95,7 +95,14 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
-}
+  for (writer in writers) {
+    if (writers[writer].age >= 40
+      && writers[writer].age < 50
+      && writers[writer].alive === true) {
+      console.log(`Hi, my name is ${writers[writer].firstName} ${writers[writer].lastName}. I am ${writers[writer].age} years old.`)
+    }
+  }
+};
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
