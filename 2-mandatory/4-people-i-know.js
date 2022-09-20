@@ -378,6 +378,8 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+thirtyFiveOrOlder.push(friends.filter(age => age.age >= 35))
+//console.log(thirtyFiveOrOlder)
 
 /*
 3) Find the email address
@@ -385,7 +387,8 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
-
+powerNetEmails.push(friends.filter(company => company.company === "POWERNET").map(email => email.email))
+//console.log(powerNetEmails)
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -394,6 +397,14 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+//console.log(friends.forEach(friend => friend.colleagues))
+for (let friend of friends) {
+  for (let coworker in friend.colleagues){
+    console.log(friend.colleagues[coworker])
+  }
+}
+//console.log(friends.filter(friend => friend.colleagues.filter(name => name.name === 'Stacie Villarreal')))
+//console.log(friends.filter(person => person.colleagues.map(coworker => coworker.colleagues)))
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -410,7 +421,7 @@ let colleaguesWhoCanMultitask = [];
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
     "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
   ]);
 });
@@ -432,10 +443,10 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });
