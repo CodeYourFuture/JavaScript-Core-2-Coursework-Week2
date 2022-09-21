@@ -26,33 +26,35 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
-let weeklyGroceriesToBuy = [];
 
-for (const key in weeklyMealPlan) {
-  weeklyMealPlan[key].forEach(ingredient => {
-    if (!weeklyGroceriesToBuy.includes(ingredient)) {
-      weeklyGroceriesToBuy.push(ingredient);
-    }
-  })
-};
+// let weeklyGroceriesToBuy = [];
+// for (const key in weeklyMealPlan) {
+//   weeklyMealPlan[key].forEach(ingredient => {
+//     if (!weeklyGroceriesToBuy.includes(ingredient)) {
+//       weeklyGroceriesToBuy.push(ingredient);
+//     }
+//   })
+// }; <---- FIRST ATTEMPT, SHORTER CODE SAME RESULT BELOW:
+
+let weeklyGroceriesToBuy = [...new Set(Object.values(weeklyMealPlan).flat())]
 
 
 // Exercise 2:
 //   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 // */
 // // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
 
-for (const key in weeklyMealPlan) {
-  if (key === "saturday" || key === "sunday") {
-    weeklyMealPlan[key].forEach(ingredient => {
-    if (!weekendGroceriesToBuy.includes(ingredient)) {
-    weekendGroceriesToBuy.push(ingredient);
-    }
-})}
-}
+// let weekendGroceriesToBuy = [];
+// for (const key in weeklyMealPlan) {
+//   if (key === "saturday" || key === "sunday") {
+//     weeklyMealPlan[key].forEach(ingredient => {
+//     if (!weekendGroceriesToBuy.includes(ingredient)) {
+//     weekendGroceriesToBuy.push(ingredient);
+//     }
+// })}
+// } <---- FIRST ATTEMPT, SHORTER CODE SAME RESULT BELOW:
 
-
+let weekendGroceriesToBuy = [...weeklyMealPlan.saturday, ...weeklyMealPlan.sunday];
 /*
 Exercise 3:
   Loop through your weekly meal plan:
@@ -69,6 +71,10 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+for (const key in numberOfItemsPerWeek) {
+  numberOfItemsPerWeek[key] = weeklyMealPlan[key].length;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
