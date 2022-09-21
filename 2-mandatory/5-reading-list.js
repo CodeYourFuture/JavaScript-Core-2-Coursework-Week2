@@ -18,27 +18,40 @@ without using any variables or any logic like loops, template strings or if stat
 
 const books = [
   {
-    title: "private peaceful",
-    author: "Michael morpurgo",
+    title: "Private Peaceful",
+    author: "Michael Morpurgo",
     alreadyRead: true,
   },
   {
-    title: "How to Solve It: A New Aspect of Mathematical Method ",
+    title: "How to Solve It: A New Aspect of Mathematical Method",
     author: "George Polya ",
     alreadyRead: true,
   },
 
   {
-    title: "How to Solve It: A New Aspect of Mathematical Method ",
-    author: "George Polya ",
+    title:
+      "A concise course in advanced level statistics: with worked examples",
+    author: "Crawshaw, J. and Chambers, J",
     alreadyRead: true,
   },
+
+  {
+    title: "A Beautiful Mind",
+    author: "Sylvia Nasar",
+    alreadyRead: false,
+  },
+
+  {
+    title: "Love and Math: The Heart of Hidden Reality",
+    author: "Edward Frenkel",
+    alreadyRead: false,
+  },
 ];
-  
+
 // exercise 1
-function logBooks() {
+function logBooks(booksChecking) {
+  booksChecking.map((book) => console.log(` ${book.title} by  ${book.author}`));
 }
-  
 
 /*
 =====
@@ -71,31 +84,31 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+test("books are logged", function () {
+  expectLogBooksToLog([
+    "Private Peaceful by Michael Morpurgo",
+    "How to Solve It: A New Aspect of Mathematical Method by George Polya",
+    "A concise course in advanced level statistics: with worked examples by Crawshaw, J. and Chambers, J",
+    "A Beautiful Mind by Sylvia Nasar",
+    "Love and Math: The Heart of Hidden Reality by Edward Frenkel",
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
-* Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
-*
-* - If the number of calls to console.log does not match the number of elements in the array, the test will fail
-* - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
-*
-* You do not need to understand how this function works to successfully complete the exercise.
-*/
+ * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
+ *
+ * - If the number of calls to console.log does not match the number of elements in the array, the test will fail
+ * - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
+ *
+ * You do not need to understand how this function works to successfully complete the exercise.
+ */
 function expectLogBooksToLog(expectedValues) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    logBooks();
-    expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-    expectedValues.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+  const consoleLogSpy = jest.spyOn(console, "log");
+  logBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}
