@@ -26,7 +26,11 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
-let weeklyGroceriesToBuy = [];
+// let weeklyGroceriesToBuy = Object.values(weeklyMealPlan)
+// .flat()
+// .filter((value, index, arr) => arr.indexOf(value) === index);
+
+let weeklyGroceriesToBuy = [...new Set(Object.values(weeklyMealPlan).flat())];
 
 /*
 Exercise 2:

@@ -59,8 +59,10 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
-  // write your code to log all writers here
+function logAllWriters(writers) {
+  writers.forEach(writer => 
+    console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`)
+    );
 };
 
 /*
@@ -70,8 +72,12 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
-  // write your code here
+function logDeadWritersInTheirForties(writers) {
+  writers
+    .filter((writer) =>
+      writer.age >= 40 && writer.age <= 49 && !writer.alive)
+    .forEach((writer) =>
+      console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`));
 }
 
 /*
@@ -80,8 +86,14 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
-  // write your code here
+function logAliveWritersInTheirForties(writers) {
+  writers
+    .filter((writer) => writer.age >= 40 && writer.age <= 49 && writer.alive)
+    .forEach((writer) =>
+      console.log(
+        `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+      )
+    );
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
