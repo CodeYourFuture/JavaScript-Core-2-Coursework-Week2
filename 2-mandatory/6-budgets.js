@@ -10,7 +10,14 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {
+function getBudgets(peopleArray)
+{
+    let total = 0;
+    for (const properties of peopleArray)
+    {
+        total += properties.budget;
+    };
+    return total
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
