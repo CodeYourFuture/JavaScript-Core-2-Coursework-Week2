@@ -12,6 +12,12 @@ let salaries = {
   rachel: 90000,
 };
 
+for (let earns in salaries){
+  if(salaries[earns]> 50000){
+    console.log (`${earns}: $${salaries[earns]}`);
+  }
+}
+
 // WRITE BELOW THIS LINE
 
 // Expected Result:
