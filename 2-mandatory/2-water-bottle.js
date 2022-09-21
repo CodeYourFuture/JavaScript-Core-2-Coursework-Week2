@@ -19,21 +19,49 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    this.volume = 100;
   },
-  pour: function () {
+  pour: function (){
+    
+        if(this.volume <= 90)
+        {
+            this.volume += 10;
+        }
+    },
     // calling this function should increase your bottle volume by 10 units;
-  },
-  drink: function () {
+  
+
+drink: function (){
+        if(this.volume >= 10)
+        {
+            this.volume -= 10;
+        }
+        else
+        {
+            console.log(`You cannot drink more than its actual contents`)
+        }
+    },
     // calling this function should decrease your bottle volume by 10 units;
-  },
-  isFull: function () {
+  
+     isFull: function () {
     // this function should return true if your bottle is full;
+    if (this.volume === 100) {
+      return true;
+    } else {
+      return false;
+    }
   },
+
+
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    if (this.volume === 0) {
+      return true;
+    } else {
+      return false;
+    }
   },
 };
-
 /*
 TIP:
   Remember that for changing properties on the current object inside one of its
