@@ -16,11 +16,45 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Catcher In The Rye",
+    author: "J.D. Salinger",
+    alreadyRead: true,
+  },
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: true,
+  },
+  {
+    title: "The Midnight Library",
+    author: "Matt Haig",
+    alreadyRead: true,
+  },
+  {
+    title: "James And The Giant Peach",
+    author: "Roald Dahl",
+    alreadyRead: true,
+  },
+  {
+    title: "Wolf Hall",
+    author: "Hilary Mantel",
+    alreadyRead: false,
+  },
+  {
+    title: "The Prophet",
+    author: "Kahlil Gibran",
+    alreadyRead: true,
+  }
+];
   
 // exercise 1
-function logBooks() {
-}
+// function logBooks() {
+//   books.forEach(book => {
+//     console.log(`${book.title} by ${book.author}`)
+//   })
+// };
   
 
 /*
@@ -48,6 +82,15 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+function logBooks() {
+  books.forEach(book => {
+    (book.alreadyRead === true)
+    ? console.log(`You've already read ${book.title} by ${book.author}`)
+    : console.log(`You still need to read ${book.title} by ${book.author}`)
+  })
+};
+
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -56,11 +99,12 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function() {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
+        "You've already read The Catcher In The Rye by J.D. Salinger",
+        "You've already read The Hobbit by J.R.R. Tolkien",
+        "You've already read The Midnight Library by Matt Haig",
+        "You've already read James And The Giant Peach by Roald Dahl",
+        "You still need to read Wolf Hall by Hilary Mantel",
+        "You've already read The Prophet by Kahlil Gibran"
     ]);
 });
 
