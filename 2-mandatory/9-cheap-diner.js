@@ -19,7 +19,21 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  let selectedMeal = 0;
+  if (mealArray.length === 0) selectedMeal = "Nothing :(";
+  else if (mealArray.length === 1) selectedMeal = mealArray[0].name;
+  else {
+    const allPrices = mealArray.map((meal) => meal["price"]);
+    const secondMinimum = allPrices.sort((a, b) => a - b)[1];
+    mealArray.map((name) => {
+      if (name["price"] === secondMinimum) {
+        selectedMeal = name["name"];
+      }
+    });
+  }
+  return selectedMeal;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
