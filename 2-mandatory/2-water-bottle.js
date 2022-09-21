@@ -29,12 +29,20 @@ let bottle = {
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+    if (this.volume >= 10) {
+      this.volume -= 10;
+    }
   },
   isFull: function () {
     // this function should return true if your bottle is full;
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    if (this.volume === 100) {
+      return true
+    }else {
+      return false;
+    }
   },
 };
 
@@ -50,7 +58,7 @@ Extra question:
   Leave your answer below:
 */
 
-// Write you answer to the question here
+// Write you answer to the question here: the this keyword is a useful placeholder to allow multiple, different objects to access the same properties or methods.
 
 /*
 Once you have completed your object run the following 
