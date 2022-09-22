@@ -28,11 +28,10 @@ function chooseMeal(mealArray) {
   if (mealArray.length === 0) {
     return "Nothing :(";
   } else if (mealArray.length === 1) {
-    return mealArray.map((places) => places.name).toString();
+    return mealArray[0].name;
   } else {
     mealArray.sort((a, b) => a.price - b.price);
-    let names = mealArray.map((names) => names.name);
-    return names[1];
+    return mealArray[1].name;
   }
 }
 
