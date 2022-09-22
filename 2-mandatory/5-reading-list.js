@@ -16,11 +16,46 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Title1",
+    author: "Author1",
+    alreadyRead: true
+  },
+  {
+    title: "Title2",
+    author: "Author2",
+    alreadyRead: false
+  },
+  {
+    title: "Title3",
+    author: "Author3",
+    alreadyRead: true
+  },
+  {
+    title: "Title4",
+    author: "Author4",
+    alreadyRead: false
+  },
+  {
+    title: "Title5",
+    author: "Author5",
+    alreadyRead: true
+  }
+];
   
 // exercise 1
-function logBooks() {
+function logBooks(books) {
+  books.map((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    }
+  });
 }
+
+logBooks(books);
   
 
 /*
@@ -54,14 +89,24 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+// test("books are logged", function() {
+//  expectLogBooksToLog([
+//         "The Hobbit by J.R.R. Tolkien",
+//         "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+//         "Dietland by Sarai Walker",
+//         "A Place for Us by Fatima Farheen Mirza",
+//         "The House of Impossible Beauties by Joseph Cassara"
+//     ]);
+// });
+
+test("books are logged", function () {
+  expectLogBooksToLog([
+    "You've already read Title1 by Author1",
+    "You still need to read Title2 by Author2",
+    "You've already read Title3 by Author3",
+    "You still need to read Title2 by Author4",
+    "You've already read Title5 by Author5",
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
