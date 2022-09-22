@@ -11,7 +11,17 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  if (peopleArray.length == 0) {
+    return 0;
+  } else {
+    let totalBudget = 0;
+    peopleArray.forEach(
+      (person) => (totalBudget = totalBudget + person.budget)
+    );
+    return totalBudget;
+  }
 }
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
