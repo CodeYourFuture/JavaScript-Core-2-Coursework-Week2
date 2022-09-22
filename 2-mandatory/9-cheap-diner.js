@@ -36,16 +36,6 @@ function chooseMeal(mealArray) {
   }
 }
 
-console.log(chooseMeal([]));
-console.log(
-  chooseMeal([
-    { name: "Dunkin' Donuts", price: 8.99 },
-    { name: "Captain D's", price: 13.99 },
-    { name: "Moe's Southwest Grill", price: 10.99 },
-  ])
-);
-console.log(chooseMeal([{ name: "Dunkin' Donuts", price: 8.99 }]));
-
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
