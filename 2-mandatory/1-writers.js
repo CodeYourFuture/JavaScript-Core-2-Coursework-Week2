@@ -16,41 +16,41 @@
 
 // We've created an array of objects for you here:
 let writers = [
-  {
-    firstName: "Virginia",
-    lastName: "Woolf",
-    occupation: "writer",
-    age: 59,
-    alive: false,
-  },
-  {
-    firstName: "Zadie",
-    lastName: "Smith",
-    occupation: "writer",
-    age: 40,
-    alive: true,
-  },
-  {
-    firstName: "Jane",
-    lastName: "Austen",
-    occupation: "writer",
-    age: 41,
-    alive: false,
-  },
-  {
-    firstName: "Bell",
-    lastName: "Hooks",
-    occupation: "writer",
-    age: 63,
-    alive: true,
-  },
-  {
-    firstName: "Yukiko",
-    lastName: "Motoya",
-    occupation: "writer",
-    age: 49,
-    alive: true,
-  }
+    {
+        firstName: "Virginia",
+        lastName: "Woolf",
+        occupation: "writer",
+        age: 59,
+        alive: false,
+    },
+    {
+        firstName: "Zadie",
+        lastName: "Smith",
+        occupation: "writer",
+        age: 40,
+        alive: true,
+    },
+    {
+        firstName: "Jane",
+        lastName: "Austen",
+        occupation: "writer",
+        age: 41,
+        alive: false,
+    },
+    {
+        firstName: "Bell",
+        lastName: "Hooks",
+        occupation: "writer",
+        age: 63,
+        alive: true,
+    },
+    {
+        firstName: "Yukiko",
+        lastName: "Motoya",
+        occupation: "writer",
+        age: 49,
+        alive: true,
+    }
 ];
 
 /*
@@ -59,10 +59,11 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
-  // write your code to log all writers here
-};
-
+function logAllWriters(){
+for (const key in writers){  
+console.log(Hi, my name is ${writers.firstName && writers.lastName} I am ${writers.age} and work as a ${writer.occupation})
+ }
+}
 /*
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
@@ -71,7 +72,9 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+for (let age in writers) {
+filter.writers (if ${writers.age} >=40 && <=55)   
+console.log(${writers.firstName && writers.lastName} died at ${writers.age} years old.)
 }
 
 /*
@@ -81,7 +84,9 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+for (let writers in forties) { 
+if {writers.age >=40 && <=49 && writers.alive === true}     
+} console.log("Hi, my name is ${writers.firstName && writers.lastName}. I am ${writers.age} years old.")
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
@@ -91,28 +96,28 @@ function logAliveWritersInTheirForties() {
 */
 
 test("exercise 1", () => expectFunctionToLog(logAllWriters, [
-  "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
-  "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
-  "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
-  "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
-  "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
+    "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
+    "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
+    "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
+    "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
+    "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
 ]));
 
 test("exercise 2", () => expectFunctionToLog(logDeadWritersInTheirForties, [
-  "Writer Jane Austen died at 41 years old."
+    "Writer Jane Austen died at 41 years old."
 ]));
 
 test("exercise 3", () => expectFunctionToLog(logAliveWritersInTheirForties, [
-  "Hi, my name is Zadie Smith. I am 40 years old.",
-  "Hi, my name is Yukiko Motoya. I am 49 years old."
+    "Hi, my name is Zadie Smith. I am 40 years old.",
+    "Hi, my name is Yukiko Motoya. I am 49 years old."
 ]));
 
-function expectFunctionToLog(f, values) {
+function expectFunctionToLog(f, values) 
     const consoleLogSpy = jest.spyOn(console, 'log');
     f();
     expect(consoleLogSpy).toBeCalledTimes(values.length);
     values.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
+        expect(consoleLogSpy).nthCalledWith(i + 1, value);
     });
     consoleLogSpy.mockRestore();
 };
