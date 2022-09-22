@@ -16,11 +16,47 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The 5 wave",
+    author: "Rick Yancey",
+    alreadyRead: false,
+  },
+  {
+    title: "Eleven minutes",
+    author: "Paulo Coelho",
+    alreadyRead: true,
+  },
+  {
+    title: "The Alchemist",
+    author: "Paulo Coelho",
+    alreadyRead: true,
+  },
+  {
+    title: "The fault in our stars",
+    author: "John Green",
+    alreadyRead: true,
+  },
+  {
+    title: "Looking for Alaska",
+    author: "John Green",
+    alreadyRead: false,
+  },
+  {
+    title: "The Witch of Portobello",
+    author: "Paulo Coelho",
+    alreadyRead: false,
+  }
+];
   
 // exercise 1
 function logBooks() {
-}
+  books.forEach(book => {
+    (book.alreadyRead === true)
+    ? console.log(`You've already read ${book.title} by ${book.author}`)
+    : console.log(`You still need to read ${book.title} by ${book.author}`)
+  })
+};
   
 
 /*
