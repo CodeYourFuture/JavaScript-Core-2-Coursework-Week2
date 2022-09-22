@@ -26,14 +26,33 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
-let weeklyGroceriesToBuy = [];
+//TODO create an array from each day's menu  ( to mearge/flatten all arrays we can use flatten)
+// TODO flatten the array
+//TODO remove duplicate
+
+//option - 1
+/*const weeklyGroceriesToBuy = Object.values(weeklyMealPlan)
+.flat()
+.filter((v, i, a)  => a.indexOf(v) === i);  //array
+
+console.log(weeklyGroceriesToBuy);
+*/
+
+//option - 2
+let weeklyGroceriesToBuy = [...new Set(Object.values(weeklyMealPlan).flat())];
+console.log(weeklyGroceriesToBuy);
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
+let weekendGroceriesToBuy = [
+  ...weeklyMealPlan.saturday,
+  ...weeklyMealPlan.sunday,
+];
+console.log(weekendGroceriesToBuy);
+
 
 /*
 Exercise 3:
@@ -43,14 +62,13 @@ Exercise 3:
 */
 // Gather daily item counts into this object
 let numberOfItemsPerWeek = {
-  monday: 0,
-  tuesday: 0,
-  wednesday: 0,
-  thursday: 0,
-  friday: 0,
   saturday: 0,
   sunday: 0,
 };
+for (const day in numberOfItemsPerWeek) {
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
+}
+console.log(numberOfItemsPerWeek);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

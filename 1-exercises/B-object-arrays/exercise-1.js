@@ -13,8 +13,16 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames =
+let peopleNames = people.map((p) => p.name);
   /* todo */
+
+  /*let peopleNames1 = []
+  for (const element of people) {
+    peopleNames1.push(element.name);
+  }*/
+
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);
+  //console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames1}`);
+
