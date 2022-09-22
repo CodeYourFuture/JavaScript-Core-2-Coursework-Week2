@@ -378,9 +378,7 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
-friends.forEach((friend)=>{
-  if(friend.age>35){thirtyFiveOrOlder.push(friend.name.first)}
-})
+thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
@@ -414,6 +412,13 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+friends.forEach((friends) => {
+  friends.colleagues.map((elem) => {
+    if (elem.skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(`${elem.name}`);
+    }
+  });
+});
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
