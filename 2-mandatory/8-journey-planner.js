@@ -19,7 +19,18 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+function journeyPlanner(locations, transportMode)
+{
+    checkedLocations = [];
+    for (const properties in locations)
+    {
+        if(locations[properties].includes(transportMode))
+        {
+            checkedLocations.push(properties);
+        }
+    }
+    return checkedLocations;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
