@@ -378,7 +378,6 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = friends.filter((age) => age.age >= 35);
-//console.log(thirtyFiveOrOlder)
 
 /*
 3) Find the email address
@@ -427,23 +426,17 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
-// friends.forEach((friend) => {
-//   let canMultiTask = friend.colleagues
-//     .map((name) => name.skills)
-//     .includes("Multi-Tasking");
-// });
-//THIS SOLUTION WORKS, WORK IT OUT ^^^
 
-friends.map((friend) => friend.colleagues).forEach((obj) =>{
-  for (const key in obj){
-    if(obj[key].skills.includes('Multi-tasking')){
-      colleaguesWhoCanMultitask.push(obj[key].name)
+friends
+  .map((friend) => friend.colleagues)
+  .forEach((obj) => {
+    for (const key in obj) {
+      if (obj[key].skills.includes("Multi-tasking")) {
+        colleaguesWhoCanMultitask.push(obj[key].name);
+      }
     }
-  }
-})
-console.log(colleaguesWhoCanMultitask)
-// let col = friends.map((friend) => friend.colleagues)
-// console.log(col.filter(skills => (skills.skills).includes('Multi-tasking')))
+  });
+console.log(colleaguesWhoCanMultitask);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`

@@ -9,11 +9,6 @@ getBudgets([
 ])
 Should give return the answer of 62600.
 **/
-let test = [
-  { name: "John", age: 21, budget: 23000 },
-  { name: "Steve", age: 32, budget: 40000 },
-  { name: "Martin", age: 16, budget: 2700 },
-];
 
 function getBudgets(peopleArray) {
   budgets = [];
@@ -24,16 +19,8 @@ function getBudgets(peopleArray) {
       budgets.push(person.budget);
     });
   }
-  return budgets.reduce((p, c) => p + c, 0);
+  return budgets === 0 ? 0 : budgets.reduce((p, c) => p + c, 0);
 }
-console.log(
-  getBudgets([
-    { name: "John", age: 21, budget: 23000 },
-    { name: "Steve", age: 32, budget: 40000 },
-    { name: "Martin", age: 16, budget: 2700 },
-  ])
-);
-console.log(getBudgets([]));
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

@@ -67,7 +67,6 @@ function logAllWriters() {
     )
   );
 }
-//logAllWriters(writers)
 /*
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
@@ -85,7 +84,6 @@ function logDeadWritersInTheirForties() {
       )
     );
 }
-//logDeadWritersInTheirForties(writers)
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
