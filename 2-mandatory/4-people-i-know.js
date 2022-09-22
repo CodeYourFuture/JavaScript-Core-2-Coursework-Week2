@@ -377,8 +377,7 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
-thirtyFiveOrOlder.push(friends.filter(age => age.age >= 35))
+let thirtyFiveOrOlder = friends.filter((age) => age.age >= 35);
 //console.log(thirtyFiveOrOlder)
 
 /*
@@ -386,9 +385,10 @@ thirtyFiveOrOlder.push(friends.filter(age => age.age >= 35))
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
-powerNetEmails.push(friends.filter(company => company.company === "POWERNET").map(email => email.email))
-//console.log(powerNetEmails)
+let powerNetEmails = friends
+  .filter((company) => company.company === "POWERNET")
+  .map((email) => email.email);
+
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -397,14 +397,28 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+//TRY FILTER, MAP, FILTER, INCLUDES AGAIN
+
 //console.log(friends.forEach(friend => friend.colleagues))
-for (let friend of friends) {
-  for (let coworker in friend.colleagues){
-    console.log(friend.colleagues[coworker])
-  }
-}
+// for (let friend of friends) {
+//   for (let coworker in friend.colleagues) {
+//     //console.log(friend.colleagues[coworker]);
+//   }
+// }
 //console.log(friends.filter(friend => friend.colleagues.filter(name => name.name === 'Stacie Villarreal')))
 //console.log(friends.filter(person => person.colleagues.map(coworker => coworker.colleagues)))
+
+friends.forEach((friend) => {
+  let isCoworker = friend.colleagues
+    .map((name) => name.name)
+    .includes("Stacie Villarreal");
+  if (isCoworker) {
+    friendsWhoAreColleaguesOfStacie.push(
+      `${friend.name.first} ${friend.name.last}`
+    );
+  }
+});
+console.log(friendsWhoAreColleaguesOfStacie);
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -413,6 +427,23 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+// friends.forEach((friend) => {
+//   let canMultiTask = friend.colleagues
+//     .map((name) => name.skills)
+//     .includes("Multi-Tasking");
+// });
+//THIS SOLUTION WORKS, WORK IT OUT ^^^
+
+friends.map((friend) => friend.colleagues).forEach((obj) =>{
+  for (const key in obj){
+    if(obj[key].skills.includes('Multi-tasking')){
+      colleaguesWhoCanMultitask.push(obj[key].name)
+    }
+  }
+})
+console.log(colleaguesWhoCanMultitask)
+// let col = friends.map((friend) => friend.colleagues)
+// console.log(col.filter(skills => (skills.skills).includes('Multi-tasking')))
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
@@ -422,7 +453,11 @@ let colleaguesWhoCanMultitask = [];
 
 test("2 - friends that are over 35", () => {
   expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
-    "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+    "Vilma",
+    "Aisha",
+    "Mitchell",
+    "Sutton",
+    "Jana",
   ]);
 });
 
