@@ -66,29 +66,35 @@ let game = {
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
     const directions = direction.toLowerCase();
-    if (this.currentRoom.hall && directions === "north") {
+    if (this.currentRoom.name === "hall" && directions === "north") {
       this.currentroom = rooms.hall.north();
-    } else if (this.currentRoom.hall && directions === "east") {
+    } else if (this.currentRoom.name === "hall" && directions === "east") {
       this.currentRoom = rooms.hall.east();
-    } else if (this.currentRoom.hall && directions === "south") {
+    } else if (this.currentRoom.name === "hall" && directions === "south") {
       this.currentRoom = rooms.hall.south();
-    } else if (this.currentRoom.hall && directions === "west") {
+    } else if (this.currentRoom.name === "hall" && directions === "west") {
       this.currentRoom = rooms.hall.west();
-    } else if (this.currentRoom.library && directions === "north") {
+    } else if (this.currentRoom.name === "library" && directions === "north") {
       this.currentroom = rooms.library.north();
-    } else if (this.currentRoom.library && directions === "east") {
+    } else if (this.currentRoom.name === "library" && directions === "east") {
       this.currentRoom = rooms.library.east();
-    } else if (this.currentRoom.library && directions === "south") {
+    } else if (this.currentRoom.name === "library" && directions === "south") {
       this.currentRoom = rooms.library.south();
-    } else if (this.currentRoom.library && directions === "west") {
+    } else if (this.currentRoom.name === "library" && directions === "west") {
       this.currentRoom = rooms.library.west();
-    } else if (this.currentRoom.classroom && directions === "north") {
+    } else if (
+      this.currentRoom.name === "classroom" &&
+      directions === "north"
+    ) {
       this.currentroom = rooms.classroom.north();
-    } else if (this.currentRoom.classroom && directions === "east") {
+    } else if (this.currentRoom.name === "classroom" && directions === "east") {
       this.currentRoom = rooms.classroom.east();
-    } else if (this.currentRoom.classroom && directions === "south") {
+    } else if (
+      this.currentRoom.name === "classroom" &&
+      directions === "south"
+    ) {
       this.currentRoom = rooms.classroom.south();
-    } else if (this.currentRoom.classroom && directions === "west") {
+    } else if (this.currentRoom.name === "classroom" && directions === "west") {
       this.currentRoom = rooms.classroom.west();
     } else {
       console.log(
