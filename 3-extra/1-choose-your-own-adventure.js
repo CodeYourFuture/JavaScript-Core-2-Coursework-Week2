@@ -82,17 +82,11 @@ let game = {
       this.currentRoom = rooms.library.south();
     } else if (this.currentRoom.name === "library" && directions === "west") {
       this.currentRoom = rooms.library.west();
-    } else if (
-      this.currentRoom.name === "classroom" &&
-      directions === "north"
-    ) {
+    } else if (this.currentRoom.name === "classroom" && directions === "north") { 
       this.currentroom = rooms.classroom.north();
     } else if (this.currentRoom.name === "classroom" && directions === "east") {
       this.currentRoom = rooms.classroom.east();
-    } else if (
-      this.currentRoom.name === "classroom" &&
-      directions === "south"
-    ) {
+    } else if (this.currentRoom.name === "classroom" && directions === "south") {
       this.currentRoom = rooms.classroom.south();
     } else if (this.currentRoom.name === "classroom" && directions === "west") {
       this.currentRoom = rooms.classroom.west();
@@ -102,6 +96,7 @@ let game = {
         "That is not a valid direction, please choose north/south/east/west"
       );
     }
+    return this.currentRoom;
   },
 };
 
