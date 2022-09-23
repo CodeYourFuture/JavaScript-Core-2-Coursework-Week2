@@ -19,7 +19,12 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  let res = mealArray.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+  if (res.length > 1) return res[1].name;
+  else if (res.length === 0) return "Nothing :(";
+  else return res[0].name;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
