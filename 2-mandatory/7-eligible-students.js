@@ -15,15 +15,15 @@
  */
 
 function eligibleStudents(attendances) {
-  attendances.forEach((elements) => {
-    const newli = [];
-    for (const key in elements) {
-      if (elements[key].attendance >= 8) {
-        newli.push(elements[key].name);
-      }
+  for (let i in attendances) {
+    let all = [];
+    if (attendances[i].attendance >= 8) {
+      all.push(attendances[i].name);
+      i++;
     }
-    return newli;
-  });
+    return all;
+    // console.log(all);
+  }
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

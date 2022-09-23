@@ -19,13 +19,36 @@
   What's better about each approach?
 */
 
+// const londonLocations = {
+//   Angel: ["tube", "bus"],
+//   "London Bridge": ["tube", "river boat"],
+//   "Tower Bridge": ["tube", "bus"],
+//   Greenwich: ["bus", "river boat"],
+// };
+
+// function journeyPlanner(locations, transportMode) {
+//   Object.values(locations).forEach((element) => {
+//     if (!element.includes(transportMode)) {
+//       console.log(Object.keys(londonLocations));
+//     }
+//   });
+// }
+// console.log(
+//   Object.values(londonLocations).every((element) => {
+//     if (element.includes("bus") == true) {
+//       return Object.keys(element);
+//     }
+//   })
+// );
+
 function journeyPlanner(locations, transportMode) {
-  Object.values(locations).forEach((element) => {
+  Object.values(locations).every((element) => {
     if (element.includes(transportMode)) {
-      return Object.keys(locations);
+      return Object.keys(element);
     }
   });
 }
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-journey-planner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

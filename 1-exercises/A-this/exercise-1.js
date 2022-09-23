@@ -23,3 +23,13 @@ let age = person.age;
 let expectedAge = age + 1;
 person.celebrateBirthday();
 console.log(`Expected age is ${expectedAge}, actual age is ${person.age}`);
+
+let homes = [
+  { name: "Dunkin' Donuts", price: 8.99 },
+  { name: "Captain D's", price: 13.99 },
+  { name: "Moe's Southwest Grill", price: 10.99 },
+];
+
+homes.sort(function (a, b) {
+  console.log(parseFloat(a.price) - parseFloat(b.price));
+});
