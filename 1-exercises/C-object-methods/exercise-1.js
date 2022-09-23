@@ -1,6 +1,7 @@
 /*
 
-   Use the appropriate "Object." static method to list the keys in the "footballClubs" object.
+   Use the appropriate "Object." static method to 
+   list the keys in the "footballClubs" object.
    Assign this to the "clubNames" variable.
 
 */
@@ -11,7 +12,7 @@ let footballClubs = {
   ac_milan: "Italy",
 };
 
-let clubNames =
+let clubNames = Object.keys(footballClubs)
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

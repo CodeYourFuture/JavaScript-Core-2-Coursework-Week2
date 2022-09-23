@@ -3,11 +3,13 @@
    The "shapes" object contains keys of various shapes, with
    the number of sides they have as their value.
 
-   Use a "for...in" loop to construct an array of shapes which have
+   Use a "for...in" loop to construct an array of shapes which
+    have
    5 or more sides. This array has already been declared for you
    ("shapesWithMoreThanFiveSides").
 
-   Note, you also will need to make use of some array methods you have seen
+   Note, you also will need to make use of some array methods you
+    have seen
    previously.
 
 */
@@ -21,7 +23,14 @@ let shapes = {
   megagon: 1000000,
 };
 
-let shapesWithMoreThanFiveSides = [];
+let shapesWithMoreThanFiveSides = []
+for (let key in shapes) {
+  if (shapes[key] >= 5) {
+    //console.log(`$(shapes[name])`)
+   shapesWithMoreThanFiveSides.push(key);
+    
+  }
+}
 
 // WRITE YOUR CODE BELOW THIS LINE
 

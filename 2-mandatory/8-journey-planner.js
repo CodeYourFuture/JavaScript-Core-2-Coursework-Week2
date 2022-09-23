@@ -5,7 +5,8 @@
   -----------------------------------------------------------------------
   Write a function journeyPlanner that:
   - Accepts two paramters:
-    1) An object where the keys are locations and the values are arrays of the transportation modes you can use to get there.
+    1) An object where the keys are locations and the values are arrays of the transportation
+     modes you can use to get there.
        e.g.
        {
            Angel: ["tube", "bus"],
@@ -15,11 +16,20 @@
        e.g. "bus"
   - Returns an array of where I can go if I only want to use a specific mode of transport.
   NOTE: Only the location names should be returned, as strings.
-  When you finish the exercise, think about how this solution is different to your last solution.
+  When you finish the exercise, think about how this solution is different
+   to your last solution.
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+function journeyPlanner(locations, transportMode) {
+  let eachLoc = []
+  for (let key in locations) {
+    if (locations[key].includes(transportMode)) {
+      eachLoc.push(key)
+    }
+  }
+  return eachLoc
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
