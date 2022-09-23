@@ -21,7 +21,7 @@ let shapes = {
   megagon: 1000000,
 };
 
-let shapesWithMoreThanFiveSides = [];
+let shapesWithMoreThanFiveSides = ;
 
 // WRITE YOUR CODE BELOW THIS LINE
 
