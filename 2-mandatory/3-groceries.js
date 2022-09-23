@@ -27,6 +27,13 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for (const week in weeklyMealPlan) {
+  let temp = weeklyMealPlan[week];
+  for (ingr of temp) {
+    if (weeklyGroceriesToBuy.indexOf(ingr) === -1)
+      weeklyGroceriesToBuy.push(ingr);
+  }
+}
 
 /*
 Exercise 2:
@@ -34,6 +41,10 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+for (const week in weeklyMealPlan) {
+  if (week === "saturday" || week === "sunday")
+    weekendGroceriesToBuy.push(...weeklyMealPlan[week]);
+}
 
 /*
 Exercise 3:
@@ -52,6 +63,13 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+for (const week in weeklyMealPlan) {
+  let count = (weeklyMealPlan[week]).length
+  numberOfItemsPerWeek[week] = count
+}
+
+
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -60,26 +78,48 @@ let numberOfItemsPerWeek = {
 
 test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
   const expectedWeeklyGroceriesToBuy = [
-    'Cheese',       'Eggs',
-    'Tomato',       'Paprika',
-    'Leek',         'Wrap',
-    'Tuna',         'Canned beans',
-    'Carrot',       'Aubergine',
-    'Orange Juice', 'Apple',
-    'Ananas',       'Black tea',
-    'Lamb',         'Salt',
-    'Bulgur',       'Potato',
-    'Rice milk',    'Blueberries',
-    'Porridge',     'Banana',
-    'Cinnamon',     'Olive oil',
-    'Salmon',       'Asparagus'
+    "Cheese",
+    "Eggs",
+    "Tomato",
+    "Paprika",
+    "Leek",
+    "Wrap",
+    "Tuna",
+    "Canned beans",
+    "Carrot",
+    "Aubergine",
+    "Orange Juice",
+    "Apple",
+    "Ananas",
+    "Black tea",
+    "Lamb",
+    "Salt",
+    "Bulgur",
+    "Potato",
+    "Rice milk",
+    "Blueberries",
+    "Porridge",
+    "Banana",
+    "Cinnamon",
+    "Olive oil",
+    "Salmon",
+    "Asparagus",
   ];
-  expect(weeklyGroceriesToBuy).toIncludeSameMembers(expectedWeeklyGroceriesToBuy);
+  expect(weeklyGroceriesToBuy).toIncludeSameMembers(
+    expectedWeeklyGroceriesToBuy
+  );
 });
 
 test("Exercise 2 - Weekend groceries to buy contains correct items", () => {
-  const expectedWeekendGroceriesToBuy = ["Olive oil", "Potato", "Salmon", "Asparagus"];
-  expect(weekendGroceriesToBuy).toIncludeSameMembers(expectedWeekendGroceriesToBuy);
+  const expectedWeekendGroceriesToBuy = [
+    "Olive oil",
+    "Potato",
+    "Salmon",
+    "Asparagus",
+  ];
+  expect(weekendGroceriesToBuy).toIncludeSameMembers(
+    expectedWeekendGroceriesToBuy
+  );
 });
 
 test("Exercise 3 - Numer of items per week contains the correct counts", () => {
