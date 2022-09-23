@@ -19,7 +19,13 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  if (!mealArray.length) return "Nothing :(";
+  if (mealArray.length === 1) return mealArray[0].name;
+  const sortedMealsByPrice = mealArray.sort((meal1, meal2) => meal1.price - meal2.price);
+  const secondCheapestMeal = sortedMealsByPrice[1];
+  return secondCheapestMeal.name;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
