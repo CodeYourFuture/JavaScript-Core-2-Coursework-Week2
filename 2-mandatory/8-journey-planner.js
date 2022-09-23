@@ -19,10 +19,15 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
-
+function journeyPlanner(locations, transportMode) {
+  Object.values(locations).forEach((element) => {
+    if (element.includes(transportMode)) {
+      return Object.keys(locations);
+    }
+  });
+}
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 8-journey-planner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */

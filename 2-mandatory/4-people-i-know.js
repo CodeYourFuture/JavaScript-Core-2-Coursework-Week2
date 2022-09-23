@@ -377,7 +377,7 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+let thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
 
 /*
 3) Find the email address
@@ -386,6 +386,14 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 
 let powerNetEmails = [];
 
+// we use loop to loop through the array
+for (let i = 0; i < friends.length; i++) {
+  if (friends[i].company === "POWERNET") {
+    powerNetEmails.push(friends[i].email);
+  }
+}
+
+// we can filter and map to get the values
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -394,6 +402,20 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+friends.forEach((friend) => {
+  const colleagueList = friend.colleagues
+    .map((col) => col.name)
+    .includes("Stacie Villarreal");
+  if (colleagueList) {
+    friendsWhoAreColleaguesOfStacie.push(
+      `${friend.name.first} ${friend.name.last}`
+    );
+  }
+});
+friendsWhoAreColleaguesOfStacie.reverse();
+
+// to reverse u can use reverse method or unshift instead of push
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -403,15 +425,29 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 
+friends
+  .map((friend) => friend.colleagues)
+  .forEach((obj) => {
+    for (let key in obj) {
+      if (obj[key].skills.includes("Multi-tasking")) {
+        colleaguesWhoCanMultitask.push(obj[key].name);
+      }
+    }
+  });
+
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 4-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
-    "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+    "Vilma",
+    "Aisha",
+    "Mitchell",
+    "Sutton",
+    "Jana",
   ]);
 });
 
@@ -432,10 +468,10 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });

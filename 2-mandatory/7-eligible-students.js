@@ -14,10 +14,20 @@
   - Returns an array containing only the names of the who have attended AT LEAST 8 classes
  */
 
-function eligibleStudents(attendances) {}
+function eligibleStudents(attendances) {
+  attendances.forEach((elements) => {
+    const newli = [];
+    for (const key in elements) {
+      if (elements[key].attendance >= 8) {
+        newli.push(elements[key].name);
+      }
+    }
+    return newli;
+  });
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 7-eligible-students.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
