@@ -377,32 +377,22 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-// let thirtyFiveOrOlder = friends.filter(friend => friend.age >= 35);
-let thirtyFiveOrOlder = [];
-for (const key of friends) {
-  if (key.age >= 35) {
-    thirtyFiveOrOlder.push(key);
-  }
-}
+let thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
+// let thirtyFiveOrOlder = [];
+// for (const key of friends) {
+//   if (key.age >= 35) {
+//     thirtyFiveOrOlder.push(key);
+//   }
+// }
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-// let powerNetEmails = friends.filter(friend => friend.company === 'POWERNET').map(friend => friend.email);
-// let powerNetEmails = []
-// friends.filter((friend) => friend.company === 'POWERNET').map((friend) => friend.email);
-// friends.forEach((friend) => {
-//   if (friend.company.toLocaleLowerCase() === 'powernet') {
-//     powerNetEmails.push(friend.email)
-//   }
-// })
-let powerNetEmails = [];
-for (const key of friends) {
-  if (key.company === "POWERNET") {
-    powerNetEmails.push(key.email);
-  }
-}
+let powerNetEmails = friends
+  .filter((friend) => friend.company === "POWERNET")
+  .map((friend) => friend.email);
+
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -410,23 +400,27 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-// let friendsWhoAreColleaguesOfStacie = [];
-// friends.forEach(friend => {
-//   const isColleagueOfStacie = friend.colleagues.map((col) => col.name).includes('Stacie Villarreal');
-//   if (isColleagueOfStacie) {
-//     friendsWhoAreColleaguesOfStacie.unshift(`${friend.name.first} ${friend.name.last}`)
-//   }
-//  })
 let friendsWhoAreColleaguesOfStacie = [];
-for (const key of friends) {
-  for (const colleaguesCheck of key.colleagues) {
-    if (colleaguesCheck.name === "Stacie Villarreal") {
-      friendsWhoAreColleaguesOfStacie.push(
-        key.name.first + " " + key.name.last
-      );
-    }
+friends.forEach((friend) => {
+  const isColleagueOfStacie = friend.colleagues
+    .map((col) => col.name)
+    .includes("Stacie Villarreal");
+  if (isColleagueOfStacie) {
+    friendsWhoAreColleaguesOfStacie.unshift(
+      `${friend.name.first} ${friend.name.last}`
+    );
   }
-}
+});
+// let friendsWhoAreColleaguesOfStacie = [];
+// for (const key of friends) {
+//   for (const colleaguesCheck of key.colleagues) {
+//     if (colleaguesCheck.name === "Stacie Villarreal") {
+//       friendsWhoAreColleaguesOfStacie.push(
+//         key.name.first + " " + key.name.last
+//       );
+//     }
+//   }
+// }
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -434,15 +428,6 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-// let colleaguesWhoCanMultitask = [];
-// friends.forEach((friend) => {
-//   friend.colleagues.forEach((colleagues) => {
-//     let colleaguesWhoCanMultitask = colleagues.skills.find(skill => skill === 'multi-tasking')
-//     if (colleaguesWhoCanMultitask) {
-//       colleaguesWhoCanMultitask.push(colleagues.name)
-//     }
-//   })
-// })
 let colleaguesWhoCanMultitask = [];
 friends.forEach((key) => {
   key.colleagues.forEach((colleaguesCheck) => {
@@ -458,8 +443,12 @@ friends.forEach((key) => {
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
-    "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+    "Vilma",
+    "Aisha",
+    "Mitchell",
+    "Sutton",
+    "Jana",
   ]);
 });
 
@@ -480,10 +469,10 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });

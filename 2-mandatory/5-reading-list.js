@@ -42,7 +42,6 @@ const books = [
     author: "Matthew Reilly",
     alreadyRead: true,
   },
-  
 ];
 
 // exercise 1
@@ -65,7 +64,7 @@ function logBooks() {
     console.log(`${book.title} by ${book.author}`);
   });
 }
-  
+
 // logBooks(books);
 
 /*
@@ -125,7 +124,6 @@ test("books are logged", function () {
     "Seven Wonder Ancients by Matthew Reilly",
   ]);
 });
-
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*

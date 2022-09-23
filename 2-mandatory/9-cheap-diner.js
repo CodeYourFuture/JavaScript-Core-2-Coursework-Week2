@@ -30,8 +30,6 @@ function chooseMeal(mealArray) {
     return mealArray[1].name;
   }
 }
- 
-  
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`

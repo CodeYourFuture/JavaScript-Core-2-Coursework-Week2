@@ -14,16 +14,7 @@
   - Returns an array containing only the names of the who have attended AT LEAST 8 classes
  */
 
-// function eligibleStudents(attendances) {
-//   let allAttendances = attendances.filter(students => {
-//     return students.attendance >= 8
-//   });
-//   console.log(allAttendances)
-//  }
-// eligibleStudents()
-// function eligibleStudents(attendances) {
-//   return attendances.filter(student => student.attendance >= 8).map(student => student.name);
-// }
+//
 function eligibleStudents(attendances) {
   let isAttended = [];
   for (const key of attendances) {
