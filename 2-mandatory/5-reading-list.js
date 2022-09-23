@@ -16,12 +16,57 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The God Father",
+    author: "Mario Puzo",
+    alreadyRead: true,
+  },
+  {
+    title: "Ice Nation",
+    author: "Matthew Reilly",
+    alreadyRead: false,
+  },
+  {
+    title: "The Bourn Identity",
+    author: "Robert Ludlem",
+    alreadyRead: true,
+  },
+  {
+    title: "The six sacred stones",
+    author: "Matthew Reilly",
+    alreadyRead: false,
+  },
+  {
+    title: "Seven Wonder Ancients",
+    author: "Matthew Reilly",
+    alreadyRead: true,
+  },
   
+];
+
 // exercise 1
+// function logBooks() {
+//   //  books.forEach((book) => console.log(`${book.title} by ${book.author}`))
+//   books.forEach((book) => {
+//     console.log(book.title + " by " + book.author);
+//   });
+// }
+// function readBooks(){
+//     books.forEach(element => {
+//         if(element.alreadyRead){
+//             console.log("You've already read " + element.title + " by " + element.author + ".")
+//         } else {
+//             console.log("You still need to read " + element.title + " by " + element.author + ".")
+//         }
+//     });
 function logBooks() {
+  books.forEach((book) => {
+    console.log(`${book.title} by ${book.author}`);
+  });
 }
   
+// logBooks(books);
 
 /*
 =====
@@ -47,6 +92,23 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+// function readBooks(){
+//     books.forEach(element => {
+//         if(element.alreadyRead){
+//             console.log("You've already read " + element.title + " by " + element.author + ".")
+//         } else {
+//             console.log("You still need to read " + element.title + " by " + element.author + ".")
+//         }
+//     });
+function readBooks() {
+  books.forEach((book) => {
+    if (!book.alreadyRead) {
+      console.log(`You still need to read "${book.title}" by ${book.author}`);
+    } else {
+      console.log(`You've already read "${book.title}" by ${book.author}`);
+    }
+  });
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
@@ -54,31 +116,32 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+test("books are logged", function () {
+  expectLogBooksToLog([
+    "The God Father by Mario Puzo",
+    "Ice Nation by Matthew Reilly",
+    "The Bourn Identity by Robert Ludlem",
+    "The six sacred stones by Matthew Reilly",
+    "Seven Wonder Ancients by Matthew Reilly",
+  ]);
 });
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
-* Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
-*
-* - If the number of calls to console.log does not match the number of elements in the array, the test will fail
-* - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
-*
-* You do not need to understand how this function works to successfully complete the exercise.
-*/
+ * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
+ *
+ * - If the number of calls to console.log does not match the number of elements in the array, the test will fail
+ * - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
+ *
+ * You do not need to understand how this function works to successfully complete the exercise.
+ */
 function expectLogBooksToLog(expectedValues) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    logBooks();
-    expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-    expectedValues.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+  const consoleLogSpy = jest.spyOn(console, "log");
+  logBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}

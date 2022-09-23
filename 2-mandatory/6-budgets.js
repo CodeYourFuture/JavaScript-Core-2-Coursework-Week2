@@ -11,6 +11,14 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  let sum = 0;
+  peopleArray.map((item) => (sum += item.budget));
+  return sum;
+  // let sum = 0;
+  // for (let i = 0; i < getBudgets.budget.length; i++){
+  //   return sum += i;
+  // }
+    
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
@@ -30,7 +38,7 @@ test("Test 1", () => {
     { name: "Martin", age: 16, budget: 2700 },
   ])).toEqual(65700);
 });
-
+ 
 test("Test 2", () => {
   expect(getBudgets([
     { name: "John", age: 21, budget: 29000 },
