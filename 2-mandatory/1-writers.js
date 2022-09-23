@@ -50,7 +50,7 @@ let writers = [
     occupation: "writer",
     age: 49,
     alive: true,
-  }
+  },
 ];
 
 /*
@@ -61,8 +61,13 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
-};
-
+  writers.forEach((writer) =>
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+    )
+  );
+}
+// logAllWriters();
 /*
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
@@ -71,9 +76,10 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  console.log(writers.filter((writer) => writer.age >= 40 && writer.age < 50 && !writer.alive));
+  // writers.filter((writer) => writer.age >= 40 && writer.age < 50 && !writer.alive).forEach((writer) => console.log(`writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`))
 }
-
+// logDeadWritersInTheirForties(writers);
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
@@ -82,6 +88,7 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

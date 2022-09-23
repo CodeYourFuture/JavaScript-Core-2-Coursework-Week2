@@ -377,15 +377,21 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+const thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+// let powerNetEmails = friends.filter((friend) => friend.company === "POWERNET").map((friend) => friend.email);
 
+const powerNetEmails = [];
+for (let i = 0; i < friend.length; i++){
+  if (friends[i].company === "POWERNET") {
+    powerNetEmails.push(friends[i].email)
+  }
+}
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
