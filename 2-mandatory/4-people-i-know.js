@@ -1,5 +1,5 @@
 /*
-Below you will find a list of people that I know. 
+Below you will find a list of people that I know.
 */
 
 /*
@@ -377,14 +377,14 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+const thirtyFiveOrOlder = friends.filter(({ age }) => age >= 35);
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+const powerNetEmails = friends.filter(({ company }) => company === "POWERNET").map(({ email }) => email);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -393,7 +393,7 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+const friendsWhoAreColleaguesOfStacie = friends.filter(({ colleagues }) => colleagues.some(({ name }) => name === "Stacie Villarreal")).map(({ name: { first, last } }) => `${first} ${last}`);
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -401,17 +401,26 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
+const colleaguesWhoCanMultitask = friends.reduce((a, { colleagues }) => a.concat(...colleagues.filter(({ skills }) => skills.includes("Multi-tasking")).map(({ name }) => name)), []);
 
-/* ======= TESTS - DO NOT MODIFY ===== 
+const colleaguesWhoCanMultitask2 = [];
+friends.forEach(({ colleagues }) => {
+  colleagues.forEach(({ name, skills }) => {
+    if (skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask2.push(name);
+    }
+  });
+});
+
+/* ======= TESTS - DO NOT MODIFY =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
-    "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+    "Vilma", "Aisha", "Mitchell", "Sutton", "Jana",
   ]);
 });
 
@@ -432,10 +441,20 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
+  ]);
+});
+
+test("6 - colleagues who can multitask 2", () => {
+  expect(colleaguesWhoCanMultitask2).toIncludeSameMembers([
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });

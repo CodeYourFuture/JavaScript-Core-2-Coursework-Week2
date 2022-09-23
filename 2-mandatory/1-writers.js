@@ -1,21 +1,23 @@
-/* 
+/* eslint-disable no-use-before-define */
+/* eslint-disable jest/expect-expect */
+/*
   Challenge 1: Famous Writers
-  Did you know you can also have an Array of Objects? 
+  Did you know you can also have an Array of Objects?
   You might think "This is madness!" but in everyday coding life
   it is quite a frequent combination. Just think about what benefits we can get from this construct.
   An object lets you store multiple values in a single variable, then you can store complex objects in an array.
   Let's assume you have a list of data about people names and their birthday and you would like to print each name
-  with corresponding birthday together. 
+  with corresponding birthday together.
   Storing these pieces of information in different arrays and then pairing them up
   makes the iteration unnecessarily complicated, code will be less intuitive, needs extra cognitive effort to
   reason about and last but not least it can be error-prone (for example, you match up the wrong birthday to a name).
-  In this exercise you will practice how to access Objects stored in an Array and their properties. You already know 
-  different ways of looping through Arrays, it won't be different in this case. The only extra step is that you have to 
+  In this exercise you will practice how to access Objects stored in an Array and their properties. You already know
+  different ways of looping through Arrays, it won't be different in this case. The only extra step is that you have to
   use values inside Objects.
 */
 
 // We've created an array of objects for you here:
-let writers = [
+const writers = [
   {
     firstName: "Virginia",
     lastName: "Woolf",
@@ -50,8 +52,20 @@ let writers = [
     occupation: "writer",
     age: 49,
     alive: true,
-  }
+  },
 ];
+
+const logger = {
+  ex1({ firstName, lastName, age, occupation }) {
+    console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`);
+  },
+  ex2({ firstName, lastName, age }) {
+    console.log(`Writer ${firstName} ${lastName} died at ${age} years old.`);
+  },
+  ex3({ firstName, lastName, age }) {
+    console.log(`Hi, my name is ${firstName} ${lastName}. I am ${age} years old.`);
+  },
+};
 
 /*
 Exercise 1:
@@ -59,9 +73,8 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
-  // write your code to log all writers here
-};
+
+const logAllWriters = () => writers.forEach((writer) => logger.ex1(writer));
 
 /*
 Exercise 2:
@@ -70,9 +83,9 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
-  // write your code here
-}
+const logDeadWritersInTheirForties = () => writers.filter(({ alive, age }) => !alive && age > 39 && age < 50).forEach((writer) => logger.ex2(writer));
+
+
 
 /*
 Exercise 3:
@@ -80,11 +93,9 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
-  // write your code here
-}
+const logAliveWritersInTheirForties = () => writers.filter(({ alive, age }) => alive && age > 39 && age < 50).forEach((writer) => logger.ex3(writer));
 
-/* ======= TESTS - DO NOT MODIFY ===== 
+/* ======= TESTS - DO NOT MODIFY =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
@@ -95,24 +106,24 @@ test("exercise 1", () => expectFunctionToLog(logAllWriters, [
   "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
   "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
   "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
-  "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
+  "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer.",
 ]));
 
 test("exercise 2", () => expectFunctionToLog(logDeadWritersInTheirForties, [
-  "Writer Jane Austen died at 41 years old."
+  "Writer Jane Austen died at 41 years old.",
 ]));
 
 test("exercise 3", () => expectFunctionToLog(logAliveWritersInTheirForties, [
   "Hi, my name is Zadie Smith. I am 40 years old.",
-  "Hi, my name is Yukiko Motoya. I am 49 years old."
+  "Hi, my name is Yukiko Motoya. I am 49 years old.",
 ]));
 
 function expectFunctionToLog(f, values) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    f();
-    expect(consoleLogSpy).toBeCalledTimes(values.length);
-    values.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+  const consoleLogSpy = jest.spyOn(console, "log");
+  f();
+  expect(consoleLogSpy).toBeCalledTimes(values.length);
+  values.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}
