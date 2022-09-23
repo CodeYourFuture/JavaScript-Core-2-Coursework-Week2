@@ -59,10 +59,11 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
-  // write your code to log all writers here
+function logAllWriters(writers) { console.log(
+  `Hi, my name is ${writers.firstName} ${writers.lastName}. I am ${writers.age} years old, and work as a ${writers.occupation}.`
+)
 };
-
+  // write your code to log all writers here
 /*
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
@@ -72,17 +73,28 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  return writers
+  .filter((Writers) => Writers.age >= 40 && Writers.age <= 50 && Writers.alive)
+  .forEach((Writers) =>
+    console.log(
+      `Hi, my name is ${writers.firstName} ${writers.lastName}. I am ${writers.age} years old.`
+    )
+  );
 }
-
-/*
-Exercise 3:
+/* Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
-}
+ return writers
+    .filter((Writers) => Writers.age >= 40 && Writers.age <= 50 && Writers.alive)
+    .forEach((Writers) =>
+      console.log(
+        `Hi, my name is ${writers.firstName} ${writers.lastName}. I am ${writers.age} years old.`
+      )
+    );
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
@@ -115,4 +127,4 @@ function expectFunctionToLog(f, values) {
       expect(consoleLogSpy).nthCalledWith(i+1, value);
     });
     consoleLogSpy.mockRestore();
-};
+}
