@@ -44,17 +44,13 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
-    const roomChose = roomName.toLowerCase();
-    if (roomChose === "hall") {
-      this.currentRoom = rooms.hall;
-    } else if (roomChose === "classroom") {
-      this.currentRoom = rooms.classroom;
-    } else if (roomChose === "library") {
-      this.currentRoom = rooms.library;
-    } else {
-      console.log(
-        `${roomChose} is not a valid room, please choose hall, classroom, or library`
-      );
+
+    if (
+      roomName === "hall" ||
+      roomName === "classroom" ||
+      roomName === "library"
+    ) {
+      this.currentRoom = rooms[roomName];
     }
   },
 
@@ -65,40 +61,23 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
-    const directions = direction.toLowerCase();
-    if (this.currentRoom.name === "hall" && directions === "north") {
-      this.currentroom = rooms.hall.north();
-    } else if (this.currentRoom.name === "hall" && directions === "east") {
-      this.currentRoom = rooms.hall.east();
-    } else if (this.currentRoom.name === "hall" && directions === "south") {
-      this.currentRoom = rooms.hall.south();
-    } else if (this.currentRoom.name === "hall" && directions === "west") {
-      this.currentRoom = rooms.hall.west();
-    } else if (this.currentRoom.name === "library" && directions === "north") {
-      this.currentroom = rooms.library.north();
-    } else if (this.currentRoom.name === "library" && directions === "east") {
-      this.currentRoom = rooms.library.east();
-    } else if (this.currentRoom.name === "library" && directions === "south") {
-      this.currentRoom = rooms.library.south();
-    } else if (this.currentRoom.name === "library" && directions === "west") {
-      this.currentRoom = rooms.library.west();
-    } else if (this.currentRoom.name === "classroom" && directions === "north") { 
-      this.currentroom = rooms.classroom.north();
-    } else if (this.currentRoom.name === "classroom" && directions === "east") {
-      this.currentRoom = rooms.classroom.east();
-    } else if (this.currentRoom.name === "classroom" && directions === "south") {
-      this.currentRoom = rooms.classroom.south();
-    } else if (this.currentRoom.name === "classroom" && directions === "west") {
-      this.currentRoom = rooms.classroom.west();
-    } else {
-      console.log(
-        this.currentRoom,
-        "That is not a valid direction, please choose north/south/east/west"
-      );
+    //condition to check if room is null and then run start() again
+    if (
+      (direction === "north" ||
+        direction === "east" ||
+        direction === "south" ||
+        direction === "west") &&
+      rooms[this.currentRoom.name][direction]() !== null
+    ) {
+      this.currentRoom = {
+        name: rooms[this.currentRoom.name][direction]().name,
+      };
     }
-    return this.currentRoom;
   },
 };
+
+///can move from hall to classroom and back, can move from hall to library, cannot move from library.
+///if this.currentRoom = rooms.classroom.direction() === null, error thrown game exited, except for north in hall, stays hall
 
 /*
 DO NOT EDIT BELOW THIS LINE
@@ -151,7 +130,6 @@ let rooms = {
     },
   },
 };
-console.log(rooms.hall.north());
 /*
 YOU ARE NOT EXPECTED TO UNDERSTAND THE CODE BELOW THIS 
 LINE!
