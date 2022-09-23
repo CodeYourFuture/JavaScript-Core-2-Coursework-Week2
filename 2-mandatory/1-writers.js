@@ -16,7 +16,7 @@
 
 // We've created an array of objects for you here:
 let writers = [
-  {
+ {
     firstName: "Virginia",
     lastName: "Woolf",
     occupation: "writer",
@@ -60,6 +60,11 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
+  writers.forEach((writer) =>
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+    )
+  );
   // write your code to log all writers here
 };
 
@@ -71,6 +76,12 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
+  writers
+    .filter((writer) => writer.age >= 40 && writer.age < 50 && !writer.alive)
+    .forEach((writer) =>
+      console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`)
+    ); 
+
   // write your code here
 }
 
@@ -81,6 +92,14 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
+   writers
+     .filter((writer) => writer.age >= 40 && writer.age < 50 && writer.alive)
+     .forEach((writer) =>
+       console.log(
+         `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+       )
+     ); 
+
   // write your code here
 }
 
