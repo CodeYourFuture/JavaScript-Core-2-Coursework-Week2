@@ -22,13 +22,9 @@ Should give the answer "Nothing :("
 function chooseMeal(mealArray) {
   if (!mealArray.length) return "Nothing :(";
   if (mealArray.length === 1) return mealArray[0].name;
-
-  let arrOfPrices = [];
-  mealArray.forEach((meal) => arrOfPrices.push(meal.price));
-  const sortedPrices = arrOfPrices.sort((a, b) => a - b);
-  const secondCheapestPrice = sortedPrices[1];
-  const secondCheapestMeal = mealArray.find((meal) => meal.price === secondCheapestPrice);
-return secondCheapestMeal.name;
+  const sortedMealsByPrice = mealArray.sort((m1, m2) => m1.price - m2.price);
+  const secondCheapestMeal = sortedMealsByPrice[1];
+  return secondCheapestMeal.name;
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====

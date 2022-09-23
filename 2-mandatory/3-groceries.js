@@ -37,7 +37,10 @@ Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [...new Set(Object.values(weeklyMealPlan.saturday, weeklyMealPlan.sunday))];
+let weekendGroceriesToBuy =
+  [...new Set(Object.values(weeklyMealPlan.saturday))].concat(
+  [...new Set(Object.values(weeklyMealPlan.sunday))]
+  );
 
 /*
 Exercise 3:

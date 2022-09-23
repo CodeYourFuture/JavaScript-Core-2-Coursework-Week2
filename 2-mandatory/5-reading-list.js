@@ -44,9 +44,9 @@ const books = [
   }
 ];
   
-// exercise 1
-function logBooks(books) {
-  books.map((book) => {
+
+function logBooks() {
+  books.forEach((book) => {
     if (book.alreadyRead) {
       console.log(`You've already read ${book.title} by ${book.author}`);
     } else {
@@ -55,9 +55,8 @@ function logBooks(books) {
   });
 }
 
-logBooks(books);
+// logBooks(books);
   
-
 /*
 =====
 Exercise 2
@@ -89,22 +88,12 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-// test("books are logged", function() {
-//  expectLogBooksToLog([
-//         "The Hobbit by J.R.R. Tolkien",
-//         "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-//         "Dietland by Sarai Walker",
-//         "A Place for Us by Fatima Farheen Mirza",
-//         "The House of Impossible Beauties by Joseph Cassara"
-//     ]);
-// });
-
 test("books are logged", function () {
   expectLogBooksToLog([
     "You've already read Title1 by Author1",
     "You still need to read Title2 by Author2",
     "You've already read Title3 by Author3",
-    "You still need to read Title2 by Author4",
+    "You still need to read Title4 by Author4",
     "You've already read Title5 by Author5",
   ]);
 });
