@@ -11,16 +11,17 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
-  budgets = [];
-  if (peopleArray === []) {
-    budgets = 0;
-  } else {
-    peopleArray.filter((person) => {
-      budgets.push(person.budget);
-    });
-  }
-  return budgets === 0 ? 0 : budgets.reduce((p, c) => p + c, 0);
+  return peopleArray.map((person) => person.budget).reduce((p, c) => p + c, 0);
 }
+
+console.log(getBudgets([]));
+console.log(
+  getBudgets([
+    { name: "John", age: 21, budget: 23000 },
+    { name: "Steve", age: 32, budget: 40000 },
+    { name: "Martin", age: 16, budget: 2700 },
+  ])
+);
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
