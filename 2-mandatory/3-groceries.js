@@ -1,3 +1,4 @@
+
 /*
 As you you can have an Array of Objects, you can also store Arrays in Objects.
 In this exercise, you'll practice:
@@ -27,15 +28,20 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for (const key in weeklyMealPlan) {
+console.log(`${key} -> ${weeklyMealPlan.slice(5,6)[key]}`)
+}
 
-
+                           
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
-
+for (const key in weeklyMealPlan){
+console.log(`${key} -> ${weeklyMealPlan.slice(0,1,2,3,4)[key]}`)   
+}
 /*
 Exercise 3:
   Loop through your weekly meal plan:
@@ -51,7 +57,9 @@ let numberOfItemsPerWeek = {
   friday: 0,
   saturday: 0,
   sunday: 0,
-};
+}; for (const day in numberOfItemsPerWeek) {
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

@@ -15,6 +15,13 @@
  */
 
 function eligibleStudents(attendances) {}
+const goodAttendance [];
+for (const key of attendances){
+if (key.attendance >= 8){
+return (attendances)     
+}   
+}
+    
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`

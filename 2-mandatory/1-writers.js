@@ -61,7 +61,7 @@ Exercise 1:
 */
 function logAllWriters(){
 for (const key in writers){  
-console.log(Hi, my name is ${writers.firstName && writers.lastName} I am ${writers.age} and work as a ${writer.occupation})
+console.log(Hi, my name is ${writers.firstName && writers.lastName} I am ${writers.age} and work as a ${writers.occupation})
  }
 }
 /*
