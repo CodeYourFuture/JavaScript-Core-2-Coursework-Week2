@@ -16,10 +16,44 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Brothers Karamazov",
+    author: "Fyodor Dostoevsky",
+    alreadyRead: true
+  },
+
+  {
+    title: "Burmese Days",
+    author: "George Orwell",
+    alreadyRead: false
+  },
+
+  {
+    title: "The End of History and the Last Man",
+    author: "Francis Fukuyama",
+    alreadyRead: true
+  },
+
+  {
+    title: "Sophie's World",
+    author: "Jostein Gaarder",
+    alreadyRead: true
+  },
+
+  {
+    title: "War and Peace",
+    author: "Leo Tolstoy",
+    alreadyRead: false
+  }
+];
+
   
 // exercise 1
 function logBooks() {
+  books.forEach((book) => {
+    console.log(`${book.title} by ${book.author}`);
+  });
 }
   
 
@@ -47,6 +81,15 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+function readBooks() {
+  books.forEach((book) => {
+    if (!book.alreadyRead) {
+      console.log(`You still need to read "${book.title}" by ${book.author}`);
+    } else {
+      console.log(`You've already read "${book.title}" by ${book.author}`);
+    }
+  });
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
@@ -56,11 +99,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function() {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
+       "The Brothers Karamazov by Fyodor Dostoevsky",
+      "Burmese Days by George Orwell",
+        "The End of History and the Last Man by Francis Fukuyama",
+        "Sophie's World by Jostein Gaarder",
+        "War and Peace by Leo Tolstoy"
     ]);
 });
 

@@ -14,8 +14,8 @@ let myPets = {
   tortoise: "Lord Voldetort",
   rabbit: "Bugs",
 };
-
-let petNames =
+let myArray = []
+let petNames = Object.values(myPets)
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
