@@ -11,7 +11,8 @@ let footballClubs = {
   ac_milan: "Italy",
 };
 
-let clubNames =
+let clubNames = Object.keys(footballClubs).map((club, index) => 
+index !==0 ? " " + club : club);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

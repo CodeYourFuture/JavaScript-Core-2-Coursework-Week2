@@ -16,10 +16,40 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "As a Man Thinkth",
+    author: "James Allen",
+    alreadyRead: true,
+  },
+  {
+    title: "Emotional Intelligence",
+    author: "Daniel Goleman",
+    alreadyRead: true,
+  },
+  {
+    title: "The Power of Now",
+    author: "Eckhart Tolle",
+    alreadyRead: true,
+  },
+  {
+    title: "The Alchemist",
+    author: "Paulo Coelho",
+    alreadyRead: true,
+  },
+  {
+    title: "The Pragmatic Programmer",
+    author: "Andrew Hunt.",
+    coauthor: "David Thomas",
+    alreadyRead: false,
+  },
+];
   
 // exercise 1
 function logBooks() {
+  books.forEach((book) => {
+    console.log(`You've already read ${book.title} by ${book.author}`);
+  });
 }
   
 
@@ -61,7 +91,10 @@ test("books are logged", function() {
         "Dietland by Sarai Walker",
         "A Place for Us by Fatima Farheen Mirza",
         "The House of Impossible Beauties by Joseph Cassara"
+        
     ]);
+    books.map((book) => `You've already read ${book.title} by ${book.author}`);
+
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */

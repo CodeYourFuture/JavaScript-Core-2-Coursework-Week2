@@ -26,14 +26,15 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
-let weeklyGroceriesToBuy = [];
+let weeklyGroceriesToBuy = [...new Set(Object.values(weeklyMealPlan).flat())];
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
+let weekendGroceriesToBuy = [...weeklyMealPlan.saturday,
+  ...weeklyMealPlan.sunday,];
 
 /*
 Exercise 3:
@@ -50,6 +51,10 @@ let numberOfItemsPerWeek = {
   friday: 0,
   saturday: 0,
   sunday: 0,
+};
+
+for (const key in numberOfItemsPerWeek) {
+  numberOfItemsPerWeek[key] = weeklyMealPlan[key].length;
 };
 
 /* ======= TESTS - DO NOT MODIFY ===== 

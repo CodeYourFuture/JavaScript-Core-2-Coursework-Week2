@@ -11,7 +11,9 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
-}
+  return peopleArray.length === 0 ? 0
+  : peopleArray.map((people) => people.budget).reduce((a, b) => a + b);
+};
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
