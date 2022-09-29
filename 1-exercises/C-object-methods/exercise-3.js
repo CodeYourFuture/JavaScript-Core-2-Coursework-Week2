@@ -4,6 +4,7 @@
    variables, using 2 different "Object." static methods.
 
 */
+// DOne ✔️
 
 let highScores = {
   34: ["Sergi", "Frank"],
@@ -12,8 +13,8 @@ let highScores = {
   100: ["David"],
 };
 
-let highScoreKeys = /* todo */
-let highScoreValues = /* todo */
+let highScoreKeys = Object.keys(highScores); 
+let highScoreValues = Object.values(highScores); 
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected keys: 34, 55, 89, 100, Actual keys: ${highScoreKeys}`);

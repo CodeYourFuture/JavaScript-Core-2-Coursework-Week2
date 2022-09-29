@@ -7,6 +7,7 @@
    Assign this to the "petNames" variables declared below.
 
 */
+// DOne ✔️
 
 let myPets = {
   dog: "Rufus",
@@ -15,7 +16,7 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
+let petNames = Object.values(myPets);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

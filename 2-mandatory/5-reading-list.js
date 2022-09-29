@@ -19,7 +19,10 @@ without using any variables or any logic like loops, template strings or if stat
 const books = [];
   
 // exercise 1
-function logBooks() {
+function logBooks(checkingBooks) {
+   checkingBooks.map((book) =>
+     console.log(` ${books.title} by  ${book.author}`)
+   );
 }
   
 

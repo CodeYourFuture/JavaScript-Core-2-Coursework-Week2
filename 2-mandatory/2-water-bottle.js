@@ -13,24 +13,34 @@ Give your water bottle methods for
 We made a start on this here by giving you the skeleton of our object.
 You have to implement the missing features according to the specification.
 */
-
+// Done ✔️
 // Here is your starting point:
 let bottle = {
   volume: 0,
   fillUp: function () {
-    // calling this function should completely fill your bottle (volume = 100);
+    this.volume = 100; // calling this function should completely fill your bottle (volume = 100);
   },
   pour: function () {
-    // calling this function should increase your bottle volume by 10 units;
+    this.volume += 10; // calling this function should increase your bottle volume by 10 units;
+    if(this.volume > 100) this.volume = 100;   
   },
   drink: function () {
-    // calling this function should decrease your bottle volume by 10 units;
+    this.volume -= 10; // calling this function should decrease your bottle volume by 10 units;
+    if(this.volume < 0) this.volume = 0; 
   },
   isFull: function () {
-    // this function should return true if your bottle is full;
+    if (this.volume === 100){
+      return true; // this function should return true if your bottle is full;
+    } else {
+      return false;
+    }
   },
-  isEmpty: function () {
-    // this function should return true if your bottle is empty;
+  isEmpty: function () { // this function should return true if your bottle is empty;
+    if(this.volume === 0) {
+      return true;
+  }else {
+    return false;
+  }
   },
 };
 

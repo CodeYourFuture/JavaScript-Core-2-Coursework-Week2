@@ -7,6 +7,7 @@
    hint: use the array "filter" method and "map" method in a chain.
 
 */
+// Done ✔️
 
 let store = [
   { item: "Corn Flakes", price: 2.5 },
@@ -16,9 +17,8 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
   /* todo */
-
+  let thingsICanBuy = store.filter((items) => items.price < money).map((items) => items.item)
   // DO NOT EDIT BELOW THIS LINE
   console.log(
     `Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`

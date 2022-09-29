@@ -10,7 +10,16 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
+// Done ✔️
+
 function getBudgets(peopleArray) {
+  let budget = 0; 
+  let arrayOfBudgets = peopleArray.map((person) => person.budget); 
+  let sumOfBudgets = arrayOfBudgets.reduce(
+    (budget, total) => (total += budget),
+    budget
+  );
+  return sumOfBudgets;
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
