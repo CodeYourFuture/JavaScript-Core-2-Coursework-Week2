@@ -13,7 +13,9 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
-
+Object.values(salaries).filter(value => value > 50000).map(value => console.log("$" + value))
+console.log(Object.values(salaries))
+console.log(Object.values(salaries).filter(value => value > 50000))
 // Expected Result:
 // monica: $55000
 // rachel: $90000
