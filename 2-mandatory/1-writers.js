@@ -61,6 +61,7 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
+  return writers.map(writer => "Hi, my name is {writer.firstName} {writer.lastName}. I am {writer.age} years old, and work as a {writer.occupation}.") 
 };
 
 /*
@@ -72,7 +73,13 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
-}
+return writers.map(writer => {
+  if (writer.age >= 40 && writer.age <= 40 && writer.alive == true) {
+    return "Writer {writer.firstName} {writer.lastName} died at {writer.age} years old."
+  }
+  })
+
+};
 
 /*
 Exercise 3:
@@ -82,6 +89,11 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  return writers.map(writer => {
+  if (writer.age >= 40 && writer.age <= 40) {
+    return "Hi, my name is {writer.firstName} {writer.lastName}. I am {writer.age} years old."
+  }
+  })
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
@@ -97,7 +109,7 @@ test("exercise 1", () => expectFunctionToLog(logAllWriters, [
   "Hi, my name is Bell Hooks. I am 63 years old, and work as a writer.",
   "Hi, my name is Yukiko Motoya. I am 49 years old, and work as a writer."
 ]));
-
+/*
 test("exercise 2", () => expectFunctionToLog(logDeadWritersInTheirForties, [
   "Writer Jane Austen died at 41 years old."
 ]));
@@ -115,4 +127,4 @@ function expectFunctionToLog(f, values) {
       expect(consoleLogSpy).nthCalledWith(i+1, value);
     });
     consoleLogSpy.mockRestore();
-};
+};*/
