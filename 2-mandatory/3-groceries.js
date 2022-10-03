@@ -27,19 +27,31 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
-
+for (const weekDays in weeklyMealPlan){
+  weeklyMealPlan[weekDays].filter((x) => {
+if(!weeklyGroceriesToBuy.includes(x)){
+  weeklyGroceriesToBuy.push(x);
+}
+  })
+}
+      
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+for( const day in weeklyMealPlan){
+  if(day=== "saturday" || day ==="sunday")
+  weekendGroceriesToBuy = weekendGroceriesToBuy.concat(weeklyMealPlan[day])
+}
 
 /*
 Exercise 3:
   Loop through your weekly meal plan:
     - count how many ingredients you should buy each day
     - and update the corresponding properties of numberOfItemsPerWeek object.
+    f
 */
 // Gather daily item counts into this object
 let numberOfItemsPerWeek = {
@@ -51,6 +63,8 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+for ( const day in numberOfItemsPerWeek)
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

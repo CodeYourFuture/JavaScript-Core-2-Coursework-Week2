@@ -4,8 +4,9 @@
   "license": "CC-BY-SA-4.0",
   "description": "You must update this package",
   "scripts": {
-    "test": "jest --testRegex='mandatory[/\\\\].*\\.js$'",
-    "extra-tests": "jest --testRegex='extra[/\\\\].*\\.js$'"
+    "test": "jest --watch --testRegex='mandatory[/\\\\].*\\.js$'",
+    "extra-tests": "jest --testRegex='extra[/\\\\].*\\.js$'",
+    "hello": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
   },
   "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "jest-cli": "^29.0.3"
   },
   "jest": {
     "setupFilesAfterEnv": [

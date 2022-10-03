@@ -16,9 +16,9 @@ Please complete the details below this message
 
 # Your Details
 
-- Your Name:
-- Your City:
-- Your Slack Name:
+- Your Name:Justinas Brazauskas
+- Your City:Birmingham
+- Your Slack Name:JUSTINAS BRAZAUSKSAS
 
 # Homework Details
 
