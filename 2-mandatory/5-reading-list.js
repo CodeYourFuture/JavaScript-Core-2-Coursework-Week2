@@ -16,7 +16,24 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [ 
+{
+author: 'Bill Gates',
+title: 'The Road Ahead',
+readingStatus: true
+},
+{
+author: 'Steve Jobs',
+title: 'Walter Isaacson',
+readingStatus: true
+},
+{
+author: 'Suzanne Collins',
+title: 'Mockingjay: The Final Book of The Hunger Games',
+readingStatus: false
+}
+];
+
   
 // exercise 1
 function logBooks() {
