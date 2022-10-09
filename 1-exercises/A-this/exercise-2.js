@@ -11,7 +11,11 @@ let person = {
     name: "Maggie",
     age: 26,
     currentAddress: "London",
-    changeAddress: /* todo */
+    changeAddress: function (newAddress) {
+        // When called, changeAddress should update the "currentAddress" property of the "person" object
+        // to be the "newAddress".
+        this.currentAddress = newAddress;
+    } /* todo */
 };
 
 
