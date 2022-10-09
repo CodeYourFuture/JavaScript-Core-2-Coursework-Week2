@@ -38,6 +38,7 @@ let game = {
   currentRoom: null,
 
   start: function (roomName) {
+    this.currentRoom = roomName;
     // This function is called with the name of the room that the player wants
     // to start in.
     // Finish the function so that the currentRoom property is set to the room
@@ -47,6 +48,43 @@ let game = {
   },
 
   move: function (direction) {
+    if (this.currentRoom === "hall" && direction === "north") {
+      this.currentRoom = null;
+    }
+    if (this.currentRoom === "hall" && direction === "west") {
+      this.currentRoom = null;
+    }
+    if (this.currentRoom === "hall" && direction === "south") {
+      this.currentRoom = "library";
+    }
+    if (this.currentRoom === "hall" && direction === "east") {
+      this.currentRoom = "classroom";
+    }
+    if (this.currentRoom === "classroom" && direction === "north") {
+      this.currentRoom = null;
+    }
+    if (this.currentRoom === "classroom" && direction === "west") {
+      this.currentRoom = "hall";
+    }
+    if (this.currentRoom === "classroom" && direction === "south") {
+      this.currentRoom = null;
+    }
+    if (this.currentRoom === "classroom" && direction === "east") {
+      this.currentRoom = null;
+    }
+    if (this.currentRoom === "library" && direction === "north") {
+      this.currentRoom = "hall";
+    }
+    if (this.currentRoom === "library" && direction === "east") {
+      this.currentRoom = null;
+    }
+    if (this.currentRoom === "library" && direction === "west") {
+      this.currentRoom = null;
+    }
+    if (this.currentRoom === "library" && direction === "south") {
+      this.currentRoom = null;
+    }
+
     // This function is called with the direction that the player wants to move.
     // Finish the function so that the currentRoom property is updated with new
     // room in the direction that the player wants to move in.
