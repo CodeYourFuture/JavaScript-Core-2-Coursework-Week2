@@ -11,8 +11,12 @@ let salaries = {
   monica: 55000,
   rachel: 90000,
 };
+for (const key in salaries){
+if(salaries[key] > 50000){
+console.log(`${key}: $${salaries[key]}`);
+}
+}
 
-// WRITE BELOW THIS LINE
 
 // Expected Result:
 // monica: $55000
