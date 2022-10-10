@@ -16,12 +16,34 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-  
+function Book(title, author, alreadyRead) {
+  (this.title = title),
+    (this.author = author),
+    (this.alreadyRead = alreadyRead);
+}
+
+let book1 = new Book("The Hobbit", "J.R.R. Tolkien", true);
+let book2 = new Book(
+  "The Map of Salt and Stars",
+  "Jennifer Zeynab Joukhadar",
+  true
+);
+let book3 = new Book("Dietland", "Sarai Walker", true);
+let book4 = new Book("A Place for Us", "Fatima Farheen Mirza", false);
+let book5 = new Book(
+  "The House of Impossible Beauties",
+  "Joseph Cassara",
+  false
+);
+
+const books = [book1, book2, book3, book4, book5];
+
 // exercise 1
 function logBooks() {
+  books.forEach((book) => {
+    console.log(`${book.title} by ${book.author}`);
+  });
 }
-  
 
 /*
 =====
@@ -48,37 +70,67 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+function logAllBooks() {
+  books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    }
+  });
+}
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+test("books are logged", function () {
+  expectLogBooksToLog([
+    "The Hobbit by J.R.R. Tolkien",
+    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+    "Dietland by Sarai Walker",
+    "A Place for Us by Fatima Farheen Mirza",
+    "The House of Impossible Beauties by Joseph Cassara",
+  ]);
+});
+
+test("books are logged", function () {
+  expectLogAllBooksToLog([
+    "You've already read The Hobbit by J.R.R. Tolkien",
+    "You've already read The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+    "You've already read Dietland by Sarai Walker",
+    "You still need to read A Place for Us by Fatima Farheen Mirza",
+    "You still need to read The House of Impossible Beauties by Joseph Cassara",
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
-* Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
-*
-* - If the number of calls to console.log does not match the number of elements in the array, the test will fail
-* - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
-*
-* You do not need to understand how this function works to successfully complete the exercise.
-*/
+ * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
+ *
+ * - If the number of calls to console.log does not match the number of elements in the array, the test will fail
+ * - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
+ *
+ * You do not need to understand how this function works to successfully complete the exercise.
+ */
 function expectLogBooksToLog(expectedValues) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    logBooks();
-    expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-    expectedValues.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+  const consoleLogSpy = jest.spyOn(console, "log");
+  logBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}
+
+function expectLogAllBooksToLog(expectedValues) {
+  const consoleLogSpy = jest.spyOn(console, "log");
+  logAllBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}
