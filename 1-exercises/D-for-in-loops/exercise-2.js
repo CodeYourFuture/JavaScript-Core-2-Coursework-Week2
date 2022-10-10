@@ -24,7 +24,14 @@ let shapes = {
 let shapesWithMoreThanFiveSides = [];
 
 // WRITE YOUR CODE BELOW THIS LINE
+// for (){
+//   shapesWithMoreThanFiveSides.push(x);
+// }
+Object.entries(shapes).forEach(([key, value]) => {
+  if (value >= 5) shapesWithMoreThanFiveSides.push(key);
+});
 
+// THE TEST BELOW IS WRONG! SHOULD NOT HAVE PENTAGON IN IT
 // DO NOT EDIT BELOW THIS LINE
 console.log(
   `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
