@@ -19,18 +19,31 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    return (this.volume = 100);
   },
-  pour: function () {
+  pour: function (units) {
     // calling this function should increase your bottle volume by 10 units;
+ if (this.volume === 0) {
+   return (this.volume += 10);
+ } else {
+   return this.volume;
+ }
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+      if (this.volume > 0) {
+        return (this.volume -= 10);
+      } else if (this.volume === 0) {
+        return (this.volume = 0);
+      }
   },
   isFull: function () {
     // this function should return true if your bottle is full;
+    return this.volume === 100;
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    return this.volume === 0;
   },
 };
 
@@ -43,10 +56,11 @@ TIP:
 /*
 Extra question:
   Why do you think it is preferred to use `this` inside the object rather than its variable name, in our case `bottle`?
-  Leave your answer below:
+  Leave your answer below: using "this" is more relaible than variable.Becuase when "this" has been used its reffering to the declared object.So if we copy the variable bottle to waterpot ( lwt waterpot = bottle). And  then we call the method for waterpot ( waterpot.drink) then the method "this will be pick the object waterpot not bottle. On the other hand if we use "bottle" instead of "this" as a method then after copying the object bottle to varibale waterpot, after calling the method drink for object waterpot ( waterpot.drink) the method "vottle" will give error as the code will look for object bottle but now here we are calling the function using object waterpot. So avoid this unreacable code we should use this.  
+  
 */
 
-// Write you answer to the question here
+
 
 /*
 Once you have completed your object run the following 
@@ -54,7 +68,7 @@ and see if your answer matches the expected result at the bottom :)
 */
 
 /* ======= TESTS - DO NOT MODIFY =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 4-water-bottle.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 2-water-bottle.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
