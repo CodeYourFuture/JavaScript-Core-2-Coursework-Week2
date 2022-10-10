@@ -13,6 +13,23 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+let newValue = [];
+let salaryValues = Object.values(salaries).filter((salary) => salary > 50000);
+let salaryKeys = Object.keys(salaryValues).filter(
+  (salary, key) => salary[key] > 50000
+);
+console.log(salaryKeys);
+
+for (let x in salaryValues) {
+  newValue = salaryValues.find((key) => salaries[key] > 50000);
+  console.log(newValue);
+}
+//   console.log(`${newValue}: $${salaryValues[x]}`);
+// }
+
+// for (let x of salaryValues) {
+//   console.log(x);
+// }
 
 // Expected Result:
 // monica: $55000
