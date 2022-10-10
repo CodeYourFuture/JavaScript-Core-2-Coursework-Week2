@@ -15,6 +15,7 @@ let people = [
 
 let peopleNames =
   /* todo */
+  people.map((item) => item.name )
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);

@@ -12,10 +12,14 @@
 
 
 let person = {
-    name: "Adrian",
-    age: 32,
-    currentAddress: "London",
-    celebrateBirthday: /* todo */
+  name: "Adrian",
+  age: 32,
+  currentAddress: "London",
+  celebrateBirthday: function () {
+    // When called, celebrateBirthday should increment the age of the person by 1.
+
+    return (this.age = this.age + 1);
+  } /* todo */,
 };
 
 
