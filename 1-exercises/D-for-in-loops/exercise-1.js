@@ -13,7 +13,11 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
-
+let str = [];
+for (const key in salaries) {
+  salaries[key] > 50000 ? str.push(`${key}: ${salaries[key]}`) : null;
+}
+console.log(str.join("\n"));
 // Expected Result:
 // monica: $55000
 // rachel: $90000
