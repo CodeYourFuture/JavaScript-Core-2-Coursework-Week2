@@ -13,8 +13,8 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames =
-  /* todo */
+let peopleNames = [people[0].name, people[1].name, people[2].name];
+/* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);
+// DO NOT EDIT BELOW THIS LINE
+console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);
