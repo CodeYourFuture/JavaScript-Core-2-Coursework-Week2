@@ -381,8 +381,7 @@ let thirtyFiveOrOlder = [];
 
 for (let friend of friends) {
   if (friend.age >= 35) {
-    let result = friend.name.first;
-    thirtyFiveOrOlder.push(result);
+    thirtyFiveOrOlder.push(friend);
   }
 }
 
@@ -427,14 +426,11 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 for (let friend of friends) {
-  if (
-    friend.colleagues.forEach(
-      (colleague) => colleague.skills.indexOf("Multi-tasking") !== -1
-    )
-  ) {
-    let result = friend.colleagues.colleague.name;
-    friendsWhoAreColleaguesOfStacie.push(result);
-  }
+  friend.colleagues.forEach((colleague) => {
+    if (colleague.skills.indexOf("Multi-tasking") !== -1) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
+  });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
