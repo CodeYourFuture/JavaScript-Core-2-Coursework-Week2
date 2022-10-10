@@ -22,6 +22,11 @@ let shapes = {
 };
 
 let shapesWithMoreThanFiveSides = [];
+for (const extraShapes in shapes ) {
+  if (shapes[extraShapes] >= 5) {
+    shapesWithMoreThanFiveSides.push(extraShapes)
+  }
+}
 
 // WRITE YOUR CODE BELOW THIS LINE
 

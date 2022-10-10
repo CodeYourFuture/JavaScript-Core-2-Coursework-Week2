@@ -11,6 +11,11 @@ let salaries = {
   monica: 55000,
   rachel: 90000,
 };
+for (const filter in salaries) {
+  if (salaries[filter] > 50000) {
+    console.log(`${filter}: $${salaries[filter]}`);
+  }
+}
 
 // WRITE BELOW THIS LINE
 
