@@ -19,7 +19,27 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  if (mealArray.length === 0) {
+    return "Nothing :(";
+  } else if (mealArray.length === 1) {
+    return mealArray[0].name;
+  }
+
+  const sorted = mealArray.sort((a, b) => {
+    return a.price - b.price;
+  });
+
+  return sorted[1].name;
+}
+
+console.log(
+  chooseMeal([
+    { name: "Dunkin' Donuts", price: 8.99 },
+    { name: "Captain D's", price: 13.99 },
+    { name: "Moe's Southwest Grill", price: 10.99 },
+  ])
+);
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
