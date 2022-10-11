@@ -27,6 +27,11 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for (let key in weeklyMealPlan){
+  for(let value of weeklyMealPlan[key])
+  weeklyGroceriesToBuy.push(value)
+}
+weeklyGroceriesToBuy.sort().filter(item=>item!=item)
 
 /*
 Exercise 2:
@@ -34,6 +39,12 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+for (let key in weeklyMealPlan){
+  if (key===sunday || key ===saturday){
+    for (let value of weeklyMealPlan[key])
+    weekendGroceriesToBuy.push(value)
+  }
+}
 
 /*
 Exercise 3:
