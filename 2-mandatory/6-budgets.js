@@ -10,8 +10,16 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {
-}
+  function getBudgets(peopleArray) {
+    let sum=0
+    if (peopleArray===[]){return 0
+    }else 
+    for (let key of peopleArray){
+      sum+=key.budget
+    }
+    return sum;
+  }
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
