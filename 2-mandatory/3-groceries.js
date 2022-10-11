@@ -27,6 +27,20 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+let concatArray = [];
+Object.values(weeklyMealPlan).forEach((value) => { 
+  concatArray.push(value);
+});
+concatArray.pop();
+
+for (let x in concatArray) {
+ weeklyGroceriesToBuy = weeklyGroceriesToBuy.concat(concatArray[x]);
+  // console.log(weeklyGroceriesToBuy);
+ }
+
+weeklyGroceriesToBuy = [...new Set(weeklyGroceriesToBuy)];
+
+// console.log(weeklyGroceriesToBuy);
 
 /*
 Exercise 2:
@@ -34,7 +48,15 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
-
+let backupArray = [];
+Object.entries(weeklyMealPlan).forEach(([key, value]) => { 
+  if (key == "saturday" || key == "sunday") { backupArray.push(value);} 
+});
+backupArray.pop();
+for (let x of backupArray) {
+  weekendGroceriesToBuy = weekendGroceriesToBuy.concat(x);
+ }
+console.log(weekendGroceriesToBuy);
 /*
 Exercise 3:
   Loop through your weekly meal plan:
@@ -52,6 +74,18 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+// Object.values(weeklyMealPlan).forEach((key) => {
+//   // Object.values(weeklyMealPlan).forEach(value => { numberOfItemsPerWeek[key] = value.length});
+//   console.log(key);
+//   // numberOfItemsPerWeek[key] = value.length;
+// });
+
+for (let x in weeklyMealPlan) {
+  numberOfItemsPerWeek[x] = weeklyMealPlan[x].length;
+ }
+
+
+console.log(numberOfItemsPerWeek);
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
