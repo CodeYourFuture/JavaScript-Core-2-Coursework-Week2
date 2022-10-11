@@ -6,14 +6,14 @@
    hint: use the array "map" method.
 
 */
-
+ 
 let people = [
   { name: "Bob", age: 30 },
   { name: "John", age: 20 },
   { name: "Elise", age: 35 },
 ];
-
-let peopleNames =
+ 
+let peopleNames = people.map( x => { return x.name } )
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
