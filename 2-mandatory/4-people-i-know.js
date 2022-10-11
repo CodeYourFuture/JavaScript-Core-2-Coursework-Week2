@@ -378,6 +378,10 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+friends
+  .filter((friend) => friend.age >= 35)
+  .map((friend) => thirtyFiveOrOlder.push(friend.name.first));
+console.log(thirtyFiveOrOlder);
 
 /*
 3) Find the email address
@@ -385,6 +389,11 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+for (let workingCompany in friends) {
+  if (friends[workingCompany].company === "POWERNET") {
+    powerNetEmails.push(friends[workingCompany].email);
+  }
+}
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +403,17 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+for (let friend in friends) {
+  if (
+    friends[friend].colleagues
+      .map((friend) => friend.name)
+      .includes("Stacie Villarreal")
+  ) {
+    friendsWhoAreColleaguesOfStacie.push(
+      ` ${friends[friend].name.first} ${friends[friend].name.last}`
+    );
+  }
+}
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -402,9 +422,22 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
-
+let colleagues = [];
+for (let friend in friends) {
+  colleagues.push(friends[friend].colleagues);
+}
+// for (let colleague of colleagues) {
+//   if (colleague.skills.includes("Multi-tasking")) {
+//     colleaguesWhoCanMultitask.push(colleague.name);
+//   }
+// }
+for (let colleague of colleagues) {
+  if (colleague.skills.includes("Multi-tasking")) {
+    colleaguesWhoCanMultitask.push(colleague.name);
+  }
+}
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 4-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
