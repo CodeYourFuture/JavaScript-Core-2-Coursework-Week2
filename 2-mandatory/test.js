@@ -1,30 +1,37 @@
-function f(d, k) {
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  for (let day of days) {
-    if (k === 1 || k % 7 === 1) {
-      return days[days.indexOf(d) + 1];
-    }
-    if (k === 2 || k % 7 === 2) {
-      return days[days.indexOf(d) + 2];
-    }
-    if (k === 3 || k % 7 === 3) {
-      return days[days.indexOf(d) + 3];
-    }
-    if (k === 4 || k % 7 === 4) {
-      return days[days.indexOf(d) + 4];
-    }
-    if (k === 5 || k % 7 === 5) {
-      return days[days.indexOf(d) + 5];
-    }
-    if (k === 6 || k % 7 === 6) {
-      return days[days.indexOf(d) + 6];
-    }
-    if (k === 7 || k % 7 === 0) {
-      return days[days.indexOf(d)];
+let weeklyMealPlan = {
+  monday: ["Cheese", "Eggs", "Tomato", "Paprika", "Leek"],
+  tuesday: ["Wrap", "Tuna", "Canned beans", "Cheese", "Carrot", "Aubergine"],
+  wednesday: ["Orange Juice", "Apple", "Ananas", "Black tea"],
+  thursday: ["Lamb", "Salt", "Bulgur", "Potato"],
+  friday: ["Rice milk", "Blueberries", "Porridge", "Banana", "Cinnamon"],
+  saturday: ["Olive oil", "Potato", "Salmon", "Asparagus"],
+  sunday: [],
+};
+let weeklyGroceriesToBuy = [];
+
+let s = Object.values(weeklyMealPlan);
+// console.log(s);
+for (let i of s) {
+  for (let j of i) {
+    if (weeklyGroceriesToBuy.includes(j) === false) {
+      weeklyGroceriesToBuy.push(j);
     }
   }
 }
-let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-//  console.log(days[days.indexOf("Mon") + 1]);
-console.log(f("Sat", 23));
-console.log(days.indexOf("Sat"));
+for (let z of s) {
+  console.log(z.length);
+}
+let numberOfItemsPerWeek = {
+  monday: 0,
+  tuesday: 0,
+  wednesday: 0,
+  thursday: 0,
+  friday: 0,
+  saturday: 0,
+  sunday: 0,
+};
+
+for (let key in numberOfItemsPerWeek) {
+  numberOfItemsPerWeek[key] = weeklyMealPlan[key].length;
+}
+console.log(numberOfItemsPerWeek);
