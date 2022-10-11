@@ -11,6 +11,11 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  let sum=0;
+  for(let key in peopleArray){
+    sum+=peopleArray[key].budget;
+  }
+  return sum;
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
