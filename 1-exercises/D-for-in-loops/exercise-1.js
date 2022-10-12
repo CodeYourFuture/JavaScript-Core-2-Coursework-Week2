@@ -12,8 +12,13 @@ let salaries = {
   rachel: 90000,
 };
 
-// WRITE BELOW THIS LINE
-
+// WRITE BELOW THIS 
+for (const key in salaries) {
+  if (salaries[key] > 50000) {
+    const element = salaries[key];
+    console.log(`${[key]} $${[element]}`);
+  }
+}
 // Expected Result:
 // monica: $55000
 // rachel: $90000
