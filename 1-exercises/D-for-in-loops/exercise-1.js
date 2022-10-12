@@ -14,6 +14,13 @@ let salaries = {
 
 // WRITE BELOW THIS LINE
 
+for (const price in salaries) {
+  if (salaries[price]>50000){
+   console.log(`${price} $${salaries[price]}`);
+  }
+
+}
+
 // Expected Result:
 // monica: $55000
 // rachel: $90000

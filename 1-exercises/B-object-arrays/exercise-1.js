@@ -13,7 +13,7 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames =
+let peopleNames = people.map((Element)=>Element.nam
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
