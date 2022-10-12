@@ -1,25 +1,11 @@
-const attendances = [
-  { name: "Ahmed", attendance: 8 },
-  { name: "Clement", attendance: 10 },
-  { name: "Elamin", attendance: 6 },
-  { name: "Adam", attendance: 7 },
-  { name: "Tayoa", attendance: 11 },
-  { name: "Nina", attendance: 10 },
+let setOne = [
+  { name: "Turkey", price: 8.99 },
+  { name: "Chicken", price: 13.99 },
+  { name: "Lobster", price: 10.99 },
 ];
-// function eligibleStudents(attendances) {
-//   for (let key in attendances) {
-//     if (attendances[key].attendance >= 8) {
-//     }
-//   }
-// }
-
-function eligibleStudents(attendances) {
-  let namesOfEligibleStudents = [];
-  for (let key in attendances) {
-    if (attendances[key].attendance >= 8) {
-      namesOfEligibleStudents.push(attendances[key].name);
-    }
-  }
-  return namesOfEligibleStudents;
+let setTwo = setOne.sort((a, b) => {
+  return a.price - b.price;
+});
+console.log(setTwo);
+for (const e of setTwo) {
 }
-console.log(eligibleStudents(attendances));
