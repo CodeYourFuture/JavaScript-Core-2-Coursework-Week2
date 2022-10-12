@@ -61,8 +61,19 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
+  for (let key in writers) {
+    const firstName = writers[key].firstName;
+    const lastName = writers[key].lastName;
+    const age = writers[key].age;
+    const occupation = writers[key].occupation;
+    
+    console.log(
+      `Hi, my name is ${firstName} ${lastName}. I am ${age} years old, and work as a ${occupation}.`
+    );
+  }
 };
 
+//logAllWriters()
 /*
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
@@ -72,7 +83,14 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  
+  for (let key in writers) {
+    if (writers[key].age > 40 && writers[key].age <=49 && writers[key].alive === false) {
+      console.log(writers[key].firstName + " " + writers[key].lastName);
+    }
+  }
 }
+ //logDeadWritersInTheirForties();
 
 /*
 Exercise 3:
@@ -82,8 +100,26 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  for (let key in writers) {
+    if (
+      writers[key].age > 40 &&
+      writers[key].age <= 49 &&
+      writers[key].alive === true
+    ) {
+      console.log(
+        "Hi, my name is " +
+          writers[key].firstName +
+          " " +
+          writers[key].lastName +
+          " I am " +
+          writers[key].age +
+          " years old."
+      );
+    }
+  }
 }
 
+//logAliveWritersInTheirForties();
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
