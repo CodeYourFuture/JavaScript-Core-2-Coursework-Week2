@@ -22,6 +22,12 @@ let shapes = {
 };
 
 let shapesWithMoreThanFiveSides = [];
+//travelDestinations.filter((x) => x.distanceKms <= 500).map( x => x.destinationName)
+for(let key in shapes){
+  if(shapes[key] >= 5){
+    shapesWithMoreThanFiveSides.push(key);
+  }
+}
 
 // WRITE YOUR CODE BELOW THIS LINE
 

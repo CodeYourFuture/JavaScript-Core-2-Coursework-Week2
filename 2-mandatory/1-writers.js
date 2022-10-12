@@ -59,8 +59,10 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
+function logAllWriters(writer) {
   // write your code to log all writers here
+  const result = writer.forEach((x)=> x.writers);
+  
 };
 
 /*
