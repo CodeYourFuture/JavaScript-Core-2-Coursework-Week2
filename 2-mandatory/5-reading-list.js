@@ -15,12 +15,24 @@ You should modify the tests so that they contain the values that correspond to y
 In this style of testing it is typical to write out as strings exactly what you expect your output to be, 
 without using any variables or any logic like loops, template strings or if statements.
 */
+const books = [
+    "The Hobbit by J.R.R. Tolkien",
+    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+    "Dietland by Sarai Walker",
+    "A Place for Us by Fatima Farheen Mirza",
+    "The House of Impossible Beauties by Joseph Cassara"
+];
 
-const books = [];
+function logBooks(){
+let list = "";
+for (let index = 0; index < books.length; index++) {
+  const list = books[index];
+  console.log(list);
+}
+}
   
 // exercise 1
-function logBooks() {
-}
+
   
 
 /*

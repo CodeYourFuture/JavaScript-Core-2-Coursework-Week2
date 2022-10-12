@@ -19,7 +19,25 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  let secondCheapest = mealArray[1];
+  let firstCheapest = mealArray[0];
+  mealArray.forEach((meal,index) => {
+    if  (index == 0) return; 
+  
+    console.log(firstCheapest)
+    if (meal.price < firstCheapest.price) {
+      secondCheapest = firstCheapest
+      firstCheapest = meal
+      
+    }
+    else if (meal.price < secondCheapest.price) {
+      secondCheapest = meal
+    }
+  })
+  return secondCheapest.name;
+};
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
