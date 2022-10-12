@@ -15,8 +15,16 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
-  /* todo */
+/* 
+Pseudocoding
+
+1. use Object method to access the Values which are the names
+2 use map method to create an arry of names
+
+*/
+//const a = Object.values(myPets)
+let petNames = Object.values(myPets).map(element => element.split(" "));
+
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(
