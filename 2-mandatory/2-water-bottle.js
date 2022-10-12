@@ -1,8 +1,8 @@
 /*
 Create an object that acts a water bottle.
-It will need a volume property to store how full or empty the bottle is. 
-Volume will be 100 when bottle is full and 0 when empty. 
-Give your water bottle methods for 
+It will need a volume property to store how full or empty the bottle is.
+Volume will be 100 when bottle is full and 0 when empty.
+Give your water bottle methods for
   - filling it up
   - pouring 10 units of water into it
     Note: You cannot exceed the bottle capacity.
@@ -19,20 +19,36 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    return (this.volume = 100);
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
+    // for (let i = this.volume; i < 100; i += 10) {
+    //   this.volume += i;
+    //   if (this.volume === 100) {
+    //     break;
+    //   }
+    // }
+
+    this.volume += 10;
+    this.volume > 100 ? (this.volume = 100) : this.volume;
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+    this.volume -= 10;
+    this.volume < 0 ? (this.volume = 0) : this.volume;
   },
   isFull: function () {
     // this function should return true if your bottle is full;
+    return this.volume === 100;
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    return this.volume === 0;
   },
 };
+// bottle.fillUp();
+// console.log(bottle.volume);
 
 /*
 TIP:
@@ -44,21 +60,27 @@ TIP:
 Extra question:
   Why do you think it is preferred to use `this` inside the object rather than its variable name, in our case `bottle`?
   Leave your answer below:
+
 */
 
 // Write you answer to the question here
-
+/*In JavaScript, the this keyword allows us to:
+   Reuse functions in different execution contexts.
+   It means, a function once defined can be invoked for different objects
+   using the this keyword.
+   Identifying the object in the current execution context when we invoke a method.
+   */
 /*
-Once you have completed your object run the following 
+Once you have completed your object run the following
 and see if your answer matches the expected result at the bottom :)
 */
 
 /* ======= TESTS - DO NOT MODIFY =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 4-water-bottle.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 2-water-bottle.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
-
+// ///////////////
 test("When filled up, bottle is full", () => {
   bottle.volume = 0;
   bottle.fillUp();
