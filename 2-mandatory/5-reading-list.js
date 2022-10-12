@@ -16,17 +16,48 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-  
+const books = [
+  {
+    title: "The Hobbit",
+    Author: "J.R.R. Tolkien",
+    alreadyRead: false,
+  },
+  {
+    title: "The Map of Salt and Stars",
+    Author: "Jennifer Zeynab Joukhadar",
+    alreadyRead: false,
+  },
+  {
+    title: "A Place for Us",
+    Author: "Fatima Farheen Mirza",
+    alreadyRead: true,
+  },
+  {
+    title: "David Copperfield",
+    Author: "Charles Dickens.",
+    alreadyRead: true,
+  },
+  {
+    title: "The House of Impossible Beauties",
+    Author: "Joseph Cassara",
+    alreadyRead: true,
+  },
+];
+
 // exercise 1
 function logBooks() {
+  let result = [];
+  for (let book of books) {
+    tt.push(`${book.title} by ${book.Author}`);
+  }
+  return result;
 }
-  
 
 /*
 =====
 Exercise 2
 =====
+
 Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
 If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien', 
 and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
@@ -47,6 +78,13 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+function cheackIsRead() {
+  for (let book of books) {
+    book.alreadyRead
+      ? `You've already read ${book.title} by ${book.Author}`
+      : `You still need to read ${book.title} by ${book.Author}`;
+  }
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
@@ -54,31 +92,31 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+test("books are logged", function () {
+  expectLogBooksToLog([
+    "The Hobbit by J.R.R. Tolkien",
+    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+    "Dietland by Sarai Walker",
+    "A Place for Us by Fatima Farheen Mirza",
+    "The House of Impossible Beauties by Joseph Cassara",
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
-* Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
-*
-* - If the number of calls to console.log does not match the number of elements in the array, the test will fail
-* - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
-*
-* You do not need to understand how this function works to successfully complete the exercise.
-*/
+ * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
+ *
+ * - If the number of calls to console.log does not match the number of elements in the array, the test will fail
+ * - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
+ *
+ * You do not need to understand how this function works to successfully complete the exercise.
+ */
 function expectLogBooksToLog(expectedValues) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    logBooks();
-    expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-    expectedValues.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+  const consoleLogSpy = jest.spyOn(console, "log");
+  logBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}
