@@ -378,6 +378,9 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+for (let friend of friends) {
+  friend.age >= 39 ? thirtyFiveOrOlder.push(friend.name.first) : null;
+}
 
 /*
 3) Find the email address
@@ -385,6 +388,9 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+for (let friend of friends) {
+  friend.company === "POWERNET" ? powerNetEmails.push(friend.email) : null;
+}
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +400,13 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+for (let friend of friends) {
+  for (let colleaguename of friend.colleagues) {
+    if (colleaguename.name === "Stacie Villarreal") {
+      friendsWhoAreColleaguesOfStacie.push(friend.name);
+    }
+  }
+}
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -402,6 +415,13 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+for (let friend of friends) {
+  for (let colleaguename of friend.colleagues) {
+    colleaguename.skills.includes("Multi-tasking")
+      ? colleaguesWhoCanMultitask.push(colleaguename.name)
+      : null;
+  }
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
@@ -410,8 +430,12 @@ let colleaguesWhoCanMultitask = [];
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
-    "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+    "Vilma",
+    "Aisha",
+    "Mitchell",
+    "Sutton",
+    "Jana",
   ]);
 });
 
@@ -432,10 +456,10 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });
