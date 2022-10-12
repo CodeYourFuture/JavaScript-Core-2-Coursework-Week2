@@ -12,6 +12,8 @@ let salaries = {
   rachel: 90000,
 };
 
+
+
 // WRITE BELOW THIS LINE
 
 // Expected Result:
