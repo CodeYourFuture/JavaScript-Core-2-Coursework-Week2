@@ -14,9 +14,7 @@ let myPets = {
   tortoise: "Lord Voldetort",
   rabbit: "Bugs",
 };
-
-let petNames =
-  /* todo */
+let petNames = Object.values(myPets);
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(
