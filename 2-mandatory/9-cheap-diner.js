@@ -19,7 +19,46 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  let returnValue = "";
+  let secondHighestPrice =0;
+  let orderedPriceArray = Object
+    .values(mealArray)
+    .map((values) => values.price)
+    .sort(function (a, b) {
+      return a - b;
+    });
+  
+  if (mealArray === undefined || mealArray.length == 0 || mealArray == []) {
+    returnValue = "Nothing :(";
+  }
+  
+  if (mealArray.length >= 2) {
+    secondHighestPrice = orderedPriceArray[1];
+
+    Object.values(mealArray).filter(function (value) {
+      if (value.price == secondHighestPrice) {
+        returnValue =  value.name;
+      }
+    });
+  } else if ((mealArray.length = 1)) {
+    secondHighestPrice = orderedPriceArray[0];
+
+    Object.values(mealArray).filter(function (value) {
+      if (value.price == secondHighestPrice) {
+        returnValue =  value.name;
+      }
+    });
+  }
+  
+  
+  
+  // console.log();
+//   let x = Object.values(mealArray).map(value => value).filter(value=> value.price);
+//   console.log(x);
+  return returnValue;
+}
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
