@@ -14,7 +14,10 @@ let people = [
 ];
 
 let peopleNames =
-  /* todo */
+  [];
+  for(let names of people){
+    peopleNames.push
+  }
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);
