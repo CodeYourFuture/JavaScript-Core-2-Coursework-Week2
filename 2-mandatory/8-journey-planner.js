@@ -19,7 +19,26 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+//1 first loop througt obj (location)
+//2 then loop through the array of trasport mood
+//3 if string pass the fucnation includes the trasport mode array
+// 4 then return the object key which will be the location
+
+
+
+//think about how to access only names of the property of the his object, then think about the looping through the  transport array
+
+function journeyPlanner(locations, transportMode) {
+  const locationsArray = [];
+  for (let key in locations) {
+    if (locations[key].includes(transportMode)) {
+    locationsArray.push(key);
+    }
+  }
+  return locationsArray
+}
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
@@ -55,3 +74,4 @@ test("journeyPlanner function works - case 3", () => {
     "Tower Bridge",
   ]);
 });
+

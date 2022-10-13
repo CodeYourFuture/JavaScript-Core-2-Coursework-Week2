@@ -34,7 +34,6 @@ for (let key in weeklyMealPlan) {// each key
     weeklyGroceriesToBuy.push(item)
   }
 }
-
 }
   
 //console.log(weeklyGroceriesToBuy)
