@@ -16,7 +16,7 @@ let people = [
 let peopleNames =
   [];
   for(let names of people){
-    peopleNames.push
+    peopleNames.push(names.name)
   }
 
   // DO NOT EDIT BELOW THIS LINE

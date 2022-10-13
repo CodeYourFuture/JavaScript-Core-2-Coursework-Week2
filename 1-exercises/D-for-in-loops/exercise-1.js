@@ -14,6 +14,12 @@ let salaries = {
 
 // WRITE BELOW THIS LINE
 
+for(let index in salaries){
+  if(salaries[index]>50000){
+    console.log(`${index}: $${salaries[index]}`)
+  }
+}
+
 // Expected Result:
 // monica: $55000
 // rachel: $90000
