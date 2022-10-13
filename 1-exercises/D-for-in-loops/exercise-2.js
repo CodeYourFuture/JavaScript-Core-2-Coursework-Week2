@@ -23,8 +23,17 @@ let shapes = {
 
 let shapesWithMoreThanFiveSides = [];
 
-// WRITE YOUR CODE BELOW THIS LINE
 
+// WRITE YOUR CODE BELOW THIS LINE
+function getShapes(names) {
+  for (let key in shapes) {
+    if (shapes[key] >= 5) {
+    
+    return  shapes.filter(shapes=> shapes.key).map(shapes=> shapes.key);
+    }
+  }
+  
+}
 // DO NOT EDIT BELOW THIS LINE
 console.log(
   `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
