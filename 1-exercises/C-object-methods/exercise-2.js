@@ -15,8 +15,12 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
+let petNames = [];
   /* todo */
+  for (const [key, value] of objects.entries(myPets)) {
+    petNames.push(value);
+    
+  }
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(

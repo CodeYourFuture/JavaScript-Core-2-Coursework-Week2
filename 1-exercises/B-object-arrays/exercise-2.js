@@ -16,7 +16,12 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
+let thingsICanBuy = store
+filter((itemInfo) => {
+  if ((itemInfo.price < money)
+   return itemInfo.item.item;
+
+})
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
