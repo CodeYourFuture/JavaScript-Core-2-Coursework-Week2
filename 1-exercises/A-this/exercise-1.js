@@ -14,7 +14,7 @@ let person = {
   age: 32,
   currentAddress: "London",
   celebrateBirthday: function () {
-    console.log(`Expected age is ${this.age + 1}, actual age is ${this.age}`);
+    this.age++;
   },
 };
 

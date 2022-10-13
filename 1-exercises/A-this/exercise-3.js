@@ -9,13 +9,13 @@
 let bankAccount = {
   currentAmount: 100,
   deposit: function (amount) {
-    this.currentAmount = this.currentAmount + amount;
+    this.currentAmount += amount;
     // console.log(
     //   `Expected Result: ${this.currentAmount}. Actual result: ${this.currentAmount}`
     // );
   },
   withdraw: function (amount) {
-    this.currentAmount = this.currentAmount - amount;
+    this.currentAmount -= amount;
     // console.log(
     //   `Expected Result: ${this.currentAmount}. Actual result: ${this.currentAmount}`
     // );
