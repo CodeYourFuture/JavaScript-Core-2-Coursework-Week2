@@ -11,14 +11,21 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+const getBudgets = peopleArray.map(elements => elements.budget) // 1 access only budgets and turned it to an array
+return getBudgets.reduce((acc, curr) => { // 2 then use reduce method to ge the sume of the array
+   acc += curr
+   return acc;
+  },0);
+ 
 }
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
-*/
 
+*/
 test("No Budgets", () => {
   expect(getBudgets([])).toEqual(0);
 }); 
