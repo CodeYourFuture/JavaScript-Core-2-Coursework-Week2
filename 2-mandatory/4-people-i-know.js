@@ -401,8 +401,10 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
-// friendsWhoAreColleaguesOfStacie = friends.map(value => value.colleagues).filter(values => values[] );
-// console.log(friendsWhoAreColleaguesOfStacie);
+
+friendsWhoAreColleaguesOfStacie = friends.map(value => value.colleagues);
+// let staciesMates = friendsWhoAreColleaguesOfStacie.filter(value => value.name ==);
+console.log(friendsWhoAreColleaguesOfStacie);
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
