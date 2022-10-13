@@ -4,7 +4,8 @@ Below you will find a list of people that I know.
 
 /*
 1) Reading
-Before you start, you should read through the object below so that you understand the structure of it.
+Before you start, you should read through the object below so that you understand
+the structure of it.
 When you've finished. Continue to the exercises below.
 */
 
@@ -12,10 +13,7 @@ const friends = [
   {
     age: 39,
     company: "PEARLESSA",
-    name: {
-      first: "Vilma",
-      last: "Hardy",
-    },
+    name: { first: "Vilma", last: "Hardy" },
     email: "vilma.hardy@pearlessa.info",
     colleagues: [
       {
@@ -45,13 +43,11 @@ const friends = [
       },
     ],
   },
+
   {
     age: 39,
     company: "PLUTORQUE",
-    name: {
-      first: "Aisha",
-      last: "Gentry",
-    },
+    name: { first: "Aisha", last: "Gentry" },
     email: "aisha.gentry@plutorque.net",
     colleagues: [
       {
@@ -378,6 +374,18 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+// for (let key in friends) {
+//    if(friends[key].age >=35) {
+//    thirtyFiveOrOlder.push(friends[key].name.first);
+//  }
+  
+//} 
+thirtyFiveOrOlder.push(...friends
+  .filter((theirAge) => theirAge.age >= 35)
+  .map((theirNames) => theirNames.name.first))
+
+//console.log(thirtyFiveOrOlder,"----->>>> Vilma", "Aisha", "Mitchell", "Sutton", "Jana");
+
 
 /*
 3) Find the email address
@@ -385,6 +393,12 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+for (let key in friends) {
+  if (friends[key].company === "POWERNET") {
+    powerNetEmails.push(friends[key].email);
+  }
+}
+
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +408,20 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+for (let key in friends) {
+  if (
+    friends[key].colleagues.find(
+      (colleageNames) => colleageNames.name === "Stacie Villarreal"
+    )
+  ) {
+    friendsWhoAreColleaguesOfStacie.push(
+      `${friends[key].name.first} ${friends[key].name.last}`
+    );
+  }
+}
+
+
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -402,6 +430,16 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+for (let key in friends) {
+  const multiSkilled = friends[key].colleagues
+    .filter((elements) => elements.skills.includes("Multi-tasking"));
+  colleaguesWhoCanMultitask.push(
+    ...multiSkilled.map((theirName) => theirName.name)
+  );
+  }
+    
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
@@ -439,3 +477,4 @@ test("5 - colleagues who can multitask", () => {
   "Luz Newton",
   ]);
 });
+
