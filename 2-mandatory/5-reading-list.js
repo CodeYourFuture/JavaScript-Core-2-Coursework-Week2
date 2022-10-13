@@ -16,12 +16,35 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "JavaScrip",
+    author: "Khadar",
+    alreadyRead: true,
+  },
+  {
+    title: "HTML",
+    author: "Adam",
+    alreadyRead: false,
+  },
+  {
+    title: "CSS",
+    author: "Rayaan",
+    alreadyRead: true,
+  },
+  {
+    title: "REACT",
+    author: "Rahiima",
+    alreadyRead: false,
+  },
+];
   
 // exercise 1
-function logBooks() {
+function logBooks(shelftedBooks) {
+  const authors = shelftedBooks.map(elements => `${elements.title} ${elements.author}`);
+  return authors
 }
-  
+//console.log(logBooks(books))
 
 /*
 =====
