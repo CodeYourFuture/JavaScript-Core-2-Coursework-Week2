@@ -11,6 +11,10 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  
+  let b = peopleArray.map(value => value.budget).reduce((x,y) => x+y,0);
+  // console.log(b);
+  return b;
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
