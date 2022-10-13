@@ -4,6 +4,7 @@
    their names. Use the appropriate "Object." static method to
    get an array of the names of each pet in the "myPets" object.
 
+    
    Assign this to the "petNames" variables declared below.
 
 */
@@ -15,7 +16,8 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
+let petNames =Object.values(myPets);
+console.log(petNames);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

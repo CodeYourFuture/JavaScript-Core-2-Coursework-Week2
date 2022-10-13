@@ -12,9 +12,10 @@ let highScores = {
   100: ["David"],
 };
 
-let highScoreKeys = /* todo */
-let highScoreValues = /* todo */
-
+let highScoreKeys =Object.keys(highScores);
+ console.log(highScoreKeys);/* todo */
+let highScoreValues =Object.values(highScores) /* todo */
+console.log(highScoreValues);
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected keys: 34, 55, 89, 100, Actual keys: ${highScoreKeys}`);
 console.log(
