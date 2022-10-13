@@ -15,7 +15,11 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
+let petNames = Object.values(myPets);
+console.log(petNames); 
+// When we console.log "petNames", it prints an array of values in "myPets" object.
+
+
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
