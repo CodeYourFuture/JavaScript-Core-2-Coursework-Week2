@@ -60,7 +60,9 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  for(let i of writers){
+    console.log(`Hi, my name is ${i.firstName} ${i.lastName}. I am ${i.age} years old, and work as a ${i.occupation}.`)
+  }
 };
 
 /*
