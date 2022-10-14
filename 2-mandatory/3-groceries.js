@@ -9,7 +9,7 @@ that contains the missing ingredients for your menus. It is stored in the "weekl
 Complete the exercises below.
 */
 
-// Here is your
+
 let weeklyMealPlan = {
   monday: ["Cheese", "Eggs", "Tomato", "Paprika", "Leek"],
   tuesday: ["Wrap", "Tuna", "Canned beans", "Cheese", "Carrot", "Aubergine"],

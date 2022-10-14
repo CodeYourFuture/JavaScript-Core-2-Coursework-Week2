@@ -24,6 +24,7 @@ let mealTest = [
   { name: "Moe's Southwest Grill", price: 10.99 },
 ];
 
+
 function chooseMeal(mealArray) {
   if (mealArray.length === 0) {
     return "Nothing :(";
