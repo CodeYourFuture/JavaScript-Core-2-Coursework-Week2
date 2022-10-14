@@ -40,6 +40,7 @@ let game = {
   start: function (roomName) {
     // This function is called with the name of the room that the player wants
     // to start in.
+    this.currentRoom = roomName;
     // Finish the function so that the currentRoom property is set to the room
     // object for the correct room.
     //
