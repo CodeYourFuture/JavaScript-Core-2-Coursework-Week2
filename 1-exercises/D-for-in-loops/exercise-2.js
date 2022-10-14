@@ -21,7 +21,13 @@ let shapes = {
   megagon: 1000000,
 };
 
-let shapesWithMoreThanFiveSides = [];
+let shapesWithMoreThanFiveSides =[];
+for(let key in shapes){
+  if(shapes[key] >=5){
+  shapesWithMoreThanFiveSides.push(key);
+  }
+}
+
 
 // WRITE YOUR CODE BELOW THIS LINE
 

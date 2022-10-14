@@ -16,7 +16,7 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
+let thingsICanBuy =store.filter(x=>x.price < money).map(x=>x.item)
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
