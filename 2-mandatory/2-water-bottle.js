@@ -19,17 +19,22 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    this.volume = 100;
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
+    if (this.volume < 100) this.volume += 10;
   },
   drink: function () {
+    if (this.volume !== 0) this.volume -= 10;
     // calling this function should decrease your bottle volume by 10 units;
   },
   isFull: function () {
+    return this.volume === 100;
     // this function should return true if your bottle is full;
   },
   isEmpty: function () {
+    return this.volume === 0;
     // this function should return true if your bottle is empty;
   },
 };
@@ -47,7 +52,7 @@ Extra question:
 */
 
 // Write you answer to the question here
-
+// Because this will refer the value of the property of the object
 /*
 Once you have completed your object run the following 
 and see if your answer matches the expected result at the bottom :)
