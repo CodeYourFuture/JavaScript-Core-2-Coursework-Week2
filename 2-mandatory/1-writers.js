@@ -1,4 +1,4 @@
-/* 
+  /* 
   Challenge 1: Famous Writers
   Did you know you can also have an Array of Objects? 
   You might think "This is madness!" but in everyday coding life
@@ -60,7 +60,7 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  writers.forEach(x => console.log(`Hi, my name is ${x.firstName} ${x.lastName}. I am ${x.age} years old, and work as a ${x.occupation}.`))
 };
 
 /*
@@ -71,8 +71,12 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+   writers.filter(x => x.age >= 40 && x.age <= 49 && x.alive === false)
+  .forEach(x=> console.log(`Writer ${x.firstName} ${x.lastName} died at ${x.age} years old.`))
 }
+
+  
+// console.log()
 
 /*
 Exercise 3:
@@ -81,8 +85,10 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+    writers.filter(x => x.age >= 40 && x.age <= 49 && x.alive === true)
+    .forEach(x=> console.log(`Hi, my name is ${x.firstName} ${x.lastName}. I am ${x.age} years old.`))
 }
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`

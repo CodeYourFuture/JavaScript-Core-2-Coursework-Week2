@@ -26,14 +26,24 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
+
+
 let weeklyGroceriesToBuy = [];
+for (let key in weeklyMealPlan){
+  for(let value of weeklyMealPlan[key])
+  weeklyGroceriesToBuy.push(value)
+}
+weeklyGroceriesToBuy.sort().filter(item=>item!=item)
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
+for (let key in weeklyMealPlan){
+  if (key===sunday || key ===saturday){
+    for (let value of weeklyMealPlan[key])
+    weekendGroceriesToBuy.push(value)
 
 /*
 Exercise 3:
@@ -51,6 +61,11 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+
+for (let key in numberOfItemsPerWeek) {
+  numberOfItemsPerWeek[key] = weeklyMealPlan[key].length;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

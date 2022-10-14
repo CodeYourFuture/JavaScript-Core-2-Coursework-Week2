@@ -378,6 +378,11 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+for (let key of friends){
+  if(key.age>=35){
+    thirtyFiveOrOlder.push(key)
+  }
+}
 
 /*
 3) Find the email address
@@ -385,6 +390,11 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+for (let key of friends){
+if (key["company"]==="POWERNET"){
+  powerNetEmails.push(key["email"])
+}
+}
 
 /*
 4) colleagues with "Stacie Villarreal"
