@@ -28,7 +28,7 @@ Exercise 1:
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
 //Object.values(animals).forEach(val => console.log(val));
-Object.values(weeklyMealPlan).forEach((element) => element.push(weekendGroceriesToBuy));
+//Object.values(weeklyMealPlan).forEach((element) => element.push(weekendGroceriesToBuy));
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
@@ -52,6 +52,11 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+for (key in weeklyMealPlan){
+  const numOfIngredientPerDay = weeklyMealPlan[key].length;
+  numberOfItemsPerWeek[key] = numOfIngredientPerDay;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

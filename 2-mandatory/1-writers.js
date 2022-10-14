@@ -60,7 +60,7 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  return writers.forEach((writer) => console.log
+   writers.forEach((writer) => console.log
   (`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}`))
 };
 
@@ -72,8 +72,9 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  return writers.filter((writer) => writer.age <= 40 && writer.age > 50)
-  .map((writer) => console.log(`Writer ${writer.firstName} ${writer.lastName}died at${writer.age} years old.`))
+   writers.filter((writer) => writer.age <= 50 && writer.age > 40 && !writer.alive)
+  .forEach((writer) => console.log(`Writer ${writer.firstName} ${writer.lastName}died at
+  ${writer.age} years old.`))
 }
 
 
@@ -84,8 +85,11 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  
+  writers.filter((writer) => writer.age <= 50 && writer.age >= 40 && writer.alive)
+  .forEach(writer => console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`))
 }
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`

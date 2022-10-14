@@ -16,7 +16,7 @@ let person = {
     age: 32,
     currentAddress: "London",
     celebrateBirthday: function(){
-         this.age;
+         this.age++;
     }
 };
 
