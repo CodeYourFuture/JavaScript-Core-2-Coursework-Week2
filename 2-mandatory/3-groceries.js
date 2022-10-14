@@ -26,7 +26,33 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
+//*********************************************************
+// A function to return unique items
+//*********************************************************
+function uniqueItems(inputArray) {
+  let uniqueChars = [];
+  inputArray.forEach((c) => {
+     if (!uniqueChars.includes(c)) {
+        uniqueChars.push(c);
+     }
+
+  });
+  return uniqueChars;
+}
 let weeklyGroceriesToBuy = [];
+//weeklyGroceriesToBuy.push();
+
+keyNames = Object.keys(weeklyMealPlan);
+valueNames = Object.values(weeklyMealPlan);
+for (let i = 0; i < keyNames.length; i++) {
+  for (let j = 0; j < keyNames.length; j++) {
+     //console.log(valueNames[i][j]);
+     if (valueNames[i][j] === undefined) continue;
+
+     weeklyGroceriesToBuy.push(valueNames[i][j]);
+  }
+  weeklyGroceriesToBuy = uniqueItems(weeklyGroceriesToBuy);
+}
 
 /*
 Exercise 2:
@@ -35,6 +61,17 @@ Exercise 2:
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
 
+keyNames = Object.keys(weeklyMealPlan);
+valueNames = Object.values(weeklyMealPlan);
+for(let i=5;i<keyNames.length;i++){
+   for(let j=0;j<keyNames.length;j++){
+       //console.log(valueNames[i][j]);
+       if(valueNames[i][j]=== undefined) continue;
+       
+       weekendGroceriesToBuy.push(valueNames[i][j]);
+   }
+   weekendGroceriesToBuy = uniqueItems(weekendGroceriesToBuy);
+}
 /*
 Exercise 3:
   Loop through your weekly meal plan:
