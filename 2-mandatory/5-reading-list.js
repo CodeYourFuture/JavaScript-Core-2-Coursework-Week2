@@ -16,10 +16,41 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+   {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: true,
+  },
+  {
+    title: "The Map of Salt and Stars",
+    author: "Jennifer Zeynab Joukhadar",
+    alreadyRead: false,
+  },
+  {
+    title: "Dietland",
+    author: "Sarai Walker",
+    alreadyRead: false,
+  },
+  {
+    title: "A Place for Us",
+    author: "Fatima Farheen Mirza",
+    alreadyRead: true,
+  },
+  {
+    title: "The House of Impossible Beauties",
+    author: "Joseph Cassara",
+    alreadyRead: false,
+  },
+];
+
   
 // exercise 1
 function logBooks() {
+  books.forEach((book) => {
+    console.log(`{$book.tittle} , ${book.author}`);
+
+  });
 }
   
 
@@ -53,6 +84,16 @@ As an example for this exercise, you might do the following steps
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
+
+function logBooksByAlreadyRead() {
+  books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read "${book.title}" by ${book.author}`);
+    } else {
+      console.log(`You still need to read "${book.title}" by ${book.author}`);
+    }
+  });
+}
 
 test("books are logged", function() {
  expectLogBooksToLog([
