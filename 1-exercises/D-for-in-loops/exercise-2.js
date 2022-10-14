@@ -21,10 +21,15 @@ let shapes = {
   megagon: 1000000,
 };
 
-let shapesWithMoreThanFiveSides = [];
-
 // WRITE YOUR CODE BELOW THIS LINE
-
+let shapesWithMoreThanFiveSides = [];
+let shapeSideLimit= 5;
+// WRITE YOUR CODE BELOW THIS LINE
+for (let shape in shapes){
+    if(shapes[shape] >= shapeSideLimit){
+        shapesWithMoreThanFiveSides.push(shape);
+    }
+}
 // DO NOT EDIT BELOW THIS LINE
 console.log(
   `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
