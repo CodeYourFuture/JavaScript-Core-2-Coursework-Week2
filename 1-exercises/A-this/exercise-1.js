@@ -15,12 +15,11 @@ let person = {
     name: "Adrian",
     age: 32,
     currentAddress: "London",
-    celebrateBirthday:  function () {
-        this.age++;
-    }
+    celebrateBirthday: function () {
+     this.age++   /* todo */
+}
+
 };
-
-
 // DO NOT MODIFY BELOW THIS LINE
 let age = person.age;
 let expectedAge = age + 1;
