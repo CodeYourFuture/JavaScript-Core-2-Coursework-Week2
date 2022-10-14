@@ -3,12 +3,12 @@ Create a "Choose Your Own Adventure" game using an object. In these kind of
 games, the player is in a room and can move to other rooms to the north, east,
 south or west.
 To start the game, run this file with Node. Depending on your current directory, run one of:
-    node 1-choose-your-own-adventure.js  
-    node 3-extra/1-choose-your-own-adventure.js 
+    node 1-choose-your-own-adventure.js
+   💫 node 3-extra/1-choose-your-own-adventure.js
 To stop the game, press
 Ctrl-C.
 To run the tests for the game, run this file with npm test
-    npm test -- --testPathPattern 11-choose-your-own-adventure.js
+   💫 npm test -- --testPathPattern 1-choose-your-own-adventure.js
 It has a currentRoom property to store which room the player is in.
 Give your object methods for:
 - Starting the game in the correct room when passed a room name parameter
@@ -30,7 +30,7 @@ time to read it carefully. The rooms look something like this:
 ----------------------------------------------------------
 Stretch goal: what happens if you try to move in a direction that the current
 room doesn't allow? For example if you are in the Classroom and you try to move
-east? If there is a bug in your code, try to fix it. 
+east? If there is a bug in your code, try to fix it.
 To enable the tests for the stretch goals, remove the ".skip" on the appropriate tests below.
 */
 
@@ -38,6 +38,8 @@ let game = {
   currentRoom: null,
 
   start: function (roomName) {
+    this.currentRoom = roomName in rooms ? rooms[roomName] : null;
+
     // This function is called with the name of the room that the player wants
     // to start in.
     // Finish the function so that the currentRoom property is set to the room
@@ -47,6 +49,8 @@ let game = {
   },
 
   move: function (direction) {
+    if (direction in this.currentRoom && this.currentRoom[direction]())
+      this.currentRoom = this.currentRoom[direction]();
     // This function is called with the direction that the player wants to move.
     // Finish the function so that the currentRoom property is updated with new
     // room in the direction that the player wants to move in.
@@ -109,7 +113,7 @@ let rooms = {
 };
 
 /*
-YOU ARE NOT EXPECTED TO UNDERSTAND THE CODE BELOW THIS 
+YOU ARE NOT EXPECTED TO UNDERSTAND THE CODE BELOW THIS
 LINE!
 You only need to read it if you are interested in how it works.
 */
@@ -161,8 +165,8 @@ if (global["test"] == undefined) {
 
 // if we reach here, we are running in jest -> run tests
 
-/* ======= TESTS - ONLY MODIFY TO ENABLE TESTS FOR STRETCH GOALS ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 11-choose-your-own-adventure.js`
+/* ======= TESTS - ONLY MODIFY TO ENABLE TESTS FOR STRETCH GOALS =====
+- To run the tests for this exercise, run `npm test -- --testPathPattern 1-choose-your-own-adventure.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
