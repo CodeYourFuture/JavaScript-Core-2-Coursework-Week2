@@ -73,7 +73,11 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  for(let val of writers){
+    if(val.age >40 && val.age <49 && val.alive !== "true"){
+      console.log(`Writer ${val.firstName} ${val.lastName} died at ${val.age} years old.`)
+    }
+  }
 }
 
 /*
@@ -83,7 +87,11 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  for(let val of writers){
+    if(val.age >=40 && val.age <=49 && val.alive == true){
+      console.log(`Hi, my name is ${val.firstName} ${val.lastName}. I am ${val.age} years old.`)
+    }
+  }
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
