@@ -16,6 +16,9 @@ let myPets = {
 };
 
 let petNames = Object.values(myPets);
+let petNameArray = [];
+petNameArray.map((el) => el.petNames)
+ //petNameArray.push(`${petNames}`);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
