@@ -17,9 +17,22 @@ without using any variables or any logic like loops, template strings or if stat
 */
 
 const books = [];
+const books = [
+  { title: "The Hobbit", author: "J.R.R. Tolkien" },
+  { title: "The Map of Salt and Stars", author: "Jennifer Zeynab Joukhadar" },
+  { title: "Dietland", author: "Sarai Walker" },
+  { title: "A Place for Us", author: "Fatima Farheen Mirza" },
+  {
+    title: "The House of Impossible Beauties",
+    author: "Joseph Cassara",
+  },
+];
   
 // exercise 1
 function logBooks() {
+  for (let book of books) {
+    console.log(`${book.title} by ${book.author}`);
+  }
 }
   
 

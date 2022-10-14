@@ -11,6 +11,9 @@ let salaries = {
   monica: 55000,
   rachel: 90000,
 };
+for (let keys in salaries ) {
+  if(salaries[keys] > 50000) console.log(`${keys}: ${salaries[keys]}`);
+}
 
 
 

@@ -20,6 +20,15 @@
 */
 
 function journeyPlanner(locations, transportMode) {}
+function journeyPlanner(locations, transportMode) {
+  let availablePlaces = [];
+  for (let key in locations) {
+    if (locations[key].indexOf(transportMode) !== -1) {
+      availablePlaces.push(key);
+    }
+  }
+  return availablePlaces;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`

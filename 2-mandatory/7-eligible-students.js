@@ -15,7 +15,15 @@
  */
 
 function eligibleStudents(attendances) {}
-
+function eligibleStudents(attendances) {
+  let eligibleNames = [];
+  attendances.forEach((student) => {
+    if (student.attendance >= 8) {
+      eligibleNames.push(student.name);
+    }
+  });
+  return eligibleNames;
+}
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
