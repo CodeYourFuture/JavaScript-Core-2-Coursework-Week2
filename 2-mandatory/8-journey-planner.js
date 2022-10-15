@@ -22,7 +22,10 @@
 function journeyPlanner(locations, transportMode) {
   let arr = [];
   for (const key in locations) {
-    locations[key].includes(transportMode) ? arr.push(key) : null;
+    // locations[key].includes(transportMode) ? arr.push(key) : null;
+    if (locations[key].includes(transportMode)) {
+      arr.push(key);
+    }
   }
   return arr;
 }
