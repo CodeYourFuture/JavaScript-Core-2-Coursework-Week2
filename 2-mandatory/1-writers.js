@@ -61,7 +61,7 @@ Exercise 1:
 */
 function logAllWriters() {
   let arr = writers;
-  let result = arr.map((e) => {
+  let result = arr.map(e => {
     console.log(
       `Hi, my name is ${e.firstName} ${e.lastName}. I am ${e.age} years old, and work as a ${e.occupation}.`
     );
@@ -78,7 +78,7 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   let arr = writers;
-  let result = arr.map((e) => {
+  let result = arr.map(e => {
     e.age >= 40 && e.age <= 49 && e.alive === false
       ? console.log(
           `Writer ${e.firstName} ${e.lastName} died at ${e.age} years old.`
@@ -95,8 +95,7 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  let arr = writers;
-  let result = arr.map((e) => {
+  let result = writers.map(e => {
     e.age >= 40 && e.age <= 49 && e.alive === true
       ? console.log(
           `Hi, my name is ${e.firstName} ${e.lastName}. I am ${e.age} years old.`
