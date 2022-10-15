@@ -85,7 +85,7 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
-function logBooks2() {
+function isReadBook() {
   books.forEach(e =>
     console.log(
       e.alreadyRead
@@ -141,7 +141,7 @@ function expectLogBooksToLog(expectedValues) {
 //💫💫
 function expectLogBooksToLog2(expectedValues) {
   const consoleLogSpy = jest.spyOn(console, "log");
-  logBooks2();
+  isReadBook();
   expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
   expectedValues.forEach((value, i) => {
     expect(consoleLogSpy).nthCalledWith(i + 1, value);
