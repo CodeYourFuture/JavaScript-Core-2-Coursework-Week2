@@ -18,7 +18,6 @@ You have to implement the missing features according to the specification.
 let bottle = {
   volume: 0,
   fillUp: function () {
-    // calling this function should completely fill your bottle (volume = 100);
     return (this.volume = 100);
   },
   pour: function () {
