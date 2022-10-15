@@ -49,8 +49,13 @@ let game = {
   },
 
   move: function (direction) {
-    if (direction in this.currentRoom && this.currentRoom[direction]())
+    if (direction in this.currentRoom && this.currentRoom[direction]()) {
       this.currentRoom = this.currentRoom[direction]();
+    }
+
+    // else {
+    //   throw Error("Please choose corect direction");
+    // }
     // This function is called with the direction that the player wants to move.
     // Finish the function so that the currentRoom property is updated with new
     // room in the direction that the player wants to move in.
