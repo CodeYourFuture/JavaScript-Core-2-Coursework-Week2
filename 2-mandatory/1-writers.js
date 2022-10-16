@@ -116,3 +116,4 @@ function expectFunctionToLog(f, values) {
     });
     consoleLogSpy.mockRestore();
 };
+blablabla
