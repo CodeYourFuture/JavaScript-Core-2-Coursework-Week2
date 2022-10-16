@@ -112,8 +112,8 @@ function expectFunctionToLog(f, values) {
     f();
     expect(consoleLogSpy).toBeCalledTimes(values.length);
     values.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(ifir +1, value);
+      expect(consoleLogSpy).nthCalledWith(i+1, value);
     });
     consoleLogSpy.mockRestore();
 };
-blablabla  balalllala
+
