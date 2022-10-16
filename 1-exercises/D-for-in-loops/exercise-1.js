@@ -7,12 +7,17 @@
 */
 
 let salaries = {
-  ross: 30000,
-  monica: 55000,
-  rachel: 90000,
+  Ross: 30000,
+  Monica: 55000,
+  Rachel: 90000,
 };
 
 // WRITE BELOW THIS LINE
+for (let value in salaries) {
+  if (salaries[value] > 50000) {
+    console.log(`${[value]}: $${salaries[value]}`);
+  }
+}
 
 // Expected Result:
 // monica: $55000
