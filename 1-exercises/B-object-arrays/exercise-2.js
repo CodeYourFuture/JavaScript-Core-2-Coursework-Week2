@@ -17,8 +17,8 @@ let store = [
 let money = 1.5;
 
 let thingsICanBuy = store
-  .filter((item) => item.price <= money)
-  .map((item) => item.item);
+  .filter((product) => product.price <= money)
+  .map((product) => product.item);
 
 // DO NOT EDIT BELOW THIS LINE
 console.log(`Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`);

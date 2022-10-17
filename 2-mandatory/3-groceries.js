@@ -41,9 +41,11 @@ Exercise 2:
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
 for (let key in weeklyMealPlan) {
-  if (key === "saturday" || key === "sunday") {
-    weeklyMealPlan[key].forEach((food) => weekendGroceriesToBuy.push(food));
-  }
+  if (key === "saturday" || key === "sunday")
+    for (let item of weeklyMealPlan[key]) {
+      if (!weekendGroceriesToBuy.includes(item))
+        weekendGroceriesToBuy.push(item);
+    }
 }
 
 /*
