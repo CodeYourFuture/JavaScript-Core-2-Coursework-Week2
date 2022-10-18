@@ -17,7 +17,7 @@ let store = [
 let money = 1.5;
 
 let thingsICanBuy =store.filter(p=> p.price<money).map((s)=>s.item);
- console.log(thingsICanBuy); /* todo */
+ console.log(thingsICanBuy); 
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(

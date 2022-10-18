@@ -17,7 +17,7 @@ let person = {
     currentAddress: "London",
     celebrateBirthday:function() {
           this.age++;
-        return this.age; /* todo */
+        
     }
 };
 

@@ -10,10 +10,10 @@ let bankAccount = {
   currentAmount: 100,
   deposit: function (amount) {
     
-    return this.currentAmount += amount;
+    this.currentAmount += amount;
   },
   withdraw: function (amount) {
-    return this.currentAmount -= amount;
+     this.currentAmount -= amount;
   },
 };
 

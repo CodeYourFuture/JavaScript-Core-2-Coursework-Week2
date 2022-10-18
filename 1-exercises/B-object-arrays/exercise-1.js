@@ -12,8 +12,8 @@ let people = [
   { name: "John", age: 20 },
   { name: "Elise", age: 35 },
 ];
-let peopleNames=people.map((people)=>people.name);
-console.log(peopleNames);
+let peopleNames=people.map((person) => person.name);
+peopleNames;
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(`Expected output: Bob,John,Elise. Actual output: ${peopleNames}`);

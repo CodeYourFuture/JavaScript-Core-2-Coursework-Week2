@@ -39,11 +39,9 @@ let bottle = {
      this.volume = this.volume;
      if (this.volume > 10) {
         this.volume -= 10;
-     } else if (this.volume < 10 && this.volume > 0) {
-        this.volume = 0;
-     } else {
-        this.volume = this.volume;
-     }
+     } else if (this.volume < 10){ this.volume = 10 ;}else {
+        this.volume = this.volume-10;
+     } 
   },
 
   isFull: function () {

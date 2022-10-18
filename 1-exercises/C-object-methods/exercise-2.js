@@ -18,7 +18,7 @@ let myPets = {
 
 let petNames =Object.values(myPets);
 console.log(petNames);
-  /* todo */
+  
 
   // DO NOT EDIT BELOW THIS LINE
   console.log(
