@@ -59,13 +59,19 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters(writers) {
+function logAllWriters() {
   // write your code to log all writers here
 
-  writers.forEach((person) =>
-    console.log(`Hi, my name is ${person.firstName} ${person.lastName}. I am ${person.age} years old, and work as a ${person.occupation}.
-`)
+  const allWriters = writers.map(
+    (person) =>
+      `Hi, my name is ${person.firstName} ${person.lastName}. I am ${person.age} years old, and work as a ${person.occupation}.`
   );
+
+  console.log(
+    allWriters,
+    "  9999999999999999999999999999999999999999999999999999"
+  );
+  return allWriters;
 }
 
 /*
@@ -75,15 +81,17 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties(writers) {
+function logDeadWritersInTheirForties() {
   // write your code here
-  writers
+  const result = writers
     .filter((person) => person.age >= 40 && person.age <= 49 && !person.alive)
-    .forEach((person) =>
-      console.log(
+    .map(
+      (person) =>
         `Writer ${person.firstName} ${person.lastName} died at ${person.age} years old.`
-      )
     );
+
+  console.log(result, "0000000000000000000000000000000000000000000000000");
+  return result;
 }
 
 /*
