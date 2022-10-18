@@ -20,6 +20,7 @@ let bottle = {
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
     bottle.volume = 100;
+    return this.volume;
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
@@ -27,21 +28,23 @@ let bottle = {
     if (bottle.volume > 100) {
       bottle.volume = 100;
     } 
+    return this.volume;
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
     bottle.volume -= 10;
     if (bottle.volume < 0) {
       bottle.volume = 0;
-    } 
+    }
+    return this.volume; 
   },
   isFull: function () {
     // this function should return true if your bottle is full;
-    return bottle.volume === 100;
+    return this.volume === 100;
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
-    return bottle.volume === 0;
+    return this.volume === 0;
   },
 };
 
