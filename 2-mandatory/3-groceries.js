@@ -35,6 +35,7 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+weekendGroceriesToBuy = [...weeklyMealPlan["saturday"],...weeklyMealPlan["sunday"]]
 
 /*
 Exercise 3:
@@ -53,7 +54,7 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
-for (key in weeklyMealPlan){
+for (key in weeklyMealPlan){// better use meaingful variable instead of key e.g day
   const numOfIngredientPerDay = weeklyMealPlan[key].length;
   numberOfItemsPerWeek[key] = numOfIngredientPerDay;
 }
