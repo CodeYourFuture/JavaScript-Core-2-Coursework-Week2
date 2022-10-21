@@ -28,20 +28,15 @@ Exercise 1:
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
 for (let day in weeklyMealPlan) {
-  for (let index = 0; index < day.length; index++) {
-    const element = day[index];
-    if (indexOf(element) === -1) {
+  for (let index = 0; index < weeklyMealPlan[day].length; index++) {
+    const element = weeklyMealPlan[day][index];
+    if (weeklyGroceriesToBuy.indexOf(element) === -1) {
       weeklyGroceriesToBuy.push(element);
     }
     
   }
 }
 
-//  weeklyMealPlan[day].forEach((item) => {
-//     if (weeklyGroceriesToBuy.indexOf(item) === -1) {
-//       weeklyGroceriesToBuy.push(item);
-//     }
-//   })
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
