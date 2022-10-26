@@ -19,7 +19,45 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  let highestMeal, secondHighestMeal, lowestMeal;
+  let highestPrice = 0, secondHighestPrice = 0, lowestPrice = 0;
+
+  if (mealArray.length === 0) {
+    return "Nothing :("
+  }
+  else {
+    // Used to find highest meal
+    for (let i = 0; i < mealArray.length; i++) {
+      if (mealArray[i].price > highestPrice) {
+        highestPrice = mealArray[i].price;
+        highestMeal = mealArray[i].name;
+      }
+    }
+    for (let i = 0; i < mealArray.length; i++) {
+      if (mealArray[i].price < highestPrice) {
+        lowestPrice = mealArray[i].price;
+        lowestMeal = mealArray[i].name;
+      }
+    }
+    // Used to find second highest meal
+    for (let j = 0; j < mealArray.length; j++) {
+      if (mealArray[j].price > secondHighestPrice && mealArray[j].price < highestPrice && mealArray[j].price > lowestPrice) {
+        secondHighestPrice = mealArray[j].price;
+        secondHighestMeal = mealArray[j].name;
+      }
+    }
+
+    if (secondHighestPrice === 0 || mealArray.length <= 2) {
+      return highestMeal;
+    }
+    else {
+      return secondHighestMeal;
+    }
+  }
+
+
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
