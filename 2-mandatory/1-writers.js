@@ -58,30 +58,46 @@ Exercise 1:
   Loop through the Array, and for each object, use `console.log()` to print out the below sentence
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
-*/
-function logAllWriters() {
-  // write your code to log all writers here
-};
-
-/*
-Exercise 2:
+  */
+ function logAllWriters() {
+   // write your code to log all writers here
+    for (let i = 0; i < writers.length; i++) {
+      console.log(`Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old, and work as a ${writers[i].occupation}.`); 
+    } 
+    
+  };
+  
+  
+  
+  /*
+  Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
   and not alive anymore. Use the below sentence format:
   "Writer {firstName} {lastName} died at {age} years old."
-*/
-
-function logDeadWritersInTheirForties() {
-  // write your code here
+  */
+ 
+ function logDeadWritersInTheirForties() {
+   // write your code here
+   for (let i = 0; i < writers.length; i++) {
+    if ((40 <= writers[i].age && writers[i].age <= 49) && !(writers[i].alive)) {
+      console.log(`Writer ${writers[i].firstName} ${writers[i].lastName} died at ${writers[i].age} years old.`); 
+   } 
+  }
 }
 
 /*
 Exercise 3:
-  Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
-  "Hi, my name is {firstName} {lastName}. I am {age} years old."
+Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
+"Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  for (let i = 0; i < writers.length; i++) {
+   if ((40 <= writers[i].age && writers[i].age <= 49) && writers[i].alive) {
+     console.log(`Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old.`); 
+  } 
+  }
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
