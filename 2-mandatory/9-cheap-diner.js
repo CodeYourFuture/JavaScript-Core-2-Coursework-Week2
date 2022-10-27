@@ -20,8 +20,8 @@ Should give the answer "Nothing :("
 **/
 
 function chooseMeal(mealArray) {
-  let highestMeal, secondHighestMeal, lowestMeal;
-  let highestPrice = 0, secondHighestPrice = 0, lowestPrice = 0;
+  let highestMeal, cheapestMeal, secondCheapestMeal;
+  let highestPrice = 0, cheapestPrice = 0, secondCheapestPrice = 0;
 
   if (mealArray.length === 0) {
     return "Nothing :("
@@ -34,30 +34,71 @@ function chooseMeal(mealArray) {
         highestMeal = mealArray[i].name;
       }
     }
-    for (let i = 0; i < mealArray.length; i++) {
-      if (mealArray[i].price < highestPrice) {
-        lowestPrice = mealArray[i].price;
-        lowestMeal = mealArray[i].name;
+    cheapestPrice = highestPrice; // starting point to find the cheapest price
+    for (let j = 0; j < mealArray.length; j++) {
+      if (mealArray[j].price < cheapestPrice) {
+        cheapestPrice = mealArray[j].price;
+        cheapestMeal = mealArray[j].name;
       }
     }
-    // Used to find second highest meal
-    for (let j = 0; j < mealArray.length; j++) {
-      if (mealArray[j].price > secondHighestPrice && mealArray[j].price < highestPrice && mealArray[j].price > lowestPrice) {
-        secondHighestPrice = mealArray[j].price;
-        secondHighestMeal = mealArray[j].name;
+    secondCheapestPrice = highestPrice; // starting point to find the second cheapest price
+    // Used to find second cheapest meal
+    for (let k = 0; k < mealArray.length; k++) {
+      if (mealArray[k].price > cheapestPrice && mealArray[k].price < highestPrice && mealArray[k].price < secondCheapestPrice) {
+        secondCheapestPrice = mealArray[k].price;
+        secondCheapestMeal = mealArray[k].name;
       }
     }
 
-    if (secondHighestPrice === 0 || mealArray.length <= 2) {
+    if (secondCheapestPrice === highestPrice) {
       return highestMeal;
     }
     else {
-      return secondHighestMeal;
+      return secondCheapestMeal;
     }
   }
 
 
 }
+// function chooseMeal(mealArray) {
+//   let highestMeal, secondHighestMeal, lowestMeal;
+//   let highestPrice = 0, secondHighestPrice = 0, lowestPrice = 0;
+
+//   if (mealArray.length === 0) {
+//     return "Nothing :("
+//   }
+//   else {
+//     // Used to find highest meal
+//     for (let i = 0; i < mealArray.length; i++) {
+//       if (mealArray[i].price > highestPrice) {
+//         highestPrice = mealArray[i].price;
+//         highestMeal = mealArray[i].name;
+//       }
+//     }
+//     for (let i = 0; i < mealArray.length; i++) {
+//       if (mealArray[i].price < highestPrice) {
+//         lowestPrice = mealArray[i].price;
+//         lowestMeal = mealArray[i].name;
+//       }
+//     }
+//     // Used to find second highest meal
+//     for (let j = 0; j < mealArray.length; j++) {
+//       if (mealArray[j].price > secondHighestPrice && mealArray[j].price < highestPrice && mealArray[j].price > lowestPrice) {
+//         secondHighestPrice = mealArray[j].price;
+//         secondHighestMeal = mealArray[j].name;
+//       }
+//     }
+
+//     if (secondHighestPrice === 0 || mealArray.length <= 2) {
+//       return highestMeal;
+//     }
+//     else {
+//       return secondHighestMeal;
+//     }
+//   }
+
+
+// }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
