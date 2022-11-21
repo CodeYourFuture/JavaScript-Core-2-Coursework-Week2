@@ -4,7 +4,7 @@ Keep track of which books you've read and which books you want to read!
 =====
 Exercise 1
 =====
-Create an array of objects, where each object describes a book and has properties for:
+Create an ar+ray of objects, where each object describes a book and has properties for:
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
@@ -16,10 +16,43 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+   {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: true,
+  },
+  {
+    title: "The Map of Salt and Stars",
+    author: "Jennifer Zeynab Joukhadar",
+    alreadyRead: true,
+  },
+  {
+    title: "Dietland",
+    author: "Sarai Walker",
+    alreadyRead: true,
+  },
+  {
+    title: "A Place for Us",
+    author: "Fatima Farheen Mirza",
+    alreadyRead: true,
+  },
+  {
+    title: "The House of Impossible Beauties",
+    author: "Joseph Cassara",
+    alreadyRead: true,
+  },
+];
   
 // exercise 1
 function logBooks() {
+  books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read "${book.title}" by ${book.author}`);
+    } else {
+      console.log(`You need to read "${book.title}" by ${book.author}`);
+    }
+  });
 }
   
 
