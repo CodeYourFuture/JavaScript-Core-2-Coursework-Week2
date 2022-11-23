@@ -54,9 +54,9 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
-for (key in weeklyMealPlan){// better use meaingful variable instead of key e.g day
-  const numOfIngredientPerDay = weeklyMealPlan[key].length;
-  numberOfItemsPerWeek[key] = numOfIngredientPerDay;
+for (day in weeklyMealPlan){// better use meaingful variable instead of key e.g day
+
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

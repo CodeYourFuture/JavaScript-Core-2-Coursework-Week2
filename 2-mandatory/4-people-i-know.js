@@ -378,14 +378,19 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
-thirtyFiveOrOlder = friends.filter((friend)=> friend.age >= 35)
-//thirtyFiveOrOlder.push(friends)
+thirtyFiveOrOlder = friends.filter((friend)=> friend.age >= 35 && friend[colleagues].age);
+
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
 let powerNetEmails = [];
+powerNetEmails = friends.filter((friend) => {
+  if(friend.company === "POWERNET"){
+    return friend.email;
+  }
+});
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -395,6 +400,7 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+friendsWhoAreColleaguesOfStacie = friends.forEach((friend) => )
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
