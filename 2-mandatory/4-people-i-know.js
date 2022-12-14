@@ -389,6 +389,12 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+let friendsWorkForPowernet = friends.filter(
+  (friend) => friend.company === "POWERNET"
+);
+for (const email in friendsWorkForPowernet) {
+  return powerNetEmails.push(friendsWorkForPowernet[email]);
+}
 
 /*
 4) colleagues with "Stacie Villarreal"
