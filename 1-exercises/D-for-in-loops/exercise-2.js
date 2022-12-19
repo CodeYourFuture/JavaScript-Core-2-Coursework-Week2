@@ -24,6 +24,11 @@ let shapes = {
 let shapesWithMoreThanFiveSides = [];
 
 // WRITE YOUR CODE BELOW THIS LINE
+for (const property in shapes) {
+  if (shapes[property] >= 5) {
+    shapesWithMoreThanFiveSides.push(property);
+  }
+}
 
 // DO NOT EDIT BELOW THIS LINE
 console.log(
