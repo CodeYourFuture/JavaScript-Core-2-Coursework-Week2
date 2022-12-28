@@ -16,7 +16,13 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
+let thingsICanBuy =  []
+
+for (let i in store){
+  if (store[i].price<money){
+    thingsICanBuy.push(store[i].item)
+  }
+}
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
