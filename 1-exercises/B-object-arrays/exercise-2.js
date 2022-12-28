@@ -18,11 +18,12 @@ let money = 1.5;
 
 let thingsICanBuy =  []
 
-for (let i in store){
-  if (store[i].price<money){
-    thingsICanBuy.push(store[i].item)
-  }
-}
+thingsICanBuy = store.filter(x=>x.price<money).map(x=>x.item)
+// for (let i in store){
+//   if (store[i].price<money){
+//     thingsICanBuy.push(store[i].item)
+//   }
+// }
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
