@@ -60,18 +60,24 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
+  writers.forEach((x) => 
+  console.log(`Hi, my name is ${x.firstName} ${x.lastName}. I am ${x.age} years old, 
+  and work as a ${x.occupation}.`));
   // write your code to log all writers here
 };
 
 /*
 Exercise 2:
-  Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
+  Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49
   and not alive anymore. Use the below sentence format:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  writers.filter(x=>{if(x.age >= 40 && x.age < 50 && !x.alive){ 
+    console.log(`Write ${x.firstName} ${x.lastName} died at ${x.age} years old.`);
+  }});
 }
 
 /*
@@ -81,6 +87,11 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
+  writers.filter((x) => { 
+    if(x.age >= 40 && x.age < 50 && x.alive) {
+      console.log(`Hi, my name is ${x.firstName} ${x.lastName}. I am ${x.age} years old`);
+    }
+  })
   // write your code here
 }
 
