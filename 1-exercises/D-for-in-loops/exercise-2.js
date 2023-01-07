@@ -22,7 +22,16 @@ let shapes = {
 };
 
 let shapesWithMoreThanFiveSides = [];
+for (let key in shapes) {
+if (shapes[key] >= 5) {
+  shapesWithMoreThanFiveSides.push(key)
+}
+}
 
+
+// for (const key in flowers) {
+//   console.log(`${key}: ${flowers[key]}`);
+// }
 // WRITE YOUR CODE BELOW THIS LINE
 
 // DO NOT EDIT BELOW THIS LINE

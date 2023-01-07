@@ -15,10 +15,13 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
-  /* todo */
+let petNames = Object.values(myPets);
+console.log(petNames);
+//why its not an array in the actual??????????
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
-    `Expected result: ["Rufus", "Mr Fluffykins", "Lord Voldetort", "Bugs"]. Actual result: ${petNames}`
-  );
+/* todo */
+
+// DO NOT EDIT BELOW THIS LINE
+console.log(
+  `Expected result: ["Rufus", "Mr Fluffykins", "Lord Voldetort", "Bugs"]. Actual result: ${petNames}`
+);

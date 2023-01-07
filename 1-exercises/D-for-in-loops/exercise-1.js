@@ -13,7 +13,13 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
-
+let updatedSalary = "";
+for (let key in salaries) {
+  if (salaries[key] > 50000) {
+    salaries[key] = "$" + salaries[key];
+  }
+}
 // Expected Result:
 // monica: $55000
 // rachel: $90000
+console.log(salaries);
