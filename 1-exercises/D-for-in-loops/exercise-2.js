@@ -23,6 +23,34 @@ let shapes = {
 
 let shapesWithMoreThanFiveSides = [];
 
+// for (let key in shapes) {
+//   let allShapes = Object.values(shapes).filter((shape) => shape >= 5);
+//   return shapesWithMoreThanFiveSides.push(allShapes.key);
+// }
+
+// let allShapes = Object.values(shapes).filter((shape) => shape >= 5);
+// console.log(allShapes);
+
+// for (let key in shapes) {
+//   let moreThanFiveSides = allShapes.map((shape) => Object.keys(shape));
+//   console.log(moreThanFiveSides);
+// }
+
+// function getShapesWithFiveSides(shape) {
+//   let allShapes = shape.filter((element) => Object.values(element > 5));
+//   return shapesWithMoreThanFiveSides.push(allShapes);
+// }
+
+// for (let key in shapes) {
+//   return shapesWithMoreThanFiveSides.push(getShapesWithFiveSides[key]);
+// }
+
+// for (let key in salaries) {
+//   if (salaries[key] > 50000) {
+//     console.log(`${key}: $${salaries[key]}`);
+//   }
+// }
+
 // WRITE YOUR CODE BELOW THIS LINE
 
 // DO NOT EDIT BELOW THIS LINE
