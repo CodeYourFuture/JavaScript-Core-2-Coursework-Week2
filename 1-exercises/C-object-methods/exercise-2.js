@@ -15,7 +15,7 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
+let petNames = Object.values(myPets).join(", ");
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
