@@ -2,7 +2,8 @@
 Create a "Choose Your Own Adventure" game using an object. In these kind of
 games, the player is in a room and can move to other rooms to the north, east,
 south or west.
-To start the game, run this file with Node. Depending on your current directory, run one of:
+To start the game, run this file with Node. Depending on your current directory, 
+run one of:
     node 1-choose-your-own-adventure.js  
     node 3-extra/1-choose-your-own-adventure.js 
 To stop the game, press
@@ -38,6 +39,10 @@ let game = {
   currentRoom: null,
 
   start: function (roomName) {
+    if(roomName ==='hall' || roomName === 'classroom' || roomName === 'library'){
+      this.currentRoom = rooms[roomName]
+    }
+    else{return null}
     // This function is called with the name of the room that the player wants
     // to start in.
     // Finish the function so that the currentRoom property is set to the room
@@ -47,6 +52,11 @@ let game = {
   },
 
   move: function (direction) {
+    const previousRoom = this.currentRoom;
+    const checkIfExistentDirectionAndRoom = rooms[this.currentRoom.name]
+    [direction]?.() ?? previousRoom;
+    this.currentRoom = checkIfExistentDirectionAndRoom;
+    return this.currentRoom.name;
     // This function is called with the direction that the player wants to move.
     // Finish the function so that the currentRoom property is updated with new
     // room in the direction that the player wants to move in.

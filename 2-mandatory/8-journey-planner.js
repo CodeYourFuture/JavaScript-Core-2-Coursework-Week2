@@ -1,11 +1,13 @@
 /*
   This exercise was also in JS1 week 4, but you didn't know about objects yet.
   It's more clear with objects than with arrays!
-  Feel free to look at your solution to that one to help you out - you already did this once!
+  Feel free to look at your solution to that one to help you out - you 
+  already did this once!
   -----------------------------------------------------------------------
   Write a function journeyPlanner that:
   - Accepts two paramters:
-    1) An object where the keys are locations and the values are arrays of the transportation modes you can use to get there.
+    1) An object where the keys are locations and the values are arrays of 
+    the transportation modes you can use to get there.
        e.g.
        {
            Angel: ["tube", "bus"],
@@ -13,13 +15,23 @@
        }
     2) A string containing a transport mode
        e.g. "bus"
-  - Returns an array of where I can go if I only want to use a specific mode of transport.
+  - Returns an array of where I can go if I only want to use a specific mode 
+  of transport.
   NOTE: Only the location names should be returned, as strings.
-  When you finish the exercise, think about how this solution is different to your last solution.
+  When you finish the exercise, think about how this solution is different to 
+  your last solution.
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+function journeyPlanner(locations, transportMode) {
+  let locationByTransportMode = [];
+  for(let place in locations){
+    if(locations[place].includes(transportMode)){
+      locationByTransportMode.push(place);
+    }
+  }
+  return locationByTransportMode;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
