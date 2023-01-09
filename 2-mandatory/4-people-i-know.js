@@ -379,7 +379,7 @@ First, I want you to find all of my friends who are 35 or older.
 
 let thirtyFiveOrOlder = [];
 for (let friend of friends){
-  if (friend.age>35){
+  if (friend.age>=35){
     thirtyFiveOrOlder.push(friend)
   }
 }
@@ -417,9 +417,9 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 for (let friend of friends){
-  for (let colleag of friend.colleagues)
-  if (colleag.skills.includes("Multi-tasking") ){
-    colleaguesWhoCanMultitask.push(colleag.name)
+  for (let colleague of friend.colleagues)
+  if (colleague.skills.includes("Multi-tasking") ){
+    colleaguesWhoCanMultitask.push(colleague.name)
   }
 }
 

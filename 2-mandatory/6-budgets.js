@@ -11,11 +11,12 @@ peopleArray = [
 
 
 function getBudgets(peopleArray) {
-  let totalBudget = 0;
-  for (let budget of peopleArray){
-    totalBudget+=budget.budget
-  }
-  return totalBudget
+  return peopleArray.reduce((acc, peopleArray)=>{ return acc + peopleArray.budget }, 0);
+  // let totalBudget = 0;
+  // for (let budget of peopleArray){
+  //   totalBudget+=budget.budget
+  // }
+  // return totalBudget
 }
 
 

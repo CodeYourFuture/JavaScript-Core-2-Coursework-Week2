@@ -31,13 +31,11 @@ let bottle = {
   },
   isFull: function () {
     // this function should return true if your bottle is full;
-  if(this.volume == 100){return true}
-  else {return false}
+  return this.volume == 100
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
-  if(this.volume == 0){return true}
-  else {return false}
+  return this.volume == 0
   },
 };
 

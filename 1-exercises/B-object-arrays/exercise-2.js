@@ -16,9 +16,7 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =  []
-
-thingsICanBuy = store.filter(x=>x.price<money).map(x=>x.item)
+let thingsICanBuy = store.filter(x=>x.price<money).map(x=>x.item)
 // for (let i in store){
 //   if (store[i].price<money){
 //     thingsICanBuy.push(store[i].item)
