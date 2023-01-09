@@ -13,6 +13,10 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+for(const property  in salaries){
+  if(salaries[property] > 30000)
+  console.log(` ${property} : $${salaries[property]}`);
+}
 
 // Expected Result:
 // monica: $55000
