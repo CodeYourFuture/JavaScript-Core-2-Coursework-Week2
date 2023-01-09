@@ -11,6 +11,11 @@ let salaries = {
   monica: 55000,
   rachel: 90000,
 };
+for (let ele in salaries) {
+  if (salaries[ele] > 50000){
+     console.log(ele + ": $" + salaries[ele]);
+  }
+}
 
 // WRITE BELOW THIS LINE
 

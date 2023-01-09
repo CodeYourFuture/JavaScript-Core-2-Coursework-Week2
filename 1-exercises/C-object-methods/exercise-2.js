@@ -15,7 +15,7 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
+let petNames = object.values(myPets);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

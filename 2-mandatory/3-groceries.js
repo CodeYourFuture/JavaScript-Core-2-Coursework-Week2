@@ -1,5 +1,5 @@
 /*
-As you you can have an Array of Objects, you can also store Arrays in Objects.
+As you can have an Array of Objects, you can also store Arrays in Objects.
 In this exercise, you'll practice:
  - How to loop through the properties (keys) of an Object and read its values.
  - How to access an Array stored inside an Object.
@@ -27,6 +27,13 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for (let element in weeklyMealPlan) {
+  for (let product of weeklyMealPlan[element]) {
+    if (!weeklyGroceriesToBuy.includes(product)) {
+      weeklyGroceriesToBuy.push(product);
+    }
+  }
+}
 
 /*
 Exercise 2:
@@ -34,7 +41,13 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+for (let item in weeklyMealPlan){
+  if (item == "saturday" || item == "sunday") {
+    weekendGroceriesToBuy.push(weeklyMealPlan[item]);
+  }
+}
 
+weekendGroceriesToBuy = weekendGroceriesToBuy.flat(1);
 /*
 Exercise 3:
   Loop through your weekly meal plan:
@@ -52,8 +65,12 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+for (let item in weeklyMealPlan) {
+  numberOfItemsPerWeek[item] = weeklyMealPlan[item].length;
+}
+
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 3-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
