@@ -16,10 +16,18 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
-  /* todo */
+let thingsICanBuy = store.filter(canBuy).map(findName);
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
-    `Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`
-  );
+function canBuy(eachItem) {
+  return eachItem.price < money ? eachItem : null;
+}
+
+function findName(itemCanBuy) {
+  return itemCanBuy.item;
+}
+
+
+// DO NOT EDIT BELOW THIS LINE
+console.log(
+  `Expected output: Milk,Chocolate. Actual output: ${thingsICanBuy}`
+);
