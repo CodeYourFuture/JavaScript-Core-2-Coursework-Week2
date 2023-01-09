@@ -13,7 +13,7 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames = people.map((item) => Object.values(item));
+let peopleNames = people.map((item) => item.name);
 /* todo */
 
 // DO NOT EDIT BELOW THIS LINE
