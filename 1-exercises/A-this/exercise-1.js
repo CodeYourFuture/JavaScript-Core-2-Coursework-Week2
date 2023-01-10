@@ -15,7 +15,9 @@ let person = {
     name: "Adrian",
     age: 32,
     currentAddress: "London",
-    celebrateBirthday: /* todo */
+    celebrateBirthday: function(expectedAge){
+        return this.age + 1;
+    }
 };
 
 
