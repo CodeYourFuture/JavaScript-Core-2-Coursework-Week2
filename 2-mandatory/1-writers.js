@@ -61,6 +61,10 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
+  writers.forEach(Element)
+    console.log( "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
+)
+  
 };
 
 /*
