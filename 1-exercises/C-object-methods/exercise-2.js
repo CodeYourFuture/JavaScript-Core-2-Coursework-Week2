@@ -17,7 +17,6 @@ let myPets = {
 
 let petNames = Object.values(myPets);
 console.log(petNames);
-//why its not an array in the actual??????????
 
 /* todo */
 
