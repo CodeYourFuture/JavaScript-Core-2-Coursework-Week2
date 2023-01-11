@@ -45,7 +45,11 @@ let game = {
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
 
-    if (roomName === ("hall" || "classroom" || "library")) {
+    if (
+      roomName === "hall" ||
+      roomName === "classroom" ||
+      roomName === "library"
+    ) {
       this.currentRoom = { name: roomName };
     }
   },
