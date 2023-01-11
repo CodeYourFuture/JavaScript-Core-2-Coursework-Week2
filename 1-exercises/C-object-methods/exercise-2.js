@@ -17,7 +17,7 @@ let myPets = {
 
 let petNames =
   /* todo */
-
+  Object.values(myPets)  
   // DO NOT EDIT BELOW THIS LINE
   console.log(
     `Expected result: ["Rufus", "Mr Fluffykins", "Lord Voldetort", "Bugs"]. Actual result: ${petNames}`
