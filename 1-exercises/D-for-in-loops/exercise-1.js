@@ -14,6 +14,21 @@ let salaries = {
 
 // WRITE BELOW THIS LINE
 
+// let salariesMoreThan50000 = Object.keys(salaries);
+// salariesMoreThan50000.forEach(name => {
+//   if (salaries[name] > 50000) {
+//     console.log(`${name}: ${'$'}${salaries[name]}`)
+//   };
+// });
+
+for (let name in salaries) {
+  if (salaries[name] > 50000) {
+    console.log(`${name}: ${'$'}${salaries[name]}`)
+  }
+}
+
+// console.log(salariesMoreThan50000)
 // Expected Result:
 // monica: $55000
 // rachel: $90000
+
