@@ -1,7 +1,7 @@
 /* 
   Challenge 1: Famous Writers
   Did you know you can also have an Array of Objects? 
-  You might think "This is madness!" but in everyday coding life
+    You might think "This is madness!" but in everyday coding life
   it is quite a frequent combination. Just think about what benefits we can get from this construct.
   An object lets you store multiple values in a single variable, then you can store complex objects in an array.
   Let's assume you have a list of data about people names and their birthday and you would like to print each name
@@ -61,12 +61,12 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
-  writers.forEach(Element)
-    console.log( "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
-)
+  writers.forEach(Element =>
+    console.log( `Hi, my name is ${Element.firstName} ${Element.lastName}. I am ${Element.age} years old, and work as a ${Element.occupation}.`
+))
   
 };
-
+// el element == obj
 /*
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
@@ -76,6 +76,10 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  writers.filter(el => {if(el.age >=40 && el.age <=49 && !el.alive ){
+    console.log(  `Writer ${el.firstName} ${el.lastName} died at ${el.age} years old.`)
+  }}
+  )
 }
 
 /*
@@ -85,6 +89,11 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
+  writers.filter(el => {if(el.age >=40 && el.age <=49 && el.alive ){
+    console.log(`Hi, my name is ${el.firstName} ${el.lastName}. I am ${el.age} years old.`)
+                                                     }
+                       }
+                )
   // write your code here
 }
 
