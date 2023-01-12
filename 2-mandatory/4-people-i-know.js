@@ -385,20 +385,6 @@ for (let person of friends) {
   }
 }
 
-// console.log(thirtyFiveOrOlder);
-
-// let store = [
-//   { item: "Corn Flakes", price: 2.5 },
-//   { item: "Milk", price: 1.2 },
-//   { item: "Chocolate", price: 0.8 },
-// ];
-
-// let money = 1.5;
-
-// let thingsICanBuy = store
-//   .filter((food) => food.price < money)
-//   .map((food) => food.item);
-
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
@@ -431,18 +417,6 @@ for (let friend of friends) {
   }
 }
 
-// friends
-//   .filter((friend) =>
-//     friend.colleagues.some(
-//       (colleague) => colleague.name === "Stacie Villarreal"
-//     )
-//   )
-//   .map((friend) =>
-//     friendsWhoAreColleaguesOfStacie.push(
-//       `${friend.name.first} ${friend.name.last}`
-//     )
-//   );
-
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -451,14 +425,6 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
-
-// friends
-//   .filter((friend) =>
-//     friend.colleagues.some((colleague) =>
-//       colleague.skills.includes("Multi-tasking")
-//     )
-//   )
-//   .map((friend) => colleaguesWhoCanMultitask.push(`${friend.colleagues.name}`));
 
 for (let friend of friends) {
   for (let colleague of friend.colleagues) {

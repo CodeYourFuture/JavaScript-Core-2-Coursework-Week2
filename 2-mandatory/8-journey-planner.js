@@ -19,18 +19,6 @@
   What's better about each approach?
 */
 
-// let store = [
-//   { item: "Corn Flakes", price: 2.5 },
-//   { item: "Milk", price: 1.2 },
-//   { item: "Chocolate", price: 0.8 },
-// ];
-
-// let money = 1.5;
-
-// let thingsICanBuy = store
-//   .filter((food) => food.price < money)
-//   .map((food) => food.item);
-
 function journeyPlanner(locations, transportMode) {
   let locationByMode = [];
 

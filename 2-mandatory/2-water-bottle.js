@@ -67,7 +67,7 @@ Extra question:
   Leave your answer below:
 */
 
-// Write you answer to the question here
+// This refers to that object itself.
 
 /*
 Once you have completed your object run the following 
