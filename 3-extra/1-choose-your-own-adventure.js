@@ -8,7 +8,7 @@ To start the game, run this file with Node. Depending on your current directory,
 To stop the game, press
 Ctrl-C.
 To run the tests for the game, run this file with npm test
-    npm test -- --testPathPattern 11-choose-your-own-adventure.js
+    npm test -- --testPathPattern 1-choose-your-own-adventure.js
 It has a currentRoom property to store which room the player is in.
 Give your object methods for:
 - Starting the game in the correct room when passed a room name parameter
@@ -44,6 +44,11 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
+    if (roomName === "hall" || "library" || "classroom") {
+      this.currentRoom = rooms[roomName];
+    } else {
+      return "Please try again";
+    }
   },
 
   move: function (direction) {
@@ -53,6 +58,13 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
+    if (this.currentRoom[direction] == null) {
+      console.log("Please enter the correct move: north/east/south/west ");
+    } else {
+      this.currentRoom = {
+        name: rooms[this.currentRoom.name][direction]().name,
+      };
+    }
   },
 };
 
