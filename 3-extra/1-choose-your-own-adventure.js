@@ -36,6 +36,21 @@ To enable the tests for the stretch goals, remove the ".skip" on the appropriate
 
 let game = {
   currentRoom: null,
+  rooms: {
+    hall: {
+      name: "hall",
+      north: "library",
+      east: "classroom",
+    },
+    classroom: {
+      name: "classroom",
+      west: "hall",
+    },
+    library: {
+      name: "library",
+      south: "hall",
+    },
+  },
 
   start: function (roomName) {
     // This function is called with the name of the room that the player wants
@@ -44,6 +59,11 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
+    if (this.rooms[roomName]) {
+      this.currentRoom = this.rooms[roomName];
+    } else {
+      console.log("Invalid room name");
+    }
   },
 
   move: function (direction) {
@@ -53,8 +73,25 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
+    if(this.currentRoom[direction]){
+    this.currentRoom = this.rooms[this.currentRoom[direction]];
+    } else {
+      console.log("Invalid direction")
+    }
   },
 };
+/**
+ * With this object we can use the start method to set the current room by passing 
+ * the name of the room, and then use the move method to move to another room
+ * by passing a direction (north, east, south, west). The rooms object contains all 
+ * the rooms with the directions where you can move next. The currentRoom property 
+ * stores the current room the player is in.
+   The function will check if the passed roomName is valid and it's in the rooms 
+   object, if not it will print "Invalid room name" and the same thing for the move
+   function, it will check if the passed direction is valid and available in the 
+   current room.
+ */
+
 
 /*
 DO NOT EDIT BELOW THIS LINE
