@@ -11,6 +11,7 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  return peopleArray.reduce((total, person) => total += person.budget, 0);
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
@@ -21,7 +22,7 @@ function getBudgets(peopleArray) {
 
 test("No Budgets", () => {
   expect(getBudgets([])).toEqual(0);
-}); 
+});
 
 test("Test 1", () => {
   expect(getBudgets([

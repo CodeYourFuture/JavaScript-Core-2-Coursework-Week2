@@ -409,7 +409,7 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 friends.forEach(friend =>
-  friend.colleagues.filter(colleague => colleague.skills.includes("Multi-tasking") ? colleaguesWhoCanMultitask.push(colleague.name) : null));
+  friend.colleagues.forEach(colleague => colleague.skills.includes("Multi-tasking") ? colleaguesWhoCanMultitask.push(colleague.name) : null));
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
