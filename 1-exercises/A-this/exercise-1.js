@@ -22,4 +22,4 @@ let person = {
 let age = person.age;
 let expectedAge = age + 1;
 person.celebrateBirthday();
-console.log(`Expected age is ${expectedAge}, actual age is ${age}`);
+console.log(`Expected age is ${expectedAge}, actual age is ${person.age}`);
