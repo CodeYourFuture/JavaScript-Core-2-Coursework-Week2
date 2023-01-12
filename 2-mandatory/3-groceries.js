@@ -27,6 +27,9 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for (let eachDay in weeklyMealPlan)
+  weeklyMealPlan[eachDay].forEach(ingredients =>
+    weeklyGroceriesToBuy.indexOf(ingredients) === -1 ? weeklyGroceriesToBuy.push(ingredients) : null);
 
 /*
 Exercise 2:
@@ -34,6 +37,9 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+weeklyMealPlan.saturday.concat(weeklyMealPlan.sunday).forEach(ingredients =>
+  weekendGroceriesToBuy.indexOf(ingredients) === -1 ? weekendGroceriesToBuy.push(ingredients) : null);
+
 
 /*
 Exercise 3:
@@ -52,6 +58,9 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+for (let eachDay in weeklyMealPlan)
+  numberOfItemsPerWeek[eachDay] = weeklyMealPlan[eachDay].length;
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -60,19 +69,19 @@ let numberOfItemsPerWeek = {
 
 test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
   const expectedWeeklyGroceriesToBuy = [
-    'Cheese',       'Eggs',
-    'Tomato',       'Paprika',
-    'Leek',         'Wrap',
-    'Tuna',         'Canned beans',
-    'Carrot',       'Aubergine',
+    'Cheese', 'Eggs',
+    'Tomato', 'Paprika',
+    'Leek', 'Wrap',
+    'Tuna', 'Canned beans',
+    'Carrot', 'Aubergine',
     'Orange Juice', 'Apple',
-    'Ananas',       'Black tea',
-    'Lamb',         'Salt',
-    'Bulgur',       'Potato',
-    'Rice milk',    'Blueberries',
-    'Porridge',     'Banana',
-    'Cinnamon',     'Olive oil',
-    'Salmon',       'Asparagus'
+    'Ananas', 'Black tea',
+    'Lamb', 'Salt',
+    'Bulgur', 'Potato',
+    'Rice milk', 'Blueberries',
+    'Porridge', 'Banana',
+    'Cinnamon', 'Olive oil',
+    'Salmon', 'Asparagus'
   ];
   expect(weeklyGroceriesToBuy).toIncludeSameMembers(expectedWeeklyGroceriesToBuy);
 });
