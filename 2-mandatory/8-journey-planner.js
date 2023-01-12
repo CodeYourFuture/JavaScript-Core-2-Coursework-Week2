@@ -19,7 +19,28 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+// let store = [
+//   { item: "Corn Flakes", price: 2.5 },
+//   { item: "Milk", price: 1.2 },
+//   { item: "Chocolate", price: 0.8 },
+// ];
+
+// let money = 1.5;
+
+// let thingsICanBuy = store
+//   .filter((food) => food.price < money)
+//   .map((food) => food.item);
+
+function journeyPlanner(locations, transportMode) {
+  let locationByMode = [];
+
+  for (let location in locations) {
+    if (locations[location].includes(transportMode)) {
+      locationByMode.push(location);
+    }
+  }
+  return locationByMode;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`
