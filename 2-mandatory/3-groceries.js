@@ -28,12 +28,28 @@ Exercise 1:
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
 
+  // gather all weekly ingredients into weeklyGroceriesToBuy array
+  for (let day in weeklyMealPlan) {
+    weeklyGroceriesToBuy = weeklyGroceriesToBuy.concat(weeklyMealPlan[day]);
+  }
+// remove duplicates from weeklyGroceriesToBuy array
+weeklyGroceriesToBuy = weeklyGroceriesToBuy.filter(function (item, pos) {
+  return weeklyGroceriesToBuy.indexOf(item) === pos;
+});
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+// gather weekend items names into this array
+ weekendGroceriesToBuy = weekendGroceriesToBuy.concat(weeklyMealPlan['saturday'])
+                                              .concat(weeklyMealPlan['sunday'])
+//remove duplicates from weekendGroceriesToBuy array
+  weekendGroceriesToBuy = weekendGroceriesToBuy.filter(function(item,pos){
+    return weekendGroceriesToBuy.indexOf(item) === pos;
+  });
+
 
 /*
 Exercise 3:
@@ -51,6 +67,10 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+for (let day in weeklyMealPlan){
+    numberOfItemsPerWeek[day]= weeklyMealPlan[day].length
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

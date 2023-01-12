@@ -19,18 +19,27 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    this.volume = 100;
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
+    if(this.volume + 10 <=100){
+      this.volume +=10;
+    }
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+    if(this.volume -10 >=0){
+      this.volume -=10;
+    }
   },
   isFull: function () {
     // this function should return true if your bottle is full;
+    return this.volume === 100;
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    return this.volume === 0;
   },
 };
 
@@ -45,8 +54,28 @@ Extra question:
   Why do you think it is preferred to use `this` inside the object rather than its variable name, in our case `bottle`?
   Leave your answer below:
 */
+/*
+The 'this' keyword is used to refer to the current object. 
+When a method is called on an object, the 'this' keyword is set to the object 
+on which the method is called. In above case of the bottle object, using 'this' 
+inside the object's methods ensures that the correct object's properties and 
+methods are accessed and modified, regardless of the variable name that is used to 
+reference the object.
+Using the variable name 'bottle' to access the properties of the object would work 
+in this case, because it is the variable name that is used to reference the object. 
+However, if the variable name were to change, the properties and methods would 
+no longer be accessible, or if the function is passed as callback or event listener 
+the variable name will not be available anymore. 
+Using 'this' means that we don’t have to know what the variable name is, it is more
+flexible and reliable.
+Additionally, if we have multiple variables referencing the same object and we want
+to modify properties of the object, it will be not clear from which variable we should
+access the properties if we don't use 'this' keyword.
+In short,using 'this' inside an object's methods ensures that the correct object is 
+being referred to, regardless of the variable name used to reference it, and it makes
+the code more readable, flexible and reliable.
 
-// Write you answer to the question here
+*/
 
 /*
 Once you have completed your object run the following 

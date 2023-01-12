@@ -8,7 +8,7 @@ Create an array of objects, where each object describes a book and has propertie
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
-Write a funciton that loops through the array of books. For each book, log the book title and book author like so: 
+Write a function that loops through the array of books. For each book, log the book title and book author like so: 
 "The Hobbit by J.R.R. Tolkien"
 You should write and log at least 5 books. 
 You should modify the tests so that they contain the values that correspond to your books.
@@ -16,10 +16,46 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+
+ let book1 = {
+   title: "The Hobbit",
+   Author: "J.R.R. Tolkien",
+   AlreadyRead: true,
+ };
+ let book2 = {
+   title: "The Map of Salt and Stars",
+   Author: "Jennifer Zeynab Joukhadar",
+   AlreadyRead: true,
+ };
+  let book3 = {
+    title: "Dietland",
+    Author: "Sarai Walker",
+    AlreadyRead: true,
+  };
+  let book4 = {
+    title: "A Place for Us",
+    Author: "Fatima Farheen Mirza",
+    AlreadyRead: true,
+  };
+  let book5 = {
+    title: "The House of Impossible Beauties",
+    Author: "Joseph Cassara",
+    AlreadyRead: true,
+  };
+
+const books = [book1,book2,book3,book4,book5];
   
 // exercise 1
 function logBooks() {
+  for (let book of books){
+    if (book.AlreadyRead === false){
+      console.log(`You still need to read ${book.title} by ${book.Author}`);
+    }else if(book.AlreadyRead===true){
+      console.log(`You've already read ${book.title} by ${book.Author}`);
+    }
+      
+  }
+ // books.forEach(book=>console.log(`You've already read ${book.title} by ${book.Author}`))
 }
   
 
@@ -56,13 +92,15 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function() {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+   "You've already read The Hobbit by J.R.R. Tolkien",
+   "You've already read The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+   "You've already read Dietland by Sarai Walker",
+   "You've already read A Place for Us by Fatima Farheen Mirza",
+   "You've already read The House of Impossible Beauties by Joseph Cassara",
+ ]);
 });
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
