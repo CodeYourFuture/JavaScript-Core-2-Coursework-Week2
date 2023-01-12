@@ -11,7 +11,7 @@ let footballClubs = {
   ac_milan: "Italy",
 };
 
-let clubNames =
+let clubNames = Object.keys (footballClubs)
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
