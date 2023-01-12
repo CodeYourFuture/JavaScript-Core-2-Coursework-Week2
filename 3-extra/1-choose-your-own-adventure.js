@@ -36,6 +36,10 @@ To enable the tests for the stretch goals, remove the ".skip" on the appropriate
 
 let game = {
   currentRoom: null,
+   this.currentRoom= this.currentRoom[direction]();
+  } else {
+    console.log("Invalid direction")
+  }
 
   start: function (roomName) {
     // This function is called with the name of the room that the player wants
@@ -53,7 +57,7 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
-  },
+  
 };
 
 /*

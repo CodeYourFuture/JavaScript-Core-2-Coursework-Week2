@@ -19,8 +19,21 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
-
+function chooseMeal(mealArray) {
+  let cheapestMeal = mealArray
+  .map((meal)=>meal.price)
+  .sort((a,b)=>a-b);
+  if (mealArray.length==0){
+    return "Nothing :(";
+  }else if (mealArray.length == 1){
+    return mealArray[0].name;
+  }
+  for (let meal of mealArray){
+    if ((mealArray.length >= 2) && (meal.price ==cheapestMeal[1])){
+      return meal.name;
+    }
+}
+}
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
