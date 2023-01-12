@@ -34,9 +34,9 @@
 function journeyPlanner(locations, transportMode) {
   let locationByMode = [];
 
-  for (let location in locations) {
-    if (locations[location].includes(transportMode)) {
-      locationByMode.push(location);
+  for (let eachLocation in locations) {
+    if (locations[eachLocation].includes(transportMode)) {
+      locationByMode.push(eachLocation);
     }
   }
   return locationByMode;
