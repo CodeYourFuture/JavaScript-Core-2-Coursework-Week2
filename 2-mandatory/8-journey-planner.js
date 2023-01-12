@@ -18,8 +18,11 @@
   When you finish the exercise, think about how this solution is different to your last solution.
   What's better about each approach?
 */
+// Answer: Yes, it's easier to implement this function with Object method compared with array methods in JS1-week4
 
-function journeyPlanner(locations, transportMode) {}
+function journeyPlanner(locations, transportMode) {
+     return Object.keys(locations).filter(location=>locations[location].includes(transportMode));
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`

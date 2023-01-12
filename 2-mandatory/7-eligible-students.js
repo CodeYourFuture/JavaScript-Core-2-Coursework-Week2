@@ -15,13 +15,23 @@
  */
 
 function eligibleStudents(attendances) {
-  let newArr =[];
+//1. for loop solution:
+  // const eligible = [];
+  // for (let i = 0; i < attendances.length; i++) {
+  //   if (attendances[i].attendance >= 8) {
+  //     eligible.push(attendances[i].name);
+  //   }
+  // }
+  // return eligible;
+  
+//2. for...of  solution: 
+  const eligible =[];
   for(let student of attendances){
     if (student.attendance>=8){
-      newArr.push(student.name);
+      eligible.push(student.name);
     }
-     return newArr;
   }
+       return eligible
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

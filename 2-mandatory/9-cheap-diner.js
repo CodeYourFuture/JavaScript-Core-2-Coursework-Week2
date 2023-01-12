@@ -19,7 +19,23 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+   //There are 3 options for the mealArray which are empty, 1 meal and multiple meals,
+   //  so this function will implement 3 output accordingly:
+
+   //1. empty mealArray:
+   if  (mealArray.length === 0){
+      return "Nothing :(";
+   };
+   //2. there's only 1 meal in the mealArray, only return name of the meal:
+   if (mealArray.length === 1){
+      return mealArray[0].name;
+   };
+   //3. for multiple mealArray, select 2nd cheapest meal name after sort() ascending method:
+   let sortedMeals = mealArray.sort((a,b)=>a.price - b.price);
+   return sortedMeals[1].name
+    
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
