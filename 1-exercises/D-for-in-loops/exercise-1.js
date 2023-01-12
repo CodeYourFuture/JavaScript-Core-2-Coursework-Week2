@@ -13,6 +13,11 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+for (salary in salaries) {
+  salaries[salary] > 50000
+    ? console.log(`${salary}: $${salaries[salary]}`)
+    : "";
+}
 
 // Expected Result:
 // monica: $55000
