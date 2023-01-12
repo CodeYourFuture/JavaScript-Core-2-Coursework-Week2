@@ -67,7 +67,7 @@ function logAllWriters() {
   );
   // for (let el of writers) {
   //   console.log(
-  //     `Hi, my name is ${el.firstName} ${el.lastName}. I am ${el.age} years old, and work as a ${el.occupation}.`
+  //     `Hi, my name is ${el["firstName"]} ${el.["lastName"]}. I am ${el.["age"]} years old, and work as a ${el.occupation}.`
   //   );
   // }
 }
@@ -105,7 +105,7 @@ function logAliveWritersInTheirForties() {
   });
 }
 
-/* ======= TESTS - DO NOT MODIFY ===== 
+/* ======= TESTS - DO NOT MODIFY =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
