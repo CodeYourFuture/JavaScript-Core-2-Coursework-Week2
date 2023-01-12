@@ -60,7 +60,7 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+    writers.forEach(name =>console.log(`Hi, my name is ${name["firstName"]} ${name["lastName"]}. I am ${name["age"]} years old, and work as a ${name["occupation"]}.`));
 };
 
 /*
@@ -71,7 +71,11 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+   writers.forEach(function(name){
+    if(name.age >= 40 && name.age <= 49 && name.alive ===false){
+      console.log(`Writer ${name["firstName"]} ${name["lastName"]} died at ${name["age"]} years old.`);
+    }
+  })
 }
 
 /*
@@ -81,7 +85,11 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+   writers.forEach(function(name){
+    if(name.age >= 40 && name.age <= 49 && name.alive ===true){
+     console.log(`Hi, my name is ${name["firstName"]} ${name["lastName"]}. I am ${name["age"]} years old.`);
+    }
+  })
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

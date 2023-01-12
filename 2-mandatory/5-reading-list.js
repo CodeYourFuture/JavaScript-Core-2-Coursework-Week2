@@ -16,11 +16,39 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [ 
+  {
+    tittle:"The Hobbit",
+    author:"J.R.R. Tolkien",
+    alreadyRead:true
+  },
+  {
+    tittle:"The Map of Salt and Stars",
+    author:"Jennifer Zeynab Joukhadar",
+    alreadyRead:false
+  },
+  {
+    tittle:"Dietland",
+    author:"Sarai Walker",
+    alreadyRead:true
+  },
+  {
+    tittle:"A Place for Us",
+    author:"Fatima Farheen Mirza",
+    alreadyRead:false
+  },
+  {
+    tittle:"The House of Impossible Beauties",
+    author:"Joseph Cassara",
+    alreadyRead:false
+  },
+];
   
 // exercise 1
 function logBooks() {
+   books.forEach(e => console.log(`${e.tittle} by ${e.author}`)); 
 }
+
   
 
 /*
@@ -49,7 +77,7 @@ As an example for this exercise, you might do the following steps
 **/
 
 /* ======= TESTS - DO MODIFY (!!!) =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 5-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */

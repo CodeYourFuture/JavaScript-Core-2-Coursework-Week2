@@ -18,18 +18,26 @@ You have to implement the missing features according to the specification.
 let bottle = {
   volume: 0,
   fillUp: function () {
+        return this.volume = 100;
     // calling this function should completely fill your bottle (volume = 100);
   },
   pour: function () {
+    if(this.volume <= 90){
+     return this.volume +=10;
     // calling this function should increase your bottle volume by 10 units;
-  },
+  }
+},
   drink: function () {
+     if (this.volume >= 10) {
+     return (this.volume -= 10);}
     // calling this function should decrease your bottle volume by 10 units;
   },
   isFull: function () {
+      return this.volume === 100;
     // this function should return true if your bottle is full;
   },
   isEmpty: function () {
+      return this.volume === 0;
     // this function should return true if your bottle is empty;
   },
 };
@@ -45,7 +53,7 @@ Extra question:
   Why do you think it is preferred to use `this` inside the object rather than its variable name, in our case `bottle`?
   Leave your answer below:
 */
-
+//Because of methods inside our object it should be use :this
 // Write you answer to the question here
 
 /*
@@ -54,7 +62,7 @@ and see if your answer matches the expected result at the bottom :)
 */
 
 /* ======= TESTS - DO NOT MODIFY =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 4-water-bottle.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 2-water-bottle.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
