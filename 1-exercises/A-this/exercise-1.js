@@ -15,8 +15,11 @@ let person = {
     name: "Adrian",
     age: 32,
     currentAddress: "London",
-    celebrateBirthday: /* todo */
+    celebrateBirthday: function () {
+        return (this.age += 1);
+    },
 };
+
 
 
 // DO NOT MODIFY BELOW THIS LINE
