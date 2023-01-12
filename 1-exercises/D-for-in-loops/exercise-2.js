@@ -7,8 +7,7 @@
    5 or more sides. This array has already been declared for you
    ("shapesWithMoreThanFiveSides").
 
-   Note, you also will need to make use of some array methods you have seen
-   previously.
+   Note, you also will need to make use of some array methods you have seen previously.
 
 */
 
@@ -24,6 +23,11 @@ let shapes = {
 let shapesWithMoreThanFiveSides = [];
 
 // WRITE YOUR CODE BELOW THIS LINE
+for (let sides in shapes) {
+  if (shapes[sides] >= 5) {
+    shapesWithMoreThanFiveSides.push(sides);
+  }
+}
 
 // DO NOT EDIT BELOW THIS LINE
 console.log(
