@@ -11,6 +11,7 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  return peopleArray.reduce((accumulator, currentValue) =>accumulator + currentValue.budget, 0 );
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
