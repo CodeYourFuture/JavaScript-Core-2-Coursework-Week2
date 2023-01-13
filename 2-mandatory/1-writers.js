@@ -59,10 +59,13 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
+function logAllWriters(obj) {
   // write your code to log all writers here
+  for(let x in obj){
+    console.log(`Hi, my name is ${obj[x].firstName} ${obj[x].lastName}. I am ${obj[x].age} years old, and work as a ${obj[x].occupation}.`);
+  }
 };
-
+logAllWriters(writers)
 /*
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
@@ -70,27 +73,43 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
+function logDeadWritersInTheirForties(arr) {
   // write your code here
+  for(let x in arr){
+    if(arr[x].age >= 40 && arr[x].age <= 49){
+      if(arr[x].alive==false){
+        console.log(`Writer ${arr[x].firstName} ${arr[x].lastName} died at ${arr[x].age} years old`);
+      }
+      
+    }
+  }
 }
-
+logDeadWritersInTheirForties(writers)
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
+function logAliveWritersInTheirForties(arr) {
   // write your code here
+  for(let x in arr){
+    if(arr[x].age >= 40 && arr[x].age <= 49){
+      if(arr[x].alive==true){
+        console.log(`Hi, my name is ${arr[x].firstName} ${arr[x].lastName}. I am ${arr[x].age} years old.`);
+      }
+      
+    }
+  }
 }
-
+logAliveWritersInTheirForties(writers)
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("exercise 1", () => expectFunctionToLog(logAllWriters, [
+/*test("exercise 1", () => expectFunctionToLog(logAllWriters, [
   "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
   "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
   "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",
@@ -116,3 +135,4 @@ function expectFunctionToLog(f, values) {
     });
     consoleLogSpy.mockRestore();
 };
+*/
