@@ -1,83 +1,49 @@
-let writers = [
-  {
-    firstName: "Virginia",
-    lastName: "Woolf",
-    occupation: "writer",
-    age: 59,
-    alive: false,
-  },
-  {
-    firstName: "Zadie",
-    lastName: "Smith",
-    occupation: "writer",
-    age: 40,
-    alive: true,
-  },
-  {
-    firstName: "Jane",
-    lastName: "Austen",
-    occupation: "writer",
-    age: 41,
-    alive: false,
-  },
-  {
-    firstName: "Bell",
-    lastName: "Hooks",
-    occupation: "writer",
-    age: 63,
-    alive: true,
-  },
-  {
-    firstName: "Yukiko",
-    lastName: "Motoya",
-    occupation: "writer",
-    age: 49,
-    alive: true,
-  },
-];
+let weeklyMealPlan = {
+  monday: ["Cheese", "Eggs", "Tomato", "Paprika", "Leek"],
+  tuesday: ["Wrap", "Tuna", "Canned beans", "Cheese", "Carrot", "Aubergine"],
+  wednesday: ["Orange Juice", "Apple", "Ananas", "Black tea"],
+  thursday: ["Lamb", "Salt", "Bulgur", "Potato"],
+  friday: ["Rice milk", "Blueberries", "Porridge", "Banana", "Cinnamon"],
+  saturday: ["Olive oil", "Potato", "Salmon", "Asparagus"],
+  sunday: [],
+};
 
-/*
-Exercise 1:
-  Loop through the Array, and for each object, use `console.log()` to print out the below sentence
-  and insert the corresponding values to the place holders that are indicated in curly braces:
-  "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
-*/
-function logAllWriters() {
-  for (let obj in writers) {
-    console.log(
-      `Hi, my name is ${writers[obj].firstName} ${writers[obj].lastName}. I am ${writers[obj].age} years old, and work as a ${writers[obj].occupation}.`
-    );
+let weeklyGroceriesToBuy = [];
+for (let day in weeklyMealPlan) {
+  for (let ingredient of weeklyMealPlan[day]) {
+    if (weeklyGroceriesToBuy.indexOf(ingredient) === -1) {
+      //returns -1 if the value is not found
+      weeklyGroceriesToBuy.push(ingredient);
+    }
   }
-}
-logAllWriters(writers);
-/*function logDeadWritersInTheirForties() {
-  let midAgeWriters = writers
-    .filter(
-      (element) =>
-        element.age >= 40 && element.age <= 49 && element.alive === false
-    )
-    .map((element) => element);
-  for (let deadWriter in midAgeWriters) {
-    console.log(
-      `Writer ${midAgeWriters[deadWriter].firstName} ${midAgeWriters[deadWriter].lastName} died at ${midAgeWriters[deadWriter].age} years old.`
-    );
-  }
-}
-logDeadWritersInTheirForties(writers);
-*/
-/*function logAliveWritersInTheirForties(writers) {
-  let midAgeWriters = writers
-    .filter(
-      (element) =>
-        element.age >= 40 && element.age <= 49 && element.alive === true
-    )
-    .map((element) => element);
-  for (let deadWriter in midAgeWriters) {
-    console.log(
-      `Hi, my name is ${midAgeWriters[deadWriter].firstName} ${midAgeWriters[deadWriter].lastName}. I am ${midAgeWriters[deadWriter].age} years old.`
-    );
-  }
-  // write your code here
 }
 
-logAliveWritersInTheirForties(writers);*/
+/*let weekendGroceriesToBuy = [];
+for (let day in weeklyMealPlan) {
+  if (day === "saturday" || day === "sunday") {
+    for (let ingredient of weeklyMealPlan[day]) {
+      if (weekendGroceriesToBuy.indexOf(ingredient) === -1) {
+        //returns -1 if the value is not found
+        weekendGroceriesToBuy.push(ingredient);
+      }
+    }
+  }
+}
+console.log(weekendGroceriesToBuy);*/
+
+let numberOfItemsPerWeek = {
+  monday: 0,
+  tuesday: 0,
+  wednesday: 0,
+  thursday: 0,
+  friday: 0,
+  saturday: 0,
+  sunday: 0,
+};
+for (let day in weeklyMealPlan) {
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
+  //console.log(weeklyMealPlan[day].length);
+  console.log(numberOfItemsPerWeek[day]);
+}
+//console.log(numberOfItemsPerWeek);
+c; //onsole.log(weeklyMealPlan[day]);
