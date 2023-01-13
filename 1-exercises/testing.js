@@ -42,14 +42,14 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-/*function logAllWriters(writers) {
+function logAllWriters() {
   for (let obj in writers) {
     console.log(
       `Hi, my name is ${writers[obj].firstName} ${writers[obj].lastName}. I am ${writers[obj].age} years old, and work as a ${writers[obj].occupation}.`
     );
   }
 }
-logAllWriters(writers);*/
+logAllWriters(writers);
 /*function logDeadWritersInTheirForties() {
   let midAgeWriters = writers
     .filter(
@@ -65,7 +65,7 @@ logAllWriters(writers);*/
 }
 logDeadWritersInTheirForties(writers);
 */
-function logAliveWritersInTheirForties(writers) {
+/*function logAliveWritersInTheirForties(writers) {
   let midAgeWriters = writers
     .filter(
       (element) =>
@@ -80,4 +80,4 @@ function logAliveWritersInTheirForties(writers) {
   // write your code here
 }
 
-logAliveWritersInTheirForties(writers);
+logAliveWritersInTheirForties(writers);*/
