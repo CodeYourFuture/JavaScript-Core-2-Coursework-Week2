@@ -13,7 +13,9 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+let updatedSalary = "";
 
+console.log(salaries);
 // Expected Result:
 // monica: $55000
 // rachel: $90000
