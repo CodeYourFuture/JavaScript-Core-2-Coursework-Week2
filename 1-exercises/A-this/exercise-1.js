@@ -13,9 +13,11 @@
 
 let person = {
     name: "Adrian",
-    age: 32,
-    currentAddress: "London",
-    celebrateBirthday: /* todo */
+  age: 32,
+  currentAddress: "London",
+  celebrateBirthday: function () {
+    this.age += 1;
+  },
 };
 
 
