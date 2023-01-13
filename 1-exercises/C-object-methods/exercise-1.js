@@ -13,7 +13,7 @@ let footballClubs = {
 
 let clubNames =
   /* todo */
-
+  Object.keys(footballClubs);
   // DO NOT EDIT BELOW THIS LINE
   console.log(
     `Expected value: chelsea_fc, fc_barcelona, ac_milan. Actual value: ${clubNames}`
