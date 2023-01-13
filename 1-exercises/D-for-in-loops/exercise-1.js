@@ -23,3 +23,12 @@ for (let property in salaries) {
 // Expected Result:
 // monica: $55000
 // rachel: $90000
+
+array = [1, 2, 2, 4];
+const initialValue = 0;
+const sumWithInitial = array.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial);
