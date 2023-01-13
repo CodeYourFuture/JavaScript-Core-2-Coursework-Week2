@@ -11,6 +11,7 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  return peopleArray.reduce((sum,obj[budget]) => sum+obj[budget])
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====

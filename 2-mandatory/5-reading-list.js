@@ -20,6 +20,9 @@ const books = [];
   
 // exercise 1
 function logBooks() {
+  books.forEach((book) =>
+    console.log(`The ${book.title} by ${book.Author}`)
+  );
 }
   
 
