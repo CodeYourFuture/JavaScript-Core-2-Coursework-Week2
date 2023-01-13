@@ -16,10 +16,44 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+
+const books = [
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: false,
+  },
+  {
+    title: "The Map of Salt and Stars",
+    author: "Jennifer Zeynab Joukhadar",
+    alreadyRead: false,
+  },
+  {
+    title: "Dietland",
+    author: "Sarai Walker",
+    alreadyRead: false,
+  },
+  {
+    title: "A Place for Us",
+    author: "Fatima Farheen Mirza",
+    alreadyRead: false,
+  },
+  {
+    title: "The House of Impossible Beauties",
+    author: "Joseph Cassara",
+    alreadyRead: false,
+  },
+];
   
 // exercise 1
 function logBooks() {
+  books.forEach(book =>console.log(`${book.title} by ${book.author}`))
+}
+
+function readBooks() {
+  books.forEach(book =>{if (book.alreadyRead===false){
+    console.log(`You still need to read ${book.title} by ${book.author}`)}
+  })
 }
   
 
@@ -64,6 +98,16 @@ test("books are logged", function() {
     ]);
 });
 
+test("books are read?", function() {
+  expectReadBooksToLog([
+         "You still need to read The Hobbit by J.R.R. Tolkien",
+         "You still need to read The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+         "You still need to read Dietland by Sarai Walker",
+         "You still need to read A Place for Us by Fatima Farheen Mirza",
+         "You still need to read The House of Impossible Beauties by Joseph Cassara"
+     ]);
+ });
+
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
 * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
@@ -81,4 +125,14 @@ function expectLogBooksToLog(expectedValues) {
       expect(consoleLogSpy).nthCalledWith(i+1, value);
     });
     consoleLogSpy.mockRestore();
+};
+
+function expectReadBooksToLog(expectedValues) {
+  const consoleLogSpy = jest.spyOn(console, 'log');
+  readBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i+1, value);
+  });
+  consoleLogSpy.mockRestore();
 };
