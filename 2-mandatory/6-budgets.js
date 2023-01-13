@@ -10,8 +10,21 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
+// let allPeople = [
+//     { name: "John", age: 21, budget: 29000 },
+//     { name: "Steve", age: 32, budget: 32000 },
+//     { name: "Martin", age: 16, budget: 1600 },
+//   ]
+
+
 function getBudgets(peopleArray) {
+  let sum = 0;
+  peopleArray.forEach(x => sum += (x.budget))    //   peopleArray.forEach(x => sum += x.budget) Didn't work; the parentheses around x.budget are obligatory
+  return sum; // This is a must (At first I didn't use return so there was no result for the tests)
 }
+
+// console.log(getBudgets(allPeople))
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`

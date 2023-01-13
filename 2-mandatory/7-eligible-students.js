@@ -11,10 +11,16 @@
   Create a function which:
   - Accepts an array which contains all the students' names and their attendance counts
     (see tests to confirm how this data will be structured)
-  - Returns an array containing only the names of the who have attended AT LEAST 8 classes
+  - Returns an array containing only the names of the students who have attended AT LEAST 8 classes
  */
 
-function eligibleStudents(attendances) {}
+function eligibleStudents(attendances) {
+  let eligible = [];
+  attendances.forEach(x => {if (x.attendance >= 8){
+    eligible.push(x.name)
+  }})
+  return eligible;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`

@@ -27,6 +27,23 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+// My code...
+// console.log(Object.values(weeklyMealPlan));
+// By reading "loop through...object" I think of for...in statement
+for (let key in weeklyMealPlan) {
+// and then I have to loop through the array each key has as a value
+weeklyMealPlan[key].forEach(value => {
+  if (weeklyGroceriesToBuy.includes(value) === false ) {
+        weeklyGroceriesToBuy.push(value)
+  }
+  // console.log(weeklyGroceriesToBuy)
+
+})
+}
+// A sign of how much unfamiliar I am with the JavaScript concepts (and programming in general)
+// is that at first ('instinctively') on line 37 I had put `weeklyGroceriesToBuy += value`
+// The result was a very long string instead of an array :-(
+
 
 /*
 Exercise 2:
@@ -34,6 +51,20 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+for (let key in weeklyMealPlan) {
+// and then I have to loop through the array each key has as a value
+weeklyMealPlan[key].forEach(value => {
+  if (weekendGroceriesToBuy.includes(value) === false && (key === "saturday" || key === "sunday")) {
+        weekendGroceriesToBuy.push(value)
+  }
+// console.log(weekendGroceriesToBuy)
+
+})
+}
+// Although I tried to follow the TDD and base my code on
+// the test "Exercise 2 - Weekend groceries to buy contains correct items",
+// I really couldn't find any useful hints on how to approach the problem/solution
+
 
 /*
 Exercise 3:
@@ -52,6 +83,19 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+for (let key in weeklyMealPlan) { // Is it important if the key is in weeklyMealPlan or numberOfItemsPerWeek?
+  // Actually I am a bit amazed it works
+  // I would not think that it will work ok with the weeklyMealPlan...
+  // *Perhaps* it works because both objects have the same keys?
+  // *Definitely* I haven't understood/grasped the for (let key in objectName) concept
+  // Need to restudy!
+  numberOfItemsPerWeek[key] = weeklyMealPlan[key].length
+console.log(weeklyMealPlan[key].length)// (value => {
+ 
+
+}  //)
+// }
+console.log(numberOfItemsPerWeek)
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

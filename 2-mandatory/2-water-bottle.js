@@ -1,5 +1,5 @@
 /*
-Create an object that acts a water bottle.
+Create an object that acts as a water bottle.
 It will need a volume property to store how full or empty the bottle is. 
 Volume will be 100 when bottle is full and 0 when empty. 
 Give your water bottle methods for 
@@ -18,18 +18,32 @@ You have to implement the missing features according to the specification.
 let bottle = {
   volume: 0,
   fillUp: function () {
+    this.volume = 100
     // calling this function should completely fill your bottle (volume = 100);
   },
   pour: function () {
+    if (this.volume >= 90) {
+      this.volume = 100;
+    } else {
+      this.volume += 10;
+    }
     // calling this function should increase your bottle volume by 10 units;
   },
   drink: function () {
+    if (this.volume <= 10) {
+      this.volume = 0;
+    } else {
+      this.volume -= 10;
+    }
     // calling this function should decrease your bottle volume by 10 units;
+
   },
   isFull: function () {
+    return this.volume === 100;
     // this function should return true if your bottle is full;
   },
   isEmpty: function () {
+    return this.volume === 0;
     // this function should return true if your bottle is empty;
   },
 };
@@ -46,7 +60,13 @@ Extra question:
   Leave your answer below:
 */
 
-// Write you answer to the question here
+// Write your answer to the question here
+// 1st random thought...
+// If for some reason we need to use one of the functions (actually methods) to another object
+// there will be no need to make any editting (if we have used `this`)
+// 2nd random thought...
+// If for some reason we need to change the name of the object we would need to change
+// its name to all the functions/methods in the object
 
 /*
 Once you have completed your object run the following 
@@ -54,7 +74,7 @@ and see if your answer matches the expected result at the bottom :)
 */
 
 /* ======= TESTS - DO NOT MODIFY =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 4-water-bottle.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 2-water-bottle.js` // There was an issue here with 4-water...
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */

@@ -61,7 +61,12 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
+  writers.forEach(x => console.log(`Hi, my name is ${x.firstName} ${x.lastName}. I am ${x.age} years old, and work as a ${x.occupation}.`))
+
 };
+
+logAllWriters()
+// console.log(writers)
 
 /*
 Exercise 2:
@@ -72,7 +77,9 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  writers.filter(x => x.age >= 40 && x.age <=49 && x.alive === false).forEach(x => console.log(`Writer ${x.firstName} ${x.lastName} died at ${x.age} years old.`));
 }
+logDeadWritersInTheirForties()
 
 /*
 Exercise 3:
@@ -82,8 +89,9 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  writers.filter(x => x.age >= 40 && x.age <50 && x.alive === true).forEach(x => console.log(`Hi, my name is ${x.firstName} ${x.lastName}. I am ${x.age} years old.`))
 }
-
+logAliveWritersInTheirForties()
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

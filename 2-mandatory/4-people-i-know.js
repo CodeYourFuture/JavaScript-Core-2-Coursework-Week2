@@ -378,6 +378,13 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+friends.filter(x => x.age >=35).forEach(x => thirtyFiveOrOlder.push(x.name.first))
+console.log(thirtyFiveOrOlder)
+// friends.filter(x => x.age >=35).forEach(x => thirtyFiveOrOlder.push(x.name.first))
+
+// Based on previous
+// writers.filter(x => x.age >= 40 && x.age <=49 && x.alive === false).forEach(x => console.log(`Writer ${x.firstName} ${x.lastName
+// Lots of trial and error; not real understanding
 
 /*
 3) Find the email address
@@ -385,6 +392,8 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+
+friends.filter(x => x.company === "POWERNET").forEach(x => powerNetEmails.push(x.email))
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +403,35 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+// // friends.filter(x => x.colleagues.names === "Stacie Villarreal").forEach(x => friendsWhoAreColleaguesOfStacie.push(x.name))
+// // friends.filter(x => x.colleagues.includes(x => x.name === "Stacie Villarreal")).forEach(x => friendsWhoAreColleaguesOfStacie.push(x.name))
+// let test5 = [];
+// friends.filter(x => x.colleagues(z => z.name).includes("Stacie Villarreal")).forEach(x => friendsWhoAreColleaguesOfStacie.push(x.name.first)) // Didn't work
+// console.log("Friends older than 30: " + test5)
+// console.log("friendsWhoAreColleaguesOfStacie: " + friendsWhoAreColleaguesOfStacie)
+
+console.log(friends[0].colleagues[1].name)
+console.log(friends[0].colleagues.forEach(x => console.log(x.name)))
+
+console.log(friends.forEach(x => console.log(x.colleagues.forEach(x => console.log(x.name))))) // can't understand why I get that 'undefined' at the end of 
+// each loop (i.e. at the end of each 'friend; / friend's colleagues)
+
+console.log(friends.forEach(x => x.colleagues.forEach(x => x.name === "Stacie Villarreal").forEach(friendsWhoAreColleaguesOfStacie.push(x.name.first))))
+
+
+
+// console.log(friends) //  Accessing the whole array
+// console.log(friends[0]) // Accessing the first element (object)
+// console.log(friends[0].age) // Accessing the value of the first property (age: number) of the first element (object)
+// console.log(friends[0].name) // Accessing the value of the third property (name: object / nested object) of the first element (object)
+// console.log(friends[0].name.first) // Accessing the value of the first property (first: string) of the third property (name: object / nested object) of the first element (object)
+// // -
+// console.log(friends[0].colleagues) // Accessing the value of the third property (name: object / nested object) of the first element (object)
+// console.log(friends[0].colleagues[0]) // Accessing the value of the first property (first: string) of the third property (name: object / nested object) of the first element (object)
+// console.log(friends[0].colleagues[0].name)
+// console.log(friends[0].colleagues[0].skills)
+// console.log(friends[0].colleagues[0].skills[0])
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"

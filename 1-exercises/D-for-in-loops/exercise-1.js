@@ -13,6 +13,10 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
+// let newArray = salaries.filter(x => x 
+for (let key in salaries) {
+  
+}
 
 // Expected Result:
 // monica: $55000

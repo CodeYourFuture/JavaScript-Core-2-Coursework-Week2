@@ -8,7 +8,7 @@ Create an array of objects, where each object describes a book and has propertie
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
-Write a funciton that loops through the array of books. For each book, log the book title and book author like so: 
+Write a function that loops through the array of books. For each book, log the book title and book author like so: 
 "The Hobbit by J.R.R. Tolkien"
 You should write and log at least 5 books. 
 You should modify the tests so that they contain the values that correspond to your books.
@@ -16,11 +16,54 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-  
+const books = [
+{
+  title: "The Importance of Being Ernest",
+  author: "Oscar Wilde",
+  alreadyRead: true
+},
+{
+  title: "The Art of the Impressionists",
+  author: "Janice Anderson",
+  alreadyRead: false
+},
+{
+  title: "Io speriamo che me la cavo",
+  author: "Marcello D'Orta",
+  alreadyRead: true
+},
+{
+  title: "Facts from Figures",
+  author: "M. J. Moroney",
+  alreadyRead: false
+},
+{
+  title: "The Art & Science of Web Design",
+  author: "Jefrey Veen",
+  alreadyRead: false
+},
+];
+
+
+
 // exercise 1
+// function logBooks() {  // function logBooks(bookList) { This didn't work (i.e. didn't pass the tests)
+//   books.forEach(x => console.log(`${x.title} by ${x.author}`)) // bookList.forEach(x => console.log(`${x.title} by ${x.author}`)) This didn't work (i.e. didn't pass the tests)
+// }
+
+// function logBooks() {
+//   books.forEach(x => console.log(`You\'ve already read "${x.title}" by ${x.author}`))
+// }
+
 function logBooks() {
+  books.forEach(x => {if (x.alreadyRead) {
+    console.log(`You\'ve already read "${x.title}" by ${x.author}`)
+  } else {
+    console.log(`You still need to read "${x.title}" by ${x.author}`)
+  }})
 }
+
+logBooks(books)
   
 
 /*
@@ -36,7 +79,7 @@ remember to practice:
 - run the test to check that your test goes red
 - now change your code to make the test pass
 As an example for this exercise, you might do the following steps
-- Modify the tests so that they all say 'You've already read <name> by <author>'
+- Modify the tests so that they all say 'You've already read <name> by <author>' // or perhaps 'You've already read "<title>"" by <author>'
 - Run the test (they will all fail)
 - Modify your code so that it logs 'You've already read <name> by <author>'
 - Run the test (they will all pass again)
@@ -55,12 +98,19 @@ As an example for this exercise, you might do the following steps
 */
 
 test("books are logged", function() {
+//  expectLogBooksToLog([
+//         "The Importance of Being Ernest by Oscar Wilde",
+//         "The Art of the Impressionists by Janice Anderson",
+//         "Io speriamo che me la cavo by Marcello D'Orta",
+//         "Facts from Figures by M. J. Moroney",
+//         "The Art & Science of Web Design by Jefrey Veen"
+//     ]);
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
+        'You\'ve already read "The Importance of Being Ernest" by Oscar Wilde', // !!! \' !!!
+        'You still need to read "The Art of the Impressionists" by Janice Anderson',
+        'You\'ve already read "Io speriamo che me la cavo" by Marcello D\'Orta',
+        'You still need to read "Facts from Figures" by M. J. Moroney',
+        'You still need to read "The Art & Science of Web Design" by Jefrey Veen'
     ]);
 });
 
