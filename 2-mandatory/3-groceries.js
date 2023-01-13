@@ -41,7 +41,7 @@ Exercise 2:
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
 for (let day in weeklyMealPlan) {
-  if (day === "Saturday" || day == "Sunday") {
+  if (day === "Saturday" || day === "Sunday") {
     weeklyMealPlan[day].forEach((item) => weekendGroceriesToBuy.push(item));
   }
 }

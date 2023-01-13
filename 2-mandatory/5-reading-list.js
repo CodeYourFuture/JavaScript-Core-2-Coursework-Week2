@@ -55,11 +55,11 @@ function logBooks() {
   books.forEach((eachBook) => {
     if (eachBook.alreadyRead === true) {
       console.log(
-        `You've already read "${eachBook.title}" by ${eachBook.author}`
+        `You've already read "${eachBook.title}" by ${eachBook.Author}`
       );
     }
     console.log(
-      `You still need to read "${eachBook.title}" by ${eachBook.author}.`
+      `You still need to read "${eachBook.title}" by ${eachBook.Author}.`
     );
   });
 }
