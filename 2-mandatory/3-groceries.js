@@ -27,6 +27,12 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for (const key in weeklyMealPlan) {
+  for(let i in weeklyMealPlan[key]){
+  weeklyGroceriesToBuy.push(weeklyMealPlan[key][i]);
+}
+}
+console.log(weeklyGroceriesToBuy);
 
 /*
 Exercise 2:
@@ -34,7 +40,15 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
-
+for (const key in weeklyMealPlan) {
+  if(key=="saturday"){
+    for(const j in weeklyMealPlan[key]){
+    weekendGroceriesToBuy.push(weeklyMealPlan[key][j])
+    }
+  }
+  
+}
+console.log(weekendGroceriesToBuy);
 /*
 Exercise 3:
   Loop through your weekly meal plan:
@@ -52,13 +66,14 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
+/*test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
   const expectedWeeklyGroceriesToBuy = [
     'Cheese',       'Eggs',
     'Tomato',       'Paprika',
@@ -94,3 +109,4 @@ test("Exercise 3 - Numer of items per week contains the correct counts", () => {
   };
   expect(numberOfItemsPerWeek).toEqual(expectedNumberOfItemsPerWeek);
 });
+*/

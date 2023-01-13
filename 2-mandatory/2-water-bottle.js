@@ -9,17 +9,27 @@ that contains the missing ingredients for your menus. It is stored in the "weekl
 Complete the exercises below.
 */
 
-// Here is your
-let weeklyMealPlan = {
-  monday: ["Cheese", "Eggs", "Tomato", "Paprika", "Leek"],
-  tuesday: ["Wrap", "Tuna", "Canned beans", "Cheese", "Carrot", "Aubergine"],
-  wednesday: ["Orange Juice", "Apple", "Ananas", "Black tea"],
-  thursday: ["Lamb", "Salt", "Bulgur", "Potato"],
-  friday: ["Rice milk", "Blueberries", "Porridge", "Banana", "Cinnamon"],
-  saturday: ["Olive oil", "Potato", "Salmon", "Asparagus"],
-  sunday: [],
+// Here is your starting point:
+let bottle = {
+  volume: 0,
+  fillUp: function () {
+    // calling this function should completely fill your bottle (volume = 100);
+  },
+  pour: function () {
+    // calling this function should increase your bottle volume by 10 units;
+  },
+  drink: function () {
+    // calling this function should decrease your bottle volume by 10 units;
+  },
+  isFull: function () {
+    // this function should return true if your bottle is full;
+  },
+  isEmpty: function () {
+    // this function should return true if your bottle is empty;
+  },
 };
-
+bottle.drink()
+console.log(bottle.volume);
 /*
 Exercise 1:
   Loop through the weekly meal plan object to gather weekly ingredients into the weeklyGroceriesToBuy array.
@@ -73,23 +83,10 @@ let numberOfItemsPerWeek = {
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-/*test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
-  const expectedWeeklyGroceriesToBuy = [
-    'Cheese',       'Eggs',
-    'Tomato',       'Paprika',
-    'Leek',         'Wrap',
-    'Tuna',         'Canned beans',
-    'Carrot',       'Aubergine',
-    'Orange Juice', 'Apple',
-    'Ananas',       'Black tea',
-    'Lamb',         'Salt',
-    'Bulgur',       'Potato',
-    'Rice milk',    'Blueberries',
-    'Porridge',     'Banana',
-    'Cinnamon',     'Olive oil',
-    'Salmon',       'Asparagus'
-  ];
-  expect(weeklyGroceriesToBuy).toIncludeSameMembers(expectedWeeklyGroceriesToBuy);
+test("When filled up, bottle is full", () => {
+  bottle.volume = 0;
+  bottle.fillUp();
+  expect(bottle.isFull()).toEqual(true);
 });
 
 test("Exercise 2 - Weekend groceries to buy contains correct items", () => {
@@ -109,4 +106,73 @@ test("Exercise 3 - Numer of items per week contains the correct counts", () => {
   };
   expect(numberOfItemsPerWeek).toEqual(expectedNumberOfItemsPerWeek);
 });
-*/
+
+test("When emptied, bottle is empty", () => {
+  bottle.volume = 0;
+  expect(bottle.isEmpty()).toEqual(true);
+});
+
+test("When partially filled, bottle is not empty", () => {
+  bottle.volume = 40; // arbitrary amount
+  expect(bottle.isEmpty()).toEqual(false);
+});
+
+test("When partially filled, bottle is not full", () => {
+  bottle.volume = 40; // arbitrary amount
+  expect(bottle.isFull()).toEqual(false);
+});
+
+test("Given a full bottle, when pour is called, then the volume does not increase", () => {
+  bottle.volume = 100;
+  bottle.pour();
+  expect(bottle.volume).toEqual(100);
+});
+
+test("Multiple calls to drink reduce the volume correctly", () => {
+  bottle.volume = 100;
+  // arbitrary number of calls to drink
+  bottle.drink();
+  bottle.drink();
+  bottle.drink();
+  expect(bottle.volume).toEqual(70);
+});
+
+test("Given a full bottle, when drink has been called, then it is neither full nor empty", () => {
+  bottle.volume = 100;
+  // arbitrary number of calls to drink
+  bottle.drink();
+  bottle.drink();
+  bottle.drink();
+  bottle.drink();
+  bottle.drink();
+  bottle.drink();
+  expect(bottle.isEmpty()).toEqual(false);
+  expect(bottle.isFull()).toEqual(false);
+});
+
+test("Given a full bottle, when drink called 10 times, then bottle is empty", () => {
+  bottle.volume = 100;
+  for (var i = 0; i < 10; i++) {
+    bottle.drink();
+  }
+  expect(bottle.isEmpty()).toEqual(true);
+});
+
+test("Given an empty bottle, when drink is called, then the volume does not decrease", () => {
+  bottle.volume = 0;
+  bottle.drink();
+  expect(bottle.volume).toEqual(0);
+});
+
+test("Given an empty bottle, when pour is called, then the volume increases", () => {
+  bottle.volume = 0;
+  bottle.pour();
+  expect(bottle.volume).toEqual(10);
+});
+
+test("Given an empty bottle, calling pour then drink, then the bottle is empty", () => {
+  bottle.volume = 0;
+  bottle.pour();
+  bottle.drink();
+  expect(bottle.volume).toEqual(0);
+});
