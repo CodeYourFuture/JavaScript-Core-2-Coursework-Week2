@@ -422,7 +422,7 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
-for (let friend of friends) {
+/*for (let friend of friends) {
   for (let colleague of friend.colleagues) {
     for (let skill of colleague.skills) {
       if (skill === "Multi-tasking") {
@@ -430,7 +430,24 @@ for (let friend of friends) {
       }
     }
   }
-}
+}*/
+
+//second method
+/*for (let friend of friends) {
+  for (let colleague of friend.colleagues) {
+    if (colleague.skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
+  }
+}*/
+//third method
+friends.forEach((friend) => {
+  friend.colleagues.forEach((colleague) => {
+    if (colleague.skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
+  });
+});
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
