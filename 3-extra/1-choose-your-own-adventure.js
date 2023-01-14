@@ -8,7 +8,7 @@ To start the game, run this file with Node. Depending on your current directory,
 To stop the game, press
 Ctrl-C.
 To run the tests for the game, run this file with npm test
-    npm test -- --testPathPattern 11-choose-your-own-adventure.js
+    npm run extra-tests
 It has a currentRoom property to store which room the player is in.
 Give your object methods for:
 - Starting the game in the correct room when passed a room name parameter
@@ -38,21 +38,13 @@ let game = {
   currentRoom: null,
 
   start: function (roomName) {
-    // This function is called with the name of the room that the player wants
-    // to start in.
-    // Finish the function so that the currentRoom property is set to the room
-    // object for the correct room.
-    //
-    // Hint: the only valid rooms are "hall", "classroom" and "library".
+    rooms.hasOwnProperty(roomName) ? this.currentRoom = rooms[roomName] : null;
   },
 
   move: function (direction) {
-    // This function is called with the direction that the player wants to move.
-    // Finish the function so that the currentRoom property is updated with new
-    // room in the direction that the player wants to move in.
-    //
-    // Hint: the room objects have north/east/south/west methods which return
-    // a new room object that is in the relevant direction.
+    if (direction === "backwards" || !this.currentRoom[direction]())
+      return rooms.hall;
+    this.currentRoom = this.currentRoom[direction]();
   },
 };
 
@@ -150,9 +142,9 @@ function play(method) {
 if (global["test"] == undefined) {
   // running in node -> start game
   start();
-  test = () => {};
-  beforeEach = () => {};
-  test.skip = () => {};
+  test = () => { };
+  beforeEach = () => { };
+  test.skip = () => { };
 } else {
   // running in jest
   // don't start game, close the readline handle
@@ -188,7 +180,7 @@ test("start in classroom", () => {
 });
 
 // remove ".skip" if your code correctly handles a non existent room (by setting currentRoom to null/doing nothing)
-test.skip("start in non-existent place", () => {
+test("start in non-existent place", () => {
   game.start("does not exist");
   expect(game.currentRoom).toEqual(null);
 });
@@ -218,14 +210,14 @@ test("start in classroom and go west", () => {
 });
 
 // remove ".skip" if your code handles trying to go in a direction with no room (by staying in the same room)
-test.skip("start in hall and go north (to non-existent room) -> stay in same room", () => {
+test("start in hall and go north (to non-existent room) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("north");
   expect(game.currentRoom.name).toEqual("hall");
 });
 
 // remove ".skip" if your code handles trying to go in a direction that doesn't exist (by staying in the same room)
-test.skip("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
+test("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("backwards");
   expect(game.currentRoom.name).toEqual("hall");
