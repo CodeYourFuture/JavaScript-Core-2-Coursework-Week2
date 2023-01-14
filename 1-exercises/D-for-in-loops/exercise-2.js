@@ -13,19 +13,24 @@
 */
 
 let shapes = {
-  triangle: 3,
-  square: 4,
-  pentagon: 5,
-  triacontagon: 30,
-  hecatontagon: 100,
-  megagon: 1000000,
+    triangle: 3,
+    square: 4,
+    pentagon: 5,
+    triacontagon: 30,
+    hecatontagon: 100,
+    megagon: 1000000,
 };
 
 let shapesWithMoreThanFiveSides = [];
+for (let el in shapes) {
+    if (shapes[el] >= 5) {
+        shapesWithMoreThanFiveSides.push(el);
+    }
+}
 
 // WRITE YOUR CODE BELOW THIS LINE
 
 // DO NOT EDIT BELOW THIS LINE
 console.log(
-  `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
+    `Expected output: pentagon, triacontagon, hecatontagon, megagon. Actual output: ${shapesWithMoreThanFiveSides}`
 );

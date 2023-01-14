@@ -6,17 +6,17 @@
 */
 
 let highScores = {
-  34: ["Sergi", "Frank"],
-  55: ["Alistair, Mary"],
-  89: ["Hannah"],
-  100: ["David"],
+    34: ["Sergi", "Frank"],
+    55: ["Alistair, Mary"],
+    89: ["Hannah"],
+    100: ["David"],
 };
 
-let highScoreKeys = /* todo */
-let highScoreValues = /* todo */
+let highScoreKeys = Object.keys(highScores); /* todo */
+let highScoreValues = Object.values(highScores); /* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(`Expected keys: 34, 55, 89, 100, Actual keys: ${highScoreKeys}`);
+// DO NOT EDIT BELOW THIS LINE
+console.log(`Expected keys: 34, 55, 89, 100, Actual keys: ${highScoreKeys}`);
 console.log(
-  `Expected values: Sergi, Frank, Alistair, Mary, Hannah, David. Actual values: ${highScoreValues}`
+    `Expected values: Sergi, Frank, Alistair, Mary, Hannah, David. Actual values: ${highScoreValues}`
 );

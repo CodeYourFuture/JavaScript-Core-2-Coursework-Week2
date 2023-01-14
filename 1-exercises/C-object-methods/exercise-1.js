@@ -6,15 +6,15 @@
 */
 
 let footballClubs = {
-  chelsea_fc: "England",
-  fc_barcelona: "Spain",
-  ac_milan: "Italy",
+    chelsea_fc: "England",
+    fc_barcelona: "Spain",
+    ac_milan: "Italy",
 };
 
-let clubNames =
-  /* todo */
+let clubNames = Object.keys(footballClubs).join(", ");
+/* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
+// DO NOT EDIT BELOW THIS LINE
+console.log(
     `Expected value: chelsea_fc, fc_barcelona, ac_milan. Actual value: ${clubNames}`
-  );
+);
