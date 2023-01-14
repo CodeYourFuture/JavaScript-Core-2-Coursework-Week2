@@ -45,12 +45,18 @@ const books = [
 ];
 
 // exercise 1
-function logBooks(list) {
-  for (obj of list) {
-    console.log(`${obj.title} by ${obj.author}`);
+function logBooks() {
+  for (let book of books) {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    }
   }
+  //another way to solve this:
+  // books.forEach((book) => console.log(`${book.title} by ${book.author}`));
 }
-// console.log(logBooks(books));
+
 /*
 =====
 Exercise 2
@@ -84,11 +90,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "You still need to read The Hobbit by J.R.R. Tolkien",
+    "You still need to read The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+    "You still need to read Dietland by Sarai Walker",
+    "You still need to read A Place for Us by Fatima Farheen Mirza",
+    "You still need to read The House of Impossible Beauties by Joseph Cassara",
   ]);
 });
 
