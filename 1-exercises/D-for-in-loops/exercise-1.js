@@ -13,7 +13,9 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
-
+for (let key in salaries) {
+  console.log(key + ": " + salaries[key]);
+}
 // Expected Result:
 // monica: $55000
 // rachel: $90000
