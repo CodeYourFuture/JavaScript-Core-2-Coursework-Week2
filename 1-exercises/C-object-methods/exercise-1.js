@@ -11,7 +11,14 @@ let footballClubs = {
   ac_milan: "Italy",
 };
 
-let clubNames =
+// practicing -- to understand this more ---- let schoolTeachers = {
+//   head: "ms Alton",
+//   prince: "mr jons",
+//   dance: "ms grace",
+//   judo: "Mr gok"
+// }; Let teachersNames = Object.values(schoolteachers); --Should return values that are the names of the teachers.!!
+
+let clubNames = Object.keys(footballClubs);
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
