@@ -23,15 +23,17 @@ let bottle = {
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
-    if (this.volume <= 90){
-      this.volume += 10;
+    let newVolume = this.volume + 10;
+    if (newVolume <= 100) {
+      this.volume = newVolume;
     }
   },
 
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
-    if (this.volume >= 10) {
-      this.volume -= 10;
+    let newVolume = this.volume - 10;
+    if (newVolume >= 0) {
+      this.volume = newVolume;
     }
   },
   isFull: function () {

@@ -14,9 +14,12 @@ let store = [
   { item: "Chocolate", price: 0.8 },
 ];
 
+
 let money = 1.5;
 
-let thingsICanBuy =  store.filter((store) => store.price < money).map((store) => store.item);
+let thingsICanBuy = store
+  .filter((object) => object.price <= money)
+  .map((object) => object.item);
  
 
   // DO NOT EDIT BELOW THIS LINE

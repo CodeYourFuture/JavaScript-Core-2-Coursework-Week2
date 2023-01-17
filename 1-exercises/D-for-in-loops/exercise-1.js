@@ -13,9 +13,11 @@ let salaries = {
 };
 
 // WRITE BELOW THIS LINE
-for (let  name in salaries) {
-  if (salaries[name] > 50000) {
-    console.log(`${name}: $${salaries[name]}`);
+for (let key in salaries) {
+  let salary = salaries[key];
+  if (salary > 50000) {
+    let string = key + ": " + "$" + salary;
+    console.log(string);
   }
 }
 

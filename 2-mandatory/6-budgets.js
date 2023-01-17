@@ -11,11 +11,18 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
+  let budgets = peopleArray.map((person) => person.budget);
+  // If you haven't seen the "reduce" array method before it's worth a read; very useful for situations like this;
+  // as this one line is the same as the rest of this function!
+
+  //return budgets.reduce((acc, curr) => acc + curr, 0);
+
+  // Alternatively, this is a different way you may be more familiar with.
   let totalBudget = 0;
-  for (let budget of peopleArray){
-    totalBudget+=budget.budget
-  }
-  return totalBudget
+  budgets.forEach((budget) => {
+    totalBudget += budget;
+  });
+  return totalBudget;
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====

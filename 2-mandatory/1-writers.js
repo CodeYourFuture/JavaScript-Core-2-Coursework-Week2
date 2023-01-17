@@ -78,13 +78,13 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
-  writers
-    .filter((writer) => writer.age >= 40 && writer.age <= 49 && !writer.alive)
-    .forEach((writer) =>
+  writers.forEach((writer) => {
+    if (writer.age < 50 && writer.age > 39 && !writer.alive) {
       console.log(
         `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
-      )
-    );
+      );
+    }
+  });
 }
 
 /*
@@ -95,14 +95,14 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
-  writers
-  .filter((writer) => writer.age >= 40 && writer.age <= 49 && writer.alive)
-  .forEach((writer) =>
-    console.log(
-      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
-    )
-  );
-}
+  writers.forEach((writer) => {
+    if (writer.age < 50 && writer.age > 39 && writer.alive) {
+      console.log(
+        `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+      );
+    }
+  });
+} 
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`

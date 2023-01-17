@@ -44,7 +44,11 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
-    
+    let validRooms = Object.values(rooms).map((room) => room.name);
+    console.log(validRooms);
+    if (validRooms.includes(roomName)) {
+      this.currentRoom = rooms[roomName];
+    }
   },
 
   move: function (direction) {
@@ -54,8 +58,24 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
+    let validDirections = ["north", "east", "south", "west"];
+    if (!validDirections.includes(direction)) {
+      console.log(
+        "Invalid direction entered. Please enter one of: north, south, east, west."
+      );
+      return;
+    }
+    let moveFunction = this.currentRoom[direction];
+    let newRoom = moveFunction();
+    if (!newRoom) {
+      console.log("Invalid direction");
+    } else {
+      this.currentRoom = newRoom;
+    }
   },
 };
+  
+
 
 /*
 DO NOT EDIT BELOW THIS LINE

@@ -377,23 +377,15 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
-friends.forEach((friendName) => {
-  if (friendName.age >= 35) {
-    thirtyFiveOrOlder.push(friendName);
-  }
-});
+let thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
-friends.forEach((friendName) => {
-  friendName.company.includes("POWERNET")
-    ? powerNetEmails.push(friendName.email)
-    : "";
-});
+let powerNetEmails = friends
+  .filter((friend) => friend.company === "POWERNET")
+  .map((friend) => friend.email);
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -402,12 +394,11 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
-friends.forEach((friendName) => {
-  friendName.colleagues.forEach((colleagueName) => {
-    if (colleagueName.name.includes("Stacie Villarreal")) {
-      friendsWhoAreColleaguesOfStacie.push(
-        friendName.name.first.concat(` ${friendName.name.last}`)
-      );
+friends.forEach((friend) => {
+  friend.colleagues.forEach((colleague) => {
+    if (colleague.name === "Stacie Villarreal") {
+      let friendName = friend.name.first + " " + friend.name.last;
+      friendsWhoAreColleaguesOfStacie.push(friendName);
     }
   });
 });
@@ -419,13 +410,14 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
-friends.forEach((friendName) => {
-  friendName.colleagues.forEach((colleagueName) => {
-    colleagueName.skills.forEach((skill) => {
-      if (skill.includes("Multi-tasking")) {
-        colleaguesWhoCanMultitask.push(colleagueName.name);
-      }
-    });
+friends.forEach((friend) => {
+  friend.colleagues.forEach((colleague) => {
+    if (
+      colleague.skills.includes("Multi-tasking") &&
+      !colleaguesWhoCanMultitask.includes(colleague.name)
+    ) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
   });
 });
 

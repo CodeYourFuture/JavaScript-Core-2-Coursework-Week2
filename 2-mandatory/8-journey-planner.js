@@ -20,14 +20,15 @@
 */
 
 function journeyPlanner(locations, transportMode) {
-  const arr = [];
-  for (const property in londonLocations) {
-    if (londonLocations[property].includes(transportMode)) {
-      arr.push(property);
+  let possibleLocations = [];
+  let places = Object.keys(locations);
+  places.forEach((location) => {
+    let transportMethods = locations[location];
+    if (transportMethods.includes(transportMode)) {
+      possibleLocations.push(location);
     }
-  }
-  return arr;
-
+  });
+  return possibleLocations;
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

@@ -20,12 +20,12 @@ Should give the answer "Nothing :("
 **/
 
 function chooseMeal(mealArray) {
-    return mealArray.length > 1
-      ? mealArray.sort((a, b) => a.price - b.price)[1]["name"]
-      : mealArray.length === 1
-      ? mealArray[0]["name"]
-      : "Nothing :(";
-  }
+  if (mealArray.length === 0) return "Nothing :(";
+  if (mealArray.length === 1) return mealArray[0].name;
+  mealArray.sort((a, b) => a.price - b.price); // Sorting in JavaScript can be weird; this arrow function passed to ".sort" will sort from lowest to highest.
+  let secondCheapestMeal = mealArray[1];
+  return secondCheapestMeal.name;
+}
 
 
 /* ======= TESTS - DO MODIFY (!!!) =====
