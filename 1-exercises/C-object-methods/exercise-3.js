@@ -12,7 +12,7 @@ let highScores = {
   100: ["David"],
 };
 
-let highScoreKeys =  Object.keys(highScores);/* todo */
+let highScoreKeys = Object.keys(highScores);/* todo */
 let highScoreValues = Object.values(highScores);/* todo */
 console.log(highScoreKeys);
 console.log(highScoreValues);
