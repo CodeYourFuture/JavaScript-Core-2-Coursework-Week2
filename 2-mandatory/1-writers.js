@@ -4,14 +4,11 @@
   You might think "This is madness!" but in everyday coding life
   it is quite a frequent combination. Just think about what benefits we can get from this construct.
   An object lets you store multiple values in a single variable, then you can store complex objects in an array.
-  Let's assume you have a list of data about people names and their birthday and you would like to print each name
-  with corresponding birthday together. 
+  Let's assume you have a list of data about people names and their birthday and you would like to print each name with corresponding birthday together. 
   Storing these pieces of information in different arrays and then pairing them up
   makes the iteration unnecessarily complicated, code will be less intuitive, needs extra cognitive effort to
   reason about and last but not least it can be error-prone (for example, you match up the wrong birthday to a name).
-  In this exercise you will practice how to access Objects stored in an Array and their properties. You already know 
-  different ways of looping through Arrays, it won't be different in this case. The only extra step is that you have to 
-  use values inside Objects.
+  In this exercise you will practice how to access Objects stored in an Array and their properties. You already know different ways of looping through Arrays, it won't be different in this case. The only extra step is that you have to use values inside Objects.
 */
 
 // We've created an array of objects for you here:
@@ -60,8 +57,13 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
-};
+ writers.forEach((writing) =>
+    console.log(
+      `Hi, my name is ${writing.firstName} ${writing.lastName}. I am ${writing.age} years old, and work as a ${writing.occupation}.`)
+      );
+  };
+
+
 
 /*
 Exercise 2:
@@ -71,7 +73,17 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  for (let deadWriters of writers){
+  if (
+    deadWriters.age >= 40 &&
+    deadWriters.age < 50 &&
+    deadWriters.alive === false
+  ) {
+    console.log(
+      `Writer ${deadWriters.firstName} ${deadWriters.lastName} died at ${deadWriters.age} years old.`
+    );
+  }
+  };
 }
 
 /*
@@ -81,7 +93,17 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  for (let aliveWriters of writers){
+    if (
+      aliveWriters.age >= 40 &&
+      aliveWriters.age < 50 &&
+      aliveWriters.alive === true
+    ) {
+      console.log(
+        `Hi, my name is ${aliveWriters.firstName} ${aliveWriters.lastName}. I am ${aliveWriters.age} years old.`
+      );
+    }
+  }
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
