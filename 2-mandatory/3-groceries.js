@@ -5,7 +5,7 @@ In this exercise, you'll practice:
  - How to access an Array stored inside an Object.
  - How to access a specific property of an object and set it.
 You're going shopping, and you need a shopping list. You've already created your weekly meal plan
-that contains the missing ingredients for your menus. It is stored in the "weeklyMealPlan" object.
+that containweeklyMealPlans the missing ingredients for your menus. It is stored in the "weeklyMealPlan" object.
 Complete the exercises below.
 */
 
@@ -28,12 +28,36 @@ Exercise 1:
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
 
+for (let day in weeklyMealPlan) {
+  for (let ingredient of weeklyMealPlan[day]) {
+    if (weeklyGroceriesToBuy.indexOf(ingredient) === -1) {
+      weeklyGroceriesToBuy.push(ingredient);
+    }
+  }
+}
+
+//console.log(weeklyGroceriesToBuy);
+
+weeklyGroceriesToBuy = [...new Set(Object.values(weeklyMealPlan).flat())];
+
+//console.log(weeklyGroceriesToBuy);
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+
+for(let day in weeklyMealPlan){
+  if(day === ('saturday' || 'sunday')){
+    weeklyMealPlan[day].forEach(ingredient => {
+      weekendGroceriesToBuy.push(ingredient)
+    });
+
+  }
+}
+
+console.log(weekendGroceriesToBuy)
 
 /*
 Exercise 3:
@@ -51,6 +75,11 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+for(let day in weeklyMealPlan){
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
+}
+console.log(numberOfItemsPerWeek)
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

@@ -55,39 +55,39 @@ let writers = [
 
 /*
 Exercise 1:
-  Loop through the Array, and for each object, use `console.log()` to print out the below sentence
+  Loop through the Array, and for each object, use console.log() to print out the below sentence
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  return  writers.forEach(element => console.log(`Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old, and work as a ${element.occupation}.`));
 };
 
 /*
 Exercise 2:
-  Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
+  Only console.log() out the writers who are in their 40s (meaning between 40 and 49)
   and not alive anymore. Use the below sentence format:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  return writers.filter(element => element.alive === false && element.age >=40 && element.age < 50).forEach(element => console.log(`Writer ${element.firstName} ${element.lastName} died at ${element.age} years old.`))
 }
 
 /*
 Exercise 3:
-  Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
+  Only console.log() out alive writers who are in their 40s (meaning between 40 and 49):
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  return writers.filter(element => element.alive === true && element.age >=40 && element.age < 50).forEach(element => console.log(`Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old.`))
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 1-writers.js`
-- To run all exercises/tests in the mandatory folder, run `npm test`
-- (Reminder: You must have run `npm install` one time before this will work!)
+- To run the tests for this exercise, run npm test -- --testPathPattern 1-writers.js
+- To run all exercises/tests in the mandatory folder, run npm test
+- (Reminder: You must have run npm install one time before this will work!)
 */
 
 test("exercise 1", () => expectFunctionToLog(logAllWriters, [

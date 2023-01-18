@@ -379,6 +379,13 @@ First, I want you to find all of my friends who are 35 or older.
 
 let thirtyFiveOrOlder = [];
 
+for(let person of friends){
+  if(person.age >= 35){
+    thirtyFiveOrOlder.push(person)
+  }
+}
+console.log(thirtyFiveOrOlder)
+
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
@@ -386,6 +393,12 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 
 let powerNetEmails = [];
 
+for(person of friends){
+  if( person.company === 'POWERNET'){
+    powerNetEmails.push(person.email)
+  }
+}
+console.log(powerNetEmails)
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -394,6 +407,16 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+
+for(let person of friends){
+  for(let conectionTo of person.colleagues){
+    if(conectionTo.name === 'Stacie Villarreal'){
+      friendsWhoAreColleaguesOfStacie.push(person.name.first+ ' ' + person.name.last)
+    }
+
+  }
+}
+console.log(friendsWhoAreColleaguesOfStacie)
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -402,6 +425,15 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+
+for(let person of friends){
+  for(let conectionTo of person.colleagues){
+    if(conectionTo.skills.includes('Multi-tasking')){
+      colleaguesWhoCanMultitask.push(conectionTo.name)
+    }
+  }
+}
+console.log(colleaguesWhoCanMultitask)
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
