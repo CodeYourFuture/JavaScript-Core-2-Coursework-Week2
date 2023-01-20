@@ -16,15 +16,56 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+  title: "1984", 
+  author: "George Orwell",
+  alreadyRead: false,
+  },
+
+{
+  title: "The Lord of the Rings", 
+  author: "J.R.R. Tolkien",
+  alreadyRead: true,
+},
+
+{ 
+  title: "The Kite Runner",
+  author: "Khaled Hosseini",
+  alreadyRead: false,
+},
+
+{
+  title: "Harry Potter and the Philosopher's Stone",
+  author: "J.K. Rowling",
+  alreadyRead: true,
+},
+
+{
+  title: "Slaughterhouse-Five",
+  author: "Kurt Vonnegut",
+  alreadyRead: false, 
+},
+
+{
+  title: "The Lion, the Witch, and the Wardrobe",
+  author: "C.S. Lewis",
+  alreadyRead: true,
+},
+
+{
+  title: "To Kill a Mockingbird",
+  author: "Harper Lee",
+  alreadyRead: false,
+}
+];
   
 // exercise 1
-function logBooks(book) {
-  for (let i = 0; i < books.length; i++){
-    const book = books[i];
-    };
+function logBooks() {
+  for (let everybook of books){
+     console.log(`${everybook.title} by ${everybook.author}`);
   }
-  console.log(books.title + "by" + books.author);
+  };
 
   
 
@@ -40,6 +81,8 @@ remember to practice:
 - first change the test to the value that should be output, 
 - run the test to check that your test goes red
 - now change your code to make the test pass
+
+
 As an example for this exercise, you might do the following steps
 - Modify the tests so that they all say 'You've already read <name> by <author>'
 - Run the test (they will all fail)
@@ -53,6 +96,18 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+function booksIread(){
+  for (let book of books){
+    if (book.alreadyRead === true){
+      console.log(`'You've already read ${book.title} by ${book.alreadyRead}`)
+
+      }else {
+        console.log(`You still need to read, ${book.title} by ${book.author}`)
+      }
+    }
+  }
+
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -61,13 +116,25 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function() {
  expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
+        "1984 by George Orwell",
+        "The Lord of the Rings by J.R.R. Tolkien",
+        "The Kite Runner by Khaled Hosseini",
+        "Harry Potter and the Philosopher's Stone by J.K. Rowling",
+        "Slaughterhouse-Five by Kurt Vonnegut",
+        "The Lion, the Witch, and the Wardrobe by C.S. Lewis",
+        "To Kill a Mockingbird by Harper Lee"
     ]);
 });
+
+const expected = [
+  "You still need to read, 1984 by George Orwell",
+  "You have already read The Lord of the Rings by J.R.R. Tolkien",
+  "You still need to read, The Kite Runner by Khaled Hosseini",
+  "You have already read Harry Potter and the Philosopher's Stone by J.K. Rowling",
+  "You still need to read, Slaughterhouse-Five by Kurt Vonnegut",
+  "You have already read The Lion, the Witch, and the Wardrobe by C.S. Lewis",
+  "You still need to read, To Kill a Mockingbird by Harper Lee"
+];
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
