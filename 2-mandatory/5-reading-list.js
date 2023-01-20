@@ -19,8 +19,13 @@ without using any variables or any logic like loops, template strings or if stat
 const books = [];
   
 // exercise 1
-function logBooks() {
-}
+function logBooks(book) {
+  for (let i = 0; i < books.length; i++){
+    const book = books[i];
+    };
+  }
+  console.log(books.title + "by" + books.author);
+
   
 
 /*

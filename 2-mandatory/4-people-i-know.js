@@ -378,6 +378,13 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
+for (let friend of friends){
+  if (friend.age >= 35){
+    thirtyFiveOrOlder.push(friend);
+  };
+}
+console.log(thirtyFiveOrOlder);
+
 
 /*
 3) Find the email address
@@ -385,7 +392,12 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
-
+for (let friend of friends){
+  if (friend.company === "POWERNET"){
+    powerNetEmails.push(friend.email)
+  };
+}
+console.log(powerNetEmails);
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -394,6 +406,24 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+for (let friend of friends){
+  let colleaguesWhoWorkWithStacie = false;
+  for (let colleague of friend.colleagues){
+    if(colleague.name === "Stacie Villarreal"){
+      colleaguesWhoWorkWithStacie = true;
+    }
+  }
+  if(colleaguesWhoWorkWithStacie){
+    let colleagueFullName = `${friend.name.first} ${friend.name.last}`;
+    friendsWhoAreColleaguesOfStacie.push(colleagueFullName);
+  };
+}
+console.log(friendsWhoAreColleaguesOfStacie);
+
+/*REVIEWERS NOTE: 
+My code is exceptionally long because I am still not good with the arrow function. So I try to break everything down as much as possible for my own understanding. I appreciate it makes reading it cumbersome, but.....!!*/
+
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -402,6 +432,58 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+
+let skills = ["Advising", "Multi-tasking", "Sharing"];
+let colleague = 
+  {
+    name: "Stacie Villarreal",
+    age: 34,
+    skills: ["Advising", "Multi-tasking", "Sharing"],
+  }
+
+let goodAtMultiTasking = skills.includes("Multi-tasking");
+let isColleagueGreatAtMultitasking = colleague.skills.includes("Multi-tasking");
+
+test("is our colleague g-a-m-t", () => {
+  expect(isColleagueGreatAtMultitasking).toEqual(true);
+});
+
+let colleagues = [
+  {
+    name: "Lourdes Barr",
+    age: 65,
+    skills: ["Scheduling", "Delegating", "thinking"],
+  },
+  {
+    name: "Luz Newton",
+    age: 21,
+    skills: ["Advising", "Multi-tasking", "Sharing"],
+  },
+  {
+    name: "Kelli Holloway",
+    age: 46,
+    skills: ["Respect", "Collaboration", "Research"],
+  },
+  {
+    name: "Silvia Bean",
+    age: 32,
+    skills: ["Data", "Motivation", "Goal"],
+  },
+  {
+    name: "Cherie Ramirez",
+    age: 36,
+    skills: ["Advising", "Categorizing", "Communication"],
+  },
+];
+
+let arrayOfColleaguesGamt = colleagues.filter((colleague) => { 
+  return colleague.skills.includes("Multi-tasking");
+});
+
+console.log("arrayOfColleaguesGamt: ");
+console.log(arrayOfColleaguesGamt);
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
