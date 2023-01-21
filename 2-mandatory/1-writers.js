@@ -94,11 +94,16 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
-  let aliveWriters = writers.filter((x) => {
-    if (x.age > 40 && x.age < 50 && x.alive) {
-      console.log(`Hi, my name is ${x.firstName} ${x.lastName}. I am ${x.age} years old.`)
-    }
-  });
+  return writers
+    .filter(
+      (element) =>
+        element.alive === true && element.age >= 40 && element.age < 50
+    )
+    .forEach((element) =>
+      console.log(
+        `Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old.`
+      )
+    );
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
