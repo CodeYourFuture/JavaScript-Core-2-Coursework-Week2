@@ -19,7 +19,12 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+function chooseMeal(locations, transportMode) {
+  //console.log(Object.keys(locations));
+  return Object.keys(locations).filter((key) =>
+    locations[key].includes(transportMode)
+  );
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 3-journey-planner.js`

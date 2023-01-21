@@ -19,6 +19,7 @@ let weeklyMealPlan = {
   saturday: ["Olive oil", "Potato", "Salmon", "Asparagus"],
   sunday: [],
 };
+//
 
 /*
 Exercise 1:
@@ -26,14 +27,39 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
-let weeklyGroceriesToBuy = [];
+
+function groceriesList(days) {
+  let groceries = [];
+  Object.keys(days).forEach(
+    (day) => (groceries = [...days[day], ...groceries])
+  );
+  let uniqueItems = [...new Set(groceries)];
+  return uniqueItems;
+}
+
+let weeklyGroceriesToBuy = groceriesList(weeklyMealPlan);
+// let weeklyGroceriesToBuy = compactAndRemoveDuplicates(weeklyMealPlan);
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
 // Gather weekend item names into this array
-let weekendGroceriesToBuy = [];
+
+function weekendllist(days, dayArr) {
+  let groceries = [];
+  let food = Object.keys(days).filter((day) => {
+    return dayArr.includes(day);
+  });
+  food.forEach((day) => (groceries = [...days[day], ...groceries]));
+  let uniqueItems = [...new Set(groceries)];
+  return uniqueItems;
+}
+
+let weekendGroceriesToBuy = weekendllist(weeklyMealPlan, [
+  "saturday",
+  "sunday",
+]);
 
 /*
 Exercise 3:
@@ -52,6 +78,14 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+function groceriesList(days, itemsObj) {
+  Object.keys(days).forEach((day) => {
+    itemsObj[day] = days[day].length;
+  });
+
+  return;
+}
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -60,26 +94,48 @@ let numberOfItemsPerWeek = {
 
 test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
   const expectedWeeklyGroceriesToBuy = [
-    'Cheese',       'Eggs',
-    'Tomato',       'Paprika',
-    'Leek',         'Wrap',
-    'Tuna',         'Canned beans',
-    'Carrot',       'Aubergine',
-    'Orange Juice', 'Apple',
-    'Ananas',       'Black tea',
-    'Lamb',         'Salt',
-    'Bulgur',       'Potato',
-    'Rice milk',    'Blueberries',
-    'Porridge',     'Banana',
-    'Cinnamon',     'Olive oil',
-    'Salmon',       'Asparagus'
+    "Cheese",
+    "Eggs",
+    "Tomato",
+    "Paprika",
+    "Leek",
+    "Wrap",
+    "Tuna",
+    "Canned beans",
+    "Carrot",
+    "Aubergine",
+    "Orange Juice",
+    "Apple",
+    "Ananas",
+    "Black tea",
+    "Lamb",
+    "Salt",
+    "Bulgur",
+    "Potato",
+    "Rice milk",
+    "Blueberries",
+    "Porridge",
+    "Banana",
+    "Cinnamon",
+    "Olive oil",
+    "Salmon",
+    "Asparagus",
   ];
-  expect(weeklyGroceriesToBuy).toIncludeSameMembers(expectedWeeklyGroceriesToBuy);
+  expect(weeklyGroceriesToBuy).toIncludeSameMembers(
+    expectedWeeklyGroceriesToBuy
+  );
 });
 
 test("Exercise 2 - Weekend groceries to buy contains correct items", () => {
-  const expectedWeekendGroceriesToBuy = ["Olive oil", "Potato", "Salmon", "Asparagus"];
-  expect(weekendGroceriesToBuy).toIncludeSameMembers(expectedWeekendGroceriesToBuy);
+  const expectedWeekendGroceriesToBuy = [
+    "Olive oil",
+    "Potato",
+    "Salmon",
+    "Asparagus",
+  ];
+  expect(weekendGroceriesToBuy).toIncludeSameMembers(
+    expectedWeekendGroceriesToBuy
+  );
 });
 
 test("Exercise 3 - Numer of items per week contains the correct counts", () => {

@@ -16,13 +16,56 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-  
-// exercise 1
-function logBooks() {
-}
-  
+const books = [
+  {
+    title: "bk1",
+    Author: "J D1",
+    alreadyRead: false,
+  },
+  {
+    title: "bk2",
+    Author: "H D2",
+    alreadyRead: false,
+  },
+  {
+    title: "bk 3",
+    Author: "H D3",
+    alreadyRead: true,
+  },
+  {
+    title: "bk 4",
+    Author: "I D4",
+    alreadyRead: false,
+  },
+  {
+    title: "bk 5",
+    Author: "J D5",
+    alreadyRead: true,
+  },
+];
 
+//   has properties for:
+// - The title (a string)
+// - Author (a string)
+// - and alreadyRead (a boolean indicating if you read it yet)
+
+// exercise 1
+function logBooks(obj) {
+  obj.forEach((el) => {
+    let { alreadyRead: read } = el;
+    let message = read
+      ? `You've already read ${el.title} by ${el.Author}`
+      : `You still need to read ${el.title} by ${el.Author}`;
+    console.log(message);
+  });
+}
+
+logBooks(books);
+
+// function readNotRead(obj) {
+// }
+
+//readNotRead(books);
 /*
 =====
 Exercise 2
@@ -54,31 +97,31 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+test("books are logged", function () {
+  expectLogBooksToLog([
+    "The Hobbit by J.R.R. Tolkien",
+    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+    "Dietland by Sarai Walker",
+    "A Place for Us by Fatima Farheen Mirza",
+    "The House of Impossible Beauties by Joseph Cassara",
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
-* Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
-*
-* - If the number of calls to console.log does not match the number of elements in the array, the test will fail
-* - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
-*
-* You do not need to understand how this function works to successfully complete the exercise.
-*/
+ * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
+ *
+ * - If the number of calls to console.log does not match the number of elements in the array, the test will fail
+ * - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
+ *
+ * You do not need to understand how this function works to successfully complete the exercise.
+ */
 function expectLogBooksToLog(expectedValues) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    logBooks();
-    expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-    expectedValues.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+  const consoleLogSpy = jest.spyOn(console, "log");
+  logBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}

@@ -377,14 +377,32 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+//let thirtyFiveOrOlder = [];
+let thirtyFiveOrOlder = friends.filter((el) => el.age >= 35);
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+let powerNetEmails = (function () {
+  return friends
+    .filter((el) => {
+      let { company } = el;
+      return company === "POWERNET";
+    })
+    .map((el) => el.email);
+  //return "Hello! I called myself";
+})();
+
+//brackets removed when saveing file.
+// let powerNetEmails2 = (function () {
+//   return (friends.filter((el) => {
+//     let { company } = el;
+//     return company === "POWERNET";
+//   }).map(el => el.email))
+//   //return "Hello! I called myself";
+// })();
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -393,15 +411,56 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+let friendsWhoAreColleaguesOfStacie = (function () {
+  //let StacieVillarreal = friends.filter(el => el.name.last = "Villarreal")
+  let colleaguesOfVill = [];
+  let friendAndColOfVill = [];
+  friends.filter((el) => {
+    // get the full name of the friend
+    let ffullName = Object.values(el.name).join(" ");
+    // deconsturnc colleagues array of objects from el
+    let { colleagues } = el;
+    // creat an array of colleagues name
+    console.log(colleagues);
+    let arrNames = colleagues.map((el) => el.name);
+    //check if that array includes Stacie villareal
+    console.log(arrNames);
+    console.log(arrNames.includes("Stacie Villarreal"));
+    if (arrNames.includes("Stacie Villarreal")) {
+      colleaguesOfVill = [...arrNames, ...colleaguesOfVill];
+      friendAndColOfVill = [ffullName, ...friendAndColOfVill];
+      return true;
+    } else {
+      return false;
+    }
+  });
+  console.log(colleaguesOfVill);
+  let clearRepeat = [...new Set(colleaguesOfVill)];
+  console.log(clearRepeat);
+  return friendAndColOfVill;
+})();
+
+console.log(friendsWhoAreColleaguesOfStacie);
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
 You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
 This time, I only want the full names of the people who can multitask
 */
-
-let colleaguesWhoCanMultitask = [];
+//this worked
+let colleaguesWhoCanMultitask = (function () {
+  let fullNameArr = [];
+  friends.forEach((el, index) => {
+    let { colleagues } = el;
+    colleagues.forEach((el) => {
+      let { skills, name } = el;
+      if (skills.includes("Multi-tasking")) {
+        fullNameArr.push(name);
+      }
+    });
+  });
+  return fullNameArr;
+})();
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 6-people-I-know.js`
@@ -410,8 +469,12 @@ let colleaguesWhoCanMultitask = [];
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({name}) => name.first)).toIncludeSameMembers([
-    "Vilma", "Aisha", "Mitchell", "Sutton", "Jana"
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+    "Vilma",
+    "Aisha",
+    "Mitchell",
+    "Sutton",
+    "Jana",
   ]);
 });
 
@@ -432,10 +495,10 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
 
 test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-  "Rush May",
-  "Gena Good",
-  "Cunningham Shelton",
-  "Castro Castaneda",
-  "Luz Newton",
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
   ]);
 });

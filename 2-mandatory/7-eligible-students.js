@@ -14,7 +14,18 @@
   - Returns an array containing only the names of the who have attended AT LEAST 8 classes
  */
 
-function eligibleStudents(attendances) {}
+function chooseMeal(students) {
+  let arr = [];
+  students.forEach((element, index, array) => {
+    let [name, attendance] = Object.keys(element).map(function (key) {
+      return element[key];
+    });
+    if (attendance >= 8) arr.push(name);
+    console.log(arr);
+  });
+
+  return arr;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`

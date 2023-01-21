@@ -19,7 +19,18 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealsArr) {
+  let stringVal = "Nothing :(";
+  if (mealsArr.length > 1) {
+    ({ name: stringVal } = mealsArr.sort((a, b) => a.price - b.price)[1]);
+  } else if (mealsArr.length === 1) {
+    stringVal = mealsArr[0]["name"] ? mealsArr[0]["name"] : stringVal;
+  }
+
+  return stringVal;
+}
+
+console.log(chooseMeal(setOne));
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 10-cheap-diner.js`
