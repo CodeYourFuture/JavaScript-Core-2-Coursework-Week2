@@ -11,7 +11,15 @@ Should give return the answer of 62600.
 **/
 
 function getBudgets(peopleArray) {
-}
+  //I need to find total budget (return getBudgets.budget * ?.length;)?
+  //new array??
+  let totalOfBudgets = 0;
+  for(let i = 0; i < peopleArray.length; i++){
+    totalOfBudgets += peopleArray[i].budget;
+  }
+  return totalOfBudgets;
+}; 
+console.log(getBudgets);
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern 9-budgets.js`
