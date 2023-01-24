@@ -13,7 +13,10 @@ let people = [
   { name: "Elise", age: 35 },
 ];
 
-let peopleNames =
+let peopleNames = people.map(function(person) {
+  return person.name;
+});
+
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
