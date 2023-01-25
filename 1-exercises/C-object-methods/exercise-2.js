@@ -9,16 +9,16 @@
 */
 
 let myPets = {
-  dog: "Rufus",
-  cat: "Mr Fluffykins",
-  tortoise: "Lord Voldetort",
-  rabbit: "Bugs",
+    dog: "Rufus",
+    cat: "Mr Fluffykins",
+    tortoise: "Lord Voldetort",
+    rabbit: "Bugs",
 };
 
-let petNames =
-  /* todo */
+let petNames = Object.values(myPets)
+    /* todo */
 
-  // DO NOT EDIT BELOW THIS LINE
-  console.log(
+// DO NOT EDIT BELOW THIS LINE
+console.log(
     `Expected result: ["Rufus", "Mr Fluffykins", "Lord Voldetort", "Bugs"]. Actual result: ${petNames}`
-  );
+);

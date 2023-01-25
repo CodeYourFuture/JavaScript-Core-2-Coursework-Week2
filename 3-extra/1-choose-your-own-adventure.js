@@ -35,25 +35,35 @@ To enable the tests for the stretch goals, remove the ".skip" on the appropriate
 */
 
 let game = {
-  currentRoom: null,
+    currentRoom: null,
 
-  start: function (roomName) {
-    // This function is called with the name of the room that the player wants
-    // to start in.
-    // Finish the function so that the currentRoom property is set to the room
-    // object for the correct room.
-    //
-    // Hint: the only valid rooms are "hall", "classroom" and "library".
-  },
+    start: function(roomName) {
+        // This function is called with the name of the room that the player wants
+        // to start in.
+        // Finish the function so that the currentRoom property is set to the room
+        // object for the correct room.
+        //
+        // Hint: the only valid rooms are "hall", "classroom" and "library".
+        if (roomName === "hall" || roomName === "classroom" || roomName === "library") {
+            this.currentRoom = rooms[roomName]
+        } else { return null }
+    },
 
-  move: function (direction) {
-    // This function is called with the direction that the player wants to move.
-    // Finish the function so that the currentRoom property is updated with new
-    // room in the direction that the player wants to move in.
-    //
-    // Hint: the room objects have north/east/south/west methods which return
-    // a new room object that is in the relevant direction.
-  },
+    move: function(direction) {
+        // This function is called with the direction that the player wants to move.
+        // Finish the function so that the currentRoom property is updated with new
+        // room in the direction that the player wants to move in.
+        //
+        // Hint: the room objects have north/east/south/west methods which return
+        // a new room object that is in the relevant direction.
+        const previousRoom = this.currentRoom;
+        const checkIfExistentDirectionAndRoom =
+            rooms[this.currentRoom.name][direction] ? () ? previousRoom;
+
+        this.currentRoom = checkIfExistentDirectionAndRoom;
+
+        return this.currentRoom.name;
+    },
 };
 
 /*
@@ -61,51 +71,51 @@ DO NOT EDIT BELOW THIS LINE
 */
 
 let rooms = {
-  hall: {
-    name: "hall",
-    north: function () {
-      return null;
+    hall: {
+        name: "hall",
+        north: function() {
+            return null;
+        },
+        east: function() {
+            return rooms.classroom;
+        },
+        south: function() {
+            return rooms.library;
+        },
+        west: function() {
+            return null;
+        },
     },
-    east: function () {
-      return rooms.classroom;
+    classroom: {
+        name: "classroom",
+        north: function() {
+            return null;
+        },
+        east: function() {
+            return null;
+        },
+        south: function() {
+            return null;
+        },
+        west: function() {
+            return rooms.hall;
+        },
     },
-    south: function () {
-      return rooms.library;
+    library: {
+        name: "library",
+        north: function() {
+            return rooms.hall;
+        },
+        east: function() {
+            return null;
+        },
+        south: function() {
+            return null;
+        },
+        west: function() {
+            return null;
+        },
     },
-    west: function () {
-      return null;
-    },
-  },
-  classroom: {
-    name: "classroom",
-    north: function () {
-      return null;
-    },
-    east: function () {
-      return null;
-    },
-    south: function () {
-      return null;
-    },
-    west: function () {
-      return rooms.hall;
-    },
-  },
-  library: {
-    name: "library",
-    north: function () {
-      return rooms.hall;
-    },
-    east: function () {
-      return null;
-    },
-    south: function () {
-      return null;
-    },
-    west: function () {
-      return null;
-    },
-  },
 };
 
 /*
@@ -115,118 +125,117 @@ You only need to read it if you are interested in how it works.
 */
 const readline = require("readline");
 const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
+    input: process.stdin,
+    output: process.stdout,
 });
 
 function start() {
-  rl.question(
-    "Which room would you like to start in? (hall/classroom/library) ",
-    function (room) {
-      game.start(room);
-      console.log("\n---------------------\n");
-      play("start");
-    }
-  );
+    rl.question(
+        "Which room would you like to start in? (hall/classroom/library) ",
+        function(room) {
+            game.start(room);
+            console.log("\n---------------------\n");
+            play("start");
+        }
+    );
 }
 
 function play(method) {
-  if (!game.currentRoom?.name) {
-    throw new Error(
-      `It looks like the game isn't quite right! Make sure your \`${method}\` method is correct`
-    );
-  }
-  console.log(`You are in the ${game.currentRoom.name}.\n`);
-  rl.question(
-    "Which direction would you like to move? (north/east/south/west) ",
-    function (direction) {
-      game.move(direction);
-      console.log("\n---------------------\n");
-      play("move");
+    if (!game.currentRoom ? .name) {
+        throw new Error(
+            `It looks like the game isn't quite right! Make sure your \`${method}\` method is correct`
+        );
     }
-  );
+    console.log(`You are in the ${game.currentRoom.name}.\n`);
+    rl.question(
+        "Which direction would you like to move? (north/east/south/west) ",
+        function(direction) {
+            game.move(direction);
+            console.log("\n---------------------\n");
+            play("move");
+        }
+    );
 }
 
 if (global["test"] == undefined) {
-  // running in node -> start game
-  start();
-  test = () => {};
-  beforeEach = () => {};
-  test.skip = () => {};
+    // running in node -> start game
+    start();
+    test = () => {};
+    beforeEach = () => {};
+    test.skip = () => {};
 } else {
-  // running in jest
-  // don't start game, close the readline handle
-  rl.close();
+    // running in jest
+    // don't start game, close the readline handle
+    rl.close();
 }
 
 // if we reach here, we are running in jest -> run tests
 
 /* ======= TESTS - ONLY MODIFY TO ENABLE TESTS FOR STRETCH GOALS ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 11-choose-your-own-adventure.js`
-- To run all exercises/tests in the mandatory folder, run `npm test`
-- (Reminder: You must have run `npm install` one time before this will work!)
+-  To run the tests for this exercise, run `npm test -- --testPathPattern 1-choose-your-own-adventure.js`)
 */
 
 beforeEach(() => {
-  // reset the game object
-  game.currentRoom = null;
+    // reset the game object
+    game.currentRoom = null;
 });
 
 test("start in hall", () => {
-  game.start("hall");
-  expect(game.currentRoom.name).toEqual("hall");
+    game.start("hall");
+    expect(game.currentRoom.name).toEqual("hall");
 });
 
 test("start in library", () => {
-  game.start("library");
-  expect(game.currentRoom.name).toEqual("library");
+    game.start("library");
+    expect(game.currentRoom.name).toEqual("library");
 });
 
 test("start in classroom", () => {
-  game.start("classroom");
-  expect(game.currentRoom.name).toEqual("classroom");
+    game.start("classroom");
+    expect(game.currentRoom.name).toEqual("classroom");
 });
 
 // remove ".skip" if your code correctly handles a non existent room (by setting currentRoom to null/doing nothing)
-test.skip("start in non-existent place", () => {
-  game.start("does not exist");
-  expect(game.currentRoom).toEqual(null);
+test("start in non-existent place", () => {
+    game.start("does not exist");
+    expect(game.currentRoom).toEqual(null);
 });
 
 test("start in hall and go south", () => {
-  game.currentRoom = rooms.hall;
-  game.move("south");
-  expect(game.currentRoom.name).toEqual("library");
+    game.currentRoom = rooms.hall;
+    game.move("south");
+    expect(game.currentRoom.name).toEqual("library");
 });
 
 test("start in library and go north", () => {
-  game.currentRoom = rooms.library;
-  game.move("north");
-  expect(game.currentRoom.name).toEqual("hall");
+    game.currentRoom = rooms.library;
+    game.move("north");
+    expect(game.currentRoom.name).toEqual("hall");
 });
 
 test("start in hall and go east", () => {
-  game.currentRoom = rooms.hall;
-  game.move("east");
-  expect(game.currentRoom.name).toEqual("classroom");
+    game.currentRoom = rooms.hall;
+    game.move("east");
+    expect(game.currentRoom.name).toEqual("classroom");
 });
 
 test("start in classroom and go west", () => {
-  game.currentRoom = rooms.classroom;
-  game.move("west");
-  expect(game.currentRoom.name).toEqual("hall");
+    game.currentRoom = rooms.classroom;
+    game.move("west");
+    expect(game.currentRoom.name).toEqual("hall");
 });
 
 // remove ".skip" if your code handles trying to go in a direction with no room (by staying in the same room)
-test.skip("start in hall and go north (to non-existent room) -> stay in same room", () => {
-  game.currentRoom = rooms.hall;
-  game.move("north");
-  expect(game.currentRoom.name).toEqual("hall");
+test("start in hall and go north (to non-existent room) -> stay in same room", () => {
+    game.currentRoom = rooms.hall;
+    game.move("north");
+    expect(game.currentRoom.name).toEqual("hall");
 });
 
 // remove ".skip" if your code handles trying to go in a direction that doesn't exist (by staying in the same room)
-test.skip("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
-  game.currentRoom = rooms.hall;
-  game.move("backwards");
-  expect(game.currentRoom.name).toEqual("hall");
+test.("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
+    game.currentRoom = rooms.hall;
+    game.move("backwards");
+    expect(game.currentRoom.name).toEqual("hall");
 });
