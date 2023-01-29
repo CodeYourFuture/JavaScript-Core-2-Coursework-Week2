@@ -7,7 +7,7 @@ getBudgets([
   { name: "Steve",  age: 32, budget: 32000 },
   { name: "Martin",  age: 16, budget: 1600 }
 ])
-Should give return the answer of 62600.
+Should gi0ve return the answer of 6260.
 **/
 
 function getBudgets(peopleArray) {
