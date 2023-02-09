@@ -15,15 +15,15 @@
  */
 
 function eligibleStudents(attendances) {
-  let eligibleStudents = [];
-  for (i = 0; i < attendances.length; i++){
-    //???????/
-    if (eligibleStudents.attendance >= 8){
-      return eligibleStudents.push(student.name);
+  let onlyEligibleStudents = [];
+  for (let student of attendances){
+    if (student.attendance >= 8){
+      onlyEligibleStudents.push(student.name);
     }
   }
+  return onlyEligibleStudents;
 };
-console.log(attendances);
+console.log(eligibleStudents);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
