@@ -12,7 +12,8 @@ let person = {
     age: 26,
     currentAddress: "London",
     changeAddress: function (newAddress) {
-        this.currentAddress = newAddress}/* todo */
+        this.currentAddress = newAddress;
+    }/* todo */
 };
 
 

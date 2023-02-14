@@ -11,7 +11,11 @@ let salaries = {
   monica: 55000,
   rachel: 90000,
 };
-
+for (let element in salaries) {
+  if (salaries[element] > 50000) {
+    console.log(`${element}: $${salaries[element]}`);
+  }
+}
 // WRITE BELOW THIS LINE
 
 // Expected Result:
