@@ -12,6 +12,15 @@ let salaries = {
   rachel: 90000,
 };
 
+for (let name in salaries) {
+  if (salaries[name] > 50000) {
+    console.log(
+      `Expected result: monica: $55000,rachel: $90000 Actual result:${name}: $${salaries[name]}`
+    );
+  }
+}
+
+// console.log(`Expected result: monica,ross Actual result: ${nameOfEarners()}`);
 // WRITE BELOW THIS LINE
 
 // Expected Result:
