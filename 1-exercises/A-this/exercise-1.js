@@ -1,26 +1,27 @@
 /*
- 
-   Fill in the celebrateBirthday method such that the 
-   expected age is recieved when running the code.
 
-   When called, celebrateBirthday should increment the age of the person by 1.
+Fill in the celebrateBirthday method such that the 
+expected age is recieved when running the code.
 
-   Note: You will need to use "this".
+When called, celebrateBirthday should increment the age of the person by 1.
+
+Note: You will need to use "this".
 
 */
 
-
-
 let person = {
     name: "Adrian",
-    age: 32,
+    age: 35,
     currentAddress: "London",
-    celebrateBirthday: /* todo */
+    celebrateBirthday: function(){
+        return this.age + 1;
+    }
 };
 
+console.log(person.celebrateBirthday());
 
 // DO NOT MODIFY BELOW THIS LINE
 let age = person.age;
 let expectedAge = age + 1;
-person.celebrateBirthday()
+person.celebrateBirthday();
 console.log(`Expected age is ${expectedAge}, actual age is ${person.age}`)

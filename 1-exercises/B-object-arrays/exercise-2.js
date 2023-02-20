@@ -16,7 +16,9 @@ let store = [
 
 let money = 1.5;
 
-let thingsICanBuy =
+// let thingsICanBuy = store.filter((el) => el.price < money).map((el) => el.item); ===option a ====
+const thingsICanBuy = store.filter(item => item.price <= money).map(store => store.item);
+
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

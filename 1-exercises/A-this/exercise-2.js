@@ -11,8 +11,13 @@ let person = {
     name: "Maggie",
     age: 26,
     currentAddress: "London",
-    changeAddress: /* todo */
+    changeAddress: function(newAddress) {
+        // newAddress = "street";
+        return  this.currentAddress = newAddress;
+    }
 };
+
+console.log(person.changeAddress("Edinburgh"))
 
 
 /*

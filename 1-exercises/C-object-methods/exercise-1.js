@@ -11,7 +11,10 @@ let footballClubs = {
   ac_milan: "Italy",
 };
 
-let clubNames =
+// let clubNames = footballClubs.map((el) => footballClubs);
+
+let clubNames = Object.keys(footballClubs)
+console.log(clubNames)
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE

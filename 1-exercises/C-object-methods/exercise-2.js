@@ -15,7 +15,10 @@ let myPets = {
   rabbit: "Bugs",
 };
 
-let petNames =
+//with this objetct.values we go inside the mypets and then return only the values.
+
+let petNames = Object.values(myPets); 
+
   /* todo */
 
   // DO NOT EDIT BELOW THIS LINE
