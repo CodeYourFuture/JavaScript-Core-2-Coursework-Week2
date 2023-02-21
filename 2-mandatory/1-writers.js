@@ -60,7 +60,17 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+// writers.forEach(element => console.log(`Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old, and work as a ${element.occupation}.`))
+
+for(element of writers){
+  console.log(`Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old, and work as a ${element.occupation}.`)
+}
+  // for(const writer in writers){
+    
+  //     console.log(
+  //       `Hi, my name is ${writer["firstName"]} ${writer["lastName"]}. I am ${writer["age"]} years old, and work as a ${writer["occupation"]}.`
+  //     );
+  //   }
 };
 
 /*
@@ -72,6 +82,21 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  // for (element of writers){
+  //   if (element.age >= 40 && element.age < 50 && element.alive === false) {
+  //     console.log(`Writer ${element.firstName} ${element.lastName} died at ${element.age} years old.`);
+  //   }
+  // }
+  writers
+    .filter(
+      (element) =>
+        element.age >= 40 && element.age < 50 && element.alive === false
+    )
+    .forEach((element) =>
+      console.log(
+        `Writer ${element.firstName} ${element.lastName} died at ${element.age} years old.`
+      )
+    );
 }
 
 /*
@@ -82,6 +107,16 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  writers
+    .filter(
+      (element) =>
+        element.age >= 40 && element.age < 50 && element.alive === true
+    )
+    .forEach((element) =>
+      console.log(
+        `Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old.`
+      )
+    );
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
