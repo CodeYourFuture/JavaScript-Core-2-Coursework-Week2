@@ -60,7 +60,9 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  for(let writer of writers){
+    console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`)
+  }
 };
 
 /*
@@ -71,7 +73,10 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  let peopledie = writers.filter(person => person.alive === false && person.age >= 40 && person.age <= 49)
+  for (const writer of peopledie) {
+    console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`)
+  }
 }
 
 /*
@@ -81,7 +86,10 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  let peopledie = writers.filter(person => person.alive === true && person.age >= 40 && person.age <= 49)
+  for (const writer of peopledie) {
+    console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`)
+  }
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
@@ -90,7 +98,7 @@ function logAliveWritersInTheirForties() {
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("exercise 1", () => expectFunctionToLog(logAllWriters, [
+test ("exercise 1", () => expectFunctionToLog(logAllWriters, [
   "Hi, my name is Virginia Woolf. I am 59 years old, and work as a writer.",
   "Hi, my name is Zadie Smith. I am 40 years old, and work as a writer.",
   "Hi, my name is Jane Austen. I am 41 years old, and work as a writer.",

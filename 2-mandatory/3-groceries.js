@@ -26,14 +26,31 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
-let weeklyGroceriesToBuy = [];
+//we open []to create a new array then, we create a new set and use the spread ... to read all the elements
+//then will eliminate all duplicate item with the set(), and finallly we use flat to remove the sunday array empty.
+let weeklyGroceriesToBuy = [...new Set(Object.values(weeklyMealPlan).flat())]; 
 
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
 */
-// Gather weekend item names into this array
+
+
 let weekendGroceriesToBuy = [];
+for(let weekend in weeklyMealPlan){
+  if(weekend === "saturday" || weekend === "sunday"){   //second option   if (weekend === ("saturday" || "sunday") 
+    weeklyMealPlan[weekend].forEach((ingredient) => 
+      weekendGroceriesToBuy.push(ingredient)
+    );
+  }
+}
+
+/**
+ * @param{saturday & sunday}
+ */
+// let weekendGroceriesToBuy = weeklyMealPlan.saturday.concat( 
+//   weeklyMealPlan.sunday
+// );
 
 /*
 Exercise 3:
@@ -52,12 +69,24 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+
+for (let day in weeklyMealPlan) {
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
+}
+
+// ================== option B ===========
+// let days = Object.keys(weeklyMealPlan);
+// days.forEach((day) => {
+//   numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
+// });
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
+// it.only
 test("Exercise 1 - Weekly groceries to buy contains correct items", () => {
   const expectedWeeklyGroceriesToBuy = [
     'Cheese',       'Eggs',
