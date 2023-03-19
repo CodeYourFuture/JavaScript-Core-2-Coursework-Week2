@@ -17,11 +17,9 @@ without using any variables or any logic like loops, template strings or if stat
 */
 
 const books = [];
-  
+
 // exercise 1
-function logBooks() {
-}
-  
+function logBooks() {}
 
 /*
 =====
@@ -32,7 +30,9 @@ If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R.
 and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
 You will need to modify the tests to check the correct output. If you have already learnt about red-green refactoring,
 remember to practice:
-- first change the test to the value that should be output, 
+- first change the test to the value that should be output 
+  (note: usually we wouldn't change existing tests as part of the "red" step, we would write a new test. In this case
+  it's because it's the easiest way to incrementally solve the problem), 
 - run the test to check that your test goes red
 - now change your code to make the test pass
 As an example for this exercise, you might do the following steps
@@ -49,36 +49,36 @@ As an example for this exercise, you might do the following steps
 **/
 
 /* ======= TESTS - DO MODIFY (!!!) =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function() {
- expectLogBooksToLog([
-        "The Hobbit by J.R.R. Tolkien",
-        "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-        "Dietland by Sarai Walker",
-        "A Place for Us by Fatima Farheen Mirza",
-        "The House of Impossible Beauties by Joseph Cassara"
-    ]);
+test("books are logged", function () {
+  expectLogBooksToLog([
+    "The Hobbit by J.R.R. Tolkien",
+    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+    "Dietland by Sarai Walker",
+    "A Place for Us by Fatima Farheen Mirza",
+    "The House of Impossible Beauties by Joseph Cassara",
+  ]);
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
-* Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
-*
-* - If the number of calls to console.log does not match the number of elements in the array, the test will fail
-* - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
-*
-* You do not need to understand how this function works to successfully complete the exercise.
-*/
+ * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
+ *
+ * - If the number of calls to console.log does not match the number of elements in the array, the test will fail
+ * - If the calls to console.log do not contain the strings in the expectedValue array, the test will fail
+ *
+ * You do not need to understand how this function works to successfully complete the exercise.
+ */
 function expectLogBooksToLog(expectedValues) {
-    const consoleLogSpy = jest.spyOn(console, 'log');
-    logBooks();
-    expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
-    expectedValues.forEach((value, i) => {
-      expect(consoleLogSpy).nthCalledWith(i+1, value);
-    });
-    consoleLogSpy.mockRestore();
-};
+  const consoleLogSpy = jest.spyOn(console, "log");
+  logBooks();
+  expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
+  expectedValues.forEach((value, i) => {
+    expect(consoleLogSpy).nthCalledWith(i + 1, value);
+  });
+  consoleLogSpy.mockRestore();
+}
