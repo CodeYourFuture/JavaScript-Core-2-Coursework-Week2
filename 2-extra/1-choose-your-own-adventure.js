@@ -162,7 +162,7 @@ if (global["test"] == undefined) {
 // if we reach here, we are running in jest -> run tests
 
 /* ======= TESTS - ONLY MODIFY TO ENABLE TESTS FOR STRETCH GOALS ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 11-choose-your-own-adventure.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern choose-your-own-adventure.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */

@@ -25,13 +25,13 @@
       {
         "displayName": "mandatory",
         "testMatch": [
-          "<rootDir>/2-mandatory/*.js"
+          "<rootDir>/1-mandatory/*.js"
         ]
       },
       {
         "displayName": "extra",
         "testMatch": [
-          "<rootDir>/3-extra/*.js"
+          "<rootDir>/2-extra/*.js"
         ]
       }
     ]
