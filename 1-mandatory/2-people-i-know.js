@@ -429,7 +429,11 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
+let colleaguesWhoCanMultitask = friends
+  .flatMap((friend) => friend.colleagues.filter((colleague) => colleague.skills.includes("Multi-tasking")))
+  .map((colleague) => `${colleague.name}`);
+
+console.log(colleaguesWhoCanMultitask);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
