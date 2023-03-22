@@ -51,8 +51,16 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
-}
+    writers.forEach((writer) => {
+      console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`);
+    });
+  }
+//   let firstName = writer.firstName;
+//   let lastName = writer.lastName;
+//   let age = writer.age;
+//   let occupation = writer.occupation;
+//   console.log(`Hi, my name is${firstName}${lastName}. I am ${age} years old, and work as a${occupation}.`)
+// } this didn't work - but it's interesting to play around let
 
 /*
 Exercise 2:
