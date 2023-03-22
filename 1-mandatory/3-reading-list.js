@@ -16,10 +16,42 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Great Gatsby",
+    Author: "F.Scott Fitzgerald",
+    alreadyRead: true,
+  },
+  {
+    title: "Elmer Gantry",
+    Author: "Sinclair Lewis",
+    alreadyRead: false,
+  },
+  {
+    title: "Jack Kerouac",
+    Author: "J.R.R. Tolkien",
+    alreadyRead: true,
+  },
+  {
+    title: "The Adventures of Huckleberry Finn",
+    Author: "Mark Twain",
+    alreadyRead: false,
+  },
+  {
+    title: "Herzog",
+    Author: "Saul Bellow",
+    alreadyRead: true,
+  },
+];
 
 // exercise 1
-function logBooks() {}
+
+function logBooks() {
+  for (let book of books) {
+    console.log(`${book.title} by ${book.Author}`);
+  }
+}
+
 
 /*
 =====
@@ -47,6 +79,15 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+function alreadyReadAllBooks () {
+  for (const book of books) {
+    if (book.alreadyRead){
+      console.log(`You've already read ${book.title} by ${book.Author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.Author}`);
+    }
+  }
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
@@ -54,15 +95,27 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
+test("books are logged", function() {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
-  ]);
-});
+         "The Great Gatsby by F.Scott Fitzgerald",
+         "Elmer Gantry by Sinclair Lewis",
+         "Jack Kerouac by J.R.R. Tolkien",
+         "The Adventures of Huckleberry Finn by Mark Twain",
+         "Herzog by Saul Bellow"
+     ]);
+ });
+
+// test("books that are read", function() {
+//   expectLogBooksToLog([
+//          "You've already read The Great Gatsby by F.Scott Fitzgerald",
+//          "You still need to read Elmer Gantry by Sinclair Lewis",
+//          "You've already read Jack Kerouac by J.R.R. Tolkien",
+//          "You still need to read The Adventures of Huckleberry Finn by Mark Twain",
+//          "You've already read Herzog by Saul Bellow"
+//      ]);
+//  });
+// alreadyReadAllBooks ()
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
