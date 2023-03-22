@@ -70,9 +70,17 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+// const writersIn40s = writers.filter ((writer) => {
+//   return writer.age > 39 && writer.age < 50 && writer.alive === false; 
+// })
+// console.log(`Writer ${firstName} ${lastName} died at ${age} years old.`);
+// }
+writers.forEach((writer) => {
+  if (writer.age >=40 && writer.age < 50 && !writer.alive) {
+    console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`);
+  }
+})
 }
-
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
