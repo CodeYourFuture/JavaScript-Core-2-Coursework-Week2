@@ -20,6 +20,11 @@ function getBudgets(peopleArray) {
     return totalBudget;
   }
 
+  // function getBudgets(peopleArray) {
+  //   return peopleArray.reduce((totalBudget, person) => totalBudget + person.budget, 0);
+  // }
+  //this also works
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
