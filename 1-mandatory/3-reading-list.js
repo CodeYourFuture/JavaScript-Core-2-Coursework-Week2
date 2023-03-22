@@ -17,11 +17,11 @@ without using any variables or any logic like loops, template strings or if stat
 */
 
 const books = [ 
-  {title: "book1", author: "author1", alreadyRead: true,},
-  {title: "book2", author: "author2", alreadyRead: true,},
-  {title: "book3", author: "author3", alreadyRead: true,},
-  {title: "book4", author: "author4", alreadyRead: false,},
-  {title: "book5", author: "author5", alreadyRead: false,}
+  {title: "The Hobbit", author: "J.R.R. Tolkien", alreadyRead: true,},
+  {title: "The Map of Salt", author: "Stars by Jennifer Zeynab Joukhadar", alreadyRead: true,},
+  {title: "Dietland", author: "Sarai Walker", alreadyRead: true,},
+  {title: "A Place for Us", author: "Fatima Farheen Mirza", alreadyRead: false,},
+  {title: "The House of Impossible Beauties", author: "Joseph Cassara", alreadyRead: false,}
 ];
 
 // exercise 1
