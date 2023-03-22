@@ -390,6 +390,12 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+for (let i = 0; i < friends.length; i++) {
+  if (friends[i].company == "POWERNET") {
+    powerNetEmails.push(friends[i].email);
+  }
+  console.log(powerNetEmails);
+}
 
 /*
 4) colleagues with "Stacie Villarreal"
