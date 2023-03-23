@@ -52,6 +52,12 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
+  for (let i = 0; i < writers.length; i++) {
+    let writer = writers[i];
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+    );
+  }
 }
 
 /*
@@ -63,18 +69,36 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  for (let i = 0; i < writers.length; i++) {
+    let writer = writers[i];
+    {
+      if (writer.age >= 40 && writer.age < 50 && writer.alive == false) {
+        console.log(
+          `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+        );
+      }
+    }
+  }
 }
-
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
+function logAliveWritersInTheirForties(array) {
   // write your code here
+  for (let i = 0; i < writers.length; i++) {
+    let writer = writers[i];
+    {
+      if (writer.age >= 40 && writer.age < 50 && writer.alive !== false) {
+        console.log(
+          `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+        );
+      }
+    }
+  }
 }
-
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern writers.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
