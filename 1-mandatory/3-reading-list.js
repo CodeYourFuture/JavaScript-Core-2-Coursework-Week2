@@ -17,17 +17,21 @@ without using any variables or any logic like loops, template strings or if stat
 */
 
 const books = [ 
-  {title: "The Hobbit", author: "J.R.R. Tolkien", alreadyRead: true,},
-  {title: "The Map of Salt", author: "Stars by Jennifer Zeynab Joukhadar", alreadyRead: true,},
-  {title: "Dietland", author: "Sarai Walker", alreadyRead: true,},
-  {title: "A Place for Us", author: "Fatima Farheen Mirza", alreadyRead: false,},
-  {title: "The House of Impossible Beauties", author: "Joseph Cassara", alreadyRead: false,}
+  {title: "Charlie and the Chocolate Factory", author: "Roald Dahl", alreadyRead: true,},
+  {title: "Crime and Punishment", author: "Fodor Dostoyevski", alreadyRead: true,},
+  {title: "Think and Grow Rich", author: "Napolean Hill", alreadyRead: true,},
+  {title: "The Godfather", author: "Mario Puzo", alreadyRead: false,},
+  {title: "Forrest Gump", author: "Winston Groom", alreadyRead: false,}
 ];
 
 // exercise 1
 function logBooks() {
   logBooks.forEach((book) => {
-    console.log(`${book.title} by ${book.author}`)
+    if (alreadyRead === true) {
+      console.log(`You've already read ${book.title} by ${book.author}`)
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`)
+    }
   })
 }
 
@@ -66,11 +70,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "Charlie and the Chocolate Factory by Roald Dahl",
+    "Crime and Punishment by Fyodor Dostoyevski",
+    "Think and Grow Rich by Napolean Hill",
+    "The Godfather by Mario Puzo",
+    "Forrest Gump by Winston Groom",
   ]);
 });
 
