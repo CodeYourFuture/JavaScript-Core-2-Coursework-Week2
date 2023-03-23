@@ -48,7 +48,15 @@ const books = [
 //function logBooks() {}
 const logBooks = books.map(book => `${book.title} by ${book.author}`)
 
-console.log(logBooks)
+//console.log(logBooks)
+
+const logBooks2 = books.map((book) => {
+  if (book.alreadyRead == true) {
+    return `You've already read ${book.title} by ${book.author}`;
+  } else {
+    return `You still need to read \"${book.title}\" by ${book.author}.`
+  }
+})
 /*
 =====
 Exercise 2
@@ -81,16 +89,6 @@ As an example for this exercise, you might do the following steps
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
- 
-/* test("books are logged", function () {
-  expectLogBooksToLog([
-    "1984 by George Orwell",
-    "Ince Mehmed by Yasar Kemal",
-    "Simyaci by Paulo Coelho",
-    "Deniz Kurdu by Jack London",
-    "War and Peace by Tolstoy",
-  ]);
-}); */
 
 test("books are logged", () => {
   expect(logBooks).toEqual([
@@ -99,6 +97,16 @@ test("books are logged", () => {
     "Deniz Kurdu by Jack London",
     "Simyaci by Paulo Coelho",
     "War and Peace by Tolstoy",
+  ]);
+})
+
+test("whether already read or not", () => {
+  expect(logBooks2).toEqual([
+    "You've already read 1984 by George Orwell",
+    "You've already read Ince Mehmed by Yasar Kemal",
+    'You still need to read "Deniz Kurdu" by Jack London.',
+    "You've already read Simyaci by Paulo Coelho",
+    'You still need to read "War and Peace" by Tolstoy.',
   ]);
 })
 

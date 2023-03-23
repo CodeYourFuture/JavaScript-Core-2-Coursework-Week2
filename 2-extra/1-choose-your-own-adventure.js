@@ -55,7 +55,7 @@ let game = {
     // a new room object that is in the relevant direction.
   },
 };
-
+console.log(game.currentRoom.name)
 /*
 DO NOT EDIT BELOW THIS LINE
 */
