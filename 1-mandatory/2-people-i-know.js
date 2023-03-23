@@ -417,7 +417,7 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = (arr) => {
   const result = [];
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {  //i am not happy with this 3 nested for, so pls leave a commet if you have any other idea
     for (let j = 0; j < arr[i].colleagues.length; j++) {
       for (let k = 0; k < arr[i].colleagues[j].skills.length; k++) {
         if (arr[i].colleagues[j].skills[k] == "Multi-tasking") {

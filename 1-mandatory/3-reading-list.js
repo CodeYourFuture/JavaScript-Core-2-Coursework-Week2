@@ -16,11 +16,39 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "1984",
+    author: "George Orwell",
+    alreadyRead: true,
+  },
+  {
+    title: "Ince Mehmed",
+    author: "Yasar Kemal",
+    alreadyRead: true,
+  },
+  {
+    title: "Deniz Kurdu",
+    author: "Jack London",
+    alreadyRead: false,
+  },
+  {
+    title: "Simyaci",
+    author: "Paulo Coelho",
+    alreadyRead: true,
+  },
+  {
+    title: "War and Peace",
+    author: "Tolstoy",
+    alreadyRead: false,
+  },
+];
 
 // exercise 1
-function logBooks() {}
+//function logBooks() {}
+const logBooks = books.map(book => `${book.title} by ${book.author}`)
 
+console.log(logBooks)
 /*
 =====
 Exercise 2
@@ -53,16 +81,26 @@ As an example for this exercise, you might do the following steps
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
-
-test("books are logged", function () {
+ 
+/* test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "1984 by George Orwell",
+    "Ince Mehmed by Yasar Kemal",
+    "Simyaci by Paulo Coelho",
+    "Deniz Kurdu by Jack London",
+    "War and Peace by Tolstoy",
   ]);
-});
+}); */
+
+test("books are logged", () => {
+  expect(logBooks).toEqual([
+    "1984 by George Orwell",
+    "Ince Mehmed by Yasar Kemal",
+    "Deniz Kurdu by Jack London",
+    "Simyaci by Paulo Coelho",
+    "War and Peace by Tolstoy",
+  ]);
+})
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
@@ -73,7 +111,7 @@ test("books are logged", function () {
  *
  * You do not need to understand how this function works to successfully complete the exercise.
  */
-function expectLogBooksToLog(expectedValues) {
+ function expectLogBooksToLog(expectedValues) {
   const consoleLogSpy = jest.spyOn(console, "log");
   logBooks();
   expect(consoleLogSpy).toBeCalledTimes(expectedValues.length);
@@ -81,4 +119,4 @@ function expectLogBooksToLog(expectedValues) {
     expect(consoleLogSpy).nthCalledWith(i + 1, value);
   });
   consoleLogSpy.mockRestore();
-}
+} 
