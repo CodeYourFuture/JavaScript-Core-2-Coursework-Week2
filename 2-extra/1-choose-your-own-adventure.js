@@ -59,6 +59,7 @@ let game = {
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
     let nextRoom = this.currentRoom[direction]();
+    console.log(nextRoom);
     if (nextRoom) {
       this.currentRoom = nextRoom;
     } else {
