@@ -16,10 +16,46 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
 
+const books = [
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: true,
+  },
+  {
+    title: "The Map of Salt and Stars",
+    author: "Jennifer Zeynab Joukhadar",
+    alreadyRead: false,
+  },
+  {
+    title: "Dietland",
+    author: "Sarai Walker",
+    alreadyRead: true,
+  },
+  {
+    title: "A Place for Us",
+    author: "Fatima Farheen Mirza",
+    alreadyRead: false,
+  },
+  {
+    title: "The House of Impossible Beauties",
+    author: "Joseph Cassara",
+    alreadyRead: true,
+  },
+];
+
+ 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+   for (let i = 0; i < books.length; i++) {
+    const book = books[i];
+    console.log(`${book.title} by ${book.author}`);
+}
+}
+
+
+
 
 /*
 =====
@@ -47,6 +83,18 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+function logBooks() {
+  for (let i = 0; i < books.length; i++) {
+    let bookInfo = books[i].title + " by " + books[i].author;
+    if (books[i].alreadyRead) {
+      console.log("You've already read " + bookInfo);
+    } else {
+      console.log("You still need to read " + bookInfo);
+    }
+  }
+}
+
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
@@ -55,6 +103,7 @@ As an example for this exercise, you might do the following steps
 */
 
 test("books are logged", function () {
+   
   expectLogBooksToLog([
     "The Hobbit by J.R.R. Tolkien",
     "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
@@ -62,6 +111,7 @@ test("books are logged", function () {
     "A Place for Us by Fatima Farheen Mirza",
     "The House of Impossible Beauties by Joseph Cassara",
   ]);
+  
 });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
@@ -82,3 +132,6 @@ function expectLogBooksToLog(expectedValues) {
   });
   consoleLogSpy.mockRestore();
 }
+
+
+
