@@ -26,8 +26,8 @@ const books = [
 
 // exercise 1
 function logBooks() {
-  logBooks.forEach((book) => {
-    if (alreadyRead === true) {
+  books.forEach((book) => {
+    if (book.alreadyRead === true) {
       console.log(`You've already read ${book.title} by ${book.author}`)
     } else {
       console.log(`You still need to read ${book.title} by ${book.author}`)
@@ -68,13 +68,13 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
+test("books are read or not", function () {
   expectLogBooksToLog([
-    "Charlie and the Chocolate Factory by Roald Dahl",
-    "Crime and Punishment by Fyodor Dostoyevski",
-    "Think and Grow Rich by Napolean Hill",
-    "The Godfather by Mario Puzo",
-    "Forrest Gump by Winston Groom",
+    "You've already read Charlie and the Chocolate Factory by Roald Dahl",
+    "You've already read Crime and Punishment by Fodor Dostoyevski",
+    "You've already read Think and Grow Rich by Napolean Hill",
+    "You still need to read The Godfather by Mario Puzo",
+    "You still need to read Forrest Gump by Winston Groom",
   ]);
 });
 
