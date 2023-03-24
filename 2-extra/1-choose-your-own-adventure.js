@@ -34,39 +34,39 @@ east? If there is a bug in your code, try to fix it.
 To enable the tests for the stretch goals, remove the ".skip" on the appropriate tests below.
 */
 
-let game = {
-  currentRoom: null,
+// let game = {
+//   currentRoom: null,
 
-  start: function (roomName) {
-    // This function is called with the name of the room that the player wants
-    // to start in.
-    // Finish the function so that the currentRoom property is set to the room
-    // object for the correct room.
-    //
-    // Hint: the only valid rooms are "hall", "classroom" and "library".
+//   start: function (roomName) {
+//     // This function is called with the name of the room that the player wants
+//     // to start in.
+//     // Finish the function so that the currentRoom property is set to the room
+//     // object for the correct room.
+//     //
+//     // Hint: the only valid rooms are "hall", "classroom" and "library".
 
-    this.currentRoom = rooms[roomName];
-    if(!this.currentRoom) {
-      this.currentRoom = null;
-    } 
-  },
+//     this.currentRoom = rooms[roomName];
+//     if(!this.currentRoom) {
+//       this.currentRoom = null;
+//     } 
+//   },
 
-  move: function (direction) {
-    // This function is called with the direction that the player wants to move.
-    // Finish the function so that the currentRoom property is updated with new
-    // room in the direction that the player wants to move in.
-    //
-    // Hint: the room objects have north/east/south/west methods which return
-    // a new room object that is in the relevant direction.
-    let nextRoom = this.currentRoom[direction]();
-    console.log(nextRoom);
-    if (nextRoom) {
-      this.currentRoom = nextRoom;
-    } else {
-      this.currentRoom = this.currentRoom
-    }
-  },
-};
+//   move: function (direction) {
+//     // This function is called with the direction that the player wants to move.
+//     // Finish the function so that the currentRoom property is updated with new
+//     // room in the direction that the player wants to move in.
+//     //
+//     // Hint: the room objects have north/east/south/west methods which return
+//     // a new room object that is in the relevant direction.
+//     let nextRoom = this.currentRoom[direction]();
+//     console.log(nextRoom);
+//     if (nextRoom) {
+//       this.currentRoom = nextRoom;
+//     } else {
+//       this.currentRoom = this.currentRoom
+//     }
+//   },
+// };
 
 /*
 DO NOT EDIT BELOW THIS LINE
@@ -200,7 +200,7 @@ test("start in classroom", () => {
 });
 
 // remove ".skip" if your code correctly handles a non existent room (by setting currentRoom to null/doing nothing)
-test("start in non-existent place", () => {
+test.skip("start in non-existent place", () => {
   game.start("does not exist");
   expect(game.currentRoom).toEqual(null);
 });
@@ -230,7 +230,7 @@ test("start in classroom and go west", () => {
 });
 
 // remove ".skip" if your code handles trying to go in a direction with no room (by staying in the same room)
-test("start in hall and go north (to non-existent room) -> stay in same room", () => {
+test.skip("start in hall and go north (to non-existent room) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("north");
   expect(game.currentRoom.name).toEqual("hall");
