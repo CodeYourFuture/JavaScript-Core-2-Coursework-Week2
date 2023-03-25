@@ -48,12 +48,10 @@ const books = [
  
 // exercise 1
 function logBooks() {
-   for (let i = 0; i < books.length; i++) {
-    const book = books[i];
+   books.forEach((book) => {
     console.log(`${book.title} by ${book.author}`);
+  });
 }
-}
-
 
 
 
@@ -84,14 +82,13 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 function logBooks() {
-  for (let i = 0; i < books.length; i++) {
-    let bookInfo = books[i].title + " by " + books[i].author;
-    if (books[i].alreadyRead) {
-      console.log("You've already read " + bookInfo);
+  books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read "${book.title}" by ${book.author}`);
     } else {
-      console.log("You still need to read " + bookInfo);
+      console.log(`You still need to read "${book.title}" by ${book.author}`);
     }
-  }
+  });
 }
 
 
@@ -105,11 +102,11 @@ function logBooks() {
 test("books are logged", function () {
    
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    `You've already read "The Hobbit" by J.R.R. Tolkien`,
+    `You still need to read "The Map of Salt and Stars" by Jennifer Zeynab Joukhadar`,
+    `You've already read "Dietland" by Sarai Walker`,
+    `You still need to read "A Place for Us" by Fatima Farheen Mirza`,
+    `You've already read "The House of Impossible Beauties" by Joseph Cassara`,
   ]);
   
 });
