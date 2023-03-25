@@ -1,12 +1,4 @@
-/*
-Below you will find a list of people that I know. 
-*/
 
-/*
-1) Reading
-Before you start, you should read through the object below so that you understand the structure of it.
-When you've finished. Continue to the exercises below.
-*/
 
 const friends = [
   {
@@ -371,107 +363,86 @@ const friends = [
   },
 ];
 
-/*
-2) Aged 35 or Older
-In the above object you can see my friends and the colleagues of my friends.
-First, I want you to find all of my friends who are 35 or older.
-*/
 
-let thirtyFiveOrOlder = [];
-for (let i = 0; i < friends.length; i++) {
-  if (friends[i].age >= 35) {
-    thirtyFiveOrOlder.push(friends[i]);
-  }
-}
 
-/*
-3) Find the email address
-Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
-*/
 
-let powerNetEmails = [];
-for (let i = 0; i < friends.length; i++) {
-  let friend = friends[i];
 
-  if (friend.company === "POWERNET") {
-    powerNetEmails.push(friend.email);
-  }
-}
 
-/*
-4) colleagues with "Stacie Villarreal"
-Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
-You can see who people's colleagues are by seeing the "colleagues" array in each of my friends objects.
-This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
-*/
+
 
 let friendsWhoAreColleaguesOfStacie = [];
 
 for (group in friends) {
-    
     for(colleague in friends[group].colleagues){
         if (friends[group].colleagues[colleague].name.includes("Stacie Villarreal")) {
-
-
-             let fullName  = friends[group].name.first +' '+ friends[group].name.last 
+     let fullName  = friends[group].name.first +' '+ friends[group].name.last 
             
             friendsWhoAreColleaguesOfStacie.push(fullName);
+            
         }
-      }
-    }
-/*
-5) Find "Multi-tasking" colleagues
-Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
-You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
-This time, I only want the full names of the people who can multitask
-*/
+    } 
 
-let colleaguesWhoCanMultitask = [];
-for (let friend of friends) {
-  for (let colleague of friend.colleagues) {
-    if (colleague.skills.includes('Multi-tasking')) {
-      colleaguesWhoCanMultitask.push(colleague.name);
-    }
-  }
 }
+console.log(friendsWhoAreColleaguesOfStacie);
 
-/* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
-- To run all exercises/tests in the mandatory folder, run `npm test`
-- (Reminder: You must have run `npm install` one time before this will work!)
-*/
 
-test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
-    "Vilma",
-    "Aisha",
-    "Mitchell",
-    "Sutton",
-    "Jana",
-  ]);
-});
 
-test("3 - Powernet email addresses", () => {
-  expect(powerNetEmails).toIncludeSameMembers([
-    "clay.livingston@powernet.com",
-    "gloria.hall@powernet.com",
-  ]);
-});
 
-test("4 - friends with Stacie Villarreal as a colleague", () => {
-  expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
-    "Clay Livingston",
-    "Jana Harrison",
-    "Haley Knox",
-  ]);
-});
 
-test("5 - colleagues who can multitask", () => {
-  expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-    "Rush May",
-    "Gena Good",
-    "Cunningham Shelton",
-    "Castro Castaneda",
-    "Luz Newton",
-  ]);
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log( stacieFriends)
+
+
+// console.log(friends[9].colleagues)
+// console.log(friendsWhoAreColleaguesOfStacie)
+
+
+
+
+
+
+
+
+
+// let friendsWhoAreColleaguesOfStacie = [];
+// let stacieFriends =[];
+// for (group in friends) {
+    
+//     for(colleague in friends[group].colleagues){
+//         if (friends[group].colleagues[colleague].name.includes("Stacie Villarreal")) {
+
+
+//              let fullName  = friends[group].name.first +' '+ friends[group].name.last 
+            
+//             stacieFriends.push(fullName);
+//             //  stacieFriends =friends[group].colleagues;
+            
+//   }
+  
+//     }
+// }
