@@ -44,7 +44,11 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
-
+for (let day in weeklyMealPlan) {
+  if (day === "saturday" || day === "sunday") {
+    weekendGroceriesToBuy.push(...weeklyMealPlan[day]);
+  }
+}
 /*
 Exercise 3:
   Loop through your weekly meal plan:
@@ -61,6 +65,11 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+for (let day in weeklyMealPlan) {
+  let count = weeklyMealPlan[day].length;
+  numberOfItemsPerWeek[day] = count;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern groceries.js`
