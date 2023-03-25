@@ -38,15 +38,25 @@ let game = {
   currentRoom: null,
 
   start: function (roomName) {
-    // This function is called with the name of the room that the player wants
-    // to start in.
-    // Finish the function so that the currentRoom property is set to the room
-    // object for the correct room.
-    //
-    // Hint: the only valid rooms are "hall", "classroom" and "library".
+    
+    let roomToStart = {};
+
+    for (const aRoom in rooms) {
+      if (rooms[aRoom].name === roomName) {
+        roomToStart = rooms[aRoom];
+      }
+    }
+    game.currentRoom = roomToStart;
+
   },
 
   move: function (direction) {
+    // console.log(rooms[game.currentRoom.name].direction());
+    game.currentRoom = game.currentRoom[direction];
+    // if (game.currentRoom === rooms.library)
+    //   game.currentRoom = rooms.library;
+    //   game.move("north");
+    //   expect(game.currentRoom.name).toEqual("hall");
     // This function is called with the direction that the player wants to move.
     // Finish the function so that the currentRoom property is updated with new
     // room in the direction that the player wants to move in.

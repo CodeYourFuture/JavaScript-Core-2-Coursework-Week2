@@ -27,6 +27,12 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+let allGroceries = Object.values(weeklyMealPlan);
+allGroceries.forEach((aDaysGroceries) => {
+  weeklyGroceriesToBuy.push(
+    ...aDaysGroceries.filter((item) => !weeklyGroceriesToBuy.includes(item))
+  );
+});
 
 /*
 Exercise 2:
@@ -34,7 +40,14 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+// filter keys to only have Saturday and Sunday
+let weekendKeys = Object.keys(weeklyMealPlan).filter((aDay) => {
+  return aDay === "saturday" || aDay === "sunday";
+});
 
+weekendKeys.forEach((weekendDay) => {
+  weekendGroceriesToBuy.push(...weeklyMealPlan[weekendDay]);
+});
 /*
 Exercise 3:
   Loop through your weekly meal plan:
@@ -52,6 +65,11 @@ let numberOfItemsPerWeek = {
   sunday: 0,
 };
 
+for (let aDay in numberOfItemsPerWeek) {
+  console.log(numberOfItemsPerWeek);
+  numberOfItemsPerWeek[aDay] = weeklyMealPlan[aDay].length;
+  console.log(numberOfItemsPerWeek);
+}
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -104,7 +122,7 @@ test("Exercise 2 - Weekend groceries to buy contains correct items", () => {
   );
 });
 
-test("Exercise 3 - Numer of items per week contains the correct counts", () => {
+test("Exercise 3 - Number of items per week contains the correct counts", () => {
   const expectedNumberOfItemsPerWeek = {
     monday: 5,
     tuesday: 6,
