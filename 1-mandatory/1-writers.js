@@ -50,9 +50,17 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
+// function logAllWriters() {
+//   // write your code to log all writers here
+// }
+
 function logAllWriters() {
-  // write your code to log all writers here
+  for (let i = 0; i < writers.length; i++) {
+    const writer = writers[i];
+    console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`);
+  }
 }
+
 
 /*
 Exercise 2:
@@ -61,9 +69,17 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
+
+
 function logDeadWritersInTheirForties() {
-  // write your code here
+  for (let i = 0; i < writers.length; i++) {
+    const writer = writers[i];
+    if (writer.age >= 40 && writer.age <= 49 && !writer.alive) {
+      console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`);
+    }
+  }
 }
+
 
 /*
 Exercise 3:
@@ -71,9 +87,17 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
+
+
 function logAliveWritersInTheirForties() {
-  // write your code here
+  for (let i = 0; i < writers.length; i++) {
+    const writer = writers[i];
+    if (writer.age >= 40 && writer.age <= 49 && writer.alive) {
+      console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`);
+    }
+  }
 }
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern writers.js`

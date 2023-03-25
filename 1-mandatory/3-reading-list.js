@@ -16,10 +16,48 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+// const books = [];
+
+const books = [
+  {
+    theTitle: "16. The Shell Seekers",
+    author: "Rosamunde Pilcher",
+    alreadyRead: false,
+  },
+  {
+    theTitle: "The Master and Margarita",
+    author: "Mikhail Bulgakov",
+    alreadyRead: true,
+  },
+  {
+    theTitle: "Four Thousand Weeks",
+    author: "Oliver Burkeman ",
+    alreadyRead: true,
+  },
+  {
+    theTitle: "Anna Karenina",
+    author: "Leo Tolstoy",
+    alreadyRead: true,
+  },
+  {
+    theTitle: "One Thousand and One Nights",
+    author: "Hanan Al-Shaykh",
+    alreadyRead: false,
+  },
+];
 
 // exercise 1
-function logBooks() {}
+
+function logBooks() {
+  return books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.theTitle} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.theTitle} by ${book.author}`);
+    }
+  });
+}
+
 
 /*
 =====
@@ -48,21 +86,65 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+test("books are logged", function () {
+  expectLogBooksToLog([
+
+    "You still need to read 16. The Shell Seekers by Rosamunde Pilcher",
+    "You've already read The Master and Margarita by Mikhail Bulgakov",
+    "You've already read Four Thousand Weeks by Oliver Burkeman ",
+    "You've already read Anna Karenina by Leo Tolstoy",
+    "You still need to read One Thousand and One Nights by Hanan Al-Shaykh",
+  ]);
+});
+
+
+// console.log("Test 1");
+// logBooks(); 
+// // should log:
+// // "You've already read "The Hobbit" by J.R.R. Tolkien"
+// // "You still need to read "The Lord of the Rings" by J.R.R. Tolkien."
+// // "You've already read "Harry Potter and the Philosopher's Stone" by J.K. Rowling"
+// // "You still need to read "To Kill a Mockingbird" by Harper Lee."
+// // "You've already read "1984" by George Orwell"
+
+
+
+// console.log("Test 2");
+// books[1].alreadyRead = true;
+// logBooks(); 
+// // should log:
+// // "You've already read "The Hobbit" by J.R.R. Tolkien"
+// // "You've already read "The Lord of the Rings" by J.R.R. Tolkien."
+// // "You've already read "Harry Potter and the Philosopher's Stone" by J.K. Rowling"
+// // "You still need to read "To Kill a Mockingbird" by Harper Lee."
+// // "You've already read "1984" by George Orwell"
+
+// console.log("Test 3");
+// books[0].alreadyRead = false;
+// books[1].alreadyRead = false;
+// books[2].alreadyRead = false;
+// books[3].alreadyRead = false;
+// books[4].alreadyRead = false;
+// logBooks(); 
+// // should log:
+// // "You still need to read "The Hobbit" by J.R.R. Tolkien"
+// // "You still need to read "The Lord of the Rings" by J.R.R. Tolkien."
+// // "You still need to read "Harry Potter and the Philosopher's Stone" by J.K. Rowling"
+// // "You still need to read "To Kill a Mockingbird" by Harper Lee."
+// // "You still need to read "1984" by George Orwell"
+
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
-  expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
-  ]);
-});
+
+
+
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
