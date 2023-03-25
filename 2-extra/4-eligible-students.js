@@ -16,7 +16,7 @@
 
 function eligibleStudents(attendances) {
   let eligibleStudentList = [];
-  for (let attendee in attendances) {
+  for (let attendee of attendances) {
     if (attendee.attendance >= 8) {
       eligibleStudentList.push(attendee.name);
     }
