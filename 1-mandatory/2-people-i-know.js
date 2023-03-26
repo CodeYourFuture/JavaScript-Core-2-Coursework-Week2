@@ -10,6 +10,7 @@ When you've finished. Continue to the exercises below.
 
 const friends = [
   {
+    //array element #1
     age: 39,
     company: "PEARLESSA",
     name: {
@@ -46,6 +47,7 @@ const friends = [
     ],
   },
   {
+    //array element #2
     age: 39,
     company: "PLUTORQUE",
     name: {
@@ -82,6 +84,7 @@ const friends = [
     ],
   },
   {
+    //array element #3
     age: 36,
     company: "LINGOAGE",
     name: {
@@ -118,6 +121,7 @@ const friends = [
     ],
   },
   {
+    //array element #4
     age: 24,
     company: "MELBACOR",
     name: {
@@ -154,6 +158,7 @@ const friends = [
     ],
   },
   {
+    //array element #5
     age: 40,
     company: "CIPROMOX",
     name: {
@@ -190,6 +195,7 @@ const friends = [
     ],
   },
   {
+    //array element #6
     age: 21,
     company: "ENVIRE",
     name: {
@@ -226,6 +232,7 @@ const friends = [
     ],
   },
   {
+    //array element #7
     age: 28,
     company: "PROSELY",
     name: {
@@ -262,6 +269,7 @@ const friends = [
     ],
   },
   {
+    //array element #8
     age: 36,
     company: "CAPSCREEN",
     name: {
@@ -298,6 +306,7 @@ const friends = [
     ],
   },
   {
+    //array element #9
     age: 31,
     company: "POWERNET",
     name: {
@@ -334,6 +343,7 @@ const friends = [
     ],
   },
   {
+    //array element #10
     age: 22,
     company: "POWERNET",
     name: {
@@ -379,12 +389,24 @@ First, I want you to find all of my friends who are 35 or older.
 
 let thirtyFiveOrOlder = [];
 
+thirtyFiveOrOlder = friends.filter((friend) => {
+  return friend.age >= 35;
+});
+
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
 let powerNetEmails = [];
+
+let worksForPowernet = friends.filter((friend) => {
+  return friend.company === "POWERNET";
+});
+
+powerNetEmails = worksForPowernet.map((friend) => {
+  return friend.email;
+});
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +416,7 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"

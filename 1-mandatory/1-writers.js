@@ -50,8 +50,13 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
+
 function logAllWriters() {
-  // write your code to log all writers here
+  for (const element of writers) {
+    console.log(
+      `Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old, and work as a ${element.occupation}.`
+    );
+  }
 }
 
 /*
@@ -61,8 +66,20 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
+function getDeadWritersInTheirForties(writer) {
+  return writer.age > 40 && writer.age < 49 && writer.alive === false;
+}
+
+function printSentence(writer) {
+  return console.log(
+    `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+  );
+}
+
 function logDeadWritersInTheirForties() {
-  // write your code here
+  let deadWritersInTheirForties = writers.filter(getDeadWritersInTheirForties);
+
+  deadWritersInTheirForties.map(printSentence);
 }
 
 /*
@@ -71,8 +88,20 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
+function getAliveWritersInTheirForties(writer) {
+  return writer.age >= 40 && writer.age <= 49 && writer.alive === true;
+}
+
 function logAliveWritersInTheirForties() {
-  // write your code here
+  let aliveWritersInTheirForties = writers.filter(
+    getAliveWritersInTheirForties
+  );
+
+  aliveWritersInTheirForties.map((writer) => {
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+    );
+  });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
