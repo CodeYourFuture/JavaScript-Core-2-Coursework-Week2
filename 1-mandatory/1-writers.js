@@ -51,9 +51,9 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  writers.map((object) => {
+  writers.map((writer) => {
     console.log(
-      `Hi, my name is ${object.firstName} ${object.lastName}. I am ${object.age} years old, and work as a ${object.occupation}.`
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
     );
   });
 }
@@ -67,7 +67,7 @@ Exercise 2:
 
 function logDeadWritersInTheirForties() {
   let overAge = writers.filter(
-    (object) => object.age >= 40 && object.age <= 49 && !object.alive
+    (writer) => writer.age >= 40 && writer.age <= 49 && !writer.alive
   );
   overAge.map((writer) => {
     console.log(
@@ -84,7 +84,7 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   let overAge = writers.filter(
-    (object) => object.age >= 40 && object.age <= 49 && object.alive
+    (writer) => writer.age >= 40 && writer.age <= 49 && writer.alive
   );
   overAge.map((writer) => {
     console.log(

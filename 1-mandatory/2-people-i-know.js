@@ -396,13 +396,12 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = friends
-  .filter((friend) => {
-    for (const colleague of friend.colleagues) {
-      if (colleague.name.includes(`Stacie Villarreal`)) {
-        return true;
-      }
-    }
-  })
+  .filter(
+    (friend) =>
+      friend.colleagues.filter((colleague) =>
+        colleague.name.includes(`Stacie Villarreal`)
+      ).length > 0
+  )
   .map((friend) => `${friend.name.first} ${friend.name.last}`);
 
 /*
