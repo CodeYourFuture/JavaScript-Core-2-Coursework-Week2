@@ -52,17 +52,35 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
+  for (let eachWriter of writers) {
+    console.log(
+      `Hi, my name is ${eachWriter.firstName} ${eachWriter.lastName}. I am ${eachWriter.age} years old, and work as a ${eachWriter.occupation}.`
+    );
+  }
 }
 
 /*
 Exercise 2:
-  Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
+  Only `console.log()` out the writers who are ( I think it should be WERE ) in their 40s (meaning between 40 and 49)
   and not alive anymore. Use the below sentence format:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  for (let eachWriter of writers) {
+    if (
+      eachWriter.age >= 40 &&
+      eachWriter.age <= 49 &&
+      // eachWriter.alive === false we use not operator
+      !eachWriter.alive
+    ) {
+      console.log(
+        `Writer ${eachWriter.firstName} ${eachWriter.lastName} died at ${eachWriter.age} years old.`
+      );
+      // i think it should be YEAR old
+    }
+  }
 }
 
 /*
@@ -73,6 +91,14 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  for (let eachWriter of writers) {
+    if (eachWriter.age >= 40 && eachWriter.age <= 49 && eachWriter.alive) {
+      console.log(
+        `Hi, my name is ${eachWriter.firstName} ${eachWriter.lastName}. I am ${eachWriter.age} years old.`
+      );
+      // I think it should be YEAR old
+    }
+  }
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
