@@ -38,25 +38,27 @@ let game = {
   currentRoom: null,
 
   start: function (roomName) {
-    
     let roomToStart = {};
-
-    for (const aRoom in rooms) {
-      if (rooms[aRoom].name === roomName) {
-        roomToStart = rooms[aRoom];
+    if (roomName in rooms) {
+      for (const aRoom in rooms) {
+        if (rooms[aRoom].name === roomName) {
+          roomToStart = rooms[aRoom];
+        }
       }
+      game.currentRoom = roomToStart;
+    } else {
+      game.currentRoom = null;
     }
-    game.currentRoom = roomToStart;
-
   },
 
   move: function (direction) {
-    // console.log(rooms[game.currentRoom.name].direction());
-    game.currentRoom = game.currentRoom[direction];
-    // if (game.currentRoom === rooms.library)
-    //   game.currentRoom = rooms.library;
-    //   game.move("north");
-    //   expect(game.currentRoom.name).toEqual("hall");
+    // if (game.currentRoom[direction] === null) {
+    if (!(direction in game.currentRoom)) {
+      console.log("Hello");
+    } else if (game.currentRoom[direction]()) {
+      game.currentRoom = game.currentRoom[direction]();
+    }
+    // }
     // This function is called with the direction that the player wants to move.
     // Finish the function so that the currentRoom property is updated with new
     // room in the direction that the player wants to move in.
@@ -118,6 +120,7 @@ let rooms = {
   },
 };
 
+const { dir } = require("console");
 /*
 YOU ARE NOT EXPECTED TO UNDERSTAND THE CODE BELOW THIS 
 LINE!
@@ -228,14 +231,14 @@ test("start in classroom and go west", () => {
 });
 
 // remove ".skip" if your code handles trying to go in a direction with no room (by staying in the same room)
-test.skip("start in hall and go north (to non-existent room) -> stay in same room", () => {
+test("start in hall and go north (to non-existent room) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("north");
   expect(game.currentRoom.name).toEqual("hall");
 });
 
 // remove ".skip" if your code handles trying to go in a direction that doesn't exist (by staying in the same room)
-test.skip("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
+test("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("backwards");
   expect(game.currentRoom.name).toEqual("hall");

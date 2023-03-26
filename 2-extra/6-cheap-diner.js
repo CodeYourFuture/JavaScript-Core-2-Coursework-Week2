@@ -1,6 +1,6 @@
 /**
 The Frugal Gentleman
-Atticus has been invited to a dinner party, and he decides to purchase a meal to share with he party 
+Atticus has been invited to a dinner party, and he decides to purchase a meal to share with the party 
 Being a very frugal gentleman (yet disliking looking like a cheapskate), he decides to use a very simple rule. 
 In any selection of two or more meals, he will always buy the second-cheapest. 
 If there is no choice, then he will buy the only meal given to him. 
@@ -19,7 +19,37 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  let cheapestTwo = [];
+  if (mealArray.length === 0) {
+    return "Nothing :(";
+  }
+  if (mealArray.length === 1) {
+    return mealArray[0].name;
+  }
+  if (mealArray[0].price < mealArray[1].price) {
+    cheapestTwo[0] = mealArray[0];
+    cheapestTwo[1] = mealArray[1];
+  } else {
+    cheapestTwo[0] = mealArray[1];
+    cheapestTwo[1] = mealArray[0];
+  }
+  for (let i = 2; i < mealArray.length; i++) {
+    // new price is cheapest so far
+    if (mealArray[i].price < cheapestTwo[0].price) {
+      //shuffle previous cheapest record to 2nd cheapest
+      cheapestTwo[1] = cheapestTwo[0];
+      //set new cheapest record
+      cheapestTwo[0] = mealArray[i];
+    } // new price is second cheapest price so far
+    else if (mealArray[i].price < cheapestTwo[1].price) {
+      //set 2nd cheapest to new record
+      cheapestTwo[1] = mealArray[i];
+    }
+  }
+
+  return cheapestTwo[1].name;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern cheap-diner.js`
