@@ -11,7 +11,7 @@ let setOne = [
   { name: "Chicken", price: 13.99 },
   { name: "Lobster", price: 10.99 }
 ]
-chosenMeal(setOne)
+chosenMeal(setOne)s
 Should give the answer "Lobster"
 If given an empty array:
 let emptyArray = []
@@ -19,7 +19,16 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  if (mealArray.length === 0) {
+    return "Nothing :(";
+  } else if (mealArray.length === 1) {
+    return mealArray[0].name;
+  } else {
+    const sortedMeals = mealArray.sort((a, b) => a.price - b.price);
+    return sortedMeals[1].name;
+  }
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern cheap-diner.js`
