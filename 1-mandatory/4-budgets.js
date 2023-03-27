@@ -1,6 +1,6 @@
 /**
 Get Sum of People's Budget
-Create the function that takes an array with objects and returns the sum of people's budgets.
+Create the function that takes an array with objects and returns the sumBudgets of people's budgets.
 For example:
 getBudgets([
   { name: "John",  age: 21, budget: 29000 },
@@ -10,7 +10,13 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {}
+function getBudgets(peopleArray) {
+  let sumBudgets = 0;
+   
+  for (let people of peopleArray){
+    sumBudgets = sumBudgets + people.budget
+  }return sumBudgets;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`
