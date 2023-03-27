@@ -16,8 +16,36 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-
+ 
+ const books = [
+  {
+    author: "Gabriel Garcia",
+    title: "Woolf",
+    alreadyRead: true,
+    
+  },
+  {
+    author: "Mario Vargas",
+    title: "Woolf",
+    alreadyRead: false,
+    
+  },
+  {
+     author: "Virginia Woolf",
+     title: "Rose",
+     alreadyRead: true,
+  },
+  {
+     author: "Gabriela Mistral",
+     title: "",
+     alreadyRead: true,
+  },
+  {
+     author: "Lucia Ayende",
+     title: "Woolf",
+     alreadyRead: false,
+  },
+];
 // exercise 1
 function logBooks() {}
 
