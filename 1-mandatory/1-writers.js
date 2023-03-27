@@ -57,7 +57,7 @@ function logAllWriters() {
     )
   );
 }
-logAllWriters();
+
 /*
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
@@ -66,10 +66,16 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  for (writer of writers) {
+    if (writer.age >= 40 && writer.age <= 49 && writer.alive === true) {
+      console.log(
+        `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+      );
+    }
+  }
 }
-
-/*
+logDeadWritersInTheirForties();
+/*s
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
   "Hi, my name is {firstName} {lastName}. I am {age} years old."

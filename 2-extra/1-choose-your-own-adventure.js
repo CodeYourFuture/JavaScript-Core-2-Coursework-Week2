@@ -34,25 +34,55 @@ east? If there is a bug in your code, try to fix it.
 To enable the tests for the stretch goals, remove the ".skip" on the appropriate tests below.
 */
 
+// let game = {
+//   currentRoom: null,
+
+//   start: function (roomName) {
+//     // This function is called with the name of the room that the player wants
+//     // to start in.
+//     // Finish the function so that the currentRoom property is set to the room
+//     // object for the correct room.
+//     //
+//     // Hint: the only valid rooms are "hall", "classroom" and "library".
+//   },
+
+//   move: function (direction) {
+//     // This function is called with the direction that the player wants to move.
+//     // Finish the function so that the currentRoom property is updated with new
+//     // room in the direction that the player wants to move in.
+//     //
+//     // Hint: the room objects have north/east/south/west methods which return
+//     // a new room object that is in the relevant direction.
+//   },
+// };
 let game = {
   currentRoom: null,
 
   start: function (roomName) {
-    // This function is called with the name of the room that the player wants
-    // to start in.
-    // Finish the function so that the currentRoom property is set to the room
-    // object for the correct room.
-    //
-    // Hint: the only valid rooms are "hall", "classroom" and "library".
+    if (Object.keys(rooms).includes(roomName)) {
+      this.currentRoom = rooms[roomName];
+    }
   },
 
   move: function (direction) {
-    // This function is called with the direction that the player wants to move.
-    // Finish the function so that the currentRoom property is updated with new
-    // room in the direction that the player wants to move in.
-    //
-    // Hint: the room objects have north/east/south/west methods which return
-    // a new room object that is in the relevant direction.
+    let newRoom = null;
+    switch (direction) {
+      case "north":
+        newRoom = this.currentRoom.north();
+        break;
+      case "east":
+        newRoom = this.currentRoom.east();
+        break;
+      case "south":
+        newRoom = this.currentRoom.south();
+        break;
+      case "west":
+        newRoom = this.currentRoom.west();
+        break;
+    }
+    if (newRoom !== null) {
+      this.currentRoom = newRoom;
+    }
   },
 };
 
