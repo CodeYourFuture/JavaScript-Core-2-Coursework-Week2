@@ -10,7 +10,14 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {}
+function getBudgets(peopleArray) {
+  let NewpeopleArray = peopleArray.map((people) => people.budget);
+  let result =0;
+  for (i = 0; i < NewpeopleArray.length; i++) {
+    result += NewpeopleArray[i];
+  }
+  return result;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`
