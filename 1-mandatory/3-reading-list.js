@@ -46,8 +46,13 @@ const books = [
 
 // exercise 1
 function logBooks() {
-  books.map(({title, author}) => {
-    console.log(`${title} by ${author}`)
+  books.map(({title, author, alreadyRead}) => {
+    if (alreadyRead) {
+      console.log(`You've already read ${title} by ${author}`)
+    } else {
+      console.log(`You still need to read ${title} by ${author}`)
+    }
+    
   })
 }
 
@@ -87,11 +92,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", () => {
   expectLogBooksToLog([
-    "Angels and Demons by Dan Brown",
-    "Sapiens by Yuval N Harari",
-    "God: A Human History of Religion by Reza Aslan",
-    "Life After Life by Raymond A Moody",
-    "Languages Are Good for Us by Sophie hardach",
+    "You've already read Angels and Demons by Dan Brown",
+    "You've already read Sapiens by Yuval N Harari",
+    "You still need to read God: A Human History of Religion by Reza Aslan",
+    "You've already read Life After Life by Raymond A Moody",
+    "You still need to read Languages Are Good for Us by Sophie hardach",
     
   ]);
 });
