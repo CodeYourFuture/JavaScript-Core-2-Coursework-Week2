@@ -398,7 +398,7 @@ for (let friend of friends) {
   }
 }
 
-console.log(powerNetEmails);
+// console.log(powerNetEmails);
 
 /*
 
@@ -416,26 +416,6 @@ let friendsWhoAreColleaguesOfStacie = friends
     )
   )
   .map((friend) => `${friend.name.first} ${friend.name.last}`);
-// didnt work
-
-// for (let friend of friends) {
-//   if (friend.colleagues === "Stacie Villarreal.") {
-//     friendsWhoAreColleaguesOfStacie.push(
-//       `${friend.name.first}, ${friend.name.last}`
-//     );
-//   }
-// }
-
-// console.log(friendsWhoAreColleaguesOfStacie);
-
-// for (const friend of friends) {
-//   // for (const person of friend.colleagues) {
-//   if (person.name === "Stacie Villarreal") {
-//     friendsWhoAreColleaguesOfStacie.push(
-//       `${friend.name.first}, ${friend.name.last}`
-//     );
-//   }
-// }
 
 //find friends (friends) > who are colleague (colleage) with Statice villarreal
 // friends.filtter > colleagues.some > map. friends names
@@ -450,12 +430,15 @@ This time, I only want the full names of the people who can multitask
 let colleaguesWhoCanMultitask = [];
 
 for (const friend of friends) {
-  for (const person of friend.colleagues) {
-    if (person.skills.includes("MUlti-tasking")) {
-      colleaguesWhoCanMultitask.push(friend.name);
+  for (const colleague of friend.colleagues) {
+    if (colleague.skills.includes("MUlti-tasking")) {
+      console.log(colleague.skills);
+      colleaguesWhoCanMultitask.push(colleague.name);
     }
   }
 }
+
+//friend > colleagues.skills === "multi-tasking"
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
