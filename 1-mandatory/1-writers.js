@@ -74,8 +74,9 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
-  // write your code here
+function logAliveWritersInTheirForties(listOfWriters) {
+  //similar to previous function, used .filter() method to return only writers with age greater than or equal to 40 AND age less than 50 AND alive field equals true. used .map() method to console.log each of the array items that has been filtererd to display a string 
+  listOfWriters.filter((writer) => writer.age >= 40 && writer.age < 50 && writer.alive === true).map((writer) => console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}, I am ${writer.age} years old`));
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
