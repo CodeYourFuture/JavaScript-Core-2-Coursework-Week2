@@ -63,8 +63,9 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
-  // write your code here
+function logDeadWritersInTheirForties(listOfWriters) {
+  //used .filter() method to return only writers with age greater than or equal to 40 AND age less than 50 AND alive field equals false. used .map() method to console.log each of the array items (object with info about writer in this example) that has been filtered to display a string
+  listOfWriters.filter((writer) => writer.age >= 40 && writer.age < 50 && writer.alive === false).map((writer) => console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`));
 }
 
 /*
