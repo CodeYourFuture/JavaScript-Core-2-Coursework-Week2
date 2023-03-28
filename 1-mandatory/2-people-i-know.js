@@ -377,14 +377,17 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+let thirtyFiveOrOlder = friends.filter( person => person.age >= 35);
+// console.log(thirtyFiveOrOlder)
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+let powerNetEmails = friends.filter( person => person.company === "POWERNET").map( person => person.email);
+//I'm usung chaining method to exit to each object in an array and then filltering them . Using map in the end I'm saying what exactly iI whant to terurn in new array  
+// console.log(powerNetEmails)
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -393,7 +396,12 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+
+let friendsWhoAreColleaguesOfStacie = friends.filter(
+  person => person.colleagues.some( colleague => colleague.name === "Stacie Villarreal"))
+  .map( person => `${person.name.first} ${person.name.last}`)
+
+  // console.log(friendsWhoAreColleaguesOfStacie)
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -401,8 +409,20 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
+// let colleaguesWhoCanMultitask = friends.filter( person => person.colleagues.some( colleague => colleague.skills.includes("Multi-tasking")))
+// .map( person => 
+//   person.colleagues.name);
+  let colleaguesWhoCanMultitask = []
 
+  for(let person of friends){
+    for(let colleague of person.colleagues){
+      if(colleague.skills.includes("Multi-tasking")){
+        colleaguesWhoCanMultitask.push(colleague.name)
+      }
+    }
+  }
+
+console.log(colleaguesWhoCanMultitask)
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

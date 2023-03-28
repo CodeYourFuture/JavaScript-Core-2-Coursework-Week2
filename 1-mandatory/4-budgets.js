@@ -10,8 +10,13 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {}
-
+function getBudgets(peopleArray) {
+  let sumOfBudget = 0;
+  peopleArray.forEach((person) => {
+    sumOfBudget += person.budget;
+  });
+  return sumOfBudget;
+}
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
