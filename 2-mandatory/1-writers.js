@@ -74,8 +74,13 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
+  writers.forEach(writer => {
+   if (writer.age >= 40 && writer.age < 50 && !writer.alive) {
+    console.log(`writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`)
+   }
+  });
   // write your code here
-}
+};
 
 /*
 Exercise 3:
@@ -84,6 +89,12 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
+  writers.forEach(writer => {
+    if (writer.age >= 40 && writer.age < 50 && writer.alive) {
+      console.log(`Hi my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`)
+    }
+
+  })
   // write your code here
 }
 
