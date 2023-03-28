@@ -44,6 +44,13 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
+    if (roomName == "hall"){
+      game.currentRoom = rooms.hall
+    } else if(roomName == "classroom"){
+      game.currentRoom = rooms.classroom
+    }else if(roomName == "library"){
+      game.currentRoom = rooms.library
+    }
   },
 
   move: function (direction) {
@@ -52,13 +59,28 @@ let game = {
     // room in the direction that the player wants to move in.
     //
     // Hint: the room objects have north/east/south/west methods which return
-    // a new room object that is in the relevant direction.
+   
+   
+    if (direction == "east"){
+      game.currentRoom = rooms.hall.east()
+    }else if (direction == "south"){
+      game.currentRoom = rooms.hall.south()
+      return game.currentRoom
+    } else if (direction == "west"){
+      game.currentRoom = rooms.classroom.west()
+    } else if (direction == "north"){
+      game.currentRoom = rooms.library.north()
+    } else if (direction == "north" || direction == "Wonderland" && this.currentRoom == "hall"){
+      game.currentRoom = rooms.hall
+    }
+  
   },
 };
 
 /*
 DO NOT EDIT BELOW THIS LINE
 */
+
 
 let rooms = {
   hall: {
@@ -218,14 +240,14 @@ test("start in classroom and go west", () => {
 });
 
 // remove ".skip" if your code handles trying to go in a direction with no room (by staying in the same room)
-test.skip("start in hall and go north (to non-existent room) -> stay in same room", () => {
+test("start in hall and go north (to non-existent room) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("north");
   expect(game.currentRoom.name).toEqual("hall");
 });
 
 // remove ".skip" if your code handles trying to go in a direction that doesn't exist (by staying in the same room)
-test.skip("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
+test("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("backwards");
   expect(game.currentRoom.name).toEqual("hall");

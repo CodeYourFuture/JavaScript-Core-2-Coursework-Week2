@@ -16,10 +16,44 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "7 Habits of Highly Effective People",
+    author: "Stephen R. Covey",
+    alreadyRead: true,
+  },
+  {
+    title: "The catcher in the rye",
+    author: "Jerome David Salinger",
+    alreadyRead: false,
+  },
+  {
+    title: "Three Comrades",
+    author: "Erich Maria Remarque",
+    alreadyRead: true,
+  },
+  {
+    title: "When I Was a Work of Art",
+    author: "Eric-Emanuel Shmitt",
+    alreadyRead: true,
+  },
+  {
+    title: "The Lord of the Rings",
+    author: "J.R.R. Tolkien",
+    alreadyRead: false,
+  }
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  for (let book of books){
+    if (book.alreadyRead == true){
+      console.log(`You've already read ${book.title} by ${book.author}`)
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`)
+    }
+  }
+}
 
 /*
 =====
@@ -54,15 +88,16 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
-  expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+test("books are logged", () => {
+    expectLogBooksToLog([
+    "You've already read 7 Habits of Highly Effective People by Stephen R. Covey",
+    "You still need to read The catcher in the rye by Jerome David Salinger",
+    "You've already read Three Comrades by Erich Maria Remarque",
+    "You've already read When I Was a Work of Art by Eric-Emanuel Shmitt",
+    "You still need to read The Lord of the Rings by J.R.R. Tolkien",
   ]);
 });
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
