@@ -378,7 +378,11 @@ First, I want you to find all of my friends who are 35 or older.
 */
 
 let thirtyFiveOrOlder = [];
-
+//used .filter() method to return array items with friend.age greater than 35 and then used .map() method on the items in the temp filtered array to add the name of friends greater than 35 to array named thirtyFiveOrOlder  
+function findFriendsOverThirtyFive(friendsList) {
+  friendsList.filter((friend) => friend.age >= 35).map((friend) => thirtyFiveOrOlder.push(friend.name.first))
+  return thirtyFiveOrOlder;
+}
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
