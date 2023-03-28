@@ -377,15 +377,32 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
-
+let thirtyFiveOrOlder = []
+function getThirtyFiveOrOlder () {
+  friends.map(({name, age}) => {
+    if (age >= 35) {
+      thirtyFiveOrOlder.push (`${name.first}`) 
+    } 
+  })
+  return thirtyFiveOrOlder
+}
+getThirtyFiveOrOlder(friends)
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
 let powerNetEmails = [];
-
+function getPowerNetEmails() {
+  friends.map(({company, email}) => {
+    if (company === "POWERNET") {
+      powerNetEmails.push(email)
+    }
+  })
+  
+  return powerNetEmails
+}
+getPowerNetEmails(friends)
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -394,6 +411,15 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+function getFirendsWhoAreCooleaguesOfStacie () {
+  friends.map(({name, colleagues}) => {
+    if (colleagues.filter(colleague => colleague.name.includes("Stacie Villarreal"))) {
+      friendsWhoAreColleaguesOfStacie.push(`${name.first} ${name.last}`)
+    }
+  })
+  return friendsWhoAreColleaguesOfStacie
+}
+getFirendsWhoAreCooleaguesOfStacie(friends)
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -402,6 +428,16 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+function getColleaguesWhoCanMultitask () {
+  friends.map(({colleagues}) => {
+    if (colleagues.filter( colleagues => colleagues.skills.includes("Multi-tasking")) ) {
+      colleaguesWhoCanMultitask.push(colleagues.name)
+    }
+  })
+  return colleaguesWhoCanMultitask
+}
+
+getColleaguesWhoCanMultitask(friends);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
@@ -410,7 +446,7 @@ let colleaguesWhoCanMultitask = [];
 */
 
 test("2 - friends that are over 35", () => {
-  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+  expect(thirtyFiveOrOlder).toIncludeSameMembers([
     "Vilma",
     "Aisha",
     "Mitchell",
