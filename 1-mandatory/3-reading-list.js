@@ -45,14 +45,14 @@ let books = [
 ];
 
 // exercise 1
-
+/*
 function logBooks() {
- let topcars = "BMW";
+
   for (let book of books) {
     console.log(`${book.title} by ${book.Author}`);
   }
 }
-
+*/
 
 /*
 =====
@@ -80,15 +80,16 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
-function ReadAllBooks() {
-  console.log(books);
-  for (const book of books) {
+
+ 
+  function logBooks() {
+  return books.forEach((book) => {
     if (book.alreadyRead) {
       console.log(`You've already read ${book.title} by ${book.Author}`);
     } else {
       console.log(`You still need to read ${book.title} by ${book.Author}`);
     }
-  }
+  });
 }
 
 
@@ -112,10 +113,10 @@ test("books are logged", function () {
 
 test("books you have already read", function () {
   expectLogBooksToLog([
-    "You've already read The curiouse incident by Mark Haddon",
+    "You've already read The curiouse incident by Mark Haddon", 
     "You still need to read Empty world by John Christopher",
     "You've already read the jungle book by RudeYard kipling",
-    "You still need Old Man and the see by Ernest Hemingway",
+    "You still need to read Old Man and the see by Ernest Hemingway",
     "You've already read Herzog by Saul Bellow",
   ]);
 });
