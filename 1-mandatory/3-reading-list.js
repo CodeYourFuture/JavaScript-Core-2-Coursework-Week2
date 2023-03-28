@@ -1,4 +1,4 @@
-/**
+ /**
 The Reading List
 Keep track of which books you've read and which books you want to read!
 =====
@@ -19,39 +19,46 @@ without using any variables or any logic like loops, template strings or if stat
  
  const books = [
   {
-    author: "Gabriel Garcia",
-    title: "Woolf",
+    author: "J.R.R. Tolkien",
+    title: "The Hobbit",
     alreadyRead: false,
     
   },
   {
-    author: "Mario Vargas",
-    title: "la tia Julia",
+    author: "Jennifer Zeynab Joukhadar",
+    title: "The Map of Salt and Stars",
     alreadyRead: true,
     
   },
   {
-     author: "Virginia Woolf",
-     title: "Rose",
+     author: "Sarai Walker",
+     title: "Dietland",
      alreadyRead: false,
   },
   {
-     author: "Pablo Neruda",
-     title: "20 Poemas de amor",
+     author: "Fatima Farheen Mirza",
+     title: "A Place for Us ",
      alreadyRead: true,
   },
   {
-     author: "Isabel Allende",
-     title: "La casa de los Espiritus",
+     author: "Joseph Cassara",
+     title: "The House of Impossible Beauties",
      alreadyRead: true,
   },
 ];
 // exercise 1
-function logBooks() {}
+function logBooks() {
+   books.forEach(book => {
+    console.log(`${book.title} by ${book.author}`);
+   });
+  }
 
 /*
 =====
 Exercise 2
+
+
+
 =====
 Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
 If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien', 
@@ -75,6 +82,7 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
