@@ -8,7 +8,7 @@ Create an array of objects, where each object describes a book and has propertie
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
-Write a funciton that loops through the array of books. For each book, log the book title and book author like so: 
+Write a function that loops through the array of books. For each book, log the book title and book author like so: 
 "The Hobbit by J.R.R. Tolkien"
 You should write and log at least 5 books. 
 You should modify the tests so that they contain the values that correspond to your books.
@@ -21,29 +21,29 @@ without using any variables or any logic like loops, template strings or if stat
   {
     author: "Gabriel Garcia",
     title: "Woolf",
-    alreadyRead: true,
+    alreadyRead: false,
     
   },
   {
     author: "Mario Vargas",
-    title: "Woolf",
-    alreadyRead: false,
+    title: "la tia Julia",
+    alreadyRead: true,
     
   },
   {
      author: "Virginia Woolf",
      title: "Rose",
-     alreadyRead: true,
-  },
-  {
-     author: "Gabriela Mistral",
-     title: "",
-     alreadyRead: true,
-  },
-  {
-     author: "Lucia Ayende",
-     title: "Woolf",
      alreadyRead: false,
+  },
+  {
+     author: "Pablo Neruda",
+     title: "20 Poemas de amor",
+     alreadyRead: true,
+  },
+  {
+     author: "Isabel Allende",
+     title: "La casa de los Espiritus",
+     alreadyRead: true,
   },
 ];
 // exercise 1
