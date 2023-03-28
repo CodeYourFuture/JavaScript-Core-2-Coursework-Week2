@@ -417,6 +417,20 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 
 let friendsWhoAreColleaguesOfStacie = [];
 
+// Filter will check each friend's colleagues property
+function getFriendsWhoWorkWithStacie(friend) {
+  // the for loop accesses each colleague in the colleagues array
+  for (let colleague of friend.colleagues) {
+    if (colleague.name === "Stacie Villarreal") {
+      return colleague;
+    }
+  }
+}
+
+friendsWhoAreColleaguesOfStacie = friends
+  .filter(getFriendsWhoWorkWithStacie)
+  .map((friend) => `${friend.name.first} ${friend.name.last}`);
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
