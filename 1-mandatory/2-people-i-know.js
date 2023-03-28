@@ -377,14 +377,36 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+let thirtyFiveOrOlder = friendOverThirtyFive();
+
+ function friendOverThirtyFive() {
+  let thirtyFive = [];
+  for (let friend of friends){
+   if (friend.age >= 35){
+    thirtyFive.push(friend);
+      } 
+  }
+  return thirtyFive;
+}
+
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+let powerNetEmails = getEmails();
+
+  function getEmails () {
+  let emails = [];
+  for (let friend of friends) {
+    if (friend.company === "POWERNET") {
+      emails.push(friend.email);
+    }
+    
+  }
+  return emails;
+}
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -393,7 +415,18 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+let friendsWhoAreColleaguesOfStacie = ofStacie();
+function ofStacie () {
+  let colleaguesOfStacie = [];
+  for (let friend of friends){
+    for (let colleague of friend.colleagues){
+      if (colleague.name === "Stacie Villarreal") {
+        colleaguesOfStacie.push(`${friend.name.first} ${friend.name.last}`);
+    }
+    }
+  }
+  return colleaguesOfStacie.reverse();
+}
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -401,7 +434,18 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
+let colleaguesWhoCanMultitask = multitaskSkilled();
+function multitaskSkilled () {
+  let colleaguesOfStacie = [];
+  for (let friend of friends){
+    for (let colleague of friend.colleagues){
+      if (colleague.skills.includes("Multi-tasking")) {
+        colleaguesOfStacie.push(colleague.name);
+    }
+    }
+  }
+  return colleaguesOfStacie.reverse();
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`

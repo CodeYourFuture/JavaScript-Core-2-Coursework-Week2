@@ -16,10 +16,40 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Angels & Demons",
+    author: "Dan Brown",
+    alreadyRead: true,
+  },
+  {
+    title: "The Da Vinci Code",
+    author: "Dan Brown",
+    alreadyRead: true,
+  },
+  {
+    title: "Origin",
+    author: "Dan Brown",
+    alreadyRead: true,
+  },
+  {
+    title: "The Lost Symbol",
+    author: "Dan Brown",
+    alreadyRead: false,
+  },
+  {
+    title: "Inferno",
+    author: "Dan Brown",
+    alreadyRead: false,
+  }
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  books.forEach(book => book.alreadyRead ?
+     console.log(`You've already read ${book.title} by ${book.author}`)
+     : console.log(`You still need to read ${book.title} by ${book.author}`));
+}
 
 /*
 =====
@@ -36,16 +66,16 @@ remember to practice:
 - run the test to check that your test goes red
 - now change your code to make the test pass
 As an example for this exercise, you might do the following steps
-- Modify the tests so that they all say 'You've already read <name> by <author>'
-- Run the test (they will all fail)
-- Modify your code so that it logs 'You've already read <name> by <author>'
-- Run the test (they will all pass again)
-- Modify your code making all the books alreadyRead:false and adding the if/else so that it logs 'You still need to read <name> by <author>'
-- Run the test (they will all fail)
-- Modify the tests to contain the correct list of statements (whether you've read the book or not)
++ Modify the tests so that they all say 'You've already read <name> by <author>'
++ Run the test (they will all fail)
++ Modify your code so that it logs 'You've already read <name> by <author>'
++ Run the test (they will all pass again)
++ Modify your code making all the books alreadyRead:false and adding the if/else so that it logs 'You still need to read <name> by <author>'
++ Run the test (they will all fail)
++ Modify the tests to contain the correct list of statements (whether you've read the book or not)
 - Run the test (the test will fail but there will be some successful results)
-- Modify the books so that they have the correct alreadyRead value
-- All tests should turn green!!
++ Modify the books so that they have the correct alreadyRead value
++ All tests should turn green!!
 **/
 
 /* ======= TESTS - DO MODIFY (!!!) =====
@@ -56,11 +86,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "You've already read Angels & Demons by Dan Brown",
+    "You've already read The Da Vinci Code by Dan Brown",
+    "You've already read Origin by Dan Brown",
+    "You still need to read The Lost Symbol by Dan Brown",
+    "You still need to read Inferno by Dan Brown",
   ]);
 });
 
