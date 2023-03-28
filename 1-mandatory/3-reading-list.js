@@ -16,10 +16,41 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Angels and Demons",
+    author: "Dan Brown",
+    alreadyRead: true
+  },
+  {
+    title: "Sapiens",
+    author: "Yuval N Harari",
+    alreadyRead: true,
+  },
+  {
+    title: "God: A Human History of Religion",
+    author: "Reza Aslan",
+    alreadyRead: false,
+  },
+  {
+    title: "Life After Life",
+    author: "Raymond A Moody",
+    alreadyRead: true,
+  },
+  {
+    title: "Languages Are Good for Us",
+    author: "Sophie hardach",
+    alreadyRead: false,
+  }
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  books.map(({title, author}) => {
+    console.log(`${title} by ${author}`)
+  })
+}
+
 
 /*
 =====
@@ -54,13 +85,14 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
+test("books are logged", () => {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "Angels and Demons by Dan Brown",
+    "Sapiens by Yuval N Harari",
+    "God: A Human History of Religion by Reza Aslan",
+    "Life After Life by Raymond A Moody",
+    "Languages Are Good for Us by Sophie hardach",
+    
   ]);
 });
 
