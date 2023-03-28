@@ -8,15 +8,22 @@ Before you start, you should read through the object below so that you understan
 When you've finished. Continue to the exercises below.
 */
 
+// Here we have an array of objects.
+
 const friends = [
+  // Each object inside the friends array represents a friend, and contains several properties such as age, company, name, email, and colleagues.
   {
     age: 39,
     company: "PEARLESSA",
+
+    // The name property is an object with two properties, first and last, representing the first and last name of the friend.
     name: {
       first: "Vilma",
       last: "Hardy",
     },
     email: "vilma.hardy@pearlessa.info",
+
+    // The colleagues property is an array of objects,each object represents a colleague of the friend. Each colleague object contains properties such as name, age, and skills, skills is an array too.
     colleagues: [
       {
         name: "Sally Nielsen",
@@ -45,6 +52,7 @@ const friends = [
       },
     ],
   },
+
   {
     age: 39,
     company: "PLUTORQUE",
@@ -379,12 +387,43 @@ First, I want you to find all of my friends who are 35 or older.
 
 let thirtyFiveOrOlder = [];
 
+for (let friend of friends) {
+  if (friend.age >= 35) {
+    thirtyFiveOrOlder.push(friend);
+  }
+}
+// OR just using filter method which creates a new array:
+//let thirtyFiveOrOlder = friends.filter(friend => friend.age >= 35);
+
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
+// these 3 ways have the same result and can be used Interchangeably. I prefer the first one tho
 
-let powerNetEmails = [];
+let powerNetEmails = friends
+  .filter((eachFriend) => eachFriend.company === "POWERNET")
+  .map((eachFriend) => eachFriend.email);
+
+// OR
+
+// let powerNetEmails = [];
+
+// for (const eachFriend in friends) {
+//   if (friends[eachFriend].company === "POWERNET") {
+//     powerNetEmails.push(friends[eachFriend].email);
+//   }
+// }
+
+// OR
+
+// let powerNetEmails = [];
+
+// for (const eachFriend of friends) {
+//   if (eachFriend.company === "POWERNET") {
+//     powerNetEmails.push(eachFriend.email);
+//   }
+// }
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -394,6 +433,16 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+
+friends.forEach((eachFriend) => {
+  eachFriend.colleagues.forEach((eachPerson) => {
+    if (eachPerson.name === "Stacie Villarreal") {
+      friendsWhoAreColleaguesOfStacie.push(
+        `${eachFriend.name.first} ${eachFriend.name.last}`
+      );
+    }
+  });
+});
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -402,6 +451,16 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+// Very similar to the previous one, we just go one
+// more layer deeper into the friend array.
+
+friends.forEach((eachFriend) => {
+  eachFriend.colleagues.forEach((eachPerson) => {
+    if (eachPerson.skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(eachPerson.name);
+    }
+  });
+});
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
