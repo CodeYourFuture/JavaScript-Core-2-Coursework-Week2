@@ -16,7 +16,35 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Harry Potter",
+    author: "J.K Rowlling",
+    alreadyRead: true,
+  },
+  {
+    title: "The Hobbit",
+    author: "J.R.R Tolkien",
+    alreadyRead: false,
+  },
+  {
+    title: "Rich Dad Poor Dad",
+    author: "Robert T. Kiyosaki",
+    alreadyRead: true,
+  },
+  {
+    title: "Hello World",
+    author: "Hannah Fry",
+    alreadyRead: false,
+  },
+  {
+    title: "The age of AI",
+    author: "Henry A Kissinger",
+    alreadyRead: true,
+  },
+];
+
+console.log(books.title);
 
 // exercise 1
 function logBooks() {}
@@ -56,11 +84,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
+    "Harry Potter by J.K Rowlling",
     "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "Rich Dad Poor Dad by Robert T. Kiyosaki",
+    "Hello World byHannah Fry",
+    "The age of AI Henry A Kissinger",
   ]);
 });
 
