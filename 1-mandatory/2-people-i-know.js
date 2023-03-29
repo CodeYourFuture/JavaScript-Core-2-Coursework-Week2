@@ -1,5 +1,5 @@
 /*
-Below you will find a list of people that I know. 
+Below you will find a list of people that I know.
 */
 
 /*
@@ -376,15 +376,15 @@ const friends = [
 In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
+let thirtyFiveOrOlder = friends.filter(friend => friend.age >= 35);
 
-let thirtyFiveOrOlder = [];
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+let powerNetEmails = friends.filter(friend=> friend.company==='POWERNET').map(friend=>friend.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -393,7 +393,12 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+
+let friendsWhoAreColleaguesOfStacie = friends.filter(friend => friend.colleagues.some(colleague => colleague.name === 'Stacie Villarreal'))
+  .map(friend => friend.name.first + ' ' + friend.name.last);
+
+
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -401,9 +406,25 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
+// let colleaguesWhoCanMultitask = friends.filter(friends => friends.skills
+//   .includes('Multi-tasking'))
+//     .map(friends => friends.name.first + ' ' + friends.name.last);
 
-/* ======= TESTS - DO NOT MODIFY ===== 
+  //   let colleaguesWhoCanMultitask = friends
+  // .filter(friend => friend.colleagues && friend.colleagues.skills.includes('Multi-tasking'))
+  // .map(colleague => {
+  //   return colleague.name;
+  // });
+  const colleaguesWhoCanMultitask = friends
+  .flatMap(friend => friend.colleagues || [])
+  .filter(colleague => colleague.skills && colleague.skills.includes("Multi-tasking"))
+  .map(colleague => `${colleague.name}`);
+
+console.log(colleaguesWhoCanMultitask);
+
+
+
+/* ======= TESTS - DO NOT MODIFY =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)

@@ -8,31 +8,61 @@ Create an array of objects, where each object describes a book and has propertie
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
-Write a funciton that loops through the array of books. For each book, log the book title and book author like so: 
+Write a function that loops through the array of books. For each book, log the book title and book author like so:
 "The Hobbit by J.R.R. Tolkien"
-You should write and log at least 5 books. 
+You should write and log at least 5 books.
 You should modify the tests so that they contain the values that correspond to your books.
-In this style of testing it is typical to write out as strings exactly what you expect your output to be, 
+In this style of testing it is typical to write out as strings exactly what you expect your output to be,
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: "Yes",
+  },
+  {
+    title: "The Map of Salt and Stars",
+    author: "Jennifer Zeynab Joukhadar",
+    alreadyRead: "Yes",
+  },
+  {
+    title: "Dietland",
+    author: "Sarai Walker",
+    alreadyRead: "Yes",
+  },
+  {
+    title: "A Place for Us",
+    author: "Fatima Farheen Mirza",
+    alreadyRead: "Yes",
+  },
+  {
+    title: "The House of Impossible Beauties",
+    author: "Joseph Cassara",
+    alreadyRead: "Yes",
+  },
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  books.forEach((book) => {
+  console.log(`${book.title} by ${book.author}`);
+  });
+  }
 
 /*
 =====
 Exercise 2
 =====
-Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
-If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien', 
+Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not.
+If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien',
 and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
 You will need to modify the tests to check the correct output. If you have already learnt about red-green refactoring,
 remember to practice:
-- first change the test to the value that should be output 
+- first change the test to the value that should be output
   (note: usually we wouldn't change existing tests as part of the "red" step, we would write a new test. In this case
-  it's because it's the easiest way to incrementally solve the problem), 
+  it's because it's the easiest way to incrementally solve the problem),
 - run the test to check that your test goes red
 - now change your code to make the test pass
 As an example for this exercise, you might do the following steps
@@ -47,7 +77,12 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
-
+function logBooksStatus() {
+  books.forEach((book) => {
+  const bookStatus = book.alreadyRead ? "You've already read" : "You still need to read";
+  console.log(`${bookStatus} "${book.title}" by ${book.author}.`);
+  });
+  }
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -63,6 +98,7 @@ test("books are logged", function () {
     "The House of Impossible Beauties by Joseph Cassara",
   ]);
 });
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
