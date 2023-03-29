@@ -375,9 +375,15 @@ const friends = [
 2) Aged 35 or Older
 In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
+
+Psuedocode:
+1. go through each of the friends
+2. check if age is 35 and over
+
 */
 
 let thirtyFiveOrOlder = [];
+thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
 
 /*
 3) Find the email address
@@ -385,15 +391,39 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = [];
+powerNetEmails = friends.filter((friend) => friend.company === "POWERNET").map((friend) => friend.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
 You can see who people's colleagues are by seeing the "colleagues" array in each of my friends objects.
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
+
+pseudocode:
+1. We go through all the friends who (loop)
+2. Check if they have Stacie Villarreal as their colleagues
+3. Return an array of "<firstname> <lastname>" where each friend is colleague of Stacie Villarreal
+
+*/
+
+/*
+Tried using filter and map, but could not access
+let friendsWhoAreColleaguesOfStacie = [];
+let friendsOfStacie = (friend) => friend.colleagues.filter((friend.colleagues) => friend.colleagues.name === "Stacie Villarreal");
+friendsWhoAreColleaguesOfStacie = friends.filter(friendsOfStacie).map((friend) => friend.name.first && friend.name.last);
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+
+for (let friend of friends) {
+  for (let colleague of friend.colleagues) {
+    if (colleague.name === "Stacie Villarreal") {
+      friendsWhoAreColleaguesOfStacie.push(`${friend.name.first} ${friend.name.last}`)
+    }
+  }
+};
+
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -401,7 +431,29 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
+/*
+Pseudocode:
+1. We go through each of the friends
+2. We check the friends have colleauges who have "Multi-tasking" skills. 
+3. We will then return an array of full names of those colleauges who can multitask.
+*/
+
+/*
+attempted to use filter and map but didn't work:
 let colleaguesWhoCanMultitask = [];
+
+colleaguesWhoCanMultitask = friends.filter((friend) => friend.colleagues.filter(colleagues.skills.includes("Multi-tasking"))).map((friend) => friend.colleagues.name);
+*/
+
+let colleaguesWhoCanMultitask = [];
+
+for (let friend of friends) {
+  for (let colleague of friend.colleagues) {
+    if (colleague.skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(`${colleague.name}`)
+    }
+  }
+};
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`

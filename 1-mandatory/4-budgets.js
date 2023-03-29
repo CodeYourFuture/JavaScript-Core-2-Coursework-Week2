@@ -10,7 +10,23 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {}
+/*
+Pseudocode:
+1. We have an array or list of objects (the object contains name, age and budget as key properties)
+2. We go through each of the items in that array or list of objects.
+3. We access the budget of each objects.
+4. We add those value of the each of the budget keys.
+
+*/
+
+function getBudgets(peopleArray) {
+  sum = 0;
+  for (personDetails of peopleArray) {
+    sum = sum + personDetails.budget;
+    personDetails += 1;
+  }
+  return sum;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`

@@ -50,9 +50,27 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
+// function logAllWriters(author) {
+//   let sentence =
+//     `Hi, my name is ${author.firstName} ${author.lastName}. I am ${author.age} years old, and work as a ${author.occupation}.`;
+//  console.log(writers.map(sentence));
+//   // write your code to log all writers here
+// }
+
+//classical way
+
 function logAllWriters() {
-  // write your code to log all writers here
-}
+   for (let writer of writers) {
+     console.log(
+       `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+     ); "The Hobbit by J.R.R. Tolkien",
+       "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+       "Dietland by Sarai Walker",
+       "A Place for Us by Fatima Farheen Mirza",
+       "The House of Impossible Beauties by Joseph Cassar";
+   };
+};
+
 
 /*
 Exercise 2:
@@ -62,6 +80,13 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
+  for (let writer of writers) {
+    if (writer.age >= 40 && writer.age <= 49 && writer.alive === false) {
+      console.log(
+        `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+      );
+    }
+  }
   // write your code here
 }
 
@@ -72,7 +97,11 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  writers.forEach((writer) => {
+    if (writer.alive === true && writer.age >= 40 && writer.age <= 49) {
+      console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`);
+    }
+  })
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
