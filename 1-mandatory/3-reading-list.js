@@ -48,7 +48,7 @@ const books = [
   },
 ];
 
-// console.log(books); to check if books are logged
+//console.log(books); // to check if books are logged
 
 // exercise 1
 
