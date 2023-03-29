@@ -51,8 +51,10 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
-}
+   for(let writer of writers){
+   console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`);
+  }
+};
 
 /*
 Exercise 2:
@@ -61,19 +63,44 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
-  // write your code here
-}
+//if age>=40 && age<=49
+//&& alive===False;
 
+ //const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+// const result = words.filter(word => word.length > 6);
+
+// console.log(result);
+
+function isWriterDeadIn40s(writer){
+  return writer.alive === false && writer.age >=40 && writer.age <= 49;
+
+};
+
+function logDeadWritersInTheirForties() {
+    let deadWriters = writers.filter(isWriterDeadIn40s);
+    for(let deadWriter of deadWriters){
+    console.log(`Writer ${deadWriter.firstName} ${deadWriter.lastName} died at ${deadWriter.age} years old.`);
+      
+    }
+
+};
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
+function isWriterAliveIn40s(writer){
+  return writer.alive===true && writer.age>=40 && writer.age<=49;
+};
+
 function logAliveWritersInTheirForties() {
-  // write your code here
-}
+ let aliveWriters = writers.filter(isWriterAliveIn40s);
+  for(let aliveWriter of aliveWriters){
+    console.log(`Hi, my name is ${aliveWriter.firstName} ${aliveWriter.lastName}. I am ${aliveWriter.age} years old.`);
+  }
+};
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern writers.js`

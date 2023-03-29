@@ -16,10 +16,17 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+
+
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  for(let book of books){
+    console.log(`${book.title} by ${book.author}`);
+  }
+};
+
+
 
 /*
 =====
