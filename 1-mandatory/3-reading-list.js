@@ -16,10 +16,45 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {title: "The Kite runner",
+   author: "Khaled Hossain",
+   alreadyRead: false,},
+
+  {title: "Basanti",
+   author: "Neer Shah",
+   alreadyRead: true,},
+
+   {title: "Sufi",
+   author: "Subin Bhattarai",
+   alreadyRead: true,},
+
+   {title: "Half-girlfriend",
+   author: "Chetan Bhagat",
+   alreadyRead: true,},
+
+   {title: "Gone Girl",
+   author: "Gillian Flynn",
+   alreadyRead: false,},
+];
+   
+
+
+   
+
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  //for(let book of books){
+    books.forEach((book) =>{
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    };
+  });
+};
+
 
 /*
 =====
@@ -48,19 +83,20 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
+test("books you have already read", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "You still need to read The Kite runner by Khaled Hossain",
+    "You've already read Basanti by Neer Shah",
+    "You've already read Sufi by Subin Bhattarai",
+    "You've already read Half-girlfriend by Chetan Bhagat",
+    "You still need to read Gone Girl by Gillian Flynn",
   ]);
 });
 
@@ -81,4 +117,5 @@ function expectLogBooksToLog(expectedValues) {
     expect(consoleLogSpy).nthCalledWith(i + 1, value);
   });
   consoleLogSpy.mockRestore();
-}
+};
+

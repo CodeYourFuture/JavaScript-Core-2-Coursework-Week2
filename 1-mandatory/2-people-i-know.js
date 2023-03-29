@@ -377,15 +377,22 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
+//let thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
 let thirtyFiveOrOlder = [];
+for (let friend of friends) {
+  if (friend.age >= 35) {
+    thirtyFiveOrOlder.push(friend);
+  }
+}
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
-
+let powerNetEmails = friends
+.filter((friend) => friend.company.includes("POWERNET"))
+.map((name) => name.email);
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -393,15 +400,34 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+
+let friendsWhoAreColleaguesOfStacie = friends
+  .filter((friend) => friend.colleagues.find((friend) => friend.name === "Stacie Villarreal"))
+  .map((colleague) => `${colleague.name.first} ${colleague.name.last}`);
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
 You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
 This time, I only want the full names of the people who can multitask
 */
-
 let colleaguesWhoCanMultitask = [];
+
+/*for (let friend of friends) {
+  friend.colleagues.forEach((colleague) => {
+    if (colleague.skills.includes('Multi-tasking')) {
+      colleaguesWhoCanMultitask.push(colleague.name)
+    }
+  })
+} */
+for (let friend of friends) {
+  for (let colleague of friend.colleagues)
+    if (colleague.skills.includes('Multi-tasking')) {
+      colleaguesWhoCanMultitask.push(colleague.name)
+    }
+  }
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
@@ -443,3 +469,4 @@ test("5 - colleagues who can multitask", () => {
     "Luz Newton",
   ]);
 });
+ 

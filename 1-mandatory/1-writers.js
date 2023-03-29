@@ -51,8 +51,13 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  writers.forEach(writer => 
+  console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+    )
+  );
 }
+
 
 /*
 Exercise 2:
@@ -62,17 +67,46 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  writers.forEach(writer => {
+    if(writer.age >= 40 && writer.age <= 49 && !writer.alive){
+      console.log(
+      `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+    );
+      }   
+  });
+  
+}
+/* (name) => name.age >= 40 && name.age <= 49 && !name.alive
+  );
+  deadWriter.forEach((writer) => {
+    console.log(
+      `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+    );
+  });
 }
 
-/*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  writers.forEach(writer => {
+    if(writer.age >= 40 && writer.age <= 49 && writer.alive){
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+      );
+    }
+  });
+}
+  /*let aliveWriter = writers.filter(
+    (name) => name.age >= 40 && name.age <= 49 && name.alive
+  );
+  aliveWriter.map((writer) => {
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+    );
+  });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
