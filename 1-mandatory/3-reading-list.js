@@ -16,10 +16,39 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Introduction to Algorithms",
+    author: "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein",
+    alreadyRead: false,
+  },
+  {
+    title: "Cracking the Coding Interview: 189 Programming Questions and Solutions",
+    author: "Gayle Laakmann McDowell",
+    alreadyRead: false,
+  },
+  {
+    title: "Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People",
+    author: "Aditya Bhargava",
+    alreadyRead: true,
+  },
+  {
+    title: "Algorithms to Live By: The Computer Science of Human Decisions",
+    author: "Brian Christian and Tom Griffiths",
+    alreadyRead: false,
+  },
+  {
+    title: "The Art of Computer Programming, Volumes 1-4A Boxed Set",
+    author: "Donald E. Knuth",
+    alreadyRead: false,
+  },
+];
 
-// exercise 1
-function logBooks() {}
+//exercise 1
+// function logBooks() {
+//   books.forEach(book => console.log(`${book.title} by ${book.author}`));
+// }
+
 
 /*
 =====
@@ -48,22 +77,38 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+function logBooks() {
+  books.forEach(book => {
+    let bookName = `${book.title} by ${book.author}`;
+    console.log(book.alreadyRead ? `You\'ve already read \'${bookName}\'` :  `You still need to read \'${bookName}\'`);
+  });
+}
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
+// test("books are logged", function () {
+//   expectLogBooksToLog([
+//     'Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein',
+//     'Cracking the Coding Interview: 189 Programming Questions and Solutions by Gayle Laakmann McDowell',
+//     'Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People by Aditya Bhargava',
+//     'Algorithms to Live By: The Computer Science of Human Decisions by Brian Christian and Tom Griffiths',
+//     'The Art of Computer Programming, Volumes 1-4A Boxed Set by Donald E. Knuth',
+//   ]);
+// });
+
+test("exersise 2  - books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "You still need to read \'Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein\'",
+    "You still need to read \'Cracking the Coding Interview: 189 Programming Questions and Solutions by Gayle Laakmann McDowell\'",
+    "You\'ve already read \'Grokking Algorithms: An Illustrated Guide for Programmers and Other Curious People by Aditya Bhargava\'",
+    "You still need to read \'Algorithms to Live By: The Computer Science of Human Decisions by Brian Christian and Tom Griffiths\'",
+    "You still need to read \'The Art of Computer Programming, Volumes 1-4A Boxed Set by Donald E. Knuth\'",
   ]);
 });
-
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
  * Assert that when the function logBooks is called, the values in the expectedValues array are logged in order via console.log.
