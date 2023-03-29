@@ -27,6 +27,15 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+Object.values(weeklyMealPlan).forEach(val =>{
+  val.forEach((item) => {
+    if (!weeklyGroceriesToBuy.includes(item)){
+      weeklyGroceriesToBuy.push(item)
+    }       
+  });
+});
+ 
+  
 
 /*
 Exercise 2:
@@ -34,6 +43,33 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+// Object.keys(weeklyMealPlan).forEach(day => {
+//   if (day == "saturday" || day == "sunday"){
+//   Object.values(weeklyMealPlan).forEach(val =>{
+//   val.forEach((item) => {
+//     if (!weeklyGroceriesToBuy.includes(item)){
+//       weeklyGroceriesToBuy.push(item)
+//     }       
+//   });
+// });
+ // }
+    // });  
+    
+for (let item of weeklyMealPlan.saturday){
+      if (!weekendGroceriesToBuy.includes(item)){
+         weekendGroceriesToBuy.push(item)
+      }
+    }
+    for (product of weeklyMealPlan.sunday){
+     if (!weekendGroceriesToBuy.includes(product)){
+         weekendGroceriesToBuy.push(product)
+      }
+    }
+      console.log (weekendGroceriesToBuy)      
+   
+
+  
+
 
 /*
 Exercise 3:
@@ -51,6 +87,19 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+
+let arrayOfNum = []
+Object.values(weeklyMealPlan).forEach(val =>{
+  arrayOfNum.push(val.length)
+});
+numberOfItemsPerWeek.monday = arrayOfNum[0];
+numberOfItemsPerWeek.tuesday = arrayOfNum[1];
+numberOfItemsPerWeek.wednesday = arrayOfNum[2];
+numberOfItemsPerWeek.thursday = arrayOfNum[3];
+numberOfItemsPerWeek.friday = arrayOfNum[4];
+numberOfItemsPerWeek.saturday = arrayOfNum[5];
+numberOfItemsPerWeek.sunday = arrayOfNum[6];
+console.log(numberOfItemsPerWeek)
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern groceries.js`
