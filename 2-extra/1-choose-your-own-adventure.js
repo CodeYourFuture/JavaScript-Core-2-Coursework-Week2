@@ -34,6 +34,8 @@ east? If there is a bug in your code, try to fix it.
 To enable the tests for the stretch goals, remove the ".skip" on the appropriate tests below.
 */
 
+const validRooms = ["hall", "classroom", "library"];
+
 let game = {
   currentRoom: null,
 
@@ -44,6 +46,9 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
+    if(validRooms.includes(roomName)){
+      this.currentRoom = rooms[roomName];
+    }
   },
 
   move: function (direction) {
@@ -53,6 +58,8 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
+    //this.currentRoom = this.currentRoom[direction]();
+    this.currentRoom = this.currentRoom[direction]();
   },
 };
 
