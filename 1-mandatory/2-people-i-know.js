@@ -431,7 +431,7 @@ let colleaguesWhoCanMultitask = [];
 
 for (const friend of friends) {
   for (const colleague of friend.colleagues) {
-    if (colleague.skills.includes("MUlti-tasking")) {
+    if (colleague.skills.includes("Multi-tasking")) {
       console.log(colleague.skills);
       colleaguesWhoCanMultitask.push(colleague.name);
     }

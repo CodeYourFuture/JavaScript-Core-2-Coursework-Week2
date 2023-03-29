@@ -22,21 +22,25 @@ const books = [
     author: "J.K Rowlling",
     alreadyRead: true,
   },
+
   {
     title: "The Hobbit",
     author: "J.R.R Tolkien",
     alreadyRead: false,
   },
+
   {
     title: "Rich Dad Poor Dad",
     author: "Robert T. Kiyosaki",
     alreadyRead: true,
   },
+
   {
     title: "Hello World",
     author: "Hannah Fry",
     alreadyRead: false,
   },
+
   {
     title: "The age of AI",
     author: "Henry A Kissinger",
@@ -44,10 +48,19 @@ const books = [
   },
 ];
 
-console.log(books.title);
+// console.log(books); to check if books are logged
 
 // exercise 1
-function logBooks() {}
+
+function logBooks() {
+  books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    }
+  });
+}
 
 /*
 =====
@@ -85,10 +98,20 @@ As an example for this exercise, you might do the following steps
 test("books are logged", function () {
   expectLogBooksToLog([
     "Harry Potter by J.K Rowlling",
-    "The Hobbit by J.R.R. Tolkien",
+    "The Hobbit by J.R.R Tolkien",
     "Rich Dad Poor Dad by Robert T. Kiyosaki",
-    "Hello World byHannah Fry",
-    "The age of AI Henry A Kissinger",
+    "Hello World by Hannah Fry",
+    "The age of AI by Henry A Kissinger",
+  ]);
+});
+
+test("books you have already read", function () {
+  expectLogBooksToLog([
+    "You've already read Harry Potter by Mark J.K Rowlling",
+    "You still need to read The Hobbit by J.R.R Tolkien",
+    "You've already read Rich Dad Poor Dad by Robert T. Kiyosaki",
+    "You still need to read Hello World by Hannah Fry",
+    "You've already read The age of AI by Henry A Kissinger",
   ]);
 });
 
