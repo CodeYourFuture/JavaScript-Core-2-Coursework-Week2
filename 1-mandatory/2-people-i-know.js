@@ -397,11 +397,18 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
-friendsWhoAreColleaguesOfStacie = friends.filter((friend) =>
-  friend.colleagues.name === "Stacie Villarreal"
-    ? `${element.name.first} ${element.name.last}`
-    : []
-);
+
+for (group in friends) {
+  for (colleague in friends[group].colleagues) {
+    if (
+      friends[group].colleagues[colleague].name.includes("Stacie Villarreal")
+    ) {
+      let fullName = friends[group].name.first + " " + friends[group].name.last;
+
+      friendsWhoAreColleaguesOfStacie.push(fullName);
+    }
+  }
+}
 console.log(friendsWhoAreColleaguesOfStacie);
 /*
 5) Find "Multi-tasking" colleagues
