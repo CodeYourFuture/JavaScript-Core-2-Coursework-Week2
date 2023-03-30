@@ -21,7 +21,7 @@ without using any variables or any logic like loops, template strings or if stat
   {
     author: "J.R.R. Tolkien",
     title: "The Hobbit",
-    alreadyRead: false,
+    alreadyRead: true,
     
   },
   {
@@ -33,17 +33,17 @@ without using any variables or any logic like loops, template strings or if stat
   {
      author: "Sarai Walker",
      title: "Dietland",
-     alreadyRead: false,
+     alreadyRead: true,
   },
   {
      author: "Fatima Farheen Mirza",
      title: "A Place for Us ",
-     alreadyRead: true,
+     alreadyRead: false,
   },
   {
      author: "Joseph Cassara",
      title: "The House of Impossible Beauties",
-     alreadyRead: true,
+     alreadyRead: false,
   },
 ];
 // exercise 1
@@ -95,12 +95,6 @@ As an example for this exercise, you might do the following steps
     }
   });
 }*/
-
-
-
-
-
-
 
 test("books are logged", function () {
   expectLogBooksToLog([
