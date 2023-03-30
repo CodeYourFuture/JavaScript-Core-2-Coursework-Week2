@@ -51,7 +51,11 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  for (let content of writers) {
+    console.log(
+      `Hi, my name is ${content.firstName} ${content.lastName}. I am ${content.age} years old, and work as a ${content.occupation}.`
+    );
+  }
 }
 
 /*
@@ -62,7 +66,13 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  let diedWriter = null;
+  for (let info of writers) {
+    if (info.age < 49 && info.alive === false) {
+      diedWriter = `Writer ${info.firstName} ${info.lastName} died at ${info.age} years old.`;
+    }
+  }
+  console.log(diedWriter);
 }
 
 /*
@@ -70,9 +80,16 @@ Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
+// info.age > 30 && info.age < 50 && info.alive === true
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  writers.forEach(function (info) {
+    if (info.age >= 40 && info.age <= 49 && info.alive === true) {
+      console.log(
+        `Hi, my name is ${info.firstName} ${info.lastName}. I am ${info.age} years old.`
+      );
+    }
+  });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

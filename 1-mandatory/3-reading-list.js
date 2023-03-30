@@ -8,7 +8,7 @@ Create an array of objects, where each object describes a book and has propertie
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
-Write a funciton that loops through the array of books. For each book, log the book title and book author like so: 
+Write a function that loops through the array of books. For each book, log the book title and book author like so: 
 "The Hobbit by J.R.R. Tolkien"
 You should write and log at least 5 books. 
 You should modify the tests so that they contain the values that correspond to your books.
@@ -16,10 +16,62 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Death on the Nile",
+    author: "Agatha Christie",
+    alreadyRead: false,
+  },
+  {
+    title: "Lord Edgware Dies",
+    author: "Agatha Christie",
+    alreadyRead: true,
+  },
+  {
+    title: "Poirot Investigates",
+    author: "Agatha Christie",
+    alreadyRead: false,
+  },
+  {
+    title: "Peril At End House",
+    author: "Agatha Christie",
+    alreadyRead: true,
+  },
+  {
+    title: "The Secret Adversary",
+    author: "Agatha Christie",
+    alreadyRead: false,
+  },
+  {
+    title: "The A.B.C. Murders",
+    author: "Agatha Christie",
+    alreadyRead: true,
+  },
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  for (let book of books) {
+    if (book.alreadyRead === true) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    }
+  }
+}
+
+
+// another solution 
+
+// function logBooks() {
+//   books.forEach((book) => {
+//     if (book.alreadyRead) {
+//       console.log(`You've already read ${book.title} by ${book.author}`);
+//     } else {
+//       console.log(`You still need to read ${book.title} by ${book.author}`);
+//     }
+//   });
+// }
 
 /*
 =====
@@ -48,19 +100,21 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
+test("books you have already read", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "You still need to read Death on the Nile by Agatha Christie",
+    "You've already read Lord Edgware Dies by Agatha Christie",
+    "You still need to read Poirot Investigates by Agatha Christie",
+    "You've already read Peril At End House by Agatha Christie",
+    "You still need to read The Secret Adversary by Agatha Christie",
+    "You've already read The A.B.C. Murders by Agatha Christie",
   ]);
 });
 
