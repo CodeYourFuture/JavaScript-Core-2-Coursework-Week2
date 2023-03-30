@@ -19,7 +19,35 @@ chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  let small = Infinity, secondSmall = Infinity;
+
+  if (mealArray.length === 0){
+    return "Nothing :("
+  }
+
+
+
+  for (let meal of mealArray){
+    if (mealArray.length === 0){
+      return "Nothing :("
+    }else if (mealArray.length === 1){
+      return meal.name
+    }else if (meal.price < small){
+      secondSmall = small;
+      small = meal.price
+    } else if (meal.price < secondSmall){
+      secondSmall = meal.price;
+    }
+  }
+  
+  for (meal of mealArray){
+    if (secondSmall === meal.price){
+      return meal.name
+    }
+  }
+  
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern cheap-diner.js`
