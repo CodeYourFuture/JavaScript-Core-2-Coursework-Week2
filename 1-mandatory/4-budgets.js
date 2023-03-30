@@ -10,7 +10,35 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {}
+// Notes on reduce:
+      // reduce takes 2 parameters
+      // currentValue is the array item/object { name: "John",  age: 21, budget: 29000 }
+      // we access the budget with currentValue.budget
+
+// function getBudgets(peopleArray) {
+//   if (peopleArray.length === 0) {
+//     return 0;
+//   } else {
+//     // starting point for summing totals
+//     let initialValue = 0;
+//     let totalBudget = peopleArray.reduce(
+//       (total, currentValue) => total + currentValue.budget,
+//       initialValue
+//     );
+//     return totalBudget;
+//   }
+// }
+
+function getBudgets(peopleArray) {
+  let totalBudget = 0;
+
+  if (peopleArray.length === 0) {
+    return totalBudget;
+  } else {
+    peopleArray.forEach((arrayElement) => (totalBudget += arrayElement.budget));
+  }
+  return totalBudget;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`
