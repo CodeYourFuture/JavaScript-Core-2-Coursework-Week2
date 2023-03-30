@@ -4,7 +4,7 @@
   Feel free to look at your solution to that one to help you out - you already did this once!
   -----------------------------------------------------------------------
   Write a function journeyPlanner that:
-  - Accepts two paramters:
+  - Accepts two parameters:
     1) An object where the keys are locations and the values are arrays of the transportation modes you can use to get there.
        e.g.
        {
@@ -19,8 +19,24 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
-
+// function journeyPlanner(locations, transportMode) {
+//   let locationNames = [];
+//   for (location in locations) {
+//     if (locations[location].includes(transportMode)) {
+//       locationNames.push(location);
+//     }
+//   }
+//   return locationNames;
+// }
+function journeyPlanner(locations, transportMode) {
+  let locationNames = [];
+  for (let location in locations) {
+    if (locations[location].includes(transportMode)) {
+      locationNames.push(location);
+    }
+  }
+  return locationNames;
+}
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern journey-planner.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -32,7 +48,7 @@ const londonLocations = {
   "Tower Bridge": ["tube", "bus"],
   Greenwich: ["bus", "river boat"],
 };
-
+// console.log(journeyPlanner(londonLocations, "tube"));
 test("journeyPlanner function works - case 1", () => {
   expect(journeyPlanner(londonLocations, "river boat")).toEqual([
     "London Bridge",

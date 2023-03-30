@@ -1,6 +1,6 @@
 /**
 The Frugal Gentleman
-Atticus has been invited to a dinner party, and he decides to purchase a meal to share with he party 
+Atticus has been invited to a dinner party, and he decides to purchase a meal to share with the party 
 Being a very frugal gentleman (yet disliking looking like a cheapskate), he decides to use a very simple rule. 
 In any selection of two or more meals, he will always buy the second-cheapest. 
 If there is no choice, then he will buy the only meal given to him. 
@@ -18,8 +18,12 @@ let emptyArray = []
 chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
-
-function chooseMeal(mealArray) {}
+function chooseMeal(meals) {
+  let sortedMeals = meals.sort((a, b) => a.price - b.price);
+  if (meals.length === 0) return "Nothing :(";
+  else if (meals.length === 1) return meals[0].name;
+  else return sortedMeals[1].name;
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern cheap-diner.js`
