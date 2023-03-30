@@ -15,7 +15,7 @@ function getBudgets(peopleArray) {
   peopleArray.forEach((person) => {
     budget += person.budget;
   });
-  
+   return budget;
 }
 
 /* ======= TESTS - DO MODIFY (!!!) =====
