@@ -48,8 +48,10 @@ without using any variables or any logic like loops, template strings or if stat
 ];
 // exercise 1
 function logBooks() {
-  return books.forEach((book) => {
-      console.log(`${book.theTitle} by ${book.author}`);
+  books.forEach((book) => {
+    book.alreadyRead == true
+      console.log(`You've already read ${book.theTitle} by ${book.author}`);
+      console.log(`You still need to read ${book.title} by ${book.author}`);
 });
 }
 
@@ -86,7 +88,7 @@ As an example for this exercise, you might do the following steps
 
 /*function logBooks() {
   return books.forEach((book) => {
-    if (book.alreadyRead) {
+    if (book.alreadyRead == true) {
       console.log(`You've already read ${book.theTitle} by ${book.author}`);
     } else {
       console.log(`You still need to read ${book.theTitle} by ${book.author}`);
