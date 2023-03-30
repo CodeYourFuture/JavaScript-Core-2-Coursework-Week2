@@ -201,7 +201,7 @@ test("start in classroom", () => {
 });
 
 // remove ".skip" if your code correctly handles a non existent room (by setting currentRoom to null/doing nothing)
-test.skip("start in non-existent place", () => {
+test("start in non-existent place", () => {
   game.start("does not exist");
   expect(game.currentRoom).toEqual(null);
 });
