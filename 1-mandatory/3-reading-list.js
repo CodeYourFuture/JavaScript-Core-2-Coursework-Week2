@@ -86,7 +86,16 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+test("books are logged", function () {
+  expectLogBooksToLog([
 
+    "You still need to read El coronel no tiene quien le escriba by Gabriel Garcia Marques",
+    "You've already read The Master and Margarita by Mikhail Bulgakov",
+    "You've already read Four Thousand Weeks by Oliver Burkeman ",
+    "You've already read Anna Karenina by Leo Tolstoy",
+    "You still need to read One Thousand and One Nights by Hanan Al-Shaykh",
+  ]);
+});
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
