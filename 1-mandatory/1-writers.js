@@ -1,7 +1,8 @@
 /* 
   Challenge 1: Famous Writers
   In this exercise you will practice how to access Objects stored in an Array and their properties. You already know 
-  different ways of looping through Arrays, it won't be different in this case. The only extra step is that you have to 
+  different ways of looping through Arrays, it won't be different in this case. The only extra step is that 
+  you have to 
   use values inside Objects.
 */
 
@@ -51,7 +52,11 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  for (const writer of writers) {
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+    );
+  }
 }
 
 /*
@@ -62,7 +67,14 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  let deadWriter = writers.filter(
+    (writer) => !writer.alive && writer.age >= 40 && writer.age <= 49
+  );
+  deadWriter.forEach((writer) =>
+    console.log(
+      `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+    )
+  );
 }
 
 /*
@@ -72,7 +84,14 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  let aliveWriter = writers.filter(
+    (writer) => writer.alive && writer.age >= 40 && writer.age <= 49
+  );
+  aliveWriter.forEach((writer) =>
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+    )
+  );
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

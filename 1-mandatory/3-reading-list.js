@@ -16,10 +16,44 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Hobbit",
+    Author: "J.R.R. Tolkien",
+    alreadyRead: true,
+  },
+  {
+    title: "Harry Potter",
+    Author: "J.K. Rowling",
+    alreadyRead: true,
+  },
+  {
+    title: "Fairy Taile",
+    Author: "Stephen King",
+    alreadyRead: false,
+  },
+  {
+    title: "Desert Flower",
+    Author: "Iris Dirie",
+    alreadyRead: true,
+  },
+  {
+    title: "The Girl on The Train",
+    Author: "Paula Hawkins",
+    alreadyRead: true,
+  },
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.Author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.Author}`);
+    }
+  });
+}
 
 /*
 =====
@@ -56,11 +90,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "You've already read The Hobbit by J.R.R. Tolkien",
+    "You've already read Harry Potter by J.K. Rowling",
+    "You still need to read Fairy Taile by Stephen King",
+    "You've already read Desert Flower by Iris Dirie",
+    "You've already read The Girl on The Train by Paula Hawkins",
   ]);
 });
 
