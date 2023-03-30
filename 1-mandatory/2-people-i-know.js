@@ -406,12 +406,15 @@ pseudocode:
 
 */
 
-/*
-Tried using filter and map, but could not access
-let friendsWhoAreColleaguesOfStacie = [];
-let friendsOfStacie = (friend) => friend.colleagues.filter((friend.colleagues) => friend.colleagues.name === "Stacie Villarreal");
-friendsWhoAreColleaguesOfStacie = friends.filter(friendsOfStacie).map((friend) => friend.name.first && friend.name.last);
-*/
+
+// Tried using filter and map, but could not access
+
+// let friendsWhoAreColleaguesOfStacie = [];
+
+// let friendsOfStacie = (friend) => friend.colleagues.filter((friend.colleagues) => friend.colleagues.name === "Stacie Villarreal");
+// friendsWhoAreColleaguesOfStacie = friends.filter(friendsOfStacie).map((friend) => friend.name.first && friend.name.last);
+
+// */
 
 let friendsWhoAreColleaguesOfStacie = [];
 
@@ -422,6 +425,16 @@ for (let friend of friends) {
     }
   }
 };
+
+// let friendsWhoAreColleaguesOfStacie = [];
+
+// for (let friend of friends) {
+//   for (let colleague of friend.colleagues) {
+//     if (colleague.name === "Stacie Villarreal") {
+//       friendsWhoAreColleaguesOfStacie.push(`${friend.name.first} ${friend.name.last}`)
+//     }
+//   }
+// };
 
 
 /*
@@ -445,9 +458,17 @@ let colleaguesWhoCanMultitask = [];
 colleaguesWhoCanMultitask = friends.filter((friend) => friend.colleagues.filter(colleagues.skills.includes("Multi-tasking"))).map((friend) => friend.colleagues.name);
 */
 
-let colleaguesWhoCanMultitask = [];
+/*
+Alternate solution: 
+let colleaguesWhoCanMultitask = friends.flatMap(friend => 
+  friend.colleagues.filter(colleague => 
+    colleague.skills.includes("Multi-tasking") 
+    ).map(colleague => colleague.name)
+);
+*/
 
-for (let friend of friends) {
+let colleaguesWhoCanMultitask = [];
+for(let friend of friends) {
   for (let colleague of friend.colleagues) {
     if (colleague.skills.includes("Multi-tasking")) {
       colleaguesWhoCanMultitask.push(`${colleague.name}`)

@@ -89,9 +89,9 @@ As an example for this exercise, you might do the following steps
 
 function logBooks() {
   for (let book of books) {
-    if (book.alreadyRead === true) {
+    if (book.alreadyRead) {
       console.log(`You've already read ${book.title} by ${book.author}`);
-    } else { if (book.alreadyRead === false)
+    } else {
       console.log(`You still need to read ${book.title} by ${book.author}`);
     };
   };
