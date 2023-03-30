@@ -409,7 +409,6 @@ for (group in friends) {
     }
   }
 }
-console.log(friendsWhoAreColleaguesOfStacie);
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -418,44 +417,52 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+for (friend of friends) {
+  for (colleague of friend.colleagues) {
+    if (colleague.skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
+  }
+}
 
+console.log(colleaguesWhoCanMultitask);
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-// test("2 - friends that are over 35", () => {
-//   expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
-//     "Vilma",
-//     "Aisha",
-//     "Mitchell",
-//     "Sutton",
-//     "Jana",
-//   ]);
-// });
+test("2 - friends that are over 35", () => {
+  expect(thirtyFiveOrOlder.map(({ name }) => name.first)).toIncludeSameMembers([
+    "Vilma",
+    "Aisha",
+    "Mitchell",
+    "Sutton",
+    "Jana",
+  ]);
+});
 
-// test("3 - Powernet email addresses", () => {
-//   expect(powerNetEmails).toIncludeSameMembers([
-//     "clay.livingston@powernet.com",
-//     "gloria.hall@powernet.com",
-//   ]);
-// });
+test("3 - Powernet email addresses", () => {
+  expect(powerNetEmails).toIncludeSameMembers([
+    "clay.livingston@powernet.com",
+    "gloria.hall@powernet.com",
+  ]);
+});
 
-// test("4 - friends with Stacie Villarreal as a colleague", () => {
-//   expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
-//     "Clay Livingston",
-//     "Jana Harrison",
-//     "Haley Knox",
-//   ]);
-// });
+test("4 - friends with Stacie Villarreal as a colleague", () => {
+  expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
+    "Clay Livingston",
+    "Jana Harrison",
+    "Haley Knox",
+  ]);
+});
 
-// test("5 - colleagues who can multitask", () => {
-//   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
-//     "Rush May",
-//     "Gena Good",
-//     "Cunningham Shelton",
-//     "Castro Castaneda",
-//     "Luz Newton",
-//   ]);
-// });
+test("5 - colleagues who can multitask", () => {
+  expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
+    "Rush May",
+    "Gena Good",
+    "Cunningham Shelton",
+    "Castro Castaneda",
+    "Luz Newton",
+  ]);
+});
