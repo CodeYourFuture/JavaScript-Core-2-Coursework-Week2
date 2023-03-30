@@ -49,17 +49,14 @@ without using any variables or any logic like loops, template strings or if stat
 // exercise 1
 function logBooks() {
   return books.forEach((book) => {
-    if (book.alreadyRead) {
-      console.log(`You've already read ${book.theTitle} by ${book.author}`);
-    } else {
-      console.log(`You still need to read ${book.theTitle} by ${book.author}`);
-    }
-  });
+      console.log(`${book.theTitle} by ${book.author}`);
+});
 }
 
 /*
 =====
 Exercise 2
+
 
 
 
@@ -86,6 +83,23 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+
+/*function logBooks() {
+  return books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.theTitle} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.theTitle} by ${book.author}`);
+    }
+  });
+}*/
+
+
+
+
+
+
+
 test("books are logged", function () {
   expectLogBooksToLog([
 
