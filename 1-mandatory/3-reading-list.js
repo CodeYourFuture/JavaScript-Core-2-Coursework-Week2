@@ -46,9 +46,13 @@ const books = [
 
 // exercise 1
 function logBooks() {
-  books
-    .map((book) => `${book.title} by ${book.author}.`)
-    .forEach((book) => console.log(book));
+  books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    }
+  });
 }
 
 /*
@@ -70,7 +74,8 @@ As an example for this exercise, you might do the following steps
 - Run the test (they will all fail)
 - Modify your code so that it logs 'You've already read <name> by <author>'
 - Run the test (they will all pass again)
-- Modify your code making all the books alreadyRead:false and adding the if/else so that it logs 'You still need to read <name> by <author>'
+- Modify your code making all the books alreadyRead:false 
+- Add an if/else so that it logs 'You still need to read <name> by <author>'
 - Run the test (they will all fail)
 - Modify the tests to contain the correct list of statements (whether you've read the book or not)
 - Run the test (the test will fail but there will be some successful results)
@@ -86,11 +91,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "Factfulness by Hans Rosling",
-    "Acid For The Children by Flea",
-    "Iron Widow by Xiran Jay Zhao",
-    "Teen Titans: Beast Boy Loves Raven by Kami Garcia",
-    "Crying in H Mart by Michelle Zauner",
+    "You've already read Factfulness by Hans Rosling",
+    "You've already read Acid For The Children by Flea",
+    "You still need to read Iron Widow by Xiran Jay Zhao",
+    "You've already read Teen Titans: Beast Boy Loves Raven by Kami Garcia",
+    "You still need to read Crying in H Mart by Michelle Zauner",
   ]);
 });
 
