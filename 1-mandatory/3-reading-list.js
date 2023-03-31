@@ -45,7 +45,13 @@ const books = [
 
 // exercise 1
 function logBooks(listOfBooks) {
-  listOfBooks.map((book) => console.log(`You've already read ${book.title} by ${book.author}`))
+  listOfBooks.map((book) => {
+    if (book.alreadyRead === true)
+    console.log(`You've already read ${book.title} by ${book.author}`)
+    else {
+      console.log(`You still need to read ${book.title} by ${book.author}`)
+    }
+  })
 }
 
 /*
