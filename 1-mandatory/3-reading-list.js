@@ -83,11 +83,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "Ready Player One by Ernest Cline",
-    "Harry Potter and The Goblet of Fire by Joanne K. Rowling",
-    "Don Quixote by Miguel de Cervantes",
-    "Moby Dick by Herman Melville",
-    "Wuthering Heights by Emily Brontë",
+    "You've already read Ready Player One by Ernest Cline",
+    "You've already read Harry Potter and The Goblet of Fire by Joanne K. Rowling",
+    "You've already read Don Quixote by Miguel de Cervantes",
+    "You've already read Moby Dick by Herman Melville",
+    "You've already read Wuthering Heights by Emily Brontë",
   ]);
 });
 
