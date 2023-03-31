@@ -44,7 +44,9 @@ const books = [
 ];
 
 // exercise 1
-function logBooks() {}
+function logBooks(listOfBooks) {
+  listOfBooks.map((book) => console.log(`${book.title} by ${book.author}`))
+}
 
 /*
 =====
