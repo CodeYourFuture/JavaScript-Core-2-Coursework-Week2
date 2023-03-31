@@ -80,8 +80,8 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   for (author of writers){
-  if (author.age >= 40 && author.age <= 49 && author.alive === true){
-    console.log(`Hi, my name is ${author.firstName} ${author.lastName}. I am  ${author.age} years old.`)
+  if (author.age >= 40 && author.age < 50 && author.alive === true){
+    console.log(`Hi, my name is ${author.firstName} ${author.lastName}. I am ${author.age} years old.`)
   }
   }
 }
