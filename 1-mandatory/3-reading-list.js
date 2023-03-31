@@ -8,7 +8,7 @@ Create an array of objects, where each object describes a book and has propertie
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
-Write a funciton that loops through the array of books. For each book, log the book title and book author like so: 
+Write a function that loops through the array of books. For each book, log the book title and book author like so: 
 "The Hobbit by J.R.R. Tolkien"
 You should write and log at least 5 books. 
 You should modify the tests so that they contain the values that correspond to your books.
@@ -16,10 +16,26 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: false,
+  },
+  {
+    title: "Harry Potter",
+    author: "J.K. Rowling",
+    alreadyRead: true,
+  },
+];
 
+/////// ADD MORE BOOKS///////
 // exercise 1
-function logBooks() {}
+// function logBooks() {
+//   books.forEach((book) => {
+//     console.log(`${book.title} by ${book.author}`);
+//   });
+// }
 
 /*
 =====
@@ -48,19 +64,35 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+function logBooks() {
+  books.forEach((book) => {
+    if (book.alreadyRead === true) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    }
+  });
+}
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
+///// Irianni change function names /////////
+
 test("books are logged", function () {
   expectLogBooksToLog([
     "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "Harry Potter by J.K. Rowling",
+  ]);
+});
+
+test.only("books read", function () {
+  expectLogBooksToLog([
+    "You still need to read The Hobbit by J.R.R. Tolkien",
+    "You've already read Harry Potter by J.K. Rowling",
   ]);
 });
 

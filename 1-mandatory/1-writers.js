@@ -52,17 +52,36 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
+  for (const writer of writers) {
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+    );
+  }
 }
 
 /*
 Exercise 2:
   Only `console.log()` out the writers who are in their 40s (meaning between 40 and 49)
-  and not alive anymore. Use the below sentence format:
+  and dead. Use the below sentence format:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
 function logDeadWritersInTheirForties() {
   // write your code here
+  const writersForty = writers.filter(
+    (singleWriter) =>
+      singleWriter.age > 39 &&
+      singleWriter.age < 50 &&
+      singleWriter.alive === false
+  );
+  const writerName = writersForty.map((singleWriter) => singleWriter.firstName);
+  const writerLastName = writersForty.map(
+    (singleWriter) => singleWriter.lastName
+  );
+  const writerAge = writersForty.map((singleWriter) => singleWriter.age);
+  console.log(
+    `Writer ${writerName} ${writerLastName} died at ${writerAge} years old.`
+  );
 }
 
 /*
@@ -73,6 +92,18 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
+  const writersAliveForty = writers
+    .filter(
+      (singleWriter) =>
+        singleWriter.age > 39 &&
+        singleWriter.age < 50 &&
+        singleWriter.alive === true
+    )
+    .map((singleWriter) =>
+      console.log(
+        `Hi, my name is ${singleWriter.firstName} ${singleWriter.lastName}. I am ${singleWriter.age} years old.`
+      )
+    );
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

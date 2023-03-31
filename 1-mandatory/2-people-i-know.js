@@ -8,6 +8,12 @@ Before you start, you should read through the object below so that you understan
 When you've finished. Continue to the exercises below.
 */
 
+// friends array
+// -> person object
+//    -> name object
+//    -> colleagues array of objects
+//        -> skills array
+
 const friends = [
   {
     age: 39,
@@ -374,26 +380,44 @@ const friends = [
 /*
 2) Aged 35 or Older
 In the above object you can see my friends and the colleagues of my friends.
-First, I want you to find all of my friends who are 35 or older.
+First, I want you to find all of my ----> friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+let thirtyFiveOrOlder = friends.filter((singleFriend) => singleFriend.age > 35);
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+let powerNetFriends = friends.filter(
+  (singleFriend) => singleFriend.company === "POWERNET"
+);
+let powerNetEmails = powerNetFriends.map((singleFriend) => singleFriend.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
-Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
+Next, I want you to find all of my --> friends who are colleagues of Stacie Villarreal.
 You can see who people's colleagues are by seeing the "colleagues" array in each of my friends objects.
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+// friends array
+//  -> person object
+//     -> name object
+//     -> colleagues array of objects
+//        -> skills array
+
+///////////////////// HELP!! ///////////////////
+let colleaguesOfStacie = friends.filter(
+  (singleFriend) => singleFriend.colleagues.includes("Stacie Villarreal") // this return true or false - not sure how to proceed from here
+);
+
+let friendsWhoAreColleaguesOfStacie = colleaguesOfStacie.map(
+  (singleFriend) => singleFriend.name
+);
+///////////////////// HELP!! ///////////////////
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -426,7 +450,7 @@ test("3 - Powernet email addresses", () => {
   ]);
 });
 
-test("4 - friends with Stacie Villarreal as a colleague", () => {
+test.only("4 - friends with Stacie Villarreal as a colleague", () => {
   expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
     "Clay Livingston",
     "Jana Harrison",
