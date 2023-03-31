@@ -83,11 +83,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "Ready Player One by Ernest Cline",
+    "Harry Potter and The Goblet of Fire by Joanne K. Rowling",
+    "Don Quixote by Miguel de Cervantes",
+    "Moby Dick by Herman Melville",
+    "Wuthering Heights by Emily Brontë",
   ]);
 });
 
