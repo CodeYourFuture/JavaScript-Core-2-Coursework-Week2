@@ -414,7 +414,7 @@ let colleaguesOfStacie = friends.filter(
 );
 
 let friendsWhoAreColleaguesOfStacie = colleaguesOfStacie.map(
-  (singleFriend) => singleFriend.name
+  (singleFriend) => singleFriend.name.first + singleFriend.name.last
 );
 ///////////////////// HELP!! ///////////////////
 
