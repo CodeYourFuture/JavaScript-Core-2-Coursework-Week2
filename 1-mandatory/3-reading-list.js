@@ -16,11 +16,40 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-
+const books = [
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: true
+  },
+  {
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    alreadyRead: true
+  },
+  {
+    title: "1984",
+    author: "George Orwell",
+    alreadyRead: false
+  },
+  {
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    alreadyRead: true
+  },
+  {
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    alreadyRead: false
+  }
+];
 // exercise 1
-function logBooks() {}
-
+// function logBooks() {
+//   for (let i = 0; i < books.length; i++) {
+//     const book = books[i];
+//     console.log(`${book.title} by ${book.author}`);
+//   }
+// }
 /*
 =====
 Exercise 2
@@ -53,14 +82,21 @@ As an example for this exercise, you might do the following steps
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
+function logBooks(books) {
+for (let book of books) {
+  if (book.alreadyRead) {
+    console.log(`You've already read "${book.title}" by ${book.author}.`);
+  } else {
+    console.log(`You still need to read "${book.title}" by ${book.author}.`);
+  }
+}
+}
 
-test("books are logged", function () {
+test("books are logged", function logBooks() {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    `You've already read "The Hobbit" by J.R.R. Tolkien`,
+    `You've already read "To Kill a Mockingbird" by "Harper Lee"`,
+    `You still need to read "1984" by "George Orwell"`,
   ]);
 });
 

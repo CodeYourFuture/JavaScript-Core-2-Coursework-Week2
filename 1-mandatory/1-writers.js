@@ -51,7 +51,9 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  for (let writer of writers) {
+    console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`);
+  }
 }
 
 /*
@@ -61,8 +63,20 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
+// function logDeadWritersInTheirForties() {
+// for (let writer of writers) {
+//   if (writer.age < 50 && writer.age >= 40) {
+//   console.log("writer ${writer.firstName} ${writer.lastName} died at &{writer.age} years old.")
+// }
+// }
+// }
 function logDeadWritersInTheirForties() {
-  // write your code here
+  writers.forEach(writer => {
+    const age = writer.age;
+    if (!writer.alive && age >= 40 && age < 50) {
+      console.log(`Writer ${writer.firstName} ${writer.lastName} died at ${age} years old.`);
+    }
+  });
 }
 
 /*
@@ -71,8 +85,20 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
+// function logAliveWritersInTheirForties() {
+//   for (let writer of writers) {
+//     if (writer.age >= 40 && writer.age < 50) {
+//       console.log("Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.")
+//     }
+//   }
+// }
 function logAliveWritersInTheirForties() {
-  // write your code here
+  writers.forEach(writer => {
+    const age = writer.age;
+    if (writer.alive && age >= 40 && age < 50) {
+      console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${age} years old.`);
+    }
+  });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
