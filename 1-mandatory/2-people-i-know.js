@@ -377,14 +377,15 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
-
+let thirtyFiveOrOlder = friends.filter((singleFriend) => singleFriend.age > 35);
+///  commit from terminal
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+let powerNetFriends = friends.filter((singleFriend) => singleFriend.company === "POWERNET");
+let powerNetEmails = powerNetFriends.map((singleFriend) => singleFriend.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -393,7 +394,18 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+function findStacie(friends){
+  for(let colleague of friends.colleagues){
+    if(colleague.name === "Stacie Villarreal") {
+      return true;
+    }
+    
+  }
+  return false;
+}
+let colleaguesOfStacie = friends.filter(findStacie);
+
+let friendsWhoAreColleaguesOfStacie = colleaguesOfStacie.map((eachFriend) => eachFriend.name.first +" "+ eachFriend.name.last);
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -426,7 +438,7 @@ test("3 - Powernet email addresses", () => {
   ]);
 });
 
-test("4 - friends with Stacie Villarreal as a colleague", () => {
+test.only("4 - friends with Stacie Villarreal as a colleague", () => {
   expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
     "Clay Livingston",
     "Jana Harrison",
