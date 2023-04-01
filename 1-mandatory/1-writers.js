@@ -51,7 +51,9 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  for(let eachWriter of writers ){
+    console.log(`Hi, my name is ${eachWriter.firstName} ${eachWriter.lastName}. I am ${eachWriter.age} years old, and work as a ${eachWriter.occupation}.`)
+  }
 }
 
 /*
@@ -62,7 +64,11 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  const deadOlderWriters = writers.filter((eachWriter) => eachWriter.age > 39 && eachWriter.age < 50 && eachWriter.alive === false);
+  const writerName = deadOlderWriters.map((eachWriter) => eachWriter.firstName);
+  const writerSurname = deadOlderWriters.map((eachWriter) => eachWriter.lastName);
+  const writerAge = deadOlderWriters.map((eachWriter) => eachWriter.age);
+  console.log(`Writer ${writerName} ${writerSurname} died at ${writerAge} years old.`)
 }
 
 /*
@@ -72,7 +78,11 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  const aliveOlderWriters = writers.filter((eachWriter) => eachWriter.age > 39 && eachWriter.age < 50 && eachWriter.alive === true);
+  const writerName = aliveOlderWriters.map((eachWriter) => eachWriter.firstName);
+  const writerSurname = aliveOlderWriters.map((eachWriter) => eachWriter.lastName);
+  const writerAge = aliveOlderWriters.map((eachWriter) => eachWriter.age);
+  console.log(`Hi, my name is ${writerName} ${writerSurname}. I am ${writerAge} years old.`)
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
@@ -95,7 +105,7 @@ test("exercise 2", () =>
     "Writer Jane Austen died at 41 years old.",
   ]));
 
-test("exercise 3", () =>
+test.only("exercise 3", () =>
   expectFunctionToLog(logAliveWritersInTheirForties, [
     "Hi, my name is Zadie Smith. I am 40 years old.",
     "Hi, my name is Yukiko Motoya. I am 49 years old.",
