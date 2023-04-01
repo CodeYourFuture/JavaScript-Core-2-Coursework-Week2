@@ -414,6 +414,15 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+function whoMultitask(friend){
+  for(colleague of friend.colleagues){
+    if(colleague.skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
+  }
+}
+
+friends.forEach(whoMultitask);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
@@ -438,7 +447,7 @@ test("3 - Powernet email addresses", () => {
   ]);
 });
 
-test.only("4 - friends with Stacie Villarreal as a colleague", () => {
+test("4 - friends with Stacie Villarreal as a colleague", () => {
   expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
     "Clay Livingston",
     "Jana Harrison",
