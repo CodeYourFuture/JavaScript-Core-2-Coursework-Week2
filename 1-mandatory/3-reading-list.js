@@ -16,10 +16,42 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Think and grow rich",
+    author: "Napoleon Hill",
+    alreadyRead: true,
+  },
+  {
+    title: "It ends with us",
+    author: "Collen Hover",
+    alreadyRead: true,
+  },
+  {
+    title: "The tipping point",
+    author: "Malcom Gladwell",
+    alreadyRead: false,
+  },
+  {
+    title: "Thinking fast and slow",
+    author: "Daniel Kahneman",
+    alreadyRead: false,
+  },
+  {
+    title: "She's in CTRL",
+    author: "Anne-Marie Imafidon",
+    alreadyRead: true,
+  },
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  for (let i = 0; i < books.length; i++) {
+    console.log(`${books[i].title} by ${books[i].author}`);
+  }
+}
+
+
 
 /*
 =====
@@ -47,7 +79,16 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
-
+function logReadStatus() {
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i];
+    if (book.alreadyRead) {
+      console.log(`You've already read "${book.title}" by ${book.author}`);
+    } else {
+      console.log(`You still need to read "${book.title}" by ${book.author}`);
+    }
+  }
+}
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
@@ -56,11 +97,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "Think and grow rich by Napoleon Hill",
+  "It ends with us by Collen Hover",
+  "The tipping point by Malcom Gladwell",
+  "Thinking fast and slow by Daniel Kahneman",
+  "She's in CTRL by Anne-Marie Imafidon",
   ]);
 });
 
