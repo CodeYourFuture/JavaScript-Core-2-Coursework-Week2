@@ -393,7 +393,7 @@ Next, I want you to find all of my friends who are colleagues of Stacie Villarre
 You can see who people's colleagues are by seeing the "colleagues" array in each of my friends objects.
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
-
+// function to find who Stacie is a colleague with
 function findStacie(friends){
   for(let colleague of friends.colleagues){
     if(colleague.name === "Stacie Villarreal") {
