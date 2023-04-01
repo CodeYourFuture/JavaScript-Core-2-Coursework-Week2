@@ -78,11 +78,9 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  const aliveOlderWriters = writers.filter((eachWriter) => eachWriter.age > 39 && eachWriter.age < 50 && eachWriter.alive === true);
-  const writerName = aliveOlderWriters.map((eachWriter) => eachWriter.firstName);
-  const writerSurname = aliveOlderWriters.map((eachWriter) => eachWriter.lastName);
-  const writerAge = aliveOlderWriters.map((eachWriter) => eachWriter.age);
-  console.log(`Hi, my name is ${writerName} ${writerSurname}. I am ${writerAge} years old.`)
+  const aliveOlderWriters = writers.filter((eachWriter) => eachWriter.age > 39 && eachWriter.age < 50 && eachWriter.alive === true)
+  .map((eachWriter) => console.log(`Hi, my name is ${eachWriter.firstName} ${eachWriter.lastName}. I am ${eachWriter.age} years old.`));
+  
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
