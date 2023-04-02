@@ -460,7 +460,16 @@ friends.forEach((eachFriend) => {
       colleaguesWhoCanMultitask.push(eachPerson.name);
     }
   });
-});
+});  
+
+// This is interesting Douglas, .map() and .filter() methods are 2 great superheros which can be a soloustion in most cases here :)
+// const colleaguesWhoCanMultitask = friends
+//   .map((friend) =>
+//     friend.colleagues
+//       .filter((colleague) => colleague.skills.includes("Multi-tasking"))
+//       .map((colleague) => colleague.name)
+//   )
+//   .flat();
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
