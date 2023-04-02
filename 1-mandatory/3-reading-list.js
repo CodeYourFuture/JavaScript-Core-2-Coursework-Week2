@@ -26,7 +26,8 @@ const books = [
     title: "Harry Potter and The Goblet of Fire",
     author: "Joanne K. Rowling",
     alreadyRead: false,
-  },{
+  },
+  {
     title: "Don Quixote",
     author: "Miguel de Cervantes",
     alreadyRead: false,
@@ -40,18 +41,18 @@ const books = [
     title: "Wuthering Heights",
     author: "Emily Brontë",
     alreadyRead: true,
-  }
+  },
 ];
 
 // exercise 1
-function logBooks(listOfBooks) {
-  listOfBooks.map((book) => {
+function logBooks() {
+  books.map((book) => {
     if (book.alreadyRead === true)
-    console.log(`You've already read ${book.title} by ${book.author}`)
+      console.log(`You've already read ${book.title} by ${book.author}`);
     else {
-      console.log(`You still need to read ${book.title} by ${book.author}`)
+      console.log(`You still need to read ${book.title} by ${book.author}`);
     }
-  })
+  });
 }
 
 /*
