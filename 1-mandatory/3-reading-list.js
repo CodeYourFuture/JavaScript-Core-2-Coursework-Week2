@@ -19,37 +19,40 @@ without using any variables or any logic like loops, template strings or if stat
 const books = [
   {
     title: "The Hobbit",
-    author: "J.R.R. Tolkien",
-    alreadyRead: true
+    Author: "J.R.R. Tolkien",
+    alreadyRead: true,
   },
   {
-    title: "To Kill a Mockingbird",
-    author: "Harper Lee",
-    alreadyRead: true
+    title: "Harry Potter",
+    Author: "J.K. Rowling",
+    alreadyRead: true,
   },
   {
-    title: "1984",
-    author: "George Orwell",
-    alreadyRead: false
+    title: "Fairy Taile",
+    Author: "Stephen King",
+    alreadyRead: false,
   },
   {
-    title: "Pride and Prejudice",
-    author: "Jane Austen",
-    alreadyRead: true
+    title: "Desert Flower",
+    Author: "Iris Dirie",
+    alreadyRead: true,
   },
   {
-    title: "The Catcher in the Rye",
-    author: "J.D. Salinger",
-    alreadyRead: false
-  }
+    title: "The Girl on The Train",
+    Author: "Paula Hawkins",
+    alreadyRead: true,
+  },
 ];
-// exercise 1
-// function logBooks() {
-//   for (let i = 0; i < books.length; i++) {
-//     const book = books[i];
-//     console.log(`${book.title} by ${book.author}`);
-//   }
-// }
+function logBook() {
+  for (let i = 0; i < books.length; i++) {
+    console.log("books[i].title by books[i].Author")
+  }
+}
+
+
+
+
+
 /*
 =====
 Exercise 2
@@ -82,21 +85,24 @@ As an example for this exercise, you might do the following steps
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
-function logBooks(books) {
+function logBooks() {
 for (let book of books) {
   if (book.alreadyRead) {
-    console.log(`You've already read "${book.title}" by ${book.author}.`);
+    console.log(`You've already read ${book.title} by ${book.Author}`)
   } else {
-    console.log(`You still need to read "${book.title}" by ${book.author}.`);
+    console.log(`You still need to read ${book.title} by ${book.Author}`)
   }
 }
 }
 
-test("books are logged", function logBooks() {
+
+test("books are logged", function () {
   expectLogBooksToLog([
-    `You've already read "The Hobbit" by J.R.R. Tolkien`,
-    `You've already read "To Kill a Mockingbird" by "Harper Lee"`,
-    `You still need to read "1984" by "George Orwell"`,
+    "You've already read The Hobbit by J.R.R. Tolkien",
+    "You've already read Harry Potter by J.K. Rowling",
+    "You still need to read Fairy Taile by Stephen King",
+    "You've already read Desert Flower by Iris Dirie",
+    "You've already read The Girl on The Train by Paula Hawkins",
   ]);
 });
 

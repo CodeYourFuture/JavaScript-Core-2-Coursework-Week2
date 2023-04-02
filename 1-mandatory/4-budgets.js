@@ -2,7 +2,7 @@
 Get Sum of People's Budget
 Create the function that takes an array with objects and returns the sum of people's budgets.
 For example:
-getBudgets([
+getBudgets ([
   { name: "John",  age: 21, budget: 29000 },
   { name: "Steve",  age: 32, budget: 32000 },
   { name: "Martin",  age: 16, budget: 1600 }
@@ -10,7 +10,9 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {}
+function getBudgets(peopleArray) {
+  return peopleArray.reduce((acc, person) => acc + person.budget, 0);
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`
