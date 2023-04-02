@@ -376,13 +376,9 @@ const friends = [
 In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
-//used .filter() method to return array items with friend.age greater than 35 and then used .map() method on the items in the temp filtered array to add the value of friend.name.first to array thirtyFiveOrOlder 
+//used .filter() method to return array items with friend.age greater than 35
 
-let thirtyFiveOrOlder = []; 
-function findFriendsOverThirtyFive(friendsList) {
-  friendsList.filter((friend) => friend.age >= 35).map((friend) => thirtyFiveOrOlder.push(friend.name.first))
-  return thirtyFiveOrOlder;
-}
+let thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
 
 /*
 3) Find the email address
@@ -390,11 +386,9 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 //used to .filter() method to return items with friend.company equal to "POWERNET" and then used .map() method on the temp filtered array to add the value of friend.email to array powerNetEmails
 
-let powerNetEmails = [];
-function findFriendsWhoWorkForPOWERNET(friendsList) {
-  friendsList.filter((friend) => friend.company === "POWERNET").map((friend) => powerNetEmails.push(friend.email));
-  return powerNetEmails;
-}
+let powerNetEmails = friends
+  .filter((friend) => friend.company === "POWERNET")
+  .map((friend) => friend.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -404,11 +398,13 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 //used .filter() method to return items from the array of objects that includes colleague.name === "Stacie Villarreal" from nested .find() method. The .find() method iterates over the colleagues field for each of the objects (which is given as an array). Used .map() method add friend.name.first to array friendsWhoAreColleaguesOfStacie which is then returned
 
-let friendsWhoAreColleaguesOfStacie = [];
-function findColleaguesOfStacie(friendsList) {
-  friendsList.filter((friend) => friend.colleagues.find((colleague) => colleague.name === "Stacie Villarreal")).map((friend) => friendsWhoAreColleaguesOfStacie.push(friend.name.first));
-  return friendsWhoAreColleaguesOfStacie;
-}
+let friendsWhoAreColleaguesOfStacie = friends
+  .filter((friend) =>
+    friend.colleagues.find(
+      (colleague) => colleague.name === "Stacie Villarreal"
+    )
+  )
+  .map((friend) => `${friend.name.first} ${friend.name.last}`);
 
 /*
 5) Find "Multi-tasking" colleagues
@@ -416,16 +412,13 @@ Next, I want you to find all of the colleagues of my friends who are good at "Mu
 You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
 This time, I only want the full names of the people who can multitask
 */
-//used .includes() method to check if array with name "skills" contains an item equal to "Multi-tasking". Used .filter() method twice, once to access and iterate through the array objects called "friends" and again to iterate through an array of objects called "colleagues" which is within the "friends" array. added the value of colleague.name to an array if .includes() method returns true when array is being iterated which is then returned. 
+//used .includes() method to check if array with name "skills" contains an item equal to "Multi-tasking". Used .filter() method twice, once to access and iterate through the array objects called "friends" and again to iterate through an array of objects called "colleagues" which is within the "friends" array. added the value of colleague.name to an array if .includes() method returns true when array is being iterated which is then returned.
 
-let colleaguesWhoCanMultitask = [];
-function findColleaguesOfFriendsWhoMultitask(friendsList) {
-  friendsList.filter((friend) => friend.colleagues.filter((colleague) => {
-    if (colleague.skills.includes("Multi-tasking")) {
-      colleaguesWhoCanMultitask.push(colleague.name);
-    }}))
-  return colleaguesWhoCanMultitask;
-}
+let colleaguesWhoCanMultitask = friends.flatMap((friend) =>
+  friend.colleagues
+    .filter((colleague) => colleague.skills.includes("Multi-tasking"))
+    .map((colleague) => colleague.name)
+);
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
