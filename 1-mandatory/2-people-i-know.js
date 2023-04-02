@@ -443,8 +443,17 @@ friends.filter(function (el) {
     }
   });
 });
-
 console.log(colleaguesWhoCanMultitask);
+
+//============> another best solution
+
+// let colleaguesWhoCanMultitask = friends
+//   .map((friend) => friend.colleagues)
+//   .flat()
+//   .filter((colleague) => colleague.skills.includes("Multi-tasking"))
+//   .map((colleague) => colleague.name);
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
