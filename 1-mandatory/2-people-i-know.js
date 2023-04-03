@@ -408,24 +408,54 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 //     -> colleagues array of objects
 //        -> skills array
 
-///////////////////// HELP!! ///////////////////
-let colleaguesOfStacie = friends.filter(
-  (singleFriend) => singleFriend.colleagues.includes("Stacie Villarreal") // this return true or false - not sure how to proceed from here
+// let colleaguesOfStacie = friends.filter(
+//   (singleFriend) =>
+//     singleFriend.colleagues.find(
+//       (colleague) => colleague.name === "Stacie Villarreal"
+//     ) !== undefined
+// );
+// let friendsWhoAreColleaguesOfStacie = colleaguesOfStacie.map(
+//   (singleFriend) => singleFriend.name.first + " " + singleFriend.name.last
+// );
+
+// OR
+
+let colleaguesOfStacie = friends.filter((singleFriend) =>
+  singleFriend.colleagues
+    .map((colleague) => colleague.name)
+    .includes("Stacie Villarreal")
 );
 
 let friendsWhoAreColleaguesOfStacie = colleaguesOfStacie.map(
-  (singleFriend) => singleFriend.name.first + singleFriend.name.last
+  (singleFriend) => singleFriend.name.first + " " + singleFriend.name.last
 );
-///////////////////// HELP!! ///////////////////
 
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
 You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
-This time, I only want the full names of the people who can multitask
+This time, I only want the ----> full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
+// friends array
+//  -> person object
+//     -> name object
+//     -> colleagues array of objects
+//        -> skills array
+
+/////////////////// HELP!! /////////////////////////
+
+let multitaskingColleagues = friends.filter((singleFriend) =>
+  singleFriend.colleagues
+    .map((colleague) => colleague.skills) // how do I access and search inside the skills array
+    .includes("Multi-tasking")
+);
+
+let colleaguesWhoCanMultitask = multitaskingColleagues.map(
+  (singleFriend) => singleFriend.name.first + " " + singleFriend.name.last
+);
+
+/////////////////// HELP!! /////////////////////////
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
@@ -450,7 +480,7 @@ test("3 - Powernet email addresses", () => {
   ]);
 });
 
-test.only("4 - friends with Stacie Villarreal as a colleague", () => {
+test("4 - friends with Stacie Villarreal as a colleague", () => {
   expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
     "Clay Livingston",
     "Jana Harrison",
@@ -458,7 +488,7 @@ test.only("4 - friends with Stacie Villarreal as a colleague", () => {
   ]);
 });
 
-test("5 - colleagues who can multitask", () => {
+test.only("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
     "Rush May",
     "Gena Good",
