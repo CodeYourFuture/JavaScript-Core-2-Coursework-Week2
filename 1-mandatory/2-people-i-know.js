@@ -447,7 +447,7 @@ This time, I only want the ----> full names of the people who can multitask
 
 let multitaskingColleagues = friends.filter((singleFriend) =>
   singleFriend.colleagues
-    .map((colleague) => colleague.skills) // how do I access and search inside the skills array
+    .map((colleague) => colleague.skills) // how do I access and search inside the skills array?? Do I add another .map?
     .includes("Multi-tasking")
 );
 
