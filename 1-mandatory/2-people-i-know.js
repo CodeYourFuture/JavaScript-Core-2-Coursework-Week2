@@ -443,19 +443,23 @@ This time, I only want the ----> full names of the people who can multitask
 //     -> colleagues array of objects
 //        -> skills array
 
-/////////////////// HELP!! /////////////////////////
-
-let multitaskingColleagues = friends.filter((singleFriend) =>
-  singleFriend.colleagues
-    .map((colleague) => colleague.skills) // how do I access and search inside the skills array?? Do I add another .map?
-    .includes("Multi-tasking")
+let colleaguesWhoCanMultitask = [];
+let allColleaguesArrayOfArrays = friends.map(
+  // here we are mapping the colleagues to the outer friends array as we don't need all the other stuff
+  (eachFriend) => eachFriend.colleagues
 );
 
-let colleaguesWhoCanMultitask = multitaskingColleagues.map(
-  (singleFriend) => singleFriend.name.first + " " + singleFriend.name.last
-);
-
-/////////////////// HELP!! /////////////////////////
+for (let eachMiniArrayOfColleagues of allColleaguesArrayOfArrays) {
+  // looking at each mini array in the colleagues outer array
+  let multiTaskingColleagues = eachMiniArrayOfColleagues.filter(
+    // searching the skills and selecting the colleagues which can multi-task
+    (eachColleague) => eachColleague.skills.includes("Multi-tasking")
+  );
+  for (let multiTaskingColleague of multiTaskingColleagues) {
+    // from the colleagues who multi-task, push their name to a new array
+    colleaguesWhoCanMultitask.push(multiTaskingColleague.name);
+  }
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
@@ -488,7 +492,7 @@ test("4 - friends with Stacie Villarreal as a colleague", () => {
   ]);
 });
 
-test.only("5 - colleagues who can multitask", () => {
+test("5 - colleagues who can multitask", () => {
   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
     "Rush May",
     "Gena Good",

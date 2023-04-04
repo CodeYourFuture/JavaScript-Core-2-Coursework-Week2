@@ -27,10 +27,23 @@ const books = [
     author: "J.K. Rowling",
     alreadyRead: true,
   },
+  {
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    alreadyRead: true,
+  },
+  {
+    title: "All About Love",
+    author: "Bell Hooks",
+    alreadyRead: false,
+  },
+  {
+    title: "Rebel Ideas",
+    author: "Matthew Syed",
+    alreadyRead: false,
+  },
 ];
 
-/////// ADD MORE BOOKS///////
-// exercise 1
 // function logBooks() {
 //   books.forEach((book) => {
 //     console.log(`${book.title} by ${book.author}`);
@@ -80,12 +93,15 @@ function logBooks() {
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-///// Irianni change function names /////////
+////////// TO DO change function names ////////////
 
 test("books are logged", function () {
   expectLogBooksToLog([
     "The Hobbit by J.R.R. Tolkien",
     "Harry Potter by J.K. Rowling",
+    "Pride and Prejudice by Jane Austen",
+    "All About Love by Bell Hooks",
+    "Rebel Ideas by Matthew Syed",
   ]);
 });
 
@@ -93,6 +109,9 @@ test.only("books read", function () {
   expectLogBooksToLog([
     "You still need to read The Hobbit by J.R.R. Tolkien",
     "You've already read Harry Potter by J.K. Rowling",
+    "You've already read Pride and Prejudice by Jane Austen",
+    "You still need to read All About Love by Bell Hooks",
+    "You still need to read Rebel Ideas by Matthew Syed",
   ]);
 });
 
