@@ -16,15 +16,59 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    alreadyRead: true,
+  },
+  {
+    title: "The Lord of the Rings",
+    author: "J.R.R. Tolkien",
+    alreadyRead: false,
+  },
+  {
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    alreadyRead: true,
+  },
+  {
+    title: "1984",
+    author: "George Orwell",
+    alreadyRead: false,
+  },
+  {
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    alreadyRead: true,
+  },
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() { 
+  if (books && books.length) {
+    const bookTitles = books.map((book) => `${book.title} by ${book.author}`);
+    console.log(bookTitles); // add this line to check the book titles array
+    bookTitles.forEach((title) => console.log(title));
+  } else {
+    console.log("No books to log.");
+  }
+}
 
-/*
-=====
-Exercise 2
-=====
+// Exercise 2
+
+function logReadStatus() {
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i];
+    if (book.alreadyRead) {
+      console.log(`You've already read "${book.title}" by ${book.author}`);
+    } else {
+      console.log(`You still need to read "${book.title}" by ${book.author}`);
+    }
+  }
+}
+
+/* =====
 Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
 If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien', 
 and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
