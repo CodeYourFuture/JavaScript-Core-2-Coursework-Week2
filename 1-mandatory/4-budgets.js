@@ -10,7 +10,12 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
-function getBudgets(peopleArray) {}
+
+function getBudgets(peopleArray){
+  return peopleArray.reduce((sumOfBudgets, person) => sumOfBudgets + person.budget, 0);
+}
+
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`
