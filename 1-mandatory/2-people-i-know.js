@@ -405,14 +405,19 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 
 let friendsWhoAreColleaguesOfStacie = [];
 for (let i = 0; i < friends.length; i++) {
-  if (friends[i].colleagues.includes("Stacie Villarreal")) {
-    friendsWhoAreColleaguesOfStacie.push(
-      `${friends[i].firstName} ${friends[i].lastName}`
-    );
-     console.log(friendsWhoAreColleaguesOfStacie);
+  const colleagues = friends[i].colleagues;
+
+  for (let j = 0; j < colleagues.length; j++) {
+    if (colleagues[j].name === "Stacie Villarreal") {
+      friendsWhoAreColleaguesOfStacie.push(
+        `${friends[i].name.first} ${friends[i].name.last}`
+      );
+      break;
+    }
   }
- 
 }
+
+console.log(friendsWhoAreColleaguesOfStacie);
 
 /*
 5) Find "Multi-tasking" colleagues
@@ -423,11 +428,12 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 for (let i = 0; i < friends.length; i++) {
-  const colleague = friends[i];
-  if (colleague.skills.includes("Multi-tasking")) {
-    colleaguesWhoCanMultitask.push(
-      `${colleague.firstName} ${colleague.lastName}`
-    );
+  const friend = friends[i];
+  for (let j = 0; j < friend.colleagues.length; j++) {
+    const colleague = friend.colleagues[j];
+    if (colleague.skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(`${colleague.name}`);
+    }
   }
 }
 console.log(colleaguesWhoCanMultitask);
