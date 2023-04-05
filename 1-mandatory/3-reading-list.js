@@ -48,7 +48,6 @@ const books = [
 function logBooks() { 
   if (books && books.length) {
     const bookTitles = books.map((book) => `${book.title} by ${book.author}`);
-    console.log(bookTitles); // add this line to check the book titles array
     bookTitles.forEach((title) => console.log(title));
   } else {
     console.log("No books to log.");
@@ -58,15 +57,10 @@ function logBooks() {
 // Exercise 2
 
 function logReadStatus() {
-  for (let i = 0; i < books.length; i++) {
-    const book = books[i];
-    if (book.alreadyRead) {
-      console.log(`You've already read "${book.title}" by ${book.author}`);
-    } else {
-      console.log(`You still need to read "${book.title}" by ${book.author}`);
-    }
-  }
+  books.forEach((book) => console.log(`${book.title} by ${book.author}`));
 }
+
+
 
 /* =====
 Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
