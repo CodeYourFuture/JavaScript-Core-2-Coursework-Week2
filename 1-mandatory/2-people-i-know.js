@@ -379,6 +379,15 @@ First, I want you to find all of my friends who are 35 or older.
 
 let thirtyFiveOrOlder = [];
 
+function findFriendsOver35(friends) {
+  for (let i = 0; i < friends.length; i++) {
+    if (friends[i].age >= 35) {
+      thirtyFiveOrOlder.push(friends[i]);
+    }
+  }
+}
+findFriendsOver35(friends);
+
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
@@ -386,6 +395,14 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 
 let powerNetEmails = [];
 
+function getPOWERNETEmployees(friends) {
+  for (let friend of friends) {
+    if (friend.company === "POWERNET") {
+      powerNetEmails.push(friend.email);
+    }
+  }
+}
+getPOWERNETEmployees(friends);
 /*
 4) colleagues with "Stacie Villarreal"
 Next, I want you to find all of my friends who are colleagues of Stacie Villarreal.
@@ -394,6 +411,20 @@ This time, I only want the full names ("<firstname> <lastname>") of my friends w
 */
 
 let friendsWhoAreColleaguesOfStacie = [];
+
+function getStaciesFriends(friends) {
+  for (let friend of friends) {
+    for (let colleague of friend.colleagues) {
+      if (colleague.name === "Stacie Villarreal") {
+        friendsWhoAreColleaguesOfStacie.push(
+          friend.name.first.concat(" " + friend.name.last)
+        );
+      }
+    }
+  }
+}
+
+getStaciesFriends(friends);
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -403,6 +434,19 @@ This time, I only want the full names of the people who can multitask
 
 let colleaguesWhoCanMultitask = [];
 
+function getMultitaskers(friends) {
+  for (let friend of friends) {
+    for (let colleague of friend.colleagues) {
+      for (let skill of colleague.skills) {
+        if (skill === "Multi-tasking") {
+          colleaguesWhoCanMultitask.push(colleague.name);
+        }
+      }
+    }
+  }
+}
+
+getMultitaskers(friends);
 /* ======= TESTS - DO NOT MODIFY =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
