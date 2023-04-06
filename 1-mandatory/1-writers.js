@@ -50,11 +50,16 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters(arr) {
+function logAllWriters() {
   // write your code to log all writers here
-  for (let i = 0; i < arr.length; i++) {
+/*   for (let i = 0; i < arr.length; i++) {
     console.log(
       `Hi, my name is ${arr[i].firstName} ${arr[i].lastName}. I am ${arr[i].age} years old, and work as a writer.`
+    );
+  } */
+  for (let i = 0; i < writers.length; i++) {
+    console.log(
+      `Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old, and work as a writer.`
     );
   }
 }
@@ -66,12 +71,12 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties(arr) {
+function logDeadWritersInTheirForties() {
   // write your code here
-  for (let i = 0; i < arr.length; i++) {
-    if (40 <= arr[i].age && arr[i].age <= 49 && arr[i].alive == false) {
+  for (let i = 0; i < writers.length; i++) {
+    if (40 <= writers[i].age && writers[i].age <= 49 && writers[i].alive == false) {
       console.log(
-        `Writer ${arr[i].firstName} ${arr[i].lastName} died at ${arr[i].age} years old.`
+        `Writer ${writers[i].firstName} ${writers[i].lastName} died at ${writers[i].age} years old.`
       );
     }
   }
@@ -85,10 +90,10 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
-  for (let i = 0; i < arr.length; i++) {
-    if (40 <= arr[i].age && arr[i].age <= 49 && arr[i].alive == true) {
+  for (let i = 0; i < writers.length; i++) {
+    if (40 <= writers[i].age && writers[i].age <= 49 && writers[i].alive == true) {
       console.log(
-        `Hi, my name is ${arr[i].firstName} ${arr[i].lastName}. I am ${arr[i].age} years old.`
+        `Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old.`
       );
     }
   }
