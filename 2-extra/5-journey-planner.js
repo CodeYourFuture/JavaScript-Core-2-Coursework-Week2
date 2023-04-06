@@ -19,7 +19,16 @@
   What's better about each approach?
 */
 
-function journeyPlanner(locations, transportMode) {}
+function journeyPlanner(locations, transportMode) {
+  const result = [];
+
+  for (let location in locations) {
+    if (locations[location].includes(transportMode)) {
+      result.push(location);
+    }
+  }
+  return result;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern journey-planner.js`
