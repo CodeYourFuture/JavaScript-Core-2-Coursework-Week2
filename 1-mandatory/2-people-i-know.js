@@ -397,17 +397,22 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = (arr) => {
+let friendsWhoAreColleaguesOfStacie = []
+function Villarreal (arrayOfFriends) {
   const result = [];
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].colleagues.length; j++) {
-      if (arr[i].colleagues[j].name == "Stacie Villarreal") {
-        result.push(`${arr[i].name.first} ${arr[i].name.last}`);
+  for (let i = 0; i < arrayOfFriends.length; i++) {
+    for (let j = 0; j < arrayOfFriends[i].colleagues.length; j++) {
+      if (arrayOfFriends[i].colleagues[j].name == "Stacie Villarreal") {
+        result.push(
+          `${arrayOfFriends[i].name.first} ${arrayOfFriends[i].name.last}`
+        );
       }
     }
   }
   return result;
 };
+
+friendsWhoAreColleaguesOfStacie = Villarreal(friends)
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -415,19 +420,20 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = (arr) => {
+let colleaguesWhoCanMultitask = []
+function multiTask (arrayOfFriends) {
   const result = [];
-  for (let i = 0; i < arr.length; i++) {  //i am not happy with this 3 nested for, so pls leave a commet if you have any other idea
-    for (let j = 0; j < arr[i].colleagues.length; j++) {
-      for (let k = 0; k < arr[i].colleagues[j].skills.length; k++) {
-        if (arr[i].colleagues[j].skills[k] == "Multi-tasking") {
-          result.push(`${arr[i].colleagues[j].name}`);
-        }
+  for (let i = 0; i < arrayOfFriends.length; i++) {
+    for (let j = 0; j < arrayOfFriends[i].colleagues.length; j++) {
+      if (arrayOfFriends[i].colleagues[j].skills.includes("Multi-tasking")) {
+        result.push(arrayOfFriends[i].colleagues[j].name);
       }
     }
   }
   return result;
 };
+
+colleaguesWhoCanMultitask = multiTask(friends);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
