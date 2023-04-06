@@ -52,9 +52,14 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
-  for (let i = 0; i < writers.length; i++) {
+  // for (let i = 0; i < writers.length; i++) {
+  //   console.log(
+  //     `Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old, and work as a ${writers[i].occupation}.`
+  //   );
+  // }
+  for (const names of writers) {
     console.log(
-      `Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old, and work as a ${writers[i].occupation}.`
+      `Hi, my name is ${names.firstName} ${names.lastName}. I am ${names.age} years old, and work as a ${names.occupation}.`
     );
   }
 }

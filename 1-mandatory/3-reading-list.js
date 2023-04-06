@@ -16,14 +16,45 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+let books = [
+  { title: "The Hobbit", author: "J.R.R. Tolkien", alreadyRead: true },
+  {
+    title: "The Map of Salt and Stars",
+    author: "Jennifer Zeynab Joukhadar",
+    alreadyRead: false,
+  },
+  { title: "Dietland", author: "Sarai Walker", alreadyRead: true },
+  {
+    title: "A Place for Us",
+    author: "Fatima Farheen Mirza",
+    alreadyRead: false,
+  },
+  {
+    title: "The House of Impossible Beauties",
+    author: "Joseph Cassara",
+    alreadyRead: true,
+  },
+];
 
-// exercise 1
-function logBooks() {}
+// // exercise 1
+// function logBooks() {
+//   for (const someBooks of books) {
+//     console.log(`${someBooks.title} by ${someBooks.author}`);
+//   }
+// }
+
+// exercise 2
+function logBooks() {
+  for (const book of books) {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    }
+  }
+}
 
 /*
-=====
-Exercise 2
 =====
 Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
 If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien', 
@@ -54,13 +85,14 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
+//
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    `You've already read The Hobbit by J.R.R. Tolkien`,
+    `You still need to read The Map of Salt and Stars by Jennifer Zeynab Joukhadar`,
+    `You've already read Dietland by Sarai Walker`,
+    `You still need to read A Place for Us by Fatima Farheen Mirza`,
+    `You've already read The House of Impossible Beauties by Joseph Cassara`,
   ]);
 });
 
