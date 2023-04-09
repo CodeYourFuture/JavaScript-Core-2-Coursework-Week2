@@ -27,6 +27,14 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+for (let day in weeklyMealPlan) {
+  weeklyGroceriesToBuy = [...weeklyGroceriesToBuy, ...weeklyMealPlan[day]];
+}
+
+weeklyGroceriesToBuy = [...new Set(weeklyGroceriesToBuy)];
+
+console.log("Weekly Groceries to Buy:", weeklyGroceriesToBuy);
+
 
 /*
 Exercise 2:
@@ -34,6 +42,16 @@ Exercise 2:
 */
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
+for (let day in weeklyMealPlan) {
+  if (day === "saturday" || day === "sunday") {
+    weekendGroceriesToBuy = [...weekendGroceriesToBuy, ...weeklyMealPlan[day]];
+  }
+}
+
+weekendGroceriesToBuy = [...new Set(weekendGroceriesToBuy)];
+
+console.log("Weekend Groceries to Buy:", weekendGroceriesToBuy);
+
 
 /*
 Exercise 3:
@@ -51,6 +69,11 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+for (let day in weeklyMealPlan) {
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length;
+}
+
+console.log("Number of Items per Week:", numberOfItemsPerWeek);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern 5-groceries.js`

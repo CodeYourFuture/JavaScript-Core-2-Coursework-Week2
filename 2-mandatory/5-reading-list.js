@@ -16,11 +16,41 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
-  
+const books = [
+{
+title: "The Hobbit",
+author: "J.R.R. Tolkien",
+alreadyRead: true
+},
+{
+title: "The Map of Salt and Stars",
+author: "Jennifer Zeynab Joukhadar",
+alreadyRead: false
+},
+{
+title: "Dietland",
+author: "Sarai Walker",
+alreadyRead: true
+},
+{
+title: "A Place for Us",
+author: "Fatima Farheen Mirza",
+alreadyRead: false
+},
+{
+title: "The House of Impossible Beauties",
+author: "Joseph Cassara",
+alreadyRead: true
+}
+];
+
 // exercise 1
 function logBooks() {
+for (let i = 0; i < books.length; i++) {
+console.log(`${books[i].title} by ${books[i].author}`);
 }
+}
+
   
 
 /*
@@ -48,8 +78,19 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+// exercise 2
+function logBooksReadStatus() {
+for (let i = 0; i < books.length; i++) {
+if (books[i].alreadyRead) {
+console.log(`You've already read ${books[i].title}" by ${books[i].author}`);
+} else {
+console.log(`You still need to read "${books[i].title}" by ${books[i].author}`);
+}
+}
+}
+
 /* ======= TESTS - DO MODIFY (!!!) =====
-- To run the tests for this exercise, run `npm test -- --testPathPattern 8-reading-list.js`
+- To run the tests for this exercise, run `npm test -- --testPathPattern 5-reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
