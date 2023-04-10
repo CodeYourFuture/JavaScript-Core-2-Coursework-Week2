@@ -58,7 +58,7 @@ function logAllWriters(writers) {
       `Hi, my name is ${key.firstName} ${key.lastName}. I am ${key.age} years old, and work as a ${key.occupation}.`
     );
   }
-  return writersInfo;
+  return console.log(writersInfo);
 }
 //still having error in ex:1
 // logAllWriters(writers);
