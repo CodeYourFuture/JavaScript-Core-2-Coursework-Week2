@@ -377,14 +377,18 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
+let thirtyFiveOrOlder = friends.filter((friend) => friend.age >= 35);
+//array of filtered friends
+//only used filter as the test will run map for this array then .name
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
 
-let powerNetEmails = [];
+let powerNetEmails = friends
+  .filter((friend) => friend.company === "POWERNET")
+  .map((friend) => friend.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -393,7 +397,22 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+function isSheFriendOfStacie(colleagues) {
+  for (let colleague of colleagues) {
+    if (colleague.name === "Stacie Villarreal") {
+      return true;
+    }
+  }
+  return false;
+}
+function getFullName(name) {
+  return `${name.first} ${name.last}`;
+}
+
+let friendsWhoAreColleaguesOfStacie = friends
+  .filter((friend) => isSheFriendOfStacie(friend.colleagues))
+  .map((friend) => getFullName(friend.name));
+
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
