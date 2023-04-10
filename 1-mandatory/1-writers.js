@@ -50,9 +50,19 @@ Exercise 1:
   and insert the corresponding values to the place holders that are indicated in curly braces:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
-function logAllWriters() {
-  // write your code to log all writers here
+function logAllWriters(writers) {
+  let writersInfo = [];
+
+  for (let key of writers) {
+    writersInfo.push(
+      `Hi, my name is ${key.firstName} ${key.lastName}. I am ${key.age} years old, and work as a ${key.occupation}.`
+    );
+  }
+  return writersInfo;
+  // return console.log(writersInfo);
 }
+//still having error in ex:1
+// logAllWriters(writers);
 
 /*
 Exercise 2:
@@ -61,9 +71,22 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-function logDeadWritersInTheirForties() {
-  // write your code here
+function logDeadWritersInTheirForties(writers) {
+  const writersInTheirForties = writers.filter(
+    (writer) => writer.age >= 40 && writer.age <= 49
+  );
+  const DeadWritersInTheirForties = writersInTheirForties.filter(
+    (writer) => writer.alive === false
+  );
+
+  DeadWritersInTheirForties.forEach((deadWriterIn40s) =>
+    console.log(
+      `Writer ${deadWriterIn40s.firstName} ${deadWriterIn40s.lastName} died at ${deadWriterIn40s.age} years old.`
+    )
+  );
 }
+
+logDeadWritersInTheirForties(writers);
 
 /*
 Exercise 3:
@@ -71,9 +94,20 @@ Exercise 3:
   "Hi, my name is {firstName} {lastName}. I am {age} years old."
 */
 
-function logAliveWritersInTheirForties() {
-  // write your code here
+function logAliveWritersInTheirForties(writers) {
+  const writersInTheirForties = writers.filter(
+    (writer) => writer.age >= 40 && writer.age <= 49
+  );
+  const LiveWritersInTheirForties = writersInTheirForties.filter(
+    (writer) => writer.alive === true
+  );
+  LiveWritersInTheirForties.forEach((liveWriterIn40s) =>
+    console.log(
+      `Hi, my name is ${liveWriterIn40s.firstName} ${liveWriterIn40s.lastName}. I am ${liveWriterIn40s.age} years old.`
+    )
+  );
 }
+logAliveWritersInTheirForties(writers);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern writers.js`
