@@ -59,7 +59,6 @@ function logAllWriters(writers) {
     );
   }
   return writersInfo;
-  // return console.log(writersInfo);
 }
 //still having error in ex:1
 // logAllWriters(writers);
@@ -86,8 +85,6 @@ function logDeadWritersInTheirForties(writers) {
   );
 }
 
-logDeadWritersInTheirForties(writers);
-
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
@@ -107,7 +104,7 @@ function logAliveWritersInTheirForties(writers) {
     )
   );
 }
-logAliveWritersInTheirForties(writers);
+// logAliveWritersInTheirForties(writers);
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern writers.js`
