@@ -1,8 +1,8 @@
 /*
 Create an object that acts a water bottle.
-It will need a volume property to store how full or empty the bottle is. 
-Volume will be 100 when bottle is full and 0 when empty. 
-Give your water bottle methods for 
+It will need a volume property to store how full or empty the bottle is.
+Volume will be 100 when bottle is full and 0 when empty.
+Give your water bottle methods for
   - filling it up
   - pouring 10 units of water into it
     Note: You cannot exceed the bottle capacity.
@@ -19,18 +19,31 @@ let bottle = {
   volume: 0,
   fillUp: function () {
     // calling this function should completely fill your bottle (volume = 100);
+    this.volume = 100;
   },
   pour: function () {
     // calling this function should increase your bottle volume by 10 units;
+    if (this.volume + 10 > 100) {
+      this.volume = 100;
+    } else {
+      this.volume += 10;
+    }
   },
   drink: function () {
     // calling this function should decrease your bottle volume by 10 units;
+    if (this.volume - 10 < 0) {
+      this.volume = 0;
+    } else {
+      this.volume -= 10;
+    }
   },
   isFull: function () {
     // this function should return true if your bottle is full;
+    return this.volume === 100;
   },
   isEmpty: function () {
     // this function should return true if your bottle is empty;
+    return this.volume === 0;
   },
 };
 
@@ -44,12 +57,13 @@ TIP:
 Extra question:
   Why do you think it is preferred to use `this` inside the object rather than its variable name, in our case `bottle`?
   Leave your answer below:
+  Using "this" inside the object is preferred because it allows us to refer to the current object without having to use its variable name. This makes the code more readable and easier to understand.
 */
 
 // Write you answer to the question here
 
 /*
-Once you have completed your object run the following 
+Once you have completed your object run the following
 and see if your answer matches the expected result at the bottom :)
 */
 

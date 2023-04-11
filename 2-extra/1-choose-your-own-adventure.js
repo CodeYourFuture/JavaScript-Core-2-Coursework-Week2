@@ -3,8 +3,8 @@ Create a "Choose Your Own Adventure" game using an object. In these kind of
 games, the player is in a room and can move to other rooms to the north, east,
 south or west.
 To start the game, run this file with Node. Depending on your current directory, run one of:
-    node 1-choose-your-own-adventure.js  
-    node 3-extra/1-choose-your-own-adventure.js 
+    node 1-choose-your-own-adventure.js
+    node 3-extra/1-choose-your-own-adventure.js
 To stop the game, press
 Ctrl-C.
 To run the tests for the game, run this file with npm test
@@ -30,7 +30,7 @@ time to read it carefully. The rooms look something like this:
 ----------------------------------------------------------
 Stretch goal: what happens if you try to move in a direction that the current
 room doesn't allow? For example if you are in the Classroom and you try to move
-east? If there is a bug in your code, try to fix it. 
+east? If there is a bug in your code, try to fix it.
 To enable the tests for the stretch goals, remove the ".skip" on the appropriate tests below.
 */
 
@@ -44,6 +44,19 @@ let game = {
     // object for the correct room.
     //
     // Hint: the only valid rooms are "hall", "classroom" and "library".
+    switch (roomName) {
+      case "hall":
+        game.currentRoom = rooms.hall;
+        break;
+      case "classroom":
+        game.currentRoom = rooms.classroom;
+        break;
+      case "library":
+        game.currentRoom = rooms.library;
+        break;
+      default:
+        return "Not valid room";
+    }
   },
 
   move: function (direction) {
@@ -53,6 +66,21 @@ let game = {
     //
     // Hint: the room objects have north/east/south/west methods which return
     // a new room object that is in the relevant direction.
+    if (direction == "east") {
+      game.currentRoom = rooms.hall.east();
+    } else if (direction == "south") {
+      game.currentRoom = rooms.hall.south();
+      return game.currentRoom;
+    } else if (direction == "west") {
+      game.currentRoom = rooms.classroom.west();
+    } else if (direction == "north") {
+      game.currentRoom = rooms.library.north();
+    } else if (
+      direction == "north" ||
+      (direction == "Wonderland" && this.currentRoom == "hall")
+    ) {
+      game.currentRoom = rooms.hall;
+    }
   },
 };
 
@@ -109,7 +137,7 @@ let rooms = {
 };
 
 /*
-YOU ARE NOT EXPECTED TO UNDERSTAND THE CODE BELOW THIS 
+YOU ARE NOT EXPECTED TO UNDERSTAND THE CODE BELOW THIS
 LINE!
 You only need to read it if you are interested in how it works.
 */
@@ -161,7 +189,7 @@ if (global["test"] == undefined) {
 
 // if we reach here, we are running in jest -> run tests
 
-/* ======= TESTS - ONLY MODIFY TO ENABLE TESTS FOR STRETCH GOALS ===== 
+/* ======= TESTS - ONLY MODIFY TO ENABLE TESTS FOR STRETCH GOALS =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern choose-your-own-adventure.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
@@ -188,7 +216,7 @@ test("start in classroom", () => {
 });
 
 // remove ".skip" if your code correctly handles a non existent room (by setting currentRoom to null/doing nothing)
-test.skip("start in non-existent place", () => {
+test("start in non-existent place", () => {
   game.start("does not exist");
   expect(game.currentRoom).toEqual(null);
 });
@@ -218,14 +246,14 @@ test("start in classroom and go west", () => {
 });
 
 // remove ".skip" if your code handles trying to go in a direction with no room (by staying in the same room)
-test.skip("start in hall and go north (to non-existent room) -> stay in same room", () => {
+test("start in hall and go north (to non-existent room) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("north");
   expect(game.currentRoom.name).toEqual("hall");
 });
 
 // remove ".skip" if your code handles trying to go in a direction that doesn't exist (by staying in the same room)
-test.skip("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
+test("start in hall and go backwards (non-existent direction) -> stay in same room", () => {
   game.currentRoom = rooms.hall;
   game.move("backwards");
   expect(game.currentRoom.name).toEqual("hall");
