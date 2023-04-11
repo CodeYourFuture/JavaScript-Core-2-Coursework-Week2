@@ -482,7 +482,7 @@ test("3 - Powernet email addresses", () => {
   ]);
 });
 
-test.only("4 - friends with Stacie Villarreal as a colleague", () => {
+test("4 - friends with Stacie Villarreal as a colleague", () => {
   expect(friendsWhoAreColleaguesOfStacie).toIncludeSameMembers([
     "Clay Livingston",
     "Jana Harrison",
