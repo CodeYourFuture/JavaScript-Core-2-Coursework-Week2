@@ -8,31 +8,69 @@ Create an array of objects, where each object describes a book and has propertie
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
-Write a funciton that loops through the array of books. For each book, log the book title and book author like so: 
+Write a funciton that loops through the array of books. For each book, log the book title and book author like so:
 "The Hobbit by J.R.R. Tolkien"
-You should write and log at least 5 books. 
+You should write and log at least 5 books.
 You should modify the tests so that they contain the values that correspond to your books.
-In this style of testing it is typical to write out as strings exactly what you expect your output to be, 
+In this style of testing it is typical to write out as strings exactly what you expect your output to be,
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    alreadyRead: true,
+  },
+  {
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    alreadyRead: true,
+  },
+  {
+    title: "1984",
+    author: "George Orwell",
+    alreadyRead: false,
+  },
+  {
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    alreadyRead: true,
+  },
+  {
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    alreadyRead: false,
+  },
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  const bookList = books.map((book) => {
+    return `${book.title} by ${book.author}`;
+  });
+  console.log(...bookList);
+  if (bookList.alreadyRead === true) {
+    console.log(`You've already read ${bookList.title} by ${bookList.author}`);
+  } else {
+    console.log(
+      `You still need to read ${bookList.title} by ${bookList.author}`
+    );
+  }
+}
 
 /*
 =====
 Exercise 2
 =====
-Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
-If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien', 
+Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not.
+If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien',
 and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
 You will need to modify the tests to check the correct output. If you have already learnt about red-green refactoring,
 remember to practice:
-- first change the test to the value that should be output 
+- first change the test to the value that should be output
   (note: usually we wouldn't change existing tests as part of the "red" step, we would write a new test. In this case
-  it's because it's the easiest way to incrementally solve the problem), 
+  it's because it's the easiest way to incrementally solve the problem),
 - run the test to check that your test goes red
 - now change your code to make the test pass
 As an example for this exercise, you might do the following steps
@@ -56,11 +94,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "The Great Gatsby by F. Scott Fitzgerald",
+    "To Kill a Mockingbird by JHarper Lee",
+    "1984 by George Orwell",
+    "Pride and Prejudice by Jane Austen",
+    "The Catcher in the Rye by J.D. Salinger",
   ]);
 });
 
