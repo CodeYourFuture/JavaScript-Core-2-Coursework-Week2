@@ -419,21 +419,37 @@ Next, I want you to find all of the colleagues of my friends who are good at "Mu
 You can tell if they are good at "Multi-tasking" because they will have it listed in their skills
 This time, I only want the full names of the people who can multitask
 */
-function canSheMultiTask(colleagues) {
-  for (let colleague of colleagues) {
-    return colleague.skills.includes("Multi-tasking");
-  }
+// let colleaguesWhoCanMultitask = friends
+//   .filter((friend) => canSheMultiTask(friend.colleagues))
+//   .map((friend) => getName(friend.colleagues));
+
+// function canSheMultiTask(colleagues) {
+//   for (let colleague of colleagues) {
+//     return colleague.skills.includes("Multi-tasking");
+//   }
+// }
+
+// function getName(colleagues) {
+//   for (let colleague of colleagues) {
+//     return colleague.name;
+//   }
+// }
+
+// another answer for ex:5
+let colleaguesWhoCanMultitask = [];
+
+function colleagueIsGoodAtMultitasking(colleague) {
+  return colleague.skills.includes("Multi-tasking");
 }
 
-function getName(colleagues) {
-  for (let colleague of colleagues) {
-    return colleague.name;
-  }
-}
-
-let colleaguesWhoCanMultitask = friends.filter((friend) =>
-  canSheMultiTask(friend.colleagues).map((friend) => getName(friend.colleagues))
+friends.forEach((friend) =>
+  friend.colleagues.forEach((colleague) => {
+    if (colleagueIsGoodAtMultitasking(colleague)) {
+      colleaguesWhoCanMultitask.push(colleague.name);
+    }
+  })
 );
+// console.log(colleaguesWhoCanMultitask1);
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
