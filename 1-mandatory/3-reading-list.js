@@ -38,19 +38,26 @@ const books = [
     alreadyRead: true,
   },
   {
-    title: "title 4",
-    author: "author 4",
+    title: "A Place for Us",
+    author: "Fatima Farheen Mirza",
     alreadyRead: false,
   },
   {
-    title: "title 5",
-    author: "author 5",
+    title: "The House of Impossible Beauties",
+    author: "Joseph Cassara",
     alreadyRead: false,
   },
 ];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  books.forEach((book) => {
+    let readingStatus = book.alreadyRead
+      ? "You've already read"
+      : "You still need to read";
+    console.log(`${readingStatus} ${book.title} by ${book.author}`);
+  });
+}
 
 /*
 =====
@@ -84,16 +91,40 @@ As an example for this exercise, you might do the following steps
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
+// test("5 - colleagues who can multitask", () => {
+//   expect(colleaguesWhoCanMultitask).toIncludeSameMembers([
+//     "Rush May",
+//     "Gena Good",
+//     "Cunningham Shelton",
+//     "Castro Castaneda",
+//     "Luz Newton",
+//   ]);
+// });
 
-test("books are logged", function () {
+// test.only("books are logged", function () {
+//   expectLogBooksToLog([
+//     "The Hobbit by J.R.R. Tolkien",
+//     "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+//     "Dietland by Sarai Walker",
+//     "A Place for Us by Fatima Farheen Mirza",
+//     "The House of Impossible Beauties by Joseph Cassara",
+//   ]);
+// });
+
+test("books are logged with reading status", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "You've already read The Hobbit by J.R.R. Tolkien",
+    "You've already read The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
+    "You've already read Dietland by Sarai Walker",
+    "You still need to read A Place for Us by Fatima Farheen Mirza",
+    "You still need to read The House of Impossible Beauties by Joseph Cassara",
   ]);
 });
+
+// test ("log books with reading status", ()=> {
+// expect(logBooks()).toEquals();
+
+// });
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 /*
