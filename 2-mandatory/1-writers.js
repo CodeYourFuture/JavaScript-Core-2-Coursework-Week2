@@ -11,7 +11,7 @@
   reason about and last but not least it can be error-prone (for example, you match up the wrong birthday to a name).
   In this exercise you will practice how to access Objects stored in an Array and their properties. You already know 
   different ways of looping through Arrays, it won't be different in this case. The only extra step is that you have to 
-  use values inside Objects.
+  usevalues inside Objects.
 */
 
 // We've created an array of objects for you here:
@@ -60,7 +60,7 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+  return writers.forEach(element => console.log(`Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old, and work as a writer.`));
 };
 
 /*
@@ -71,7 +71,9 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  return writers.filter(element => element.alive === false && element.age >= 40 && element.age < 50)
+                .forEach(element => console.log(`Writer ${element.firstName} ${element.lastName} died at ${element.age} years old.`));
+            
 }
 
 /*
@@ -81,7 +83,9 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  return writers.filter(element => element.alive === true && element.age >= 40 && element.age < 50)
+                .forEach(element => console.log(`Hi, my name is ${element.firstName} ${element.lastName}. I am ${element.age} years old.`));
+  
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

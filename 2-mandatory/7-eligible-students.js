@@ -14,28 +14,50 @@
   - Returns an array containing only the names of the who have attended AT LEAST 8 classes
  */
 
-function eligibleStudents(attendances) {}
-
-/* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
-- To run all exercises/tests in the mandatory folder, run `npm test`
-- (Reminder: You must have run `npm install` one time before this will work!)
-*/
-
-const attendances = [
-  { name: "Ahmed", attendance: 8 },
-  { name: "Clement", attendance: 10 },
-  { name: "Elamin", attendance: 6 },
-  { name: "Adam", attendance: 7 },
-  { name: "Tayoa", attendance: 11 },
-  { name: "Nina", attendance: 10 },
-];
-
-test("eligibleStudents function works", () => {
-  expect(eligibleStudents(attendances)).toEqual([
-    "Ahmed",
-    "Clement",
-    "Tayoa",
-    "Nina",
-  ]);
-});
+  function eligibleStudents(attendances) {
+    return attendances.filter(element => element.attendance >= 8)
+                      .map(element => element.name);
+  }
+  
+  // console.log(eligibleStudents(
+  //   [
+  //     { name: "Ahmed", attendance: 8 },
+  //     { name: "Clement", attendance: 10 },
+  //     { name: "Elamin", attendance: 6 },
+  //     { name: "Adam", attendance: 7 },
+  //     { name: "Tayoa", attendance: 11 },
+  //     { name: "Nina", attendance: 10 }
+  //   ]
+  // ));
+  // [
+  //   "Ahmed",
+  //   "Clement",
+  //   "Tayoa",
+  //   "Nina",
+  // ]
+  
+  
+  
+  /* ======= TESTS - DO NOT MODIFY ===== 
+  - To run the tests for this exercise, run `npm test -- --testPathPattern 2-eligible-students.js`
+  - To run all exercises/tests in the mandatory folder, run `npm test`
+  - (Reminder: You must have run `npm install` one time before this will work!)
+  */
+  
+  const attendances = [
+    { name: "Ahmed", attendance: 8 },
+    { name: "Clement", attendance: 10 },
+    { name: "Elamin", attendance: 6 },
+    { name: "Adam", attendance: 7 },
+    { name: "Tayoa", attendance: 11 },
+    { name: "Nina", attendance: 10 },
+  ];
+  
+  test("eligibleStudents function works", () => {
+    expect(eligibleStudents(attendances)).toEqual([
+      "Ahmed",
+      "Clement",
+      "Tayoa",
+      "Nina",
+    ]);
+  });
