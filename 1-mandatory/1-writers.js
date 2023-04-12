@@ -65,17 +65,6 @@ Exercise 2:
   "Writer {firstName} {lastName} died at {age} years old."
 */
 
-// function logDeadWritersInTheirForties() {
-//   let deadWritersIn40s = writers.filter((writer) => {
-//     return writer.age > 39 && writer.age < 50 && !writer.alive;
-//   });
-//   deadWritersIn40s.forEach((writer) => {
-//     console.log(
-//       `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
-//     );
-//   });
-// }
-
 function logDeadWritersInTheirForties() {
   writers
     .filter((writer) => writer.age > 39 && writer.age < 50 && !writer.alive)
@@ -93,14 +82,13 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  let aliveWritersIn40s = writers.filter((writer) => {
-    return writer.age > 39 && writer.age < 50 && writer.alive;
-  });
-  aliveWritersIn40s.forEach((writer) => {
-    console.log(
-      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
-    );
-  });
+  writers
+    .filter((writer) => writer.age > 39 && writer.age < 50 && writer.alive)
+    .forEach((writer) => {
+      console.log(
+        `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+      );
+    });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 

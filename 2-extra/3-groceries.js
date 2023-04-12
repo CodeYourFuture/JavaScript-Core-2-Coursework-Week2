@@ -66,9 +66,7 @@ let numberOfItemsPerWeek = {
 };
 
 for (let aDay in numberOfItemsPerWeek) {
-  console.log(numberOfItemsPerWeek);
   numberOfItemsPerWeek[aDay] = weeklyMealPlan[aDay].length;
-  console.log(numberOfItemsPerWeek);
 }
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern groceries.js`
