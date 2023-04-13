@@ -27,11 +27,14 @@ Exercise 1:
 */
 // Gather all week item names into this array
 let weeklyGroceriesToBuy = [];
+let allGroceriesObj = {};
 let allGroceries = Object.values(weeklyMealPlan);
 allGroceries.forEach((aDaysGroceries) => {
-  weeklyGroceriesToBuy.push(
-    ...aDaysGroceries.filter((item) => !weeklyGroceriesToBuy.includes(item))
-  );
+  aDaysGroceries.forEach((groceryItem) => {
+    if (allGroceriesObj[groceryItem]) allGroceriesObj[groceryItem]++;
+    else allGroceriesObj[groceryItem] = 1;
+  });
+  weeklyGroceriesToBuy = Object.keys(allGroceriesObj);
 });
 
 /*
