@@ -15,11 +15,45 @@ You should modify the tests so that they contain the values that correspond to y
 In this style of testing it is typical to write out as strings exactly what you expect your output to be, 
 without using any variables or any logic like loops, template strings or if statements.
 */
+const books = [
+  {
+    title: "Dear Me",
+    author: "Joseph Galliano",
+    alreadyRead: true,
+  },
+  {
+    title: "Risale-i Nur",
+    author: "Said Nursi",
+    alreadyRead: true,
+  },
+  {
+    title: "40",
+    author: "Ahmed Al Shugairi",
+    alreadyRead: true,
+  },
+  {
+    title: "The Photon",
+    author: "Paul F.Kisak",
+    alreadyRead: true,
+  },
+  {
+    title: "The Power of Positive Thinking",
+    author: "Norman Vincent Peale",
+    alreadyRead: false,
+  },
+];
 
-const books = [];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  books.forEach((book) => {
+    if (book.alreadyRead === true) {
+      console.log(`You've already read ${book.title} by ${book.author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.author}`);
+    }
+  });
+}
 
 /*
 =====
@@ -56,11 +90,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "You've already read Dear Me by Joseph Galliano",
+    "You've already read Risale-i Nur by Said Nursi",
+    "You've already read 40 by Ahmed Al Shugairi",
+    "You've already read The Photon by Paul F.Kisak",
+    "You still need to read The Power of Positive Thinking by Norman Vincent Peale",
   ]);
 });
 

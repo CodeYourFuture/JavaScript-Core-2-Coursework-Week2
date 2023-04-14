@@ -52,7 +52,13 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
+  writers.map((writer) => {
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old, and work as a ${writer.occupation}.`
+    );
+  });
 }
+
 
 /*
 Exercise 2:
@@ -62,9 +68,15 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  let dead40 = writers.filter((writer) => {
+    return writer.age > 39 && writer.age < 50 && !writer.alive;
+  });
+  dead40.map((writer) => {
+    console.log(
+      `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+    );
+  });
 }
-
 /*
 Exercise 3:
   Only `console.log()` out alive writers who are in their 40s (meaning between 40 and 49):
@@ -72,7 +84,14 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  let alive40 = writers.filter((writer) => {
+    return writer.age > 39 && writer.age < 50 && writer.alive;
+  });
+  alive40.map((writer) => {
+    console.log(
+      `Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`
+    );
+  });
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
