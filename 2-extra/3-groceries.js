@@ -101,6 +101,8 @@ numberOfItemsPerWeek.saturday = arrayOfNum[5];
 numberOfItemsPerWeek.sunday = arrayOfNum[6];
 console.log(numberOfItemsPerWeek)
 
+//loop i++
+
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

@@ -40,6 +40,7 @@ function chooseMeal(mealArray) {
       secondSmall = meal.price;
     }
   }
+  // sort
   
   for (meal of mealArray){
     if (secondSmall === meal.price){

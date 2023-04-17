@@ -17,6 +17,9 @@
 
 
 
+
+
+
 function eligibleStudents(attendances) {
   students =[]
   let result = attendances.filter(student => student.attendance >= 8);
@@ -26,6 +29,14 @@ function eligibleStudents(attendances) {
   console.log(students)
   return students
 }
+
+
+
+
+
+
+
+
 
 
 /* ======= TESTS - DO NOT MODIFY ===== 

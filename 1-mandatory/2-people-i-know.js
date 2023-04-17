@@ -422,12 +422,13 @@ This time, I only want the full names of the people who can multitask
 let colleaguesWhoCanMultitask = [];
 friends.forEach((friend) => {
   for (let colleagu of friend.colleagues){
-    for (let skill of colleagu.skills)
-    if( skill.match("Multi-tasking")){
+    if( colleagu.skills.includes("Multi-tasking")){
       colleaguesWhoCanMultitask.push(`${colleagu.name}`) 
     }
   }
 });
+
+ //the same loop type
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`
