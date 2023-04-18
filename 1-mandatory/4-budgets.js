@@ -12,7 +12,13 @@ Should give return the answer of 62600.
 
 function getBudgets(peopleArray) {
   return peopleArray.reduce((sum, person)=> sum + person.budget , 0)
+// let sum = 0;
+//   peopleArray.forEach(person => {
+//     sum += person.budget;
+//   });
+//   return sum;
 }
+
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`
