@@ -410,8 +410,7 @@ This time, I only want the full names of the people who can multitask
 /*
 let colleaguesWhoCanMultitask = friends
 .filter(friend => friend.colleagues
- .find(friend => friend.skills === "Multi-tasking")) 
-  // .skills.includes("Multi-tasking"))
+.find(friend => friend.skills === "Multi-tasking"))  or // .skills.includes("Multi-tasking"))
 .map(friend => friend.colleagues.name);
 */
 let colleaguesWhoCanMultitask = [];
