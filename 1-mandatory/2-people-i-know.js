@@ -377,27 +377,31 @@ In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
 
-let thirtyFiveOrOlder = [];
-for (let friend of friends){
+let thirtyFiveOrOlder = friends.filter(friend =>{
   if(friend.age >= 35){
-   thirtyFiveOrOlder.push(friend);
-  
+    return true;
+  }else{
+    return false;
   }
+  
+  });
 
-};
+
 
 
 /*
 3) Find the email address
 Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
 */
+ 
+let powerNetEmails = friends
+  .filter((friend)=> friend.company.includes("POWERNET"))
+  .map((friend)=> friend.email); 
 
-let powerNetEmails = [];
-for(let friend of friends){
-  if(friend.email.includes("powernet")){
-    powerNetEmails.push(friend.email);
-  }
-};
+  
+    
+
+
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -406,14 +410,23 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
-  for(let friend of friends){
-    for(let person of friend.colleagues){
-  if(person.name === "Stacie Villarreal"){
-    friendsWhoAreColleaguesOfStacie.push(`${friend.name.first} ${friend.name.last}`);
-  }
-}
-  };
+// let friendsWhoAreColleaguesOfStacie = [];
+//    for(let friend of friends){
+//     for(let person of friend.colleagues){
+//   if(person.name === "Stacie Villarreal"){
+//     friendsWhoAreColleaguesOfStacie.push(`${friend.name.first} ${friend.name.last}`);
+//   }
+//   }
+//   };
+
+let friendsWhoAreColleaguesOfStacie = friends
+    .filter((friend) => friend.colleagues.find((friend) => friend.name ==="Stacie Villarreal"))
+    .map((colleague) => `${colleague.name.first} ${colleague.name.last}`);
+
+  // let friendsWhoAreColleaguesOfStacie = friends
+  // .filter((friend) => friend.colleagues.find((friend) => friend.name === "Stacie Villarreal"))
+  // .map((colleague) => `${colleague.name.first} ${colleague.name.last}`);
+
 
 
 /*
@@ -423,14 +436,22 @@ You can tell if they are good at "Multi-tasking" because they will have it liste
 This time, I only want the full names of the people who can multitask
 */
 
-let colleaguesWhoCanMultitask = [];
-  for(let friend of friends){
-  for(let people of friend.colleagues){
-  if(people.skills.includes("Multi-tasking")){
-    colleaguesWhoCanMultitask.push(people.name);
-  }
-  }
-  };
+let colleaguesWhoCanMultitask = friends
+.map(friend => friend.colleagues)
+.flat()
+.filter(colleague => colleague.skills.includes("Multi-tasking"))
+.map(colleague => colleague.name);
+
+
+
+
+  // for(let friend of friends){
+  // for(let people of friend.colleagues){
+  // if(people.skills.includes("Multi-tasking")){
+  //   colleaguesWhoCanMultitask.push(people.name);
+  // }
+  // }
+  // };
 
 
 

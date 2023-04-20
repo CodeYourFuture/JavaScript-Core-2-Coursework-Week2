@@ -10,26 +10,17 @@ getBudgets([
 Should give return the answer of 62600.
 **/
 
+
 function getBudgets(peopleArray) {
-  const sum = getBudgets.reduce((accumulator, object) => {
-      return accumulator + object.budget;
-     }, 0);
+  let sumOfPeoplesBudget = 0;
+  peopleArray.forEach(name => {
+   sumOfPeoplesBudget += name.budget;
+
     
-     console.log(sum);
+  });
+  return sumOfPeoplesBudget;
+}
 
-};
-
-// const arr = [
-//   {id: 1, salary: 10},
-//   {id: 2, salary: 20},
-//   {id: 3, salary: 30},
-// ];
-
-// const sum = arr.reduce((accumulator, object) => {
-//   return accumulator + object.salary;
-// }, 0);
-
-// console.log(sum); // 👉️ 60
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`

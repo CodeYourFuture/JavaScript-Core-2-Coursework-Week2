@@ -16,17 +16,42 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
+let books = [
+  {
+    title: "The curiouse incident",
+    Author: "Mark Haddon",
+    alreadyRead: true,
+  },
+  {
+    title: "Empty world",
+    Author: "John Christopher",
+    alreadyRead: false,
+  },
+  {
+    title: "the jungle book",
+    Author: "RudeYard kipling",
+    alreadyRead: true,
+  },
+  {
+    title: "Old Man and the see",
+    Author: "Ernest Hemingway",
+    alreadyRead: false,
+  },
+  {
+    title: "Herzog",
+    Author: "Saul Bellow",
+    alreadyRead: true,
+  },
+];
 
-
-
-// exercise 1
+//  exercise 1
+/*
 function logBooks() {
-  for(let book of books){
-    console.log(`${book.title} by ${book.author}`);
+  for (let book of books) {
+    console.log(`${book.title} by ${book.Author}`);
   }
-};
-
-
+}
+*/
 
 /*
 =====
@@ -55,19 +80,43 @@ As an example for this exercise, you might do the following steps
 - All tests should turn green!!
 **/
 
+ 
+  function logBooks() {
+  return books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.Author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.Author}`);
+    }
+  });
+}
+
+
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
-
+/*
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "The curiouse incident by Mark Haddon",
+    "Empty world by John Christopher",
+    "the jungle book by RudeYard kipling",
+    "Old Man and the see by Ernest Hemingway",
+    "Herzog by Saul Bellow",
+  ]);
+});
+*/
+
+
+test("books you have already read", function () {
+  expectLogBooksToLog([
+    "You've already read The curiouse incident by Mark Haddon", 
+    "You still need to read Empty world by John Christopher",
+    "You've already read the jungle book by RudeYard kipling",
+    "You still need to read Old Man and the see by Ernest Hemingway",
+    "You've already read Herzog by Saul Bellow",
   ]);
 });
 
@@ -89,3 +138,6 @@ function expectLogBooksToLog(expectedValues) {
   });
   consoleLogSpy.mockRestore();
 }
+
+
+
