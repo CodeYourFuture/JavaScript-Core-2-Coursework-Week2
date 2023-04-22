@@ -16,10 +16,35 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: 'The Alchemist',
+    author: 'Paulo Coelho',
+    alreadyRead: true
+  },
+  {
+    title: 'The Catcher in the Rye',
+    author: 'J.D. Salinger',
+    alreadyRead: false
+  },
+  {
+    title: '1984',
+    author: 'George Orwell',
+    alreadyRead: true
+  },
+  {
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
+    alreadyRead: true
+  }
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  books.forEach((i) => {
+    console.log(`${i.title} by ${i.author}`);
+  });
+}
 
 /*
 =====
