@@ -16,10 +16,27 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+{title: "rankenstein" , Author:"Mary Shelley", alreadyRead: false},
+{title: "Harry Potter and the Philosophers Stone" , Author:"J.K. Rowling", alreadyRead: true}, 
+{title: "Uncanny Valley " , Author:"Anna Wiener", alreadyRead: true},
+{title: "Principles: Life and Work" , Author:"Ray Dalio", alreadyRead: true},
+{title: "A Brief History of Time" , Author:"Stephen Hawking", alreadyRead: false},
+
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+ for (let book of books) {
+    if (book.alreadyRead) {
+      console.log(`You've already read ${book.title} by ${book.Author}`);
+    } else {
+      console.log(`You still need to read ${book.title} by ${book.Author}`);
+    };
+  };
+}
+  
+
 
 /*
 =====
@@ -54,13 +71,23 @@ As an example for this exercise, you might do the following steps
 - (Reminder: You must have run `npm install` one time before this will work!)
 */
 
-test("books are logged", function () {
+/*test("books are logged", function () {
   expectLogBooksToLog([
     "The Hobbit by J.R.R. Tolkien",
     "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
     "Dietland by Sarai Walker",
     "A Place for Us by Fatima Farheen Mirza",
     "The House of Impossible Beauties by Joseph Cassara",
+  ]);
+});*/
+
+test("books you have already read", function () {
+  expectLogBooksToLog([
+    "You still need to read rankenstein by Mary Shelley",
+    "You've already read Harry Potter and the Philosophers Stone byJ.K. Rowling",
+    "You've already read Uncanny Valley by Anna Wiener",
+    "You'v already read Principles: Life and Work by Ray Dalio",
+    "You still need to read A Brief History of Time by Stephen Hawking",
   ]);
 });
 
@@ -82,3 +109,4 @@ function expectLogBooksToLog(expectedValues) {
   });
   consoleLogSpy.mockRestore();
 }
+
