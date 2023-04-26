@@ -66,14 +66,40 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  let diedWriter = null;
-  for (let info of writers) {
-    if (info.age < 49 && info.alive === false) {
-      diedWriter = `Writer ${info.firstName} ${info.lastName} died at ${info.age} years old.`;
+  // let diedWriter = null;
+  // for (let info of writers) {
+  //   if (info.age < 49 && info.alive === false) {
+  //     diedWriter = `Writer ${info.firstName} ${info.lastName} died at ${info.age} years old.`;
+  //   }
+  // }
+  // console.log(diedWriter);
+
+  // my code after check the solution review 
+  let diedWriters = [];
+  for (let writer of writers) {
+    if (writer.age >= 40 && writer.age < 50 && !writer.alive) {
+      diedWriters.push(
+        `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+      );
     }
   }
-  console.log(diedWriter);
+  console.log(diedWriters.join("\n"));
 }
+
+// to ues foreach for review 
+
+// function logDeadWritersInTheirForties() {
+//   let diedWriters = [];
+//   writers.forEach((writer) => {
+//     if (writer.age >= 40 && writer.age < 50 && !writer.alive) {
+//       diedWriters.push(
+//         `Writer ${writer.firstName} ${writer.lastName} died at ${writer.age} years old.`
+//       );
+//     }
+//   });
+//   console.log(diedWriters.join("\n"));
+// }
+
 
 /*
 Exercise 3:
