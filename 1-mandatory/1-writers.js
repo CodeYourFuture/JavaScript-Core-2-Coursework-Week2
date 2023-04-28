@@ -73,7 +73,7 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  return writers.filter(writer => writer.alive !== false && writer.age >= 40 && writer.age < 50).forEach(writer => console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}.  I am  ${writer.age} years old.`));
+  return writers.filter(writer => writer.alive !== false && writer.age >= 40 && writer.age < 50).forEach(writer => console.log(`Hi, my name is ${writer.firstName} ${writer.lastName}. I am ${writer.age} years old.`));
 }
 logAliveWritersInTheirForties(writers)
 
@@ -97,11 +97,11 @@ test("exercise 2", () =>
     "Writer Jane Austen died at 41 years old.",
   ]));
 
-// test("exercise 3", () =>
-//   expectFunctionToLog(logAliveWritersInTheirForties, [
-//     "Hi, my name is Zadie Smith. I am 40 years old.",
-//     "Hi, my name is Yukiko Motoya. I am 49 years old.",
-//   ]));
+test("exercise 3", () =>
+  expectFunctionToLog(logAliveWritersInTheirForties, [
+    "Hi, my name is Zadie Smith. I am 40 years old.",
+    "Hi, my name is Yukiko Motoya. I am 49 years old.",
+  ]));
 
 function expectFunctionToLog(f, values) {
   const consoleLogSpy = jest.spyOn(console, "log");

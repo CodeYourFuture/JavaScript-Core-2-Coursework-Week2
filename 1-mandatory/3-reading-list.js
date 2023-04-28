@@ -10,7 +10,7 @@ Create an array of objects, where each object describes a book and has propertie
 - and alreadyRead (a boolean indicating if you read it yet)
 **/
 
-const books = [
+let books = [
   {
     title: "The Hobbit",
     author: "J.R.R. Tolkien",
@@ -46,31 +46,19 @@ const books = [
 // without using any variables or any logic like loops, template strings or if statements.
 
 // exercise 1
-function logBooks(books) {
-  books.forEach((book) => {
-    if(book.alreadyRead === true){
-    console.log(`You've already read ${book.title} by ${book.author}`)
-    }
-    else{
-      console.log(`You still need to read ${book.title} by ${book.author}`)
+function logBooks() {
 
-    }
+  for(let book of books){
+      if(book.alreadyRead === true){
+      console.log(`You've already read ${book.title} by ${book.author}`)
+      }
+      else{
+        console.log(`You still need to read ${book.title} by ${book.author}`)
+
+      }
   }
-  )
 }
-logBooks(books)
-// My function doesn't pass the test, when I'm using output and debugConsole I can see then everything works corectly so whats is the metter???????????????????((((((((((((((
-// ● books are logged
-
-// TypeError: Cannot read properties of undefined (reading 'forEach')
-
-//   48 | // exercise 1
-//   49 | function logBooks(books) {
-// > 50 |   books.forEach((book) => {
-//      |         ^
-//   51 |     if(book.alreadyRead === true){
-//   52 |     console.log(`You've already read ${book.title} by ${book.author}`)
-//   53 |     }
+//logBooks(books)
 
 
 /*

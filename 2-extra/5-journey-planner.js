@@ -17,21 +17,40 @@
   NOTE: Only the location names should be returned, as strings.
   When you finish the exercise, think about how this solution is different to your last solution.
   What's better about each approach?
+
 */
 
-function journeyPlanner(locations, transportMode) {}
+// function journeyPlanner(locations, transportMode) {  
 
-/* ======= TESTS - DO NOT MODIFY ===== 
-- To run the tests for this exercise, run `npm test -- --testPathPattern journey-planner.js`
-- To run all exercises/tests in the mandatory folder, run `npm test`
-- (Reminder: You must have run `npm install` one time before this will work!)
-*/
+//   for(let place in locations){
+//     return locations[place].filter(element => element.includes(transportMode)).map(element => element)
+//   }
+
+//   // return locations.filter(element => element.includes(transportMode)).map(element => locations[element])
+// }
 const londonLocations = {
   Angel: ["tube", "bus"],
   "London Bridge": ["tube", "river boat"],
   "Tower Bridge": ["tube", "bus"],
   Greenwich: ["bus", "river boat"],
 };
+function journeyPlanner(locations, transportMode) {
+  let availableModes = [];
+  for (let location in locations) {
+    if (locations[location].includes(transportMode)) {
+      availableModes.push(location)
+    }
+  }
+  return availableModes;
+}
+journeyPlanner(londonLocations)
+
+/* ======= TESTS - DO NOT MODIFY ===== 
+- To run the tests for this exercise, run `npm test -- --testPathPattern journey-planner.js`
+- To run all exercises/tests in the mandatory folder, run `npm test`
+- (Reminder: You must have run `npm install` one time before this will work!)
+*/
+
 
 test("journeyPlanner function works - case 1", () => {
   expect(journeyPlanner(londonLocations, "river boat")).toEqual([

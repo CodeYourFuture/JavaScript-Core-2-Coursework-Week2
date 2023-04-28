@@ -26,8 +26,18 @@ Exercise 1:
   The weeklyGroceriesToBuy array shouldn't contain any repeating items.
 */
 // Gather all week item names into this array
-let weeklyGroceriesToBuy = [];
+let allItems = [];
 
+for(let day in weeklyMealPlan) {
+  weeklyMealPlan[day].forEach(item => {
+    allItems.push(item)
+  })
+}
+
+let weeklyGroceriesToBuy = [...new Set(allItems)];
+
+// console.log(allItems)
+// console.log(weeklyGroceriesToBuy)
 /*
 Exercise 2:
   Loop through your list again, but now only collect the weekend items into the weekendGroceriesToBuy array.
@@ -35,12 +45,22 @@ Exercise 2:
 // Gather weekend item names into this array
 let weekendGroceriesToBuy = [];
 
+for(let day in weeklyMealPlan){
+  if(day === "saturday" || day === "sunday"){
+    weeklyMealPlan[day].forEach(element => {
+      weekendGroceriesToBuy.push(element)
+    })
+  }
+}
+// console.log(weekendGroceriesToBuy)
 /*
 Exercise 3:
   Loop through your weekly meal plan:
     - count how many ingredients you should buy each day
     - and update the corresponding properties of numberOfItemsPerWeek object.
 */
+
+
 // Gather daily item counts into this object
 let numberOfItemsPerWeek = {
   monday: 0,
@@ -51,7 +71,11 @@ let numberOfItemsPerWeek = {
   saturday: 0,
   sunday: 0,
 };
+for(let day in weeklyMealPlan) {
+  numberOfItemsPerWeek[day] = weeklyMealPlan[day].length
+}
 
+console.log(numberOfItemsPerWeek)
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern groceries.js`
 - To run all exercises/tests in the mandatory folder, run `npm test`

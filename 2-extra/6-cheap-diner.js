@@ -6,11 +6,7 @@ In any selection of two or more meals, he will always buy the second-cheapest.
 If there is no choice, then he will buy the only meal given to him. 
 If there are no meals available, then he will return null
 Given an array of Meal objects, write a function that returns the name of the Meal he will buy for the party. If given an array of only one, Atticus will buy that Meal.
-let setOne = [
-  { name: "Turkey", price: 8.99 },
-  { name: "Chicken", price: 13.99 },
-  { name: "Lobster", price: 10.99 }
-]
+
 chosenMeal(setOne)
 Should give the answer "Lobster"
 If given an empty array:
@@ -18,8 +14,17 @@ let emptyArray = []
 chosenMeal(emptyArray)
 Should give the answer "Nothing :("
 **/
+let setOne = [
+  { name: "Turkey", price: 8.99 },
+  { name: "Chicken", price: 13.99 },
+  { name: "Lobster", price: 10.99 }
+]
 
-function chooseMeal(mealArray) {}
+function chooseMeal(mealArray) {
+  mealArray.sort((elementOne, elementTwo) => elementOne.price - elementTwo.price);
+  return mealArray.length === 0 ? "Nothing :(" : mealArray.length === 1 ? mealArray[0].name : mealArray[1].name;
+}
+console.log(chooseMeal(setOne))
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern cheap-diner.js`
