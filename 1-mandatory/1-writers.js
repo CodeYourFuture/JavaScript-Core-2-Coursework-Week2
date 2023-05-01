@@ -4,7 +4,7 @@
   different ways of looping through Arrays, it won't be different in this case. The only extra step is that you have to 
   use values inside Objects.
 */
-
+//hi
 // We've created an array of objects for you here:
 let writers = [
   {
