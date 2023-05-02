@@ -51,7 +51,12 @@ Exercise 1:
   "Hi, my name is {firstName} {lastName}. I am {age} years old, and work as a {occupation}."
 */
 function logAllWriters() {
-  // write your code to log all writers here
+
+ for(let i = 0;i < writers.length;i++) {
+  console.log(`Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old, and work as a ${writers[i].occupation}.`)
+    
+ }
+ 
 }
 
 /*
@@ -62,7 +67,13 @@ Exercise 2:
 */
 
 function logDeadWritersInTheirForties() {
-  // write your code here
+  writers.filter((deadWriters)=> {
+    if(deadWriters.age >= 40 && deadWriters.age < 50 && !deadWriters.alive){
+      console.log(`Writer ${deadWriters.firstName} ${deadWriters.lastName} died at ${deadWriters.age} years old.`)
+      return true 
+    }
+    return false
+  })
 }
 
 /*
@@ -72,7 +83,13 @@ Exercise 3:
 */
 
 function logAliveWritersInTheirForties() {
-  // write your code here
+  writers.filter((aliveWriters) => {
+    if(aliveWriters.age >= 40 && aliveWriters.age < 50 && aliveWriters.alive===true){
+      console.log(`Hi, my name is ${aliveWriters.firstName} ${aliveWriters.lastName}. I am ${aliveWriters.age} years old.`)
+    }
+    return true
+  })
+  return false
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
@@ -109,4 +126,4 @@ function expectFunctionToLog(f, values) {
     expect(consoleLogSpy).nthCalledWith(i + 1, value);
   });
   consoleLogSpy.mockRestore();
-}
+} 

@@ -9,8 +9,10 @@ getBudgets([
 ])
 Should give return the answer of 62600.
 **/
-
-function getBudgets(peopleArray) {}
+peopleArray = [];
+function getBudgets(peopleArray) {
+  return 0
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern budgets.js`
