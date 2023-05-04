@@ -19,8 +19,11 @@ without using any variables or any logic like loops, template strings or if stat
 const books = [];
 
 // exercise 1
-function logBooks() {}
-
+function logBooks() {
+  books.forEach((book) => {
+    console.log(`${book.title} by ${book.author}`);
+  });
+}
 /*
 =====
 Exercise 2
