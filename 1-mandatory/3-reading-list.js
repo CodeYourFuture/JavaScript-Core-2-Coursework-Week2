@@ -15,29 +15,36 @@ You should modify the tests so that they contain the values that correspond to y
 In this style of testing it is typical to write out as strings exactly what you expect your output to be, 
 without using any variables or any logic like loops, template strings or if statements.
 */
-
+//The Hobbit by J.R.R. Tolkien
 const books = [
   {
-    title: 'The Alchemist',
-    author: 'Paulo Coelho',
+    title: 'The Hobbit',
+    author: 'J.R.R. Tolkien',
     alreadyRead: true
   },
   {
-    title: 'The Catcher in the Rye',
-    author: 'J.D. Salinger',
+    title: 'The Map of Salt and Stars',
+    author: 'Jennifer Zeynab Joukhadar',
+    alreadyRead: true
+  },
+  {
+    title: 'Dietland',
+    author: 'Sarai Walker',
     alreadyRead: false
   },
   {
-    title: '1984',
-    author: 'George Orwell',
+    title: 'A Place for Us',
+    author: 'Fatima Farheen Mirza',
     alreadyRead: true
   },
   {
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
+    title: 'The House of Impossible Beauties',
+    author: 'Joseph Cassara',
     alreadyRead: true
   }
 ];
+
+
 
 // exercise 1
 function logBooks() {
