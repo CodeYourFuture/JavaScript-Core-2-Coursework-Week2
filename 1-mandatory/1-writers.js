@@ -6,7 +6,7 @@
 */
 //hi
 // We've created an array of objects for you here:
-let writers = [
+const writers = [
   {
     firstName: "Virginia",
     lastName: "Woolf",
@@ -52,7 +52,11 @@ Exercise 1:
 */
 function logAllWriters() {
   // write your code to log all writers here
-}
+  for (const key of writers) {
+    console.log(`Hi, my name is ${key.firstName} ${key.lastName}. I am ${key.age} years old, and work as a ${key.occupation}.`);
+
+  }
+  }
 
 /*
 Exercise 2:
@@ -60,10 +64,18 @@ Exercise 2:
   and not alive anymore. Use the below sentence format:
   "Writer {firstName} {lastName} died at {age} years old."
 */
-
+//between 40 and 49
+//not alive
+//
 function logDeadWritersInTheirForties() {
   // write your code here
-}
+  for (let i = 0; i < writers.length; i++) {
+    if (writers[i].age>39 && writers[i].age < 50 && writers[i].alive === false){
+      console.log(`Writer ${writers[i].firstName} ${writers[i].lastName} died at ${writers[i].age} years old.`);
+    }  
+    }
+    
+  }
 
 /*
 Exercise 3:
@@ -73,7 +85,13 @@ Exercise 3:
 
 function logAliveWritersInTheirForties() {
   // write your code here
-}
+  for (let i = 0; i < writers.length; i++) {
+    if (writers[i].age>39 && writers[i].age < 50 && writers[i].alive === true){
+      console.log(`Hi, my name is ${writers[i].firstName} ${writers[i].lastName}. I am ${writers[i].age} years old.`);
+    }  
+    }
+    
+  }
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern writers.js`

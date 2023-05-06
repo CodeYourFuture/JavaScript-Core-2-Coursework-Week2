@@ -376,15 +376,32 @@ const friends = [
 In the above object you can see my friends and the colleagues of my friends.
 First, I want you to find all of my friends who are 35 or older.
 */
+//*
+//*
 
 let thirtyFiveOrOlder = [];
-
+for (let i = 0; i < friends.length; i++) {
+  if (friends[i].age >= 35){
+  console.log(friends[i].name['first']);
+  }
+  
+}//
 /*
 3) Find the email address
-Next, I want you to find all of my friends who work for "POWERNET" and then store their emails in the array below
+Next, I want you to find all of my friends
+ who work for "POWERNET" and then store 
+ their emails in the array below
 */
 
-let powerNetEmails = [];
+// let powerNetEmails = [];
+//for (let i = 0; i < friends.length; i++) {
+//if (friends.filter(friend => friend.company === "POWERNET").map(friend => friend.email));
+//}
+//console.log(powerNetEmails);
+
+let powerNetEmails = friends
+.filter((friend) => friend.company == "POWERNET")
+.map((friend) => friend.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
@@ -393,7 +410,14 @@ You can see who people's colleagues are by seeing the "colleagues" array in each
 This time, I only want the full names ("<firstname> <lastname>") of my friends who are colleagues of hers.
 */
 
-let friendsWhoAreColleaguesOfStacie = [];
+let friendsWhoAreColleaguesOfStacie = friends.filter((friend) => {
+  return friend.colleagues.find((friend) => {
+    return friend.name.includes("Stacie Villarreal");
+  });
+})
+.map((friend) => {
+  return `${friend.name.first} ${friend.name.last}`;
+});
 /*
 5) Find "Multi-tasking" colleagues
 Next, I want you to find all of the colleagues of my friends who are good at "Multi-tasking"
@@ -402,6 +426,13 @@ This time, I only want the full names of the people who can multitask
 */
 
 let colleaguesWhoCanMultitask = [];
+for (let friend of friends) {
+  for (let colleague of friend.colleagues) {
+    if (colleague.skills.includes("Multi-tasking")) {
+      colleaguesWhoCanMultitask.push(`${colleague.name}`);
+    }
+  }
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== 
 - To run the tests for this exercise, run `npm test -- --testPathPattern people-I-know.js`

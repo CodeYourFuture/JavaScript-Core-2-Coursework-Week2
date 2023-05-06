@@ -13,7 +13,7 @@ https://github.com/CodeYourFuture/JavaScript-Core-2-Coursework-Week2-London8-Sol
 This is a **private** repository. Please request access from your Teachers, Buddy or City Coordinator after the start of your next lesson.
 
 ## Testing your work
-
+npm 
 - To run the tests in the `1-mandatory` folder, run `-- --selectProjects mandatory` from the root of the project (after having run `npm install` once before).
 - To run the tests in the `2-extra` folder, run `npm run -- --selectProjects extra` from the root of the project (after having run `npm install` once before).
 
