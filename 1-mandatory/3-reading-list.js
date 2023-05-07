@@ -8,7 +8,7 @@ Create an array of objects, where each object describes a book and has propertie
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
-Write a funciton that loops through the array of books. For each book, log the book title and book author like so: 
+Write a function that loops through the array of books. For each book, log the book title and book author like so: 
 "The Hobbit by J.R.R. Tolkien"
 You should write and log at least 5 books. 
 You should modify the tests so that they contain the values that correspond to your books.
@@ -94,10 +94,10 @@ As an example for this exercise, you might do the following steps
 test("books are logged", function () {
   expectLogBooksToLog([
     "You still need to read FirstBook by Jonah",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "You've already read SecondBook by Joe",
+    "You still need to read ThirdBook by Jonny",
+    "You still need to read FourthBook by Joany",
+    "You still need to read FifthBook by Joseph",
   ]);
 });
 
