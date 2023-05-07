@@ -16,14 +16,44 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Turuncu Devrimler",
+    author: "Sinan Oğan",
+    alreadyRead: true,
+  },
+  {
+    title: "Rusya'da Siyaset ve Oligarşi",
+    author: "Sinan Oğan",
+    alreadyRead: false,
+  },
+  {
+    title: "Azerbaycan - İktisadi Bünyesi",
+    author: "Sinan Oğan",
+    alreadyRead: true,
+  },
+  {
+    title: "Vatan Haini",
+    author: "Sinan Oğan",
+    alreadyRead: false,
+  },
+  {
+    title: "Avrupa'nın Göçmen Sorunu",
+    author: "Sinan Oğan",
+    alreadyRead: true,
+  },
+];
 
 // exercise 1
-function logBooks() {}
-
+function logBooks() {
+  books.forEach((book) => {
+    console.log(book.title + " by " + book.author);
+  });
+}
 /*
 =====
 Exercise 2
+
 =====
 Now modify the function, using an if/else statement to change the output depending on whether you have read it yet or not. 
 If you've read it, log a string like 'You've already read "The Hobbit" by J.R.R. Tolkien', 
@@ -47,6 +77,15 @@ As an example for this exercise, you might do the following steps
 - Modify the books so that they have the correct alreadyRead value
 - All tests should turn green!!
 **/
+function logBooks() {
+  books.forEach((book) => {
+    if (book.alreadyRead) {
+      console.log("You've already read \"" + book.title + "\" by " + book.author);
+    } else {
+      console.log("You still need to read \"" + book.title + "\" by " + book.author + ".");
+    }
+  });
+}
 
 /* ======= TESTS - DO MODIFY (!!!) =====
 - To run the tests for this exercise, run `npm test -- --testPathPattern reading-list.js`
