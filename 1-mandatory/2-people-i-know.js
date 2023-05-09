@@ -385,8 +385,8 @@ Next, I want you to find all of my friends who work for "POWERNET" and then stor
 */
 
 let powerNetEmails = friends
-  .filter((friend) => i.company === "POWERNET")
-  .map((friend) => i.email);
+  .filter((i) => i.company === "POWERNET")
+  .map((i) => i.email);
 
 /*
 4) colleagues with "Stacie Villarreal"
