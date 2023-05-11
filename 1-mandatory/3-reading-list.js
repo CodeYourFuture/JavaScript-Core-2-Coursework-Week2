@@ -8,7 +8,7 @@ Create an array of objects, where each object describes a book and has propertie
 - The title (a string)
 - Author (a string)
 - and alreadyRead (a boolean indicating if you read it yet)
-Write a funciton that loops through the array of books. For each book, log the book title and book author like so: 
+Write a function that loops through the array of books. For each book, log the book title and book author like so: 
 "The Hobbit by J.R.R. Tolkien"
 You should write and log at least 5 books. 
 You should modify the tests so that they contain the values that correspond to your books.
@@ -16,10 +16,41 @@ In this style of testing it is typical to write out as strings exactly what you 
 without using any variables or any logic like loops, template strings or if statements.
 */
 
-const books = [];
+const books = [
+  {
+    title: "Things Fall Apart",
+    author: "Achebe, Chinua",
+    alreadyRead: true,
+  },
+  {
+    title: "Aké: The Years of Childhood",
+    author: "Wole Soyinka",
+    alreadyRead: false
+  },
+  {
+    title: "The Beautiful Ones Are Not Yet Born",
+    author: "Ayi Kwei Armah",
+    alreadyRead: true
+  },
+  {
+    title: "Sizwe Banzi Is Dead",
+    author: "Athol Fugard",
+    alreadyRead: false
+  },
+  {
+    title: "The God of Small Things",
+    author: "Arundhati Roy",
+    alreadyRead: true
+  },
+  
+];
 
 // exercise 1
-function logBooks() {}
+function logBooks() {
+  books.forEach((book) => {
+    console.log(`The ${book.title} by ${book.author}`)
+  })
+}
 
 /*
 =====
@@ -56,11 +87,11 @@ As an example for this exercise, you might do the following steps
 
 test("books are logged", function () {
   expectLogBooksToLog([
-    "The Hobbit by J.R.R. Tolkien",
-    "The Map of Salt and Stars by Jennifer Zeynab Joukhadar",
-    "Dietland by Sarai Walker",
-    "A Place for Us by Fatima Farheen Mirza",
-    "The House of Impossible Beauties by Joseph Cassara",
+    "The Things Fall Apart by Achebe, Chinua",
+    "The Aké: The Years of Childhood by Wole Soyinka",
+    "The The Beautiful Ones Are Not Yet Born by Ayi Kwei Armah",
+    "The Sizwe Banzi Is Dead by Athol Fugard",
+    "The The God of Small Things by Arundhati Roy",
   ]);
 });
 
