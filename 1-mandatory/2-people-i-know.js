@@ -380,7 +380,7 @@ First, I want you to find all of my friends who are 35 or older.
 let thirtyFiveOrOlder = [];
 for (let i = 0; i < friends.length; i++) {
   if (friends[i].age >= 35) {
-    thirtyFiveOrOlder.push(friends[i].name);
+    thirtyFiveOrOlder.push(friends[i].name.first);
   }
   console.log(thirtyFiveOrOlder);
 }
